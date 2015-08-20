@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{09D68EFB-36F0-4CE6-8DC6-9E9DE57FA350}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>API.DAO</RootNamespace>
+    <AssemblyName>API.DAO</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\API.DAL\API.DAL.csproj">
+      <Project>{d5ab372e-dd5f-4525-97cc-6f8379c9b28c}</Project>
+      <Name>API.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\API.DATA\API.DATA.csproj">
+      <Project>{5662975c-8f53-44d6-ae0d-0cd78e465065}</Project>
+      <Name>API.DATA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\STATIC\STATIC.csproj">
+      <Project>{be1816ec-c82d-4f36-ba8e-c918040e10bf}</Project>
+      <Name>STATIC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bank_Branch.cs" />
+    <Compile Include="CmnDocListFormat.cs" />
+    <Compile Include="CmnDocListFormatDetail.cs" />
+    <Compile Include="CmnStatusList.cs" />
+    <Compile Include="CmnTransactionType.cs" />
+    <Compile Include="CmnWorkFlowDetail.cs" />
+    <Compile Include="CmnWorkFlowMaster.cs" />
+    <Compile Include="Company.cs" />
+    <Compile Include="ContactDetail.cs" />
+    <Compile Include="ContactInfo.cs" />
+    <Compile Include="ContactType.cs" />
+    <Compile Include="ContactTypeChild.cs" />
+    <Compile Include="Currency.cs" />
+    <Compile Include="EmployeeHKInfo.cs" />
+    <Compile Include="EntityList.cs" />
+    <Compile Include="enumsHr.cs" />
+    <Compile Include="ErrorList.cs" />
+    <Compile Include="Gen_Bank.cs" />
+    <Compile Include="Gen_Country.cs" />
+    <Compile Include="Gen_District.cs" />
+    <Compile Include="Gen_FY.cs" />
+    <Compile Include="Gen_LookupEnt.cs" />
+    <Compile Include="Gen_Month.cs" />
+    <Compile Include="HousekeepingHierarchy.cs" />
+    <Compile Include="HouseKeepingValue.cs" />
+    <Compile Include="ItemGroup.cs" />
+    <Compile Include="ItemGroupDeptMaping.cs" />
+    <Compile Include="ItemMaster.cs" />
+    <Compile Include="ItemRequisitionDetail.cs" />
+    <Compile Include="ItemRequisitionMaster.cs" />
+    <Compile Include="ItemStructure.cs" />
+    <Compile Include="ItemSubGroup.cs" />
+    <Compile Include="LatestNews.cs" />
+    <Compile Include="MailSetup.cs" />
+    <Compile Include="PODetail.cs" />
+    <Compile Include="POMaster.cs" />
+    <Compile Include="PopulateDropdownList.cs" />
+    <Compile Include="SegmentNames.cs" />
+    <Compile Include="SegmentValues.cs" />
+    <Compile Include="StockTransactionDetail.cs" />
+    <Compile Include="StockTransactionMaster.cs" />
+    <Compile Include="TreeGenerator.cs" />
+    <Compile Include="UnitSetup.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

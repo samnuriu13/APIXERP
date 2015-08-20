@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{49ABABC1-76D8-4EFF-9608-F0A4FDC0CF66}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FRAMEWORK</RootNamespace>
+    <AssemblyName>FRAMEWORK</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\API.DATA\API.DATA.csproj">
+      <Project>{5662975c-8f53-44d6-ae0d-0cd78e465065}</Project>
+      <Name>API.DATA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\REPORT.DAO\REPORT.DAO.csproj">
+      <Project>{ad34af4b-9dc2-466b-9e5e-d6f61558ea19}</Project>
+      <Name>REPORT.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SECURITY.BLL\SECURITY.BLL.csproj">
+      <Project>{1c20b032-9cdd-4ada-9c87-fd3eac7f6413}</Project>
+      <Name>SECURITY.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SECURITY.DAO\SECURITY.DAO.csproj">
+      <Project>{d83f3e5a-9e56-4057-9af2-8578ef033f5c}</Project>
+      <Name>SECURITY.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\STATIC\STATIC.csproj">
+      <Project>{be1816ec-c82d-4f36-ba8e-c918040e10bf}</Project>
+      <Name>STATIC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonHelper.cs" />
+    <Compile Include="EnumS.cs" />
+    <Compile Include="ExceptionHelper.cs" />
+    <Compile Include="formUtil.cs" />
+    <Compile Include="InternalPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PageExtensionMethods.cs" />
+    <Compile Include="SearchColumnConfig.cs" />
+    <Compile Include="StaticRandom.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

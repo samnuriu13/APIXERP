@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D83F3E5A-9E56-4057-9AF2-8578EF033F5C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SECURITY.DAO</RootNamespace>
+    <AssemblyName>SECURITY.DAO</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\API.DAL\API.DAL.csproj">
+      <Project>{d5ab372e-dd5f-4525-97cc-6f8379c9b28c}</Project>
+      <Name>API.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\API.DATA\API.DATA.csproj">
+      <Project>{5662975c-8f53-44d6-ae0d-0cd78e465065}</Project>
+      <Name>API.DATA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\STATIC\STATIC.csproj">
+      <Project>{be1816ec-c82d-4f36-ba8e-c918040e10bf}</Project>
+      <Name>STATIC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application.cs" />
+    <Compile Include="ApplicationList.cs" />
+    <Compile Include="ApplicationUser.cs" />
+    <Compile Include="Company_Entity.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="FormAccessRights.cs" />
+    <Compile Include="Group.cs" />
+    <Compile Include="GroupRule.cs" />
+    <Compile Include="LeftMenuItems.cs" />
+    <Compile Include="Menu.cs" />
+    <Compile Include="Rule.cs" />
+    <Compile Include="RuleDetails.cs" />
+    <Compile Include="SiteMaster.cs" />
+    <Compile Include="TempRuleDetails.cs" />
+    <Compile Include="UserGroup.cs" />
+    <Compile Include="UserGroupList.cs" />
+    <Compile Include="UserProfile.cs" />
+    <Compile Include="Users.cs" />
+    <Compile Include="UserWiseHiddenControls.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

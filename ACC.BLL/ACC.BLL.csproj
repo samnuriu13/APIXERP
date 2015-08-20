@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E1585C71-DA06-455C-9C30-BF5317E3011D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ACC.BLL</RootNamespace>
+    <AssemblyName>ACC.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BankAccountManager.cs" />
+    <Compile Include="BankReconciliationManager.cs" />
+    <Compile Include="COAManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VoucherManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ACC.DAO\ACC.DAO.csproj">
+      <Project>{ec94fe8f-d28b-4525-bba8-c45e51b4118f}</Project>
+      <Name>ACC.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\API.DAL\API.DAL.csproj">
+      <Project>{d5ab372e-dd5f-4525-97cc-6f8379c9b28c}</Project>
+      <Name>API.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\API.DAO\API.DAO.csproj">
+      <Project>{09d68efb-36f0-4ce6-8dc6-9e9de57fa350}</Project>
+      <Name>API.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\API.DATA\API.DATA.csproj">
+      <Project>{5662975c-8f53-44d6-ae0d-0cd78e465065}</Project>
+      <Name>API.DATA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\STATIC\STATIC.csproj">
+      <Project>{be1816ec-c82d-4f36-ba8e-c918040e10bf}</Project>
+      <Name>STATIC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
