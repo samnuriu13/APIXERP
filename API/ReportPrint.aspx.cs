@@ -15,7 +15,7 @@ using System.IO;
 namespace API.Reports
 {
     public partial class ReportPrint : PageBase
-    {
+    {//
         #region Constructur
         public ReportPrint()
         {
