@@ -40,6 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccChequeStatusList.cs" />
+    <Compile Include="AccReportConfigurationHead.cs" />
+    <Compile Include="AccReportConfigurationHeadCategory.cs" />
+    <Compile Include="AccReportConfigurationHeadCOAMap.cs" />
     <Compile Include="Acc_COA.cs" />
     <Compile Include="Acc_Voucher.cs" />
     <Compile Include="Acc_VoucherDet.cs" />
