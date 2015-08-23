@@ -140,6 +140,8 @@
     <Content Include="GridScripts\ContactTypeDetail.js" />
     <Content Include="GridScripts\DocListFormatSettings.js" />
     <Content Include="GridScripts\GroupItem.js" />
+    <Content Include="GridScripts\HeadCategory.js" />
+    <Content Include="GridScripts\HeadCategoryCOAMap.js" />
     <Content Include="GridScripts\ItemGroup_DeptMaping.js" />
     <Content Include="GridScripts\ItemRequisition.js" />
     <Content Include="GridScripts\ItemStructure.js" />
@@ -171,6 +173,8 @@
     <Content Include="UI\ACC\CashReceiveVoucher.aspx" />
     <Content Include="UI\ACC\COA.aspx" />
     <Content Include="UI\ACC\ContraVoucher.aspx" />
+    <Content Include="UI\ACC\HeadCategory.aspx" />
+    <Content Include="UI\ACC\HeadCategoryCOAMap.aspx" />
     <Content Include="UI\ACC\JournalVoucher.aspx" />
     <Content Include="UI\ItemSetup\GroupItem.aspx" />
     <Content Include="UI\ItemSetup\ItemDefination.aspx" />
@@ -685,6 +689,20 @@
     </Compile>
     <Compile Include="UI\ACC\ContraVoucher.aspx.designer.cs">
       <DependentUpon>ContraVoucher.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ACC\HeadCategory.aspx.cs">
+      <DependentUpon>HeadCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ACC\HeadCategory.aspx.designer.cs">
+      <DependentUpon>HeadCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ACC\HeadCategoryCOAMap.aspx.cs">
+      <DependentUpon>HeadCategoryCOAMap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ACC\HeadCategoryCOAMap.aspx.designer.cs">
+      <DependentUpon>HeadCategoryCOAMap.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\ACC\JournalVoucher.aspx.cs">
       <DependentUpon>JournalVoucher.aspx</DependentUpon>

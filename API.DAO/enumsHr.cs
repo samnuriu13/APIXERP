@@ -54,6 +54,13 @@ namespace API.DAO
            Vendor = 27
        }
        [Flags]
+       public enum enumReportType
+       {
+           IncomeStatement = 1,
+           BalanceSheet = 2,
+           CashFlowStatement = 3
+       }
+       [Flags]
        public enum enumSalaryAdjust
        {
            Deduction = 0,

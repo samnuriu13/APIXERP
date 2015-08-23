@@ -42,6 +42,7 @@
     <Compile Include="BankAccountManager.cs" />
     <Compile Include="BankReconciliationManager.cs" />
     <Compile Include="COAManager.cs" />
+    <Compile Include="HeadCategoryManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VoucherManager.cs" />
   </ItemGroup>
