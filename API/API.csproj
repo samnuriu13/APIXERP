@@ -202,6 +202,21 @@
     <Content Include="ASTReports\Voucher.rdl">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="ASTReports\GRN.rdl" />
+    <Content Include="ASTReports\ItemList.rdl" />
+    <Content Include="ASTReports\ItemRequisitionALL.rdl" />
+    <Content Include="ASTReports\ItemRequisitionIndividual.rdl" />
+    <Content Include="ASTReports\POSummaryItemGroupWise.rdl" />
+    <Content Include="ASTReports\PurchaseOrder.rdl" />
+    <Content Include="ASTReports\PurchaseRequisitionALL.rdl" />
+    <Content Include="ASTReports\PurchaseRequisitionIndivisual.rdl" />
+    <Content Include="ASTReports\PurchaseReturn.rdl" />
+    <Content Include="ASTReports\ReceiveReport.rdl" />
+    <Content Include="ASTReports\ReceiveSummaryReport.rdl" />
+    <Content Include="ASTReports\ReturnReport.rdl" />
+    <Content Include="ASTReports\StockSummary.rdl" />
+    <Content Include="ASTReports\StockSummaryReportLocationWise.rdl" />
+    <Content Include="ASTReports\TransactionReport.rdl" />
     <None Include="Properties\PublishProfiles\sa.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

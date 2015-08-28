@@ -144,7 +144,8 @@ namespace API.Reports
                     string empKey = Request.QueryString.Get("EmpKey");
                     if (empcode.IsNullOrEmpty())
                     {
-                        ReportMenuList = reportSuite.GetReportSuiteMenu(CurrentUserSession.UserCode);
+                        //ReportMenuList = reportSuite.GetReportSuiteMenu(CurrentUserSession.UserCode);
+                        ReportMenuList = reportSuite.GetReportSuiteMenu();
                     }
                     else
                     {
