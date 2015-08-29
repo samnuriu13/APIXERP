@@ -52,7 +52,8 @@
         GetRefTransDetail,
         GetRefDetail,
         ParentList,
-        CheckTransaction
+        CheckTransaction,
+        FilterByReportType
     }
 }
 

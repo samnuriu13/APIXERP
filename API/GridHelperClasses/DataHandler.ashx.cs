@@ -175,6 +175,10 @@ namespace API.GridHelperClasses
                 {
                     callBackMode = DataCallBackMode.CheckTransaction;
                 }
+                else if (callMode.CompareTo("FilterByReportType").IsZero())
+                {
+                    callBackMode = DataCallBackMode.FilterByReportType;
+                }
             }
             catch (Exception ex)
             {
@@ -274,6 +278,9 @@ namespace API.GridHelperClasses
                     case DataCallBackMode.CheckTransaction:
                         CheckTransaction();
                         return;
+                    case DataCallBackMode.FilterByReportType:
+                        FilterByReportType();
+                        return;
                     default:
                         break;
                 }
@@ -281,6 +288,28 @@ namespace API.GridHelperClasses
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+        private void FilterByReportType()
+        {
+            try
+            {
+                String refSourceString = String.Empty;
+
+                String reportType = HttpContext.Current.Request.QueryString["ReportType"];
+                CustomList<AccReportConfigurationHeadCategory> HeadCategoryListByReportType = new CustomList<AccReportConfigurationHeadCategory>();
+                CustomList<AccReportConfigurationHeadCategory> HeadCategoryList = (CustomList<AccReportConfigurationHeadCategory>)HttpContext.Current.Session["HeadCategory_HeadCategoryList"];
+                HeadCategoryListByReportType = HeadCategoryList.FindAll(f => f.ReportTypeID == reportType.ToInt());
+                HttpContext.Current.Session["HeadCategory_HeadCategoryByReportTypeList"] = HeadCategoryListByReportType;
+
+                HttpContext.Current.Response.Clear();
+                HttpContext.Current.Response.ContentType = "text/plain";
+                HttpContext.Current.Response.Write(refSourceString);
+                HttpContext.Current.Response.Flush();
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
             }
         }
         private void CheckTransaction()
