@@ -14,6 +14,7 @@
                         	            }
                                     ).responseText;
                 $("#grdSegmentValues").trigger("reloadGrid");
+                $("#cphBody_cphInfbody_txtSegmentName").val($("#cphBody_cphInfbody_ddlSegmentNames option:selected").text());
             });
         });
     </script>

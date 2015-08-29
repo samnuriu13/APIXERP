@@ -55,7 +55,7 @@ namespace API.DAO
             if (IsAdded)
                 parameterValues = new Object[] { _SegName };
             else if (IsModified)
-                parameterValues = new Object[] { _SegName };
+                parameterValues = new Object[] { _SegNameID,_SegName };
             else if (IsDeleted)
                 parameterValues = new Object[] { _SegNameID };
             return parameterValues;

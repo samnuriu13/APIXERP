@@ -546,6 +546,14 @@ namespace API.GridHelperClasses
             String segmentNameID = HttpContext.Current.Request.QueryString["SegmentNameID"];
             HttpContext.Current.Session["ItemSegments_SegmentValuesList"] = manager.GetAllSegmentValues(Convert.ToInt32(segmentNameID));
 
+            SegmentNames obj = new SegmentNames();
+            CustomList<SegmentNames> segmentNameList = new CustomList<SegmentNames>();
+            obj.SegNameID = segmentNameID.ToInt();
+            obj.SetModified();
+            segmentNameList.Add(obj);
+            HttpContext.Current.Session["ItemSegments_SegmentNamesSavedList"] = segmentNameList;
+
+
             HttpContext.Current.Response.Clear();
             HttpContext.Current.Response.ContentType = "text/plain";
             HttpContext.Current.Response.Write(refSourceString);

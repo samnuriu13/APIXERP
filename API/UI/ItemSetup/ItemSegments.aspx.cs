@@ -38,6 +38,21 @@ namespace API.UI.ItemSetup
             }
         }
 
+        private CustomList<SegmentNames> SegmentNamesSavedList
+        {
+            get
+            {
+                if (Session["ItemSegments_SegmentNamesSavedList"] == null)
+                    return new CustomList<SegmentNames>();
+                else
+                    return (CustomList<SegmentNames>)Session["ItemSegments_SegmentNamesSavedList"];
+            }
+            set
+            {
+                Session["ItemSegments_SegmentNamesSavedList"] = value;
+            }
+        }
+
         private CustomList<SegmentValues> SegmentValuesList
         {
             get
@@ -89,6 +104,7 @@ namespace API.UI.ItemSetup
             try
             {
                 SegmentValuesList = new CustomList<SegmentValues>();
+                SegmentNamesSavedList = new CustomList<SegmentNames>();
             }
             catch (Exception ex)
             {
@@ -140,7 +156,7 @@ namespace API.UI.ItemSetup
         {
             try
             {
-                CustomList<SegmentNames> lstSegmentNames = SegmentNamesList;
+                CustomList<SegmentNames> lstSegmentNames = SegmentNamesSavedList;
                 if (lstSegmentNames.Count == 0)
                 {
                     SegmentNames newSegmentNames = new SegmentNames();
@@ -180,7 +196,7 @@ namespace API.UI.ItemSetup
         {
             try
             {
-                CustomList<SegmentNames> lstSegmentNames = (CustomList<SegmentNames>)SegmentNamesList;
+                CustomList<SegmentNames> lstSegmentNames = (CustomList<SegmentNames>)SegmentNamesSavedList;
                 lstSegmentNames.ForEach(f => f.Delete());
                 CustomList<SegmentValues> lstSegmentValues = (CustomList<SegmentValues>)SegmentValuesList;
                 lstSegmentValues.ForEach(s => s.Delete());
