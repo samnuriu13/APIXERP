@@ -1,0 +1,30 @@
+E:\12.04.13APL\API\RElease\Git\API.BLL\bin\Debug\API.BLL.dll
+E:\12.04.13APL\API\RElease\Git\API.BLL\bin\Debug\API.BLL.pdb
+E:\12.04.13APL\API\RElease\Git\API.BLL\bin\Debug\API.DAL.dll
+E:\12.04.13APL\API\RElease\Git\API.BLL\bin\Debug\API.DAO.dll
+E:\12.04.13APL\API\RElease\Git\API.BLL\bin\Debug\API.DATA.dll
+E:\12.04.13APL\API\RElease\Git\API.BLL\bin\Debug\REPORT.DAO.dll
+E:\12.04.13APL\API\RElease\Git\API.BLL\bin\Debug\STATIC.dll
+E:\12.04.13APL\API\RElease\Git\API.BLL\bin\Debug\API.DAL.pdb
+E:\12.04.13APL\API\RElease\Git\API.BLL\bin\Debug\API.DAO.pdb
+E:\12.04.13APL\API\RElease\Git\API.BLL\bin\Debug\API.DATA.pdb
+E:\12.04.13APL\API\RElease\Git\API.BLL\bin\Debug\REPORT.DAO.pdb
+E:\12.04.13APL\API\RElease\Git\API.BLL\bin\Debug\STATIC.pdb
+E:\12.04.13APL\API\RElease\Git\API.BLL\obj\Debug\API.BLL.csprojResolveAssemblyReference.cache
+E:\12.04.13APL\API\RElease\Git\API.BLL\obj\Debug\API.BLL.dll
+E:\12.04.13APL\API\RElease\Git\API.BLL\obj\Debug\API.BLL.pdb
+D:\Shamim Working\Git\API.BLL\bin\Debug\API.BLL.dll
+D:\Shamim Working\Git\API.BLL\bin\Debug\API.BLL.pdb
+D:\Shamim Working\Git\API.BLL\bin\Debug\API.DAL.dll
+D:\Shamim Working\Git\API.BLL\bin\Debug\API.DAO.dll
+D:\Shamim Working\Git\API.BLL\bin\Debug\API.DATA.dll
+D:\Shamim Working\Git\API.BLL\bin\Debug\REPORT.DAO.dll
+D:\Shamim Working\Git\API.BLL\bin\Debug\STATIC.dll
+D:\Shamim Working\Git\API.BLL\bin\Debug\API.DAL.pdb
+D:\Shamim Working\Git\API.BLL\bin\Debug\API.DAO.pdb
+D:\Shamim Working\Git\API.BLL\bin\Debug\API.DATA.pdb
+D:\Shamim Working\Git\API.BLL\bin\Debug\REPORT.DAO.pdb
+D:\Shamim Working\Git\API.BLL\bin\Debug\STATIC.pdb
+D:\Shamim Working\Git\API.BLL\obj\Debug\API.BLL.csprojResolveAssemblyReference.cache
+D:\Shamim Working\Git\API.BLL\obj\Debug\API.BLL.dll
+D:\Shamim Working\Git\API.BLL\obj\Debug\API.BLL.pdb

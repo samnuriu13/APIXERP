@@ -1,0 +1,30 @@
+E:\12.04.13APL\API\RElease\Git\SECURITY.BLL\bin\Debug\SECURITY.BLL.dll
+E:\12.04.13APL\API\RElease\Git\SECURITY.BLL\bin\Debug\SECURITY.BLL.pdb
+E:\12.04.13APL\API\RElease\Git\SECURITY.BLL\bin\Debug\API.DAL.dll
+E:\12.04.13APL\API\RElease\Git\SECURITY.BLL\bin\Debug\API.DAO.dll
+E:\12.04.13APL\API\RElease\Git\SECURITY.BLL\bin\Debug\API.DATA.dll
+E:\12.04.13APL\API\RElease\Git\SECURITY.BLL\bin\Debug\SECURITY.DAO.dll
+E:\12.04.13APL\API\RElease\Git\SECURITY.BLL\bin\Debug\STATIC.dll
+E:\12.04.13APL\API\RElease\Git\SECURITY.BLL\bin\Debug\API.DAL.pdb
+E:\12.04.13APL\API\RElease\Git\SECURITY.BLL\bin\Debug\API.DAO.pdb
+E:\12.04.13APL\API\RElease\Git\SECURITY.BLL\bin\Debug\API.DATA.pdb
+E:\12.04.13APL\API\RElease\Git\SECURITY.BLL\bin\Debug\SECURITY.DAO.pdb
+E:\12.04.13APL\API\RElease\Git\SECURITY.BLL\bin\Debug\STATIC.pdb
+E:\12.04.13APL\API\RElease\Git\SECURITY.BLL\obj\Debug\SECURITY.BLL.csprojResolveAssemblyReference.cache
+E:\12.04.13APL\API\RElease\Git\SECURITY.BLL\obj\Debug\SECURITY.BLL.dll
+E:\12.04.13APL\API\RElease\Git\SECURITY.BLL\obj\Debug\SECURITY.BLL.pdb
+D:\Shamim Working\Git\SECURITY.BLL\bin\Debug\SECURITY.BLL.dll
+D:\Shamim Working\Git\SECURITY.BLL\bin\Debug\SECURITY.BLL.pdb
+D:\Shamim Working\Git\SECURITY.BLL\bin\Debug\API.DAL.dll
+D:\Shamim Working\Git\SECURITY.BLL\bin\Debug\API.DAO.dll
+D:\Shamim Working\Git\SECURITY.BLL\bin\Debug\API.DATA.dll
+D:\Shamim Working\Git\SECURITY.BLL\bin\Debug\SECURITY.DAO.dll
+D:\Shamim Working\Git\SECURITY.BLL\bin\Debug\STATIC.dll
+D:\Shamim Working\Git\SECURITY.BLL\bin\Debug\API.DAL.pdb
+D:\Shamim Working\Git\SECURITY.BLL\bin\Debug\API.DAO.pdb
+D:\Shamim Working\Git\SECURITY.BLL\bin\Debug\API.DATA.pdb
+D:\Shamim Working\Git\SECURITY.BLL\bin\Debug\SECURITY.DAO.pdb
+D:\Shamim Working\Git\SECURITY.BLL\bin\Debug\STATIC.pdb
+D:\Shamim Working\Git\SECURITY.BLL\obj\Debug\SECURITY.BLL.csprojResolveAssemblyReference.cache
+D:\Shamim Working\Git\SECURITY.BLL\obj\Debug\SECURITY.BLL.dll
+D:\Shamim Working\Git\SECURITY.BLL\obj\Debug\SECURITY.BLL.pdb

@@ -1,0 +1,22 @@
+E:\12.04.13APL\API\RElease\Git\SECURITY.DAO\bin\Debug\SECURITY.DAO.dll
+E:\12.04.13APL\API\RElease\Git\SECURITY.DAO\bin\Debug\SECURITY.DAO.pdb
+E:\12.04.13APL\API\RElease\Git\SECURITY.DAO\bin\Debug\API.DAL.dll
+E:\12.04.13APL\API\RElease\Git\SECURITY.DAO\bin\Debug\API.DATA.dll
+E:\12.04.13APL\API\RElease\Git\SECURITY.DAO\bin\Debug\STATIC.dll
+E:\12.04.13APL\API\RElease\Git\SECURITY.DAO\bin\Debug\API.DAL.pdb
+E:\12.04.13APL\API\RElease\Git\SECURITY.DAO\bin\Debug\API.DATA.pdb
+E:\12.04.13APL\API\RElease\Git\SECURITY.DAO\bin\Debug\STATIC.pdb
+E:\12.04.13APL\API\RElease\Git\SECURITY.DAO\obj\Debug\SECURITY.DAO.csprojResolveAssemblyReference.cache
+E:\12.04.13APL\API\RElease\Git\SECURITY.DAO\obj\Debug\SECURITY.DAO.dll
+E:\12.04.13APL\API\RElease\Git\SECURITY.DAO\obj\Debug\SECURITY.DAO.pdb
+D:\Shamim Working\Git\SECURITY.DAO\bin\Debug\SECURITY.DAO.dll
+D:\Shamim Working\Git\SECURITY.DAO\bin\Debug\SECURITY.DAO.pdb
+D:\Shamim Working\Git\SECURITY.DAO\bin\Debug\API.DAL.dll
+D:\Shamim Working\Git\SECURITY.DAO\bin\Debug\API.DATA.dll
+D:\Shamim Working\Git\SECURITY.DAO\bin\Debug\STATIC.dll
+D:\Shamim Working\Git\SECURITY.DAO\bin\Debug\API.DAL.pdb
+D:\Shamim Working\Git\SECURITY.DAO\bin\Debug\API.DATA.pdb
+D:\Shamim Working\Git\SECURITY.DAO\bin\Debug\STATIC.pdb
+D:\Shamim Working\Git\SECURITY.DAO\obj\Debug\SECURITY.DAO.csprojResolveAssemblyReference.cache
+D:\Shamim Working\Git\SECURITY.DAO\obj\Debug\SECURITY.DAO.dll
+D:\Shamim Working\Git\SECURITY.DAO\obj\Debug\SECURITY.DAO.pdb

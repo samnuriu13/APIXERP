@@ -1,0 +1,14 @@
+E:\12.04.13APL\API\RElease\Git\API.DAL\bin\Debug\API.DAL.dll
+E:\12.04.13APL\API\RElease\Git\API.DAL\bin\Debug\API.DAL.pdb
+E:\12.04.13APL\API\RElease\Git\API.DAL\bin\Debug\API.DATA.dll
+E:\12.04.13APL\API\RElease\Git\API.DAL\bin\Debug\API.DATA.pdb
+E:\12.04.13APL\API\RElease\Git\API.DAL\obj\Debug\API.DAL.csprojResolveAssemblyReference.cache
+E:\12.04.13APL\API\RElease\Git\API.DAL\obj\Debug\API.DAL.dll
+E:\12.04.13APL\API\RElease\Git\API.DAL\obj\Debug\API.DAL.pdb
+D:\Shamim Working\Git\API.DAL\bin\Debug\API.DAL.dll
+D:\Shamim Working\Git\API.DAL\bin\Debug\API.DAL.pdb
+D:\Shamim Working\Git\API.DAL\bin\Debug\API.DATA.dll
+D:\Shamim Working\Git\API.DAL\bin\Debug\API.DATA.pdb
+D:\Shamim Working\Git\API.DAL\obj\Debug\API.DAL.csprojResolveAssemblyReference.cache
+D:\Shamim Working\Git\API.DAL\obj\Debug\API.DAL.dll
+D:\Shamim Working\Git\API.DAL\obj\Debug\API.DAL.pdb

@@ -1,0 +1,10 @@
+E:\12.04.13APL\API\RElease\Git\API.DATA\bin\Debug\API.DATA.dll
+E:\12.04.13APL\API\RElease\Git\API.DATA\bin\Debug\API.DATA.pdb
+E:\12.04.13APL\API\RElease\Git\API.DATA\obj\Debug\API.DATA.csprojResolveAssemblyReference.cache
+E:\12.04.13APL\API\RElease\Git\API.DATA\obj\Debug\API.DATA.dll
+E:\12.04.13APL\API\RElease\Git\API.DATA\obj\Debug\API.DATA.pdb
+D:\Shamim Working\Git\API.DATA\bin\Debug\API.DATA.dll
+D:\Shamim Working\Git\API.DATA\bin\Debug\API.DATA.pdb
+D:\Shamim Working\Git\API.DATA\obj\Debug\API.DATA.csprojResolveAssemblyReference.cache
+D:\Shamim Working\Git\API.DATA\obj\Debug\API.DATA.dll
+D:\Shamim Working\Git\API.DATA\obj\Debug\API.DATA.pdb

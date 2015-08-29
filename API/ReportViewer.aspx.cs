@@ -144,7 +144,8 @@ namespace API.Reports
                     string empKey = Request.QueryString.Get("EmpKey");
                     if (empcode.IsNullOrEmpty())
                     {
-                        ReportMenuList = reportSuite.GetReportSuiteMenu(CurrentUserSession.UserCode);
+                        //ReportMenuList = reportSuite.GetReportSuiteMenu(CurrentUserSession.UserCode);
+                        ReportMenuList = reportSuite.GetReportSuiteMenu();
                     }
                     else
                     {
@@ -403,7 +404,7 @@ namespace API.Reports
                     aNode.Text = child.NODE_TEXT;
                     aNode.Value = child.REPORTID.ToString();
                     aNode.ImageUrl = @"~\images\node.Png";
-                    aNode.ToolTip = AppDomain.CurrentDomain.BaseDirectory + "Reports";//child.REPORT_PATH_NAME;
+                    aNode.ToolTip = AppDomain.CurrentDomain.BaseDirectory + "ASTReports";//child.REPORT_PATH_NAME;
                     //aNode.ImageToolTip = String.Format(@"{0}\{1}", child.REPORT_PATH_NAME, child.REPORT_NAME);
                     aNode.ImageToolTip = child.REPORT_NAME;
                     parentNode.ChildNodes.Add(aNode);

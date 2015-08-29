@@ -140,6 +140,8 @@
     <Content Include="GridScripts\ContactTypeDetail.js" />
     <Content Include="GridScripts\DocListFormatSettings.js" />
     <Content Include="GridScripts\GroupItem.js" />
+    <Content Include="GridScripts\HeadCategory.js" />
+    <Content Include="GridScripts\HeadCategoryCOAMap.js" />
     <Content Include="GridScripts\ItemGroup_DeptMaping.js" />
     <Content Include="GridScripts\ItemRequisition.js" />
     <Content Include="GridScripts\ItemStructure.js" />
@@ -171,6 +173,8 @@
     <Content Include="UI\ACC\CashReceiveVoucher.aspx" />
     <Content Include="UI\ACC\COA.aspx" />
     <Content Include="UI\ACC\ContraVoucher.aspx" />
+    <Content Include="UI\ACC\HeadCategory.aspx" />
+    <Content Include="UI\ACC\HeadCategoryCOAMap.aspx" />
     <Content Include="UI\ACC\JournalVoucher.aspx" />
     <Content Include="UI\ItemSetup\GroupItem.aspx" />
     <Content Include="UI\ItemSetup\ItemDefination.aspx" />
@@ -192,20 +196,39 @@
     <Content Include="UI\Setup\BankAccounSetup.aspx" />
     <Content Include="UI\Setup\ContactInformation.aspx" />
     <Content Include="UI\Setup\DocListFormatSettings.aspx" />
+    <Content Include="UI\Setup\TransactionType.aspx" />
     <Content Include="UI\Setup\WorkFlow.aspx" />
     <Content Include="Utils\vssver2.scc" />
-    <Content Include="Web.config" />
     <Content Include="ASTReports\Voucher.rdl">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="ASTReports\GRN.rdl" />
+    <Content Include="ASTReports\ItemList.rdl" />
+    <Content Include="ASTReports\ItemRequisitionALL.rdl" />
+    <Content Include="ASTReports\ItemRequisitionIndividual.rdl" />
+    <Content Include="ASTReports\POSummaryItemGroupWise.rdl" />
+    <Content Include="ASTReports\PurchaseOrder.rdl" />
+    <Content Include="ASTReports\PurchaseRequisitionALL.rdl" />
+    <Content Include="ASTReports\PurchaseRequisitionIndivisual.rdl" />
+    <Content Include="ASTReports\PurchaseReturn.rdl" />
+    <Content Include="ASTReports\ReceiveReport.rdl" />
+    <Content Include="ASTReports\ReceiveSummaryReport.rdl" />
+    <Content Include="ASTReports\ReturnReport.rdl" />
+    <Content Include="ASTReports\StockSummary.rdl" />
+    <Content Include="ASTReports\StockSummaryReportLocationWise.rdl" />
+    <Content Include="ASTReports\TransactionReport.rdl" />
+    <Content Include="ASTReports\BankReconciliation.rdl" />
+    <Content Include="ASTReports\GeneralLedger.rdl" />
+    <Content Include="ASTReports\PartyLedger.rdl" />
     <None Include="Properties\PublishProfiles\sa.pubxml" />
+    <Content Include="Web.sitemap" />
+    <Content Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\Default\Default.css" />
@@ -686,6 +709,20 @@
     <Compile Include="UI\ACC\ContraVoucher.aspx.designer.cs">
       <DependentUpon>ContraVoucher.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\ACC\HeadCategory.aspx.cs">
+      <DependentUpon>HeadCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ACC\HeadCategory.aspx.designer.cs">
+      <DependentUpon>HeadCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ACC\HeadCategoryCOAMap.aspx.cs">
+      <DependentUpon>HeadCategoryCOAMap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ACC\HeadCategoryCOAMap.aspx.designer.cs">
+      <DependentUpon>HeadCategoryCOAMap.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\ACC\JournalVoucher.aspx.cs">
       <DependentUpon>JournalVoucher.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -902,6 +939,13 @@
     </Compile>
     <Compile Include="UI\Setup\MailSetup.aspx.designer.cs">
       <DependentUpon>MailSetup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Setup\TransactionType.aspx.cs">
+      <DependentUpon>TransactionType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Setup\TransactionType.aspx.designer.cs">
+      <DependentUpon>TransactionType.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Setup\WorkFlow.aspx.cs">
       <DependentUpon>WorkFlow.aspx</DependentUpon>
