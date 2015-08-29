@@ -8,12 +8,12 @@
 					    , editurl: rootPath + 'GridHelperClasses/GridGenericHandler.ashx?jqGridID=grdItemSubGroup&editMode=1&SessionVarName=SubGroupItem_ItemSubGroupList'
 						, datatype: 'json'
 						, page: 1
-						, colNames: ['VID', 'Item Sub-Group', 'Item Group']
+						, colNames: ['VID', 'Item Group', 'Item Sub-Group']
 						, colModel:
 							[
 								{ 'name': 'VID', 'key': true, 'hidden': true, 'width': 50, 'index': 'VID' },
-								{ 'name': 'SubGroupName', 'index': 'SubGroupName', 'editable': true, 'width': 100 },
-				                { 'name': 'ItemGroupID', 'index': 'ItemGroupID', 'width': 100, editable: true, edittype: "select", formatter: 'select', editoptions: { value: GetDropDownSource('SessionVarName=ItemGroup_ItemGroupList&DataTextField=GroupName&NeedBlank=Empty&DataValueField=ItemGroupID') } },
+                                { 'name': 'ItemGroupID', 'index': 'ItemGroupID', 'width': 220, editable: true, edittype: "select", formatter: 'select', editoptions: { value: GetDropDownSource('SessionVarName=ItemGroup_ItemGroupList&DataTextField=GroupName&NeedBlank=Empty&DataValueField=ItemGroupID') } },
+								{ 'name': 'SubGroupName', 'index': 'SubGroupName', 'editable': true, 'width': 220 },
 							]
 						, viewrecords: true
 						, rownumbers: false
@@ -30,12 +30,15 @@
 						    repeatitems: false
 						}
 						, sortable: true
+                        , sortname: 'VID'
+                        , sortorder: "desc"
 						, rowNum: 10
 						, rowList: [10, 20, 30]
 						, caption: 'Item Sub-Group'
 						, autowidth: true
 						, height: '200'
 						, viewsortcols: [false, 'vertical', true]
+                        , shrinkToFit: false
                         , addDialogOptions:
 				                {
 				                    modal: true,
@@ -53,6 +56,9 @@
 				                    viewPagerButtons: false,
 				                    bottominfo: "Fields marked with (*) are required"
 				                }
+                        , ondblClickRow: function (rowid) {
+                            $('.ui-icon-pencil', '#edit_' + this.id).click();
+                        }
 					}
 				)
 				.navGrid

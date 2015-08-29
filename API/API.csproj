@@ -198,7 +198,6 @@
     <Content Include="UI\Setup\DocListFormatSettings.aspx" />
     <Content Include="UI\Setup\WorkFlow.aspx" />
     <Content Include="Utils\vssver2.scc" />
-    <Content Include="Web.config" />
     <Content Include="ASTReports\Voucher.rdl">
       <SubType>Designer</SubType>
     </Content>
@@ -221,12 +220,6 @@
     <Content Include="ASTReports\GeneralLedger.rdl" />
     <Content Include="ASTReports\PartyLedger.rdl" />
     <None Include="Properties\PublishProfiles\sa.pubxml" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
     <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
