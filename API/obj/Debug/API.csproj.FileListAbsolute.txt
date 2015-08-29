@@ -27,3 +27,32 @@ E:\12.04.13APL\API\RElease\Git\API\bin\STATIC.pdb
 E:\12.04.13APL\API\RElease\Git\API\obj\Debug\API.csprojResolveAssemblyReference.cache
 E:\12.04.13APL\API\RElease\Git\API\obj\Debug\API.dll
 E:\12.04.13APL\API\RElease\Git\API\obj\Debug\API.pdb
+D:\Shamim Working\Git\API\bin\API.dll
+D:\Shamim Working\Git\API\bin\API.pdb
+D:\Shamim Working\Git\API\bin\ACC.BLL.dll
+D:\Shamim Working\Git\API\bin\ACC.DAO.dll
+D:\Shamim Working\Git\API\bin\API.BLL.dll
+D:\Shamim Working\Git\API\bin\API.DAL.dll
+D:\Shamim Working\Git\API\bin\API.DAO.dll
+D:\Shamim Working\Git\API\bin\API.DATA.dll
+D:\Shamim Working\Git\API\bin\FRAMEWORK.dll
+D:\Shamim Working\Git\API\bin\REPORT.BLL.dll
+D:\Shamim Working\Git\API\bin\REPORT.DAO.dll
+D:\Shamim Working\Git\API\bin\SECURITY.BLL.dll
+D:\Shamim Working\Git\API\bin\SECURITY.DAO.dll
+D:\Shamim Working\Git\API\bin\STATIC.dll
+D:\Shamim Working\Git\API\bin\ACC.BLL.pdb
+D:\Shamim Working\Git\API\bin\ACC.DAO.pdb
+D:\Shamim Working\Git\API\bin\API.BLL.pdb
+D:\Shamim Working\Git\API\bin\API.DAL.pdb
+D:\Shamim Working\Git\API\bin\API.DAO.pdb
+D:\Shamim Working\Git\API\bin\API.DATA.pdb
+D:\Shamim Working\Git\API\bin\FRAMEWORK.pdb
+D:\Shamim Working\Git\API\bin\REPORT.BLL.pdb
+D:\Shamim Working\Git\API\bin\REPORT.DAO.pdb
+D:\Shamim Working\Git\API\bin\SECURITY.BLL.pdb
+D:\Shamim Working\Git\API\bin\SECURITY.DAO.pdb
+D:\Shamim Working\Git\API\bin\STATIC.pdb
+D:\Shamim Working\Git\API\obj\Debug\API.csprojResolveAssemblyReference.cache
+D:\Shamim Working\Git\API\obj\Debug\API.dll
+D:\Shamim Working\Git\API\obj\Debug\API.pdb
