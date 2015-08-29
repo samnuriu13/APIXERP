@@ -196,6 +196,7 @@
     <Content Include="UI\Setup\BankAccounSetup.aspx" />
     <Content Include="UI\Setup\ContactInformation.aspx" />
     <Content Include="UI\Setup\DocListFormatSettings.aspx" />
+    <Content Include="UI\Setup\TransactionType.aspx" />
     <Content Include="UI\Setup\WorkFlow.aspx" />
     <Content Include="Utils\vssver2.scc" />
     <Content Include="ASTReports\Voucher.rdl">
@@ -931,6 +932,13 @@
     </Compile>
     <Compile Include="UI\Setup\MailSetup.aspx.designer.cs">
       <DependentUpon>MailSetup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Setup\TransactionType.aspx.cs">
+      <DependentUpon>TransactionType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Setup\TransactionType.aspx.designer.cs">
+      <DependentUpon>TransactionType.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Setup\WorkFlow.aspx.cs">
       <DependentUpon>WorkFlow.aspx</DependentUpon>
