@@ -3,3 +3,7 @@ E:\12.04.13APL\API\RElease\Git\API.DATA\bin\Debug\API.DATA.pdb
 E:\12.04.13APL\API\RElease\Git\API.DATA\obj\Debug\API.DATA.csprojResolveAssemblyReference.cache
 E:\12.04.13APL\API\RElease\Git\API.DATA\obj\Debug\API.DATA.dll
 E:\12.04.13APL\API\RElease\Git\API.DATA\obj\Debug\API.DATA.pdb
+F:\GIT_HUB\APIXERP\API.DATA\bin\Debug\API.DATA.dll
+F:\GIT_HUB\APIXERP\API.DATA\bin\Debug\API.DATA.pdb
+F:\GIT_HUB\APIXERP\API.DATA\obj\Debug\API.DATA.dll
+F:\GIT_HUB\APIXERP\API.DATA\obj\Debug\API.DATA.pdb

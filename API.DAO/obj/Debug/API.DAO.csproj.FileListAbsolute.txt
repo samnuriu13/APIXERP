@@ -9,3 +9,14 @@ E:\12.04.13APL\API\RElease\Git\API.DAO\bin\Debug\STATIC.pdb
 E:\12.04.13APL\API\RElease\Git\API.DAO\obj\Debug\API.DAO.csprojResolveAssemblyReference.cache
 E:\12.04.13APL\API\RElease\Git\API.DAO\obj\Debug\API.DAO.dll
 E:\12.04.13APL\API\RElease\Git\API.DAO\obj\Debug\API.DAO.pdb
+F:\GIT_HUB\APIXERP\API.DAO\bin\Debug\API.DAO.dll
+F:\GIT_HUB\APIXERP\API.DAO\bin\Debug\API.DAO.pdb
+F:\GIT_HUB\APIXERP\API.DAO\bin\Debug\API.DAL.dll
+F:\GIT_HUB\APIXERP\API.DAO\bin\Debug\API.DATA.dll
+F:\GIT_HUB\APIXERP\API.DAO\bin\Debug\STATIC.dll
+F:\GIT_HUB\APIXERP\API.DAO\bin\Debug\API.DAL.pdb
+F:\GIT_HUB\APIXERP\API.DAO\bin\Debug\API.DATA.pdb
+F:\GIT_HUB\APIXERP\API.DAO\bin\Debug\STATIC.pdb
+F:\GIT_HUB\APIXERP\API.DAO\obj\Debug\API.DAO.csprojResolveAssemblyReference.cache
+F:\GIT_HUB\APIXERP\API.DAO\obj\Debug\API.DAO.dll
+F:\GIT_HUB\APIXERP\API.DAO\obj\Debug\API.DAO.pdb
