@@ -9,14 +9,3 @@ E:\12.04.13APL\API\RElease\Git\ACC.DAO\bin\Debug\STATIC.pdb
 E:\12.04.13APL\API\RElease\Git\ACC.DAO\obj\Debug\ACC.DAO.csprojResolveAssemblyReference.cache
 E:\12.04.13APL\API\RElease\Git\ACC.DAO\obj\Debug\ACC.DAO.dll
 E:\12.04.13APL\API\RElease\Git\ACC.DAO\obj\Debug\ACC.DAO.pdb
-D:\Shamim Working\Git\ACC.DAO\bin\Debug\ACC.DAO.dll
-D:\Shamim Working\Git\ACC.DAO\bin\Debug\ACC.DAO.pdb
-D:\Shamim Working\Git\ACC.DAO\bin\Debug\API.DAL.dll
-D:\Shamim Working\Git\ACC.DAO\bin\Debug\API.DATA.dll
-D:\Shamim Working\Git\ACC.DAO\bin\Debug\STATIC.dll
-D:\Shamim Working\Git\ACC.DAO\bin\Debug\API.DAL.pdb
-D:\Shamim Working\Git\ACC.DAO\bin\Debug\API.DATA.pdb
-D:\Shamim Working\Git\ACC.DAO\bin\Debug\STATIC.pdb
-D:\Shamim Working\Git\ACC.DAO\obj\Debug\ACC.DAO.csprojResolveAssemblyReference.cache
-D:\Shamim Working\Git\ACC.DAO\obj\Debug\ACC.DAO.dll
-D:\Shamim Working\Git\ACC.DAO\obj\Debug\ACC.DAO.pdb

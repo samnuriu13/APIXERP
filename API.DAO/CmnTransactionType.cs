@@ -204,7 +204,7 @@ namespace API.DAO
 		{
 			Object[] parameterValues = null;
 			if (IsAdded)
-				parameterValues = new Object[] {_TransTypeID,_CustomCode,_TransTypeName,_DocListID,_IsStockUpdate,_IsAccountingUpdate,_IsCostingUpdate,_ProjectID,_CostCenterID,_CompanyID,_IsDeleted,_Transfer};
+				parameterValues = new Object[] {_CustomCode,_TransTypeName,_DocListID,_IsStockUpdate,_IsAccountingUpdate,_IsCostingUpdate,_ProjectID,_CostCenterID,_CompanyID,_IsDeleted,_Transfer};
 			else if (IsModified)
 				parameterValues = new Object[] {_TransTypeID,_CustomCode,_TransTypeName,_DocListID,_IsStockUpdate,_IsAccountingUpdate,_IsCostingUpdate,_ProjectID,_CostCenterID,_CompanyID,_IsDeleted,_Transfer};
 			else if (IsDeleted)
@@ -260,5 +260,32 @@ namespace API.DAO
 					reader.Close();
 			}
 		}
+        public static CustomList<CmnTransactionType> GetAllReferenceType()
+        {
+            ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
+            CustomList<CmnTransactionType> CmnTransactionTypeCollection = new CustomList<CmnTransactionType>();
+            IDataReader reader = null;
+            String sql = "select *from CmnTransactionType";
+            try
+            {
+                conManager.OpenDataReader(sql, out reader);
+                while (reader.Read())
+                {
+                    CmnTransactionType newCmnTransactionType = new CmnTransactionType();
+                    newCmnTransactionType.SetData(reader);
+                    CmnTransactionTypeCollection.Add(newCmnTransactionType);
+                }
+                return CmnTransactionTypeCollection;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                    reader.Close();
+            }
+        }
 	}
 }
