@@ -7,12 +7,3 @@ E:\12.04.13APL\API\RElease\Git\STATIC\bin\Debug\API.DATA.pdb
 E:\12.04.13APL\API\RElease\Git\STATIC\obj\Debug\STATIC.csprojResolveAssemblyReference.cache
 E:\12.04.13APL\API\RElease\Git\STATIC\obj\Debug\STATIC.dll
 E:\12.04.13APL\API\RElease\Git\STATIC\obj\Debug\STATIC.pdb
-F:\GIT_HUB\APIXERP\STATIC\bin\Debug\STATIC.dll
-F:\GIT_HUB\APIXERP\STATIC\bin\Debug\STATIC.pdb
-F:\GIT_HUB\APIXERP\STATIC\bin\Debug\API.DAL.dll
-F:\GIT_HUB\APIXERP\STATIC\bin\Debug\API.DATA.dll
-F:\GIT_HUB\APIXERP\STATIC\bin\Debug\API.DAL.pdb
-F:\GIT_HUB\APIXERP\STATIC\bin\Debug\API.DATA.pdb
-F:\GIT_HUB\APIXERP\STATIC\obj\Debug\STATIC.csprojResolveAssemblyReference.cache
-F:\GIT_HUB\APIXERP\STATIC\obj\Debug\STATIC.dll
-F:\GIT_HUB\APIXERP\STATIC\obj\Debug\STATIC.pdb
