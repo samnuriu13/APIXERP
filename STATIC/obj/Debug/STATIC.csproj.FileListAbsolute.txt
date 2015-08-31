@@ -7,3 +7,12 @@ E:\12.04.13APL\API\RElease\Git\STATIC\bin\Debug\API.DATA.pdb
 E:\12.04.13APL\API\RElease\Git\STATIC\obj\Debug\STATIC.csprojResolveAssemblyReference.cache
 E:\12.04.13APL\API\RElease\Git\STATIC\obj\Debug\STATIC.dll
 E:\12.04.13APL\API\RElease\Git\STATIC\obj\Debug\STATIC.pdb
+D:\Shamim Working\Git\STATIC\bin\Debug\STATIC.dll
+D:\Shamim Working\Git\STATIC\bin\Debug\STATIC.pdb
+D:\Shamim Working\Git\STATIC\bin\Debug\API.DAL.dll
+D:\Shamim Working\Git\STATIC\bin\Debug\API.DATA.dll
+D:\Shamim Working\Git\STATIC\bin\Debug\API.DAL.pdb
+D:\Shamim Working\Git\STATIC\bin\Debug\API.DATA.pdb
+D:\Shamim Working\Git\STATIC\obj\Debug\STATIC.csprojResolveAssemblyReference.cache
+D:\Shamim Working\Git\STATIC\obj\Debug\STATIC.dll
+D:\Shamim Working\Git\STATIC\obj\Debug\STATIC.pdb

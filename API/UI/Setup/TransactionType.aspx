@@ -40,7 +40,7 @@
         <br />
         <div class="form-bottom">
             <div class="btnRight">
-                <asp:Button ID="btnDelete" runat="server" CssClass="button" Text="Delete" />
+                <asp:Button ID="btnDelete" runat="server" CssClass="button" Text="Delete" OnClick="btnDelete_Click" />
             </div>
             <div class="btnRight">
                 <asp:Button ID="btnCancel" runat="server" CssClass="button" Text="Cancel" OnClick="btnCancel_Click" />

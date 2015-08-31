@@ -13,3 +13,18 @@ E:\12.04.13APL\API\RElease\Git\ACC.BLL\bin\Debug\STATIC.pdb
 E:\12.04.13APL\API\RElease\Git\ACC.BLL\obj\Debug\ACC.BLL.csprojResolveAssemblyReference.cache
 E:\12.04.13APL\API\RElease\Git\ACC.BLL\obj\Debug\ACC.BLL.dll
 E:\12.04.13APL\API\RElease\Git\ACC.BLL\obj\Debug\ACC.BLL.pdb
+D:\Shamim Working\Git\ACC.BLL\bin\Debug\ACC.BLL.dll
+D:\Shamim Working\Git\ACC.BLL\bin\Debug\ACC.BLL.pdb
+D:\Shamim Working\Git\ACC.BLL\bin\Debug\ACC.DAO.dll
+D:\Shamim Working\Git\ACC.BLL\bin\Debug\API.DAL.dll
+D:\Shamim Working\Git\ACC.BLL\bin\Debug\API.DAO.dll
+D:\Shamim Working\Git\ACC.BLL\bin\Debug\API.DATA.dll
+D:\Shamim Working\Git\ACC.BLL\bin\Debug\STATIC.dll
+D:\Shamim Working\Git\ACC.BLL\bin\Debug\ACC.DAO.pdb
+D:\Shamim Working\Git\ACC.BLL\bin\Debug\API.DAL.pdb
+D:\Shamim Working\Git\ACC.BLL\bin\Debug\API.DAO.pdb
+D:\Shamim Working\Git\ACC.BLL\bin\Debug\API.DATA.pdb
+D:\Shamim Working\Git\ACC.BLL\bin\Debug\STATIC.pdb
+D:\Shamim Working\Git\ACC.BLL\obj\Debug\ACC.BLL.csprojResolveAssemblyReference.cache
+D:\Shamim Working\Git\ACC.BLL\obj\Debug\ACC.BLL.dll
+D:\Shamim Working\Git\ACC.BLL\obj\Debug\ACC.BLL.pdb
