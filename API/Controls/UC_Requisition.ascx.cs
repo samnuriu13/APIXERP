@@ -197,6 +197,14 @@ namespace API.Controls
             ddlDepartment.DataBind();
             ddlDepartment.Items.Insert(0, new ListItem(String.Empty, String.Empty));
             ddlDepartment.SelectedIndex = 0;
+
+            ContactInfoManager cIM = new ContactInfoManager();
+            ddlEmployee.DataSource = cIM.GetAllEmployee();
+            ddlEmployee.DataTextField = "Name";
+            ddlEmployee.DataValueField = "ContactID";
+            ddlEmployee.DataBind();
+            ddlEmployee.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+            ddlEmployee.SelectedIndex = 0;
         }
         public void InitializeSession()
         {
@@ -286,6 +294,7 @@ namespace API.Controls
 
                 ClearControls();
                 InitializeSession();
+                txtRequisitionNo.Text = "NEW";
             }
             catch (Exception ex)
             {

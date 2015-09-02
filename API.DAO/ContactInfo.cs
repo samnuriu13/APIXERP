@@ -338,6 +338,33 @@ namespace API.DAO
                     reader.Close();
             }
         }
+        public static CustomList<ContactInfo> GetAllEmployee()
+        {
+            ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
+            CustomList<ContactInfo> ContactInfoCollection = new CustomList<ContactInfo>();
+            IDataReader reader = null;
+            const String sql = "select ContactID,Name from Employee";
+            try
+            {
+                conManager.OpenDataReader(sql, out reader);
+                while (reader.Read())
+                {
+                    ContactInfo newContactInfo = new ContactInfo();
+                    newContactInfo.SetDataSupplier(reader);
+                    ContactInfoCollection.Add(newContactInfo);
+                };
+                return ContactInfoCollection;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                    reader.Close();
+            }
+        }
         public static CustomList<ContactInfo> GetAllContactInfo()
         {
             ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
