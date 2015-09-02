@@ -15,20 +15,3 @@ E:\12.04.13APL\API\RElease\Git\FRAMEWORK\bin\Debug\API.DAL.pdb
 E:\12.04.13APL\API\RElease\Git\FRAMEWORK\obj\Debug\FRAMEWORK.csprojResolveAssemblyReference.cache
 E:\12.04.13APL\API\RElease\Git\FRAMEWORK\obj\Debug\FRAMEWORK.dll
 E:\12.04.13APL\API\RElease\Git\FRAMEWORK\obj\Debug\FRAMEWORK.pdb
-D:\Shamim Working\Git\FRAMEWORK\bin\Debug\FRAMEWORK.dll
-D:\Shamim Working\Git\FRAMEWORK\bin\Debug\FRAMEWORK.pdb
-D:\Shamim Working\Git\FRAMEWORK\bin\Debug\API.DATA.dll
-D:\Shamim Working\Git\FRAMEWORK\bin\Debug\REPORT.DAO.dll
-D:\Shamim Working\Git\FRAMEWORK\bin\Debug\SECURITY.BLL.dll
-D:\Shamim Working\Git\FRAMEWORK\bin\Debug\SECURITY.DAO.dll
-D:\Shamim Working\Git\FRAMEWORK\bin\Debug\STATIC.dll
-D:\Shamim Working\Git\FRAMEWORK\bin\Debug\API.DAL.dll
-D:\Shamim Working\Git\FRAMEWORK\bin\Debug\API.DATA.pdb
-D:\Shamim Working\Git\FRAMEWORK\bin\Debug\REPORT.DAO.pdb
-D:\Shamim Working\Git\FRAMEWORK\bin\Debug\SECURITY.BLL.pdb
-D:\Shamim Working\Git\FRAMEWORK\bin\Debug\SECURITY.DAO.pdb
-D:\Shamim Working\Git\FRAMEWORK\bin\Debug\STATIC.pdb
-D:\Shamim Working\Git\FRAMEWORK\bin\Debug\API.DAL.pdb
-D:\Shamim Working\Git\FRAMEWORK\obj\Debug\FRAMEWORK.csprojResolveAssemblyReference.cache
-D:\Shamim Working\Git\FRAMEWORK\obj\Debug\FRAMEWORK.dll
-D:\Shamim Working\Git\FRAMEWORK\obj\Debug\FRAMEWORK.pdb
