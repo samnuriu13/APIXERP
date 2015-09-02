@@ -163,6 +163,24 @@ namespace API.UI.ACC
                 }
             }
         }
+        protected void tv_SelectedNodeChanged(object sender, EventArgs e)
+        {
+            //if (e.Node.Checked)
+            //{
+            //    var stack = new Stack<TreeNode>();
+            //    stack.Push(e.Node);
+            //    while (stack.Count > 0)
+            //    {
+            //        var node = stack.Pop();
+            //        node.Checked = true;
+            //        foreach (TreeNode childNode in node.ChildNodes)
+            //        {
+            //            stack.Push(childNode);
+            //        }
+            //    }
+            //}
+        }
+
 
     }
 }
