@@ -229,18 +229,18 @@ namespace API.DAO
             }
         }
 
-        private System.Boolean _IsDeleted;
-        [Browsable(true), DisplayName("IsDeleted")]
-        public System.Boolean IsDeleted
+        private System.Boolean _IsDeleted1;
+        [Browsable(true), DisplayName("IsDeleted1")]
+        public System.Boolean IsDeleted1
         {
             get
             {
-                return _IsDeleted;
+                return _IsDeleted1;
             }
             set
             {
-                if (PropertyChanged(_IsDeleted, value))
-                    _IsDeleted = value;
+                if (PropertyChanged(_IsDeleted1, value))
+                    _IsDeleted1 = value;
             }
         }
 
@@ -264,9 +264,9 @@ namespace API.DAO
         {
             Object[] parameterValues = null;
             if (IsAdded)
-                parameterValues = new Object[] { _CustomCode, _RequisitionDate.Value(StaticInfo.DateFormat), _RequisitionTypeID, _MachineID, _UserID, _CostCenterID, _ProjectID, _DeptID, _Description, _StatusID, _CompanyID, _IsDeleted, _Transfer };
+                parameterValues = new Object[] { _CustomCode, _RequisitionDate.Value(StaticInfo.DateFormat), _RequisitionTypeID, _MachineID, _UserID, _CostCenterID, _ProjectID, _DeptID, _Description, _StatusID, _CompanyID, _IsDeleted1, _Transfer };
             else if (IsModified)
-                parameterValues = new Object[] { _RequisitionID,_CustomCode, _RequisitionDate.Value(StaticInfo.DateFormat), _RequisitionTypeID, _MachineID, _UserID, _CostCenterID, _ProjectID, _DeptID, _Description, _StatusID, _CompanyID, _IsDeleted, _Transfer };
+                parameterValues = new Object[] { _RequisitionID,_CustomCode, _RequisitionDate.Value(StaticInfo.DateFormat), _RequisitionTypeID, _MachineID, _UserID, _CostCenterID, _ProjectID, _DeptID, _Description, _StatusID, _CompanyID, _IsDeleted1, _Transfer };
             else if (IsDeleted)
                 parameterValues = new Object[] { _RequisitionID };
             return parameterValues;
@@ -285,7 +285,7 @@ namespace API.DAO
             _Description = reader.GetString("Description");
             _StatusID = reader.GetInt32("StatusID");
             _CompanyID = reader.GetInt32("CompanyID");
-            _IsDeleted = reader.GetBoolean("IsDeleted");
+            _IsDeleted1 = reader.GetBoolean("IsDeleted");
             _Transfer = reader.GetBoolean("Transfer");
             SetUnchanged();
         }

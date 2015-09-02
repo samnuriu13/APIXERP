@@ -47,7 +47,7 @@
                 </div>
                 <div class="div80Px">
                     <asp:TextBox ID="txtRequisitionNo" runat="server" CssClass="txtwidth93px" Style="width: 75%;"
-                        MaxLength="100"></asp:TextBox>
+                        MaxLength="100" ReadOnly="true"></asp:TextBox>
                     <div style="float: right; margin-left: 5px;">
                         <asp:ImageButton ID="btnNew" runat="server" CssClass="btnImageStyle" ImageUrl="~/images/new 20X20.png" OnClick="btnNew_Click" />
                         <asp:ImageButton ID="btnFind" runat="server" CssClass="btnImageStyle" ImageUrl="~/images/Search 20X20.png" OnClick="btnFind_Click" />
