@@ -3,6 +3,7 @@
     <div style="float: left; width: 40%; padding-bottom: 10px; min-height: 300px;">
         <fieldset class="fieldset-panel" style="min-height: 200px;">
             <legend class="fieldset-legend">Account Heads</legend>
+            <input type="text" id="txtSearch" />
             <div style="overflow: auto; max-height: 400px;">
                 <asp:TreeView ID="tv" runat="server" OnSelectedNodeChanged="tv_SelectedNodeChanged">
                 </asp:TreeView>
@@ -67,9 +68,28 @@
         </fieldset>
     </div>
 </div>
+<style type="text/css">
+    .highlight {
+    background: red;
+  }
+</style>
 <script type="text/javascript">
     $(document).ready(function () {
         $(".readonly").attr("readonly", true);
         $(".readonly").css("background-color", "#EEEEEE");
+
+        $('#txtSearch').on('keyup', function () {
+            var val = $(this).val().toLowerCase()
+            if (val) {
+                $('ul li span a').each(function (idx, obj) {
+                    if ($(obj).text().toLowerCase().indexOf(val) !== -1)
+                        $(obj).addClass('highlight')
+                    else
+                        $(obj).removeClass('highlight')
+                })
+            }
+            else
+                $('ul li span a').removeClass('highlight')
+        });
     });
 </script>
