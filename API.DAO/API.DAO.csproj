@@ -61,6 +61,7 @@
     <Compile Include="CmnDocListFormatDetail.cs" />
     <Compile Include="CmnStatusList.cs" />
     <Compile Include="CmnTransactionType.cs" />
+    <Compile Include="CmnTransactionReference.cs" />
     <Compile Include="CmnWorkFlowDetail.cs" />
     <Compile Include="CmnWorkFlowMaster.cs" />
     <Compile Include="Company.cs" />
