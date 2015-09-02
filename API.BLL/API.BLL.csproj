@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="BankManager.cs" />
     <Compile Include="ContactInfoManager.cs" />
+    <Compile Include="TransactionReferenceManager.cs" />
     <Compile Include="CurrencyManager.cs" />
     <Compile Include="DocListFormatSettingManager.cs" />
     <Compile Include="EntityManager.cs" />
