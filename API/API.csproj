@@ -195,6 +195,7 @@
     <Content Include="UI\Materials\TransferReceive.aspx" />
     <Content Include="UI\Setup\BankAccounSetup.aspx" />
     <Content Include="UI\Setup\ContactInformation.aspx" />
+    <Content Include="UI\Setup\TransactionReference.aspx" />
     <Content Include="UI\Setup\DocListFormatSettings.aspx" />
     <Content Include="UI\Setup\TransactionType.aspx" />
     <Content Include="UI\Setup\WorkFlow.aspx" />
@@ -224,6 +225,7 @@
     <None Include="Properties\PublishProfiles\sa.pubxml" />
     <Content Include="Web.sitemap" />
     <Content Include="Web.config" />
+    <Content Include="SP_Mokhles.docx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -898,6 +900,13 @@
     </Compile>
     <Compile Include="UI\Setup\ContactInformation.aspx.designer.cs">
       <DependentUpon>ContactInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Setup\TransactionReference.aspx.cs">
+      <DependentUpon>TransactionReference.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Setup\TransactionReference.aspx.designer.cs">
+      <DependentUpon>TransactionReference.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Setup\Currency.aspx.cs">
       <DependentUpon>Currency.aspx</DependentUpon>
