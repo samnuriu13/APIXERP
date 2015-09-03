@@ -221,7 +221,9 @@
     <Content Include="ASTReports\BankReconciliation.rdl" />
     <Content Include="ASTReports\GeneralLedger.rdl" />
     <Content Include="ASTReports\PartyLedger.rdl" />
-    <Content Include="SP - MONIR.docx" />
+    <Content Include="DBScript\SP - MONIR.docx" />
+    <Content Include="DBScript\SP - Shaikat.docx" />
+    <Content Include="DBScript\SP_Shantonu.docx" />
     <None Include="Properties\PublishProfiles\sa.pubxml" />
     <Content Include="Web.sitemap" />
     <Content Include="Web.config" />
