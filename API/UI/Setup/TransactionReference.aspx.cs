@@ -14,7 +14,7 @@ using SECURITY.BLL;
 
 namespace API.UI.Setup
 {
-    public partial class TransactionReference : PageBase         
+    public partial class TransactionReference : PageBase
     {
         ApplicationManager _aManager = new ApplicationManager();
         TransactionReferenceManager _manager = new TransactionReferenceManager();
@@ -25,7 +25,7 @@ namespace API.UI.Setup
         }
         #endregion
         #region Session variables
-        private CustomList<CmnTransactionReference> TransactionReferenceList 
+        private CustomList<CmnTransactionReference> TransactionReferenceList
         {
             get
             {
@@ -76,10 +76,23 @@ namespace API.UI.Setup
         {
             try
             {
-                ddlReferenceDetailTable.Text = TransactionReference.TransRef.ToString();
+                    
                 if (TransactionReference.TransRefID != 0)
-                    ddlReferenceDetailTable.SelectedValue = TransactionReference.TransRefID.ToString();
-               
+                    ddlReferenceMasterTable.SelectedValue = TransactionReference.ReferenceMasterTable.ToString();
+                //ddlDetailForeignKey.SelectedValue = TransactionReference.DetailForeignKey.ToString();
+                ddlDetailForeignKey.DataSource = _manager.GetAllDetailForeignKey(TransactionReference.ReferenceDetailTable.ToString());
+                ddlDetailForeignKey.DataTextField = "DetailForeignKey";
+                ddlDetailForeignKey.DataValueField = "DetailForeignKey";
+                ddlDetailForeignKey.DataBind();
+                ddlDetailForeignKey.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+                ddlDetailForeignKey.SelectedIndex = 0;
+                ddlDetailForeignKey.SelectedValue = TransactionReference.DetailForeignKey.ToString();
+
+                ddlReferenceDetailTable.SelectedValue = TransactionReference.ReferenceDetailTable.ToString();  
+                ddlTransactionReferenceName.SelectedValue = TransactionReference.TransRefID.ToString();
+                ddlTransTypeName.SelectedValue = TransactionReference.TransTypeID.ToString();
+                txtTransactionTypeColumn.Text = TransactionReference.TransactionTypeColumn.ToString();
+
             }
             catch (Exception ex)
             {
@@ -101,9 +114,10 @@ namespace API.UI.Setup
         }
         private void InitializeCombo()
         {
-            ddlReferenceMasterTable.DataSource = _manager.GetAllReferenceType();
-            ddlReferenceMasterTable.DataTextField = "ReferenceDetailTable";
-            ddlReferenceMasterTable.DataValueField = "ReferenceDetailTable";
+           // ddlReferenceMasterTable.DataSource = _manager.GetAllReferenceType();
+            ddlReferenceMasterTable.DataSource = _manager.GetAllReferenceMasterTable();
+            ddlReferenceMasterTable.DataTextField = "ReferenceMasterTable";
+            ddlReferenceMasterTable.DataValueField = "ReferenceMasterTable";
             ddlReferenceMasterTable.DataBind();
             ddlReferenceMasterTable.Items.Insert(0, new ListItem(String.Empty, String.Empty));
             ddlReferenceMasterTable.SelectedIndex = 0;
@@ -126,7 +140,7 @@ namespace API.UI.Setup
             ddlTransactionReferenceName.DataTextField = "TransTypeName";
             ddlTransactionReferenceName.DataValueField = "TransTypeID";
             ddlTransactionReferenceName.DataBind();
-            ddlTransactionReferenceName.Items.Insert(0,new ListItem(String.Empty,String.Empty));
+            ddlTransactionReferenceName.Items.Insert(0, new ListItem(String.Empty, String.Empty));
             ddlTransactionReferenceName.SelectedIndex = 0;
         }
         private void SetDataFromControlToObj(ref CustomList<CmnTransactionReference> lstTransactionReference)
@@ -135,6 +149,8 @@ namespace API.UI.Setup
             {
                 CmnTransactionReference obj = lstTransactionReference[0];
                 obj.CustomCode = "0";
+                obj.ReferenceName = "0";
+                obj.TypeName = "0";
                 obj.TransRefID = ddlReferenceMasterTable.SelectedValue.ToInt();
                 obj.ReferenceMasterTable = ddlReferenceMasterTable.SelectedItem.Text;
                 obj.ReferenceDetailTable = ddlReferenceDetailTable.SelectedItem.Text;
@@ -167,12 +183,14 @@ namespace API.UI.Setup
         {
             try
             {
-                CustomList<CmnTransactionReference> items = _manager.GetAllReferenceType();
-                Dictionary<string, string> columns = new Dictionary<string, string>();    
+                //CustomList<CmnTransactionReference> items = _manager.GetAllReferenceType();
+                CustomList<CmnTransactionReference> items = _manager.GetAllCmnTransactionReferenceFind();
+                Dictionary<string, string> columns = new Dictionary<string, string>();
 
-                columns.Add("TransRef", "Transaction Reference");
+                columns.Add("ReferenceName", "ReferenceName");
+                columns.Add("TypeName", "TypeName");
 
-                StaticInfo.SearchItem(items, "TransRef", "SearchTransactionReference", FRAMEWORK.SearchColumnConfig.GetColumnConfig(typeof(CmnTransactionReference), columns), 500);
+                StaticInfo.SearchItem(items, "Search Transaction Reference", "SearchTransactionReference", FRAMEWORK.SearchColumnConfig.GetColumnConfig(typeof(CmnTransactionReference), columns), 500);
             }
             catch (Exception ex)
             {
@@ -230,12 +248,35 @@ namespace API.UI.Setup
                 throw (ex);
             }
         }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CustomList<CmnTransactionReference> lstTransactionReference = (CustomList<CmnTransactionReference>)TransactionReferenceList;
+                lstTransactionReference.ForEach(f => f.Delete());
+                if (CheckUserAuthentication(lstTransactionReference).IsFalse()) return;
+                _manager.SaveTransactionReference(ref lstTransactionReference);
+                ClearControls();
+                InitializeSession();
+                this.ErrorMessage = (StaticInfo.DeletedSuccessfullyMsg);
+            }
+            catch (SqlException ex)
+            {
+                ((PageBase)this.Page).ErrorMessage = (ExceptionHelper.getSqlExceptionMessage(ex));
+            }
+            catch (Exception ex)
+            {
+                ((PageBase)this.Page).ErrorMessage = (ExceptionHelper.getExceptionMessage(ex));
+            }
+
+        }
         #endregion
 
         #region Selected Index Changed Event
         protected void ddlReferenceDetailTable_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(ddlReferenceDetailTable.SelectedValue!="")
+            if (ddlReferenceDetailTable.SelectedValue != "")
             {
                 ddlDetailForeignKey.DataSource = _manager.GetAllDetailForeignKey(ddlReferenceDetailTable.SelectedValue.ToString());
                 ddlDetailForeignKey.DataTextField = "DetailForeignKey";

@@ -59,8 +59,24 @@
                 <div style="float: left; width: 40%; padding-bottom: 10px; min-height: 300px;">
                     <fieldset class="fieldset-panel" style="min-height: 200px;">
                         <legend class="fieldset-legend">Account Heads</legend>
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                            <ContentTemplate>
+                                <asp:TextBox ID="txtName" runat="server" Width="150px" ReadOnly="false"
+                                    BorderStyle="Double">
+                                </asp:TextBox>
+                            </ContentTemplate>
+                            <Triggers>
+                                <asp:AsyncPostBackTrigger ControlID="tv" EventName="SelectedNodeChanged" />
+                            </Triggers>
+                        </asp:UpdatePanel>
                         <div style="overflow: auto; max-height: 400px;">
-                            <asp:TreeView ID="tv" runat="server" OnTreeNodeCheckChanged="tv_TreeNodeCheckChanged" ShowCheckBoxes="All" >
+                            <%--<asp:TreeView ID="tv" runat="server" OnTreeNodeCheckChanged="tv_TreeNodeCheckChanged" ShowCheckBoxes="All">
+                            </asp:TreeView>--%>
+                            <asp:TreeView ID="tv" runat="server" ImageSet="Arrows"
+                                OnSelectedNodeChanged="tv_SelectedNodeChanged">
+                                <NodeStyle Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" HorizontalPadding="5px"
+                                    NodeSpacing="0px" VerticalPadding="0px" />
+                                <SelectedNodeStyle CssClass="treeHover"></SelectedNodeStyle>
                             </asp:TreeView>
                         </div>
                     </fieldset>
@@ -81,7 +97,7 @@
         <br />
         <div class="form-bottom">
             <div class="btnRight">
-                <asp:Button ID="btnSave" runat="server" CssClass="button" Text="Save"/>
+                <asp:Button ID="btnSave" runat="server" CssClass="button" Text="Save" />
             </div>
         </div>
     </div>

@@ -18,7 +18,7 @@ namespace API.UI.Setup
     {
         ApplicationManager _aManager = new ApplicationManager();
         TransactionTypeManager _manager = new TransactionTypeManager();
-        #region Constructur
+        #region Constructor
         public TransactionType()
         {
             RequiresAuthorization = true;
@@ -203,6 +203,28 @@ namespace API.UI.Setup
             {
                 throw (ex);
             }
+        }
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CustomList<CmnTransactionType> lstTransactionType = (CustomList<CmnTransactionType>)TransactionTypeList;
+                lstTransactionType.ForEach(f => f.Delete());
+                if (CheckUserAuthentication(lstTransactionType).IsFalse()) return;
+                _manager.SaveTransactionType(ref lstTransactionType);
+                ClearControls();
+                InitializeSession();
+                this.ErrorMessage = (StaticInfo.DeletedSuccessfullyMsg);
+            }
+            catch (SqlException ex)
+            {
+                ((PageBase)this.Page).ErrorMessage = (ExceptionHelper.getSqlExceptionMessage(ex));
+            }
+            catch (Exception ex)
+            {
+                ((PageBase)this.Page).ErrorMessage = (ExceptionHelper.getExceptionMessage(ex));
+            }
+
         }
         #endregion
     }

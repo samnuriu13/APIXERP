@@ -747,16 +747,16 @@ namespace API.DAO
             _ItemDescription = reader.GetString("ItemDescription");
             _GroupName = reader.GetString("GroupName");
             _SubGroupName = reader.GetString("SubGroupName");
-            _SegValue1 = reader.GetString("SegValue1");
-            _SegValue2 = reader.GetString("SegValue2");
-            _SegValue3 = reader.GetString("SegValue3");
-            _SegValue4 = reader.GetString("SegValue4");
-            _SegValue5 = reader.GetString("SegValue5");
-            _SegValue6 = reader.GetString("SegValue6");
-            _SegValue7 = reader.GetString("SegValue7");
-            _SegValue8 = reader.GetString("SegValue8");
-            _SegValue9 = reader.GetString("SegValue9");
-            _SegValue10 = reader.GetString("SegValue10");
+            ////_SegValue1 = reader.GetString("SegValue1");
+            ////_SegValue2 = reader.GetString("SegValue2");
+            ////_SegValue3 = reader.GetString("SegValue3");
+            ////_SegValue4 = reader.GetString("SegValue4");
+            ////_SegValue5 = reader.GetString("SegValue5");
+            ////_SegValue6 = reader.GetString("SegValue6");
+            ////_SegValue7 = reader.GetString("SegValue7");
+            ////_SegValue8 = reader.GetString("SegValue8");
+            ////_SegValue9 = reader.GetString("SegValue9");
+            ////_SegValue10 = reader.GetString("SegValue10");
             SetUnchanged();
         }
         private void SetDataItem(IDataRecord reader)

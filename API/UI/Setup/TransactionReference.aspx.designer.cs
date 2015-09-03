@@ -13,13 +13,13 @@ namespace API.UI.Setup {
     public partial class TransactionReference {
         
         /// <summary>
-        /// ddlTransTypeName control.
+        /// ddlTransactionReferenceName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTransTypeName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTransactionReferenceName;
         
         /// <summary>
         /// btnNew control.
@@ -58,13 +58,13 @@ namespace API.UI.Setup {
         protected global::System.Web.UI.WebControls.DropDownList ddlDetailForeignKey;
         
         /// <summary>
-        /// ddlTransactionReferenceName control.
+        /// ddlTransTypeName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTransactionReferenceName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTransTypeName;
         
         /// <summary>
         /// ddlReferenceDetailTable control.

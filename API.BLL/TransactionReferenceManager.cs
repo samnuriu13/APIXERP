@@ -19,6 +19,14 @@ namespace API.BLL
         {
             return CmnTransactionReference.GetAllReferenceType();
         }
+        public CustomList<CmnTransactionReference> GetAllReferenceMasterTable()
+        {
+            return CmnTransactionReference.GetAllReferenceMasterTable();
+        }
+        public CustomList<CmnTransactionReference> GetAllCmnTransactionReferenceFind()
+        {
+            return CmnTransactionReference.GetAllCmnTransactionReferenceFind();
+        }
         public CustomList<PopulateDropdownList> GetAllReferenceTransaction(Int32 TransRefID,Int32 TransRef)   
         {
             return PopulateDropdownList.GetAllReferenceTransaction(TransRefID, TransRef);

@@ -13,6 +13,10 @@ namespace API.BLL
         {
             return ContactInfo.GetAllContactInfo();
         }
+        public CustomList<ContactInfo> GetAllEmployee()
+        {
+            return ContactInfo.GetAllEmployee();
+        }
         public CustomList<ContactType> GetAllContactType()
         {
             return ContactType.GetAllContactType();
@@ -78,7 +82,7 @@ namespace API.BLL
                 }
                 foreach (ContactDetail cD in lstContactDetail)
                 {
-                    ContactDetail obj = ContactDetailList.Find(f=>f.ContactTypeID==cD.ContactTypeID);
+                    ContactDetail obj = ContactDetailList.Find(f => f.ContactTypeID == cD.ContactTypeID);
                     if (obj.IsNotNull())
                         obj.SetModified();
                     else

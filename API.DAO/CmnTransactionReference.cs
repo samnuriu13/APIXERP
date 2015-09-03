@@ -47,6 +47,36 @@ namespace API.DAO
                 if (PropertyChanged(_CustomCode, value))
                     _CustomCode = value;
             }
+        }  
+
+        private System.String _ReferenceName;
+        [Browsable(true), DisplayName("ReferenceName")]
+        public System.String ReferenceName
+        {
+            get
+            {
+                return _ReferenceName;
+            }
+            set
+            {
+                if (PropertyChanged(_ReferenceName, value))
+                    _ReferenceName = value;
+            }
+        }        
+
+        private System.String _TypeName;
+        [Browsable(true), DisplayName("TypeName")]
+        public System.String TypeName
+        {
+            get
+            {
+                return _TypeName;
+            }
+            set
+            {
+                if (PropertyChanged(_TypeName, value))
+                    _TypeName = value;
+            }
         }
 
         private System.Int32 _TransRef;
@@ -159,9 +189,9 @@ namespace API.DAO
         {
             Object[] parameterValues = null;
             if (IsAdded)
-                parameterValues = new Object[] { _TransRefID, _CustomCode, _TransRef, _TransTypeID, _ReferenceMasterTable, _ReferenceDetailTable, _DetailForeignKey, _TransactionTypeColumn, _CompanyID };
+                parameterValues = new Object[] { _CustomCode,_ReferenceName,_TypeName, _TransRef, _TransTypeID, _ReferenceMasterTable, _ReferenceDetailTable, _DetailForeignKey, _TransactionTypeColumn, _CompanyID };
             else if (IsModified)
-                parameterValues = new Object[] { _TransRefID, _CustomCode, _TransRef, _TransTypeID, _ReferenceMasterTable, _ReferenceDetailTable, _DetailForeignKey, _TransactionTypeColumn, _CompanyID };
+                parameterValues = new Object[] { _TransRefID, _CustomCode,_ReferenceName,_TypeName,_TransRef, _TransTypeID, _ReferenceMasterTable, _ReferenceDetailTable, _DetailForeignKey, _TransactionTypeColumn, _CompanyID };
             else if (IsDeleted)
                 parameterValues = new Object[] { _TransRefID };
             return parameterValues;
@@ -170,6 +200,8 @@ namespace API.DAO
         {
             _TransRefID = reader.GetInt32("TransRefID");
             _CustomCode = reader.GetString("CustomCode");
+            _ReferenceName = reader.GetString("ReferenceName");
+            _TypeName=reader.GetString("TypeName");
             _TransRef = reader.GetInt32("TransRef");
             _TransTypeID = reader.GetInt32("TransTypeID");
             _ReferenceMasterTable = reader.GetString("ReferenceMasterTable");
@@ -220,7 +252,7 @@ namespace API.DAO
             ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
             CustomList<CmnTransactionReference> CmnTransRefCollection = new CustomList<CmnTransactionReference>();
             IDataReader reader = null;
-            const String sql = "select TABLE_NAME as ReferenceDetailTable,1 as TransRefID,'1' as CustomCode,1 as TransRef,1 as TransTypeID,'1' as ReferenceMasterTable,'1' as DetailForeignKey,'1' as TransactionTypeColumn, 1 as CompanyID from API.INFORMATION_SCHEMA.TABLES";
+            const String sql = "select TABLE_NAME as ReferenceDetailTable,1 as TransRefID,'1' as CustomCode,'1' as ReferenceName,'1' as TypeName,1 as TransRef,1 as TransTypeID,'1' as ReferenceMasterTable,'1' as DetailForeignKey,'1' as TransactionTypeColumn, 1 as CompanyID from API.INFORMATION_SCHEMA.TABLES";
             try
             {
                 conManager.OpenDataReader(sql, out reader);
@@ -246,12 +278,74 @@ namespace API.DAO
             }
         }
 
+        public static CustomList<CmnTransactionReference> GetAllReferenceMasterTable()
+        {
+            ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
+            CustomList<CmnTransactionReference> CmnTransRefCollection = new CustomList<CmnTransactionReference>();
+            IDataReader reader = null;
+            const String sql = "select '1' as ReferenceDetailTable,1 as TransRefID,'1' as CustomCode,'1' as ReferenceName,'1' as TypeName,1 as TransRef,1 as TransTypeID,TABLE_NAME as ReferenceMasterTable,'1' as DetailForeignKey,'1' as TransactionTypeColumn, 1 as CompanyID from API.INFORMATION_SCHEMA.TABLES";
+            try
+            {
+                conManager.OpenDataReader(sql, out reader);
+                while (reader.Read())
+                {
+                    CmnTransactionReference newCmnTransactionReference = new CmnTransactionReference();
+                    newCmnTransactionReference.SetData(reader);
+                    CmnTransRefCollection.Add(newCmnTransactionReference);
+                }
+                CmnTransRefCollection.InsertSpName = "spInsertCmnTransRef";
+                CmnTransRefCollection.UpdateSpName = "spUpdateCmnTransRef";
+                CmnTransRefCollection.DeleteSpName = "spDeleteCmnTransRef";
+                return CmnTransRefCollection;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                    reader.Close();
+            }
+        }
+
+        public static CustomList<CmnTransactionReference> GetAllCmnTransactionReferenceFind()
+        {
+            ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
+            CustomList<CmnTransactionReference> CmnTransRefCollection = new CustomList<CmnTransactionReference>();
+            IDataReader reader = null;
+            const String sql = " SELECT CTTrTy.TransTypeName ReferenceName, CTT.TransTypeName TypeName, CTR.* FROM CmnTransRef CTR INNER JOIN CmnTransactionType CTTrTy ON CTR.TransRef = CTTrTy.TransTypeID INNER JOIN CmnTransactionType CTT ON CTR.TransTypeID = CTT.TransTypeID ";
+            try
+            {
+                conManager.OpenDataReader(sql, out reader);
+                while (reader.Read())
+                {
+                    CmnTransactionReference newCmnTransactionReference = new CmnTransactionReference();
+                    newCmnTransactionReference.SetData(reader);
+                    CmnTransRefCollection.Add(newCmnTransactionReference);
+                }
+                CmnTransRefCollection.InsertSpName = "spInsertCmnTransRef";
+                CmnTransRefCollection.UpdateSpName = "spUpdateCmnTransRef";
+                CmnTransRefCollection.DeleteSpName = "spDeleteCmnTransRef";
+                return CmnTransRefCollection;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                    reader.Close();
+            }
+        } 
+
         public static CustomList<CmnTransactionReference> GetAllDetailForeignKey(string referenceDetailTables)
         {
             ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
             CustomList<CmnTransactionReference> CmnTransRefCollection = new CustomList<CmnTransactionReference>();
             IDataReader reader = null;
-            string sql = "select '1' as ReferenceDetailTable,1 as TransRefID,'1' as CustomCode,1 as TransRef, 1 as TransTypeID,'1' as ReferenceMasterTable,COLUMN_NAME as DetailForeignKey,'1' as TransactionTypeColumn,  1 as CompanyID from API.INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = '" + referenceDetailTables + "'";
+            string sql = "select '1' as ReferenceDetailTable,1 as TransRefID,'1' as CustomCode, '1' as ReferenceName,'1' as TypeName,1 as TransRef, 1 as TransTypeID,'1' as ReferenceMasterTable,COLUMN_NAME as DetailForeignKey,'1' as TransactionTypeColumn,  1 as CompanyID from API.INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = '" + referenceDetailTables + "'";
             try
             {
                 conManager.OpenDataReader(sql, out reader);

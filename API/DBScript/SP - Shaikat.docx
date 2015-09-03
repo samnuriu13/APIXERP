@@ -1,0 +1,101 @@
+ALTER PROC [dbo].[spUpdateCmnTransactionType]
+    @TransTypeID int,
+	@CustomCode nvarchar(50),
+	@TransTypeName nvarchar(100),
+	@DocListID int,
+	@IsStockUpdate bit,
+	@IsAccountingUpdate bit,
+	@IsCostingUpdate bit,
+	@ProjectID int,
+	@CostCenterID int,
+	@CompanyID int,
+	@IsDeleted bit,
+	@Transfer bit
+As
+Begin
+
+	Update CmnTransactionType
+	Set CustomCode = @CustomCode, 
+		TransTypeName = @TransTypeName, 
+		DocListID = @DocListID, 
+		IsStockUpdate = @IsStockUpdate, 
+		IsAccountingUpdate = @IsAccountingUpdate, 
+		IsCostingUpdate = @IsCostingUpdate, 
+		ProjectID = @ProjectID, 
+		CostCenterID = @CostCenterID, 
+		CompanyID = @CompanyID, 
+		IsDeleted = @IsDeleted, 
+		Transfer = @Transfer
+	Where TransTypeID = @TransTypeID 
+	
+
+End
+GO
+ALTER PROC [dbo].[spInsertCmnTransactionType]
+	@CustomCode nvarchar(50),
+	@TransTypeName nvarchar(100),
+	@DocListID int,
+	@IsStockUpdate bit,
+	@IsAccountingUpdate bit,
+	@IsCostingUpdate bit,
+	@ProjectID int,
+	@CostCenterID int,
+	@CompanyID int,
+	@IsDeleted bit,
+	@Transfer bit
+As
+Begin
+
+	Insert Into CmnTransactionType	(CustomCode, TransTypeName, DocListID, IsStockUpdate, 
+		IsAccountingUpdate, IsCostingUpdate, ProjectID, CostCenterID, CompanyID, 
+		IsDeleted, Transfer)
+	Values(@CustomCode, @TransTypeName, @DocListID, @IsStockUpdate, 
+		@IsAccountingUpdate, @IsCostingUpdate, @ProjectID, @CostCenterID, @CompanyID, 
+		@IsDeleted, @Transfer)
+
+End
+GO
+
+ALTER PROC [dbo].[spDeleteCmnTransactionType]
+	@TransTypeID int
+As
+Begin
+
+	Delete CmnTransactionType
+	Where TransTypeID = @TransTypeID 
+
+End
+GO
+ALTER PROC [dbo].[spInsertCmnTransactionReference]
+	 @TransRefID int,
+	@CustomCode nvarchar(50),
+	@TransRef int,
+	@TransTypeID int,
+	@ReferenceMasterTable nvarchar(200),
+	@ReferenceDetailTable nvarchar(200),
+	@DetailForeignKey nvarchar(200),
+	@TransactionTypeColumn nvarchar(200),
+	@CompanyID int
+As
+Begin
+
+	Insert Into CmnTransRef	( CustomCode, TransRef, TransTypeID, 
+		ReferenceMasterTable, ReferenceDetailTable, DetailForeignKey, TransactionTypeColumn, CompanyID)
+	Values( @CustomCode, @TransRef, @TransTypeID, 
+		@ReferenceMasterTable, @ReferenceDetailTable, @DetailForeignKey, @TransactionTypeColumn, @CompanyID)
+
+End
+GO
+
+ALTER PROC [dbo].[spDeleteCmnTransactionReference]
+	@TransRefID int
+As
+Begin
+
+	Delete CmnTransRef
+	Where TransRefID = @TransRefID 
+	
+
+End
+GO
+

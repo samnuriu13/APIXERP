@@ -7,15 +7,20 @@
         <div class="form-details">
             <div style="width: 100%; height: auto; margin-top: 5px">
                 <div style="float: left; width: 60%">
-                    <div class="lblAndTxtStyle">
-                        <div class="divlblwidth100px bglbl">
-                            <a>Transaction Type Name</a>
+                    <div class="lblAndTxtStyle"> 
+                         <div class="divlblwidth100px bglbl">
+                            <a>Transaction Reference  Name</a>
+                             <span class="r2">*</span>
                         </div>
-                        <div class="div80Px">
-                            <asp:DropDownList ID="ddlTransTypeName" runat="server" CssClass="drpwidth180px">
+                        <div class="div182Px">
+                            <asp:DropDownList ID="ddlTransactionReferenceName" runat="server" CssClass="drpwidth180px">
                             </asp:DropDownList>
+                            
+                            
+                            
                             <asp:ImageButton ID="btnNew" runat="server" CssClass="btnImageStyle" ImageUrl="~/images/new 20X20.png" OnClick="btnNew_Click" />
                             <asp:ImageButton ID="btnFind" runat="server" CssClass="btnImageStyle" ImageUrl="~/images/Search 20X20.png" OnClick="btnFind_Click" />
+
                         </div>
                     </div>
                     <div class="lblAndTxtStyle">
@@ -46,14 +51,13 @@
                 <div style="float: left; width: 40%">
                     <div class="lblAndTxtStyle">
 
-                        <div class="divlblwidth100px bglbl">
-                            <a>Transaction Reference  Name</a>
+                       <div class="divlblwidth100px bglbl">
+                            <a>Transaction Type Name</a>
                         </div>
-                        <div class="div182Px">
-                            <asp:DropDownList ID="ddlTransactionReferenceName" runat="server" CssClass="drpwidth180px">
+                        <div class="div80Px">
+                            <asp:DropDownList ID="ddlTransTypeName" runat="server" CssClass="drpwidth180px">
                             </asp:DropDownList>
-
-                        </div>
+                        </div> 
 
                     </div>
                     <div class="lblAndTxtStyle">
@@ -71,7 +75,7 @@
                             <a>Transaction Type Column</a>
                         </div>
                         <div class="div80Px">
-                            <asp:TextBox ID="txtTransactionTypeColumn" runat="server" CssClass="txtwidth93px" Style="width: 80%;"
+                            <asp:TextBox ID="txtTransactionTypeColumn" runat="server" CssClass="txtwidth93px" Style="width: 100%;"
                                 MaxLength="100"></asp:TextBox>
                         </div>
                     </div>
@@ -84,7 +88,7 @@
         <br />
         <div class="form-bottom">
             <div class="btnRight">
-                <asp:Button ID="btnDelete" runat="server" CssClass="button" Text="Delete" />
+                <asp:Button ID="btnDelete" runat="server" CssClass="button" Text="Delete" OnClick="btnDelete_Click" />
             </div>
             <div class="btnRight">
                 <asp:Button ID="btnCancel" runat="server" CssClass="button" Text="Cancel" OnClick="btnCancel_Click" />
