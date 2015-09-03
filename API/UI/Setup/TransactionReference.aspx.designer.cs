@@ -10,16 +10,16 @@
 namespace API.UI.Setup {
     
     
-    public partial class TransactionType {
+    public partial class TransactionReference {
         
         /// <summary>
-        /// txtTransactionTypeName control.
+        /// ddlTransactionReferenceName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTransactionTypeName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTransactionReferenceName;
         
         /// <summary>
         /// btnNew control.
@@ -40,13 +40,49 @@ namespace API.UI.Setup {
         protected global::System.Web.UI.WebControls.ImageButton btnFind;
         
         /// <summary>
-        /// ddlDocList control.
+        /// ddlReferenceMasterTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDocList;
+        protected global::System.Web.UI.WebControls.DropDownList ddlReferenceMasterTable;
+        
+        /// <summary>
+        /// ddlDetailForeignKey control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDetailForeignKey;
+        
+        /// <summary>
+        /// ddlTransTypeName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTransTypeName;
+        
+        /// <summary>
+        /// ddlReferenceDetailTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlReferenceDetailTable;
+        
+        /// <summary>
+        /// txtTransactionTypeColumn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTransactionTypeColumn;
         
         /// <summary>
         /// btnDelete control.
