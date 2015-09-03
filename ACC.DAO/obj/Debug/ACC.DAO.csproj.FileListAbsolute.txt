@@ -17,6 +17,6 @@ F:\GIT_HUB\APIXERP\ACC.DAO\bin\Debug\STATIC.dll
 F:\GIT_HUB\APIXERP\ACC.DAO\bin\Debug\API.DAL.pdb
 F:\GIT_HUB\APIXERP\ACC.DAO\bin\Debug\API.DATA.pdb
 F:\GIT_HUB\APIXERP\ACC.DAO\bin\Debug\STATIC.pdb
+F:\GIT_HUB\APIXERP\ACC.DAO\obj\Debug\ACC.DAO.csprojResolveAssemblyReference.cache
 F:\GIT_HUB\APIXERP\ACC.DAO\obj\Debug\ACC.DAO.dll
 F:\GIT_HUB\APIXERP\ACC.DAO\obj\Debug\ACC.DAO.pdb
-F:\GIT_HUB\APIXERP\ACC.DAO\obj\Debug\ACC.DAO.csprojResolveAssemblyReference.cache
