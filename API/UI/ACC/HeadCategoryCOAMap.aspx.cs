@@ -18,6 +18,7 @@ namespace API.UI.ACC
 {
     public partial class HeadCategoryCOAMap : PageBase
     {
+        HeadCategoryManager hCM = new HeadCategoryManager();
         #region Session & ViewState
         public CustomList<Acc_COA> _COA
         {
@@ -69,6 +70,7 @@ namespace API.UI.ACC
                 loadCOA();
                 populateTreeView();
                 tv.CollapseAll();
+                InitializeCombo();
             }
         }
 
@@ -179,6 +181,33 @@ namespace API.UI.ACC
             //        }
             //    }
             //}
+        }
+        private void InitializeCombo()
+        {
+            CustomList<PopulateDropdownList> lstDropdown = new CustomList<PopulateDropdownList>();
+            foreach (int value in Enum.GetValues(typeof(enumsHr.enumReportType)))
+            {
+                lstDropdown.Add(new PopulateDropdownList
+                {
+                    Text = Enum.GetName(typeof(enumsHr.enumReportType), value),
+                    ValueField = value
+                });
+            }
+
+            ddlReportType.DataSource = lstDropdown;
+            ddlReportType.DataTextField = "Text";
+            ddlReportType.DataValueField = "ValueField";
+            ddlReportType.DataBind();
+            ddlReportType.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+            ddlReportType.SelectedIndex = 0;
+
+
+            ddlHeadCategory.DataSource = hCM.GetAllAccReportConfigurationHeadCategory();
+            ddlHeadCategory.DataTextField = "HeadCategoryName";
+            ddlHeadCategory.DataValueField = "HeadCategoryID";
+            ddlHeadCategory.DataBind();
+            ddlHeadCategory.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+            ddlHeadCategory.SelectedIndex = 0;
         }
 
 

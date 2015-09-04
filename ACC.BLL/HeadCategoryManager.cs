@@ -49,6 +49,10 @@ namespace ACC.BLL
                }
            }
        }
+       //public CustomList<AccReportConfigurationHeadCategory> GetHeadCategory()
+       //{
+       //    return AccReportConfigurationHeadCategory.GetAllAccReportConfigurationHeadCategory();
+       //}
        private void ReSetSPName(CustomList<AccReportConfigurationHeadCategory> lstHeadCategory)
        {
            #region Head Category

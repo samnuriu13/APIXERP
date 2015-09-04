@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cphInfbody" runat="server">
     <div class="form-wrapper">
         <div class="form-header">
-            <asp:Label ID="lblFrmHeader" runat="server" Text="Head Category"></asp:Label>
+            <asp:Label ID="lblFrmHeader" runat="server" Text="Head Category COA Map"></asp:Label>
         </div>
         <div class="form-details">
             <div style="width: 40%; float: left">
