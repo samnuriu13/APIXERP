@@ -21,7 +21,16 @@ namespace API.BLL
         //{
         //    return SegmentValues.GetAllSegmentValues(segmentNameID);
         //}
-       public void SaveDocListFormat(ref CustomList<CmnDocListFormat> lstCmnDocListFormat, ref CustomList<CmnDocListFormatDetail> lstCmnDocListFormatDetail)
+       public CustomList<CmnDocListFormat> GetAllDocListFormatFind()
+       {
+          return CmnDocListFormat.GetAllDocListFormatFind();
+       }
+       public CustomList<CmnDocListFormatDetail> GetAllDocListFormat_Detail(Int32 docListFormatID)
+       {
+           return CmnDocListFormatDetail.GetAllDocListFormat_Detail(docListFormatID);
+       }
+
+       public void SaveDocListFormat(ref CustomList<CmnDocListFormat> DocListFormatList, ref CustomList<CmnDocListFormatDetail> DocListFormatDetailList)
         {
             ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
             Boolean blnTranStarted = false;
@@ -30,19 +39,19 @@ namespace API.BLL
             {
                 conManager.BeginTransaction();
 
-                //ReSetSPName(lstCmnDocListFormat, lstCmnDocListFormatDetail);
-                //Int32 SegNameID = lstSegmentNames[0].SegNameID;
-                //blnTranStarted = true;
-                //if (lstSegmentNames[0].IsAdded)
-                //    SegNameID = Convert.ToInt32(conManager.InsertData(blnTranStarted, lstSegmentNames));
-                //else
-                //    conManager.SaveDataCollectionThroughCollection(blnTranStarted, lstSegmentNames);
-                //var SegmentValues = (CustomList<SegmentValues>)lstSegmentValues;
-                //SegmentValues.ForEach(x => x.SegNameID = SegNameID);
-                //conManager.SaveDataCollectionThroughCollection(blnTranStarted, SegmentValues);
+                ReSetSPName(DocListFormatList, DocListFormatDetailList);
+                Int32 docListFormatKey = DocListFormatList[0].DocListFormatID;
+                blnTranStarted = true;
+                if (DocListFormatList[0].IsAdded)
+                    docListFormatKey = Convert.ToInt32(conManager.InsertData(blnTranStarted, DocListFormatList));
+                 else
+                    conManager.SaveDataCollectionThroughCollection(blnTranStarted, DocListFormatList);
+                var docListFormatDetail = (CustomList<CmnDocListFormatDetail>)DocListFormatDetailList;
+                docListFormatDetail.ForEach(x => x.DocListFormatID = docListFormatKey);
+                conManager.SaveDataCollectionThroughCollection(blnTranStarted, docListFormatDetail);
 
-                //lstSegmentNames.AcceptChanges();
-                //lstSegmentValues.AcceptChanges();
+                DocListFormatList.AcceptChanges();
+                DocListFormatDetailList.AcceptChanges();
 
                 conManager.CommitTransaction();
                 blnTranStarted = false;
@@ -95,7 +104,7 @@ namespace API.BLL
             #region Segment Name
             lstCmnDocListFormat.InsertSpName = "spInsertCmnDocListFormat";
             lstCmnDocListFormat.UpdateSpName = "spUpdateCmnDocListFormat";
-            lstCmnDocListFormat.DeleteSpName = "spDeleteSegmentNames";
+            lstCmnDocListFormat.DeleteSpName = "spDeleteCmnDocListFormat";
             #endregion
             #region Segment Value
             lstCmnDocListFormatDetail.InsertSpName = "spInsertCmnDocListFormatDetail";

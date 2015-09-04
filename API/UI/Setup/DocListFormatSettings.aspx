@@ -13,10 +13,10 @@
                     </div>
                     <div class="div80Px">
                         <asp:TextBox ID="txtCustomCode" runat="server" CssClass="txtwidth93px" Style="width: 75%;"
-                            MaxLength="100" ReadOnly="true"></asp:TextBox>
+                            MaxLength="100" ReadOnly="false"></asp:TextBox>
                         <div style="float: right; margin-left: 5px;">
                             <asp:ImageButton ID="btnNew" runat="server" CssClass="btnImageStyle" ImageUrl="~/images/new 20X20.png" />
-                            <asp:ImageButton ID="btnFind" runat="server" CssClass="btnImageStyle" ImageUrl="~/images/Search 20X20.png" />
+                            <asp:ImageButton ID="btnFind" runat="server" CssClass="btnImageStyle" ImageUrl="~/images/Search 20X20.png" OnClick="btnFind_Click" />
                         </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                 <asp:Button ID="btnCancel" runat="server" CssClass="button" Text="Cancel" />
             </div>
             <div class="btnRight">
-                <asp:Button ID="btnSave" runat="server" CssClass="button" Text="Save" ValidationGroup="save" />
+                <asp:Button ID="btnSave" runat="server" CssClass="button" Text="Save" ValidationGroup="save" OnClick="btnSave_Click"/>
             </div>
         </div>
     </div>
