@@ -13,7 +13,7 @@ namespace API.BLL
         {
             return ItemGroup.GetAllItemGroup();
         }
-
+        //
         public CustomList<ItemGroup> GetAllSubGroupApplicableItemGroup()
         {
             return ItemGroup.GetAllSubGroupApplicableItemGroup();
