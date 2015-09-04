@@ -78,6 +78,21 @@ namespace API.DAO
 			}
 		}
 
+        private System.String _Description;
+        [Browsable(true), DisplayName("Description")]
+        public System.String Description 
+		{
+			get
+			{
+                return _Description;
+			}
+			set
+			{
+                if (PropertyChanged(_Description, value))
+                    _Description = value;
+			}
+		}
+
 		private System.String _Suffix;
 		[Browsable(true), DisplayName("Suffix")]
 		public System.String Suffix 
@@ -200,6 +215,7 @@ namespace API.DAO
 			_DocListFormatID = reader.GetInt32("DocListFormatID");
 			_CustomCode = reader.GetString("CustomCode");
 			_DocListId = reader.GetInt32("DocListId");
+            _Description = reader.GetString("Description");
 			_Prefix = reader.GetString("Prefix");
 			_Suffix = reader.GetString("Suffix");
 			_PeriodType = reader.GetString("PeriodType");
@@ -210,12 +226,43 @@ namespace API.DAO
 			_Transfer = reader.GetBoolean("Transfer");
 			SetUnchanged();
 		}
+        public static CustomList<CmnDocListFormat> GetAllDocListFormatFind()
+        {
+            ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
+            CustomList<CmnDocListFormat> CmnDocListFormatCollection = new CustomList<CmnDocListFormat>();
+            IDataReader reader = null;
+            const String sql = "SELECT a.DocListFormatID,a.CustomCode,a.DocListId,a.Prefix,a.Suffix,a.PeriodType,a.Project,a.CostCentre,a.CompanyID, a.IsDeleted,a.Transfer, b.Description FROM API.dbo.CmnDocListFormat a inner join  APISysMan.dbo.Menu b  ON a.DocListId=b.MenuID";    
+            try
+            {
+                conManager.OpenDataReader(sql, out reader);
+                while (reader.Read())
+                {
+                    CmnDocListFormat newCmnDocListFormat = new CmnDocListFormat();
+                    newCmnDocListFormat.SetData(reader);
+                    CmnDocListFormatCollection.Add(newCmnDocListFormat);
+                }
+               // CmnDocListFormatCollection.InsertSpName = "spInsertCmnDocListFormat";
+               // CmnDocListFormatCollection.UpdateSpName = "spUpdateCmnDocListFormat";
+               // CmnDocListFormatCollection.DeleteSpName = "spDeleteCmnDocListFormat";
+                return CmnDocListFormatCollection;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                    reader.Close();
+            }
+        } 
+
 		public static CustomList<CmnDocListFormat> GetAllCmnDocListFormat()
 		{
 			ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
 			CustomList<CmnDocListFormat> CmnDocListFormatCollection = new CustomList<CmnDocListFormat>();
 			IDataReader reader = null;
-			const String sql = "select *from CmnDocListFormat";
+            const String sql = "Select DocListFormatID,CustomCode,DocListId,Prefix,Suffix,PeriodType,Project,CostCentre,CompanyID, IsDeleted,Transfer,'' Description from CmnDocListFormat";
 			try
 			{
 				conManager.OpenDataReader(sql, out reader);

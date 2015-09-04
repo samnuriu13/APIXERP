@@ -194,6 +194,34 @@ namespace API.DAO
 			_Transfer = reader.GetBoolean("Transfer");
 			SetUnchanged();
 		}
+
+        public static CustomList<CmnDocListFormatDetail> GetAllDocListFormat_Detail(Int32 docListFormatID)   
+        {
+            ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
+            CustomList<CmnDocListFormatDetail> DocListFormat_DetailCollection = new CustomList<CmnDocListFormatDetail>();
+            IDataReader reader = null;
+            String sql = "Select * from CmnDocListFormatDetail";// where BankKey=" + bankKey;
+            try
+            {
+                conManager.OpenDataReader(sql, out reader);
+                while (reader.Read())
+                {
+                    CmnDocListFormatDetail newCmnDocListFormat_Detail = new CmnDocListFormatDetail();
+                    newCmnDocListFormat_Detail.SetData(reader);
+                    DocListFormat_DetailCollection.Add(newCmnDocListFormat_Detail);
+                }
+                return DocListFormat_DetailCollection;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                    reader.Close();
+            }
+        }
 		public static CustomList<CmnDocListFormatDetail> GetAllCmnDocListFormatDetail()
 		{
 			ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
