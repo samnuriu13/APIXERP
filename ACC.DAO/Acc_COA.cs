@@ -123,6 +123,36 @@ namespace ACC.DAO
             }
         }
 
+        private System.Int32? _CostCenterID;
+        [Browsable(true), DisplayName("CostCenterID")]
+        public System.Int32? CostCenterID
+        {
+            get
+            {
+                return _CostCenterID;
+            }
+            set
+            {
+                if (PropertyChanged(_CostCenterID, value))
+                    _CostCenterID = value;
+            }
+        }
+
+        private System.Boolean _IsDefaultCash;
+        [Browsable(true), DisplayName("IsDefaultCash")]
+        public System.Boolean IsDefaultCash
+        {
+            get
+            {
+                return _IsDefaultCash;
+            }
+            set
+            {
+                if (PropertyChanged(_IsDefaultCash, value))
+                    _IsActive = value;
+            }
+        }
+
         private System.Boolean _IsPostingHead;
         [Browsable(true), DisplayName("IsPostingHead")]
         public System.Boolean IsPostingHead
@@ -203,9 +233,9 @@ namespace ACC.DAO
         {
             Object[] parameterValues = null;
             if (IsAdded)
-                parameterValues = new Object[] { _ParentKey, _COACode, _COACodeClient, _COAName, _COALevel, _IsActive, _IsPostingHead};
+                parameterValues = new Object[] { _ParentKey, _COACode, _COACodeClient, _COAName, _COALevel, _IsActive, _IsPostingHead, _CostCenterID, _IsDefaultCash };
             else if (IsModified)
-                parameterValues = new Object[] { _COAKey, _ParentKey, _COACode, _COACodeClient, _COAName, _COALevel, _IsActive, _IsPostingHead};
+                parameterValues = new Object[] { _COAKey, _ParentKey, _COACode, _COACodeClient, _COAName, _COALevel, _IsActive, _IsPostingHead, _CostCenterID, _IsDefaultCash };
             else if (IsDeleted)
                 parameterValues = new Object[] { _COAKey };
             return parameterValues;
@@ -220,6 +250,8 @@ namespace ACC.DAO
             _COALevel = reader.GetInt32("COALevel");
             _IsActive = reader.GetBoolean("IsActive");
             _IsPostingHead = reader.GetBoolean("IsPostingHead");
+            _IsDefaultCash = reader.GetBoolean("IsDefaultCash");
+            _CostCenterID = reader.GetInt32("CostCenterID");
             SetUnchanged();
         }
         public static CustomList<Acc_COA> GetAllAcc_COA(bool isAll = false)

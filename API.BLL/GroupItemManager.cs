@@ -13,6 +13,17 @@ namespace API.BLL
         {
             return ItemGroup.GetAllItemGroup();
         }
+        //
+        public CustomList<ItemGroup> GetAllSubGroupApplicableItemGroup()
+        {
+            return ItemGroup.GetAllSubGroupApplicableItemGroup();
+        }
+
+        public bool IsSubgroupApplicable(int groupId)
+        {
+            return ItemGroup.IsSubgroupApplicable(groupId);
+        }
+
         public CustomList<ItemGroup> DeptWiseItemGroup(Int32 DeptID)
         {
             return ItemGroup.DeptWiseItemGroup(DeptID);
