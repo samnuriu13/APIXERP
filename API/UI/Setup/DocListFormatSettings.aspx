@@ -22,7 +22,7 @@
                 </div>
                 <div class="lblAndTxtStyle">
                     <div class="divlblwidth100px bglbl">
-                        <a>Menu Name</a>
+                        <a>Menu Name/Doc List</a>
                     </div>
                     <div class="div182Px">
                         <asp:DropDownList ID="ddlMenuName" runat="server" CssClass="drpwidth180px">
