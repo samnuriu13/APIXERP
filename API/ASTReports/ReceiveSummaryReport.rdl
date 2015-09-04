@@ -919,7 +919,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=Iif(Parameters!TransactionType.Value=7,"Department","Item Group")</Value>
+                            <Value>=Iif(Fields!ParameterType.Value=7,"Department","Item Group")</Value>
                             <Style>
                               <FontWeight>Bold</FontWeight>
                             </Style>
@@ -947,14 +947,14 @@
                   <TablixHeader>
                     <Size>1in</Size>
                     <CellContents>
-                      <Textbox Name="Textbox26">
+                      <Textbox Name="ParameterType">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>=Iif(Parameters!TransactionType.Value=7,"Item Group","Supplier")</Value>
+                                <Value>=Iif(Fields!ParameterType.Value=7,"Item Group","Supplier")</Value>
                                 <Style>
                                   <FontWeight>Bold</FontWeight>
                                 </Style>
@@ -963,7 +963,7 @@
                             <Style />
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>Textbox26</rd:DefaultName>
+                        <rd:DefaultName>ParameterType</rd:DefaultName>
                         <Style>
                           <Border>
                             <Style>Solid</Style>
@@ -1086,7 +1086,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>=Iif(Parameters!TransactionType.Value=7,"Item Group Total","Supplier Total:")</Value>
+                                <Value>=Iif(Fields!ParameterType.Value=7,"Item Group Total","Supplier Total:")</Value>
                                 <Style />
                               </TextRun>
                             </TextRuns>
@@ -1121,7 +1121,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=Iif(Parameters!TransactionType.Value=7,"Department Total","Item Group Total:")</Value>
+                            <Value>=Iif(Fields!ParameterType.Value=7,"Department Total","Item Group Total:")</Value>
                             <Style />
                           </TextRun>
                         </TextRuns>
@@ -1139,7 +1139,6 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
             </TablixMember>
@@ -1411,8 +1410,8 @@
           <QueryParameter Name="@ToDate">
             <Value>=Parameters!ToDate.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@TransactionType">
-            <Value>=Parameters!TransactionType.Value</Value>
+          <QueryParameter Name="@TransType">
+            <Value>=Parameters!TransType.Value</Value>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
@@ -1421,6 +1420,14 @@
       <Fields>
         <Field Name="CompanyName">
           <DataField>CompanyName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TransactionTypeName">
+          <DataField>TransactionTypeName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ParameterType">
+          <DataField>ParameterType</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ReportName">
@@ -1479,6 +1486,10 @@
           <DataField>SourceReferenceNo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="SubGroupName">
+          <DataField>SubGroupName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="InvoiceNo">
           <DataField>InvoiceNo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -1527,6 +1538,30 @@
           <DataField>Total</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="ChalanNo">
+          <DataField>ChalanNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ChalanDate">
+          <DataField>ChalanDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="PONo">
+          <DataField>PONo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ReceivedQty">
+          <DataField>ReceivedQty</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Rate">
+          <DataField>Rate</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="ReturnValue">
+          <DataField>ReturnValue</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
     </DataSet>
   </DataSets>
@@ -1549,14 +1584,14 @@
       </DefaultValue>
       <Prompt>To Date</Prompt>
     </ReportParameter>
-    <ReportParameter Name="TransactionType">
+    <ReportParameter Name="TransType">
       <DataType>String</DataType>
       <DefaultValue>
         <Values>
-          <Value>4</Value>
+          <Value>0</Value>
         </Values>
       </DefaultValue>
-      <Prompt>Transaction Type</Prompt>
+      <Prompt>Trans Type</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>

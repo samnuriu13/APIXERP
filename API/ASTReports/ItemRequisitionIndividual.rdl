@@ -2628,7 +2628,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>="Item Requisiston Report"</Value>
+                  <Value>="Item Requisition Report"</Value>
                   <Style>
                     <FontFamily>Times New Roman</FontFamily>
                     <FontSize>15pt</FontSize>

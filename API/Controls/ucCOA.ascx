@@ -3,11 +3,16 @@
     <div style="float: left; width: 40%; padding-bottom: 10px; min-height: 300px;">
         <fieldset class="fieldset-panel" style="min-height: 200px;">
             <legend class="fieldset-legend">Account Heads</legend>
-            <input type="text" id="txtSearch" />
-            <div style="overflow: auto; max-height: 400px;">
-                <asp:TreeView ID="tv" runat="server" OnSelectedNodeChanged="tv_SelectedNodeChanged">
-                </asp:TreeView>
-            </div>
+                <div style="overflow: auto; max-height: 400px;">
+                    <asp:UpdatePanel ID="updatepanel1" runat="server">
+                        <ContentTemplate>
+                            <asp:TextBox ID="txtInput" runat="server" OnTextChanged="txtInput_TextChanged" AutoPostBack="true" />
+                            <asp:TreeView ID="tv" runat="server" OnSelectedNodeChanged="tv_SelectedNodeChanged">
+                            </asp:TreeView>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                    
+                </div>
         </fieldset>
     </div>
     <div class="" style="float: left; width: 52%; padding-bottom: 10px; min-height: 300px;">
@@ -74,22 +79,5 @@
   }
 </style>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $(".readonly").attr("readonly", true);
-        $(".readonly").css("background-color", "#EEEEEE");
-
-        $('#txtSearch').on('keyup', function () {
-            var val = $(this).val().toLowerCase()
-            if (val) {
-                $('ul li span a').each(function (idx, obj) {
-                    if ($(obj).text().toLowerCase().indexOf(val) !== -1)
-                        $(obj).addClass('highlight')
-                    else
-                        $(obj).removeClass('highlight')
-                })
-            }
-            else
-                $('ul li span a').removeClass('highlight')
-        });
-    });
+    
 </script>
