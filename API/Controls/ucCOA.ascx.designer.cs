@@ -13,15 +13,6 @@ namespace API.Controls {
     public partial class ucCOA {
         
         /// <summary>
-        /// updatepanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updatepanel1;
-        
-        /// <summary>
         /// txtInput control.
         /// </summary>
         /// <remarks>
@@ -103,6 +94,15 @@ namespace API.Controls {
         protected global::System.Web.UI.WebControls.Button btnCreate;
         
         /// <summary>
+        /// ddlFromCostCentre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFromCostCentre;
+        
+        /// <summary>
         /// chkActive control.
         /// </summary>
         /// <remarks>
@@ -137,5 +137,23 @@ namespace API.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// chkIsDefaultCash control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkIsDefaultCash;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
     }
 }

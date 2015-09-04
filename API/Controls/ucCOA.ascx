@@ -4,13 +4,13 @@
         <fieldset class="fieldset-panel" style="min-height: 200px;">
             <legend class="fieldset-legend">Account Heads</legend>
                 <div style="overflow: auto; max-height: 400px;">
-                    <asp:UpdatePanel ID="updatepanel1" runat="server">
-                        <ContentTemplate>
+                    <%--<asp:UpdatePanel ID="updatepanel1" runat="server">
+                        <ContentTemplate>--%>
                             <asp:TextBox ID="txtInput" runat="server" OnTextChanged="txtInput_TextChanged" AutoPostBack="true" />
                             <asp:TreeView ID="tv" runat="server" OnSelectedNodeChanged="tv_SelectedNodeChanged">
                             </asp:TreeView>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
+                        <%--</ContentTemplate>
+                    </asp:UpdatePanel>--%>
                     
                 </div>
         </fieldset>
@@ -60,6 +60,15 @@
                                 Text="Create" ValidationGroup="save" OnClick="btnCreate_Click" />
                         </div>
                     </div>
+                    <div class="lblAndTxtStyle">
+                        <div class="divlblwidth100px bglbl">
+                            <a>Cost Center</a>
+                        </div>
+                        <div class="div182Px">
+                            <asp:DropDownList ID="ddlFromCostCentre" runat="server" CssClass="drpwidth180px">
+                            </asp:DropDownList>
+                        </div>
+                    </div>
                     <div class="lblAndTxtStyle" style="margin-left: 10%; float: left">
                         <asp:CheckBox ID="chkActive" runat="server" CssClass="cbStyle" />
                         <asp:Label ID="Label9" runat="server" CssClass="lblStyle" Style="margin-top: 3px">Active</asp:Label>
@@ -67,6 +76,10 @@
                     <div class="lblAndTxtStyle" style="margin-left: 10%; float: left">
                         <asp:CheckBox ID="chkPostingHea" runat="server" CssClass="cbStyle" />
                         <asp:Label ID="Label1" runat="server" CssClass="lblStyle" Style="margin-top: 3px">Is Posting Head</asp:Label>
+                    </div>
+                    <div class="lblAndTxtStyle" style="margin-left: 10%; float: left">
+                        <asp:CheckBox ID="chkIsDefaultCash" runat="server" CssClass="cbStyle" />
+                        <asp:Label ID="Label2" runat="server" CssClass="lblStyle" Style="margin-top: 3px">Is Default Cash</asp:Label>
                     </div>
                 </div>
             </div>

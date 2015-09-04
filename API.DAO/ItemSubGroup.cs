@@ -87,7 +87,7 @@ namespace API.DAO
             ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
             CustomList<ItemSubGroup> ItemSubGroupCollection = new CustomList<ItemSubGroup>();
             IDataReader reader = null;
-            const String sql = "select *from ItemSubGroup";
+            const String sql = "select S.ItemGroupID, S.ItemSubGroupID, S.SubGroupName from ItemGroup I inner join ItemSubGroup S on S.ItemGroupID=I.ItemGroupID order by I.GroupName desc";
             try
             {
                 conManager.OpenDataReader(sql, out reader);
