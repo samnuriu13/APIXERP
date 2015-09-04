@@ -21,7 +21,7 @@
 				, rownumbers: true
 				, scrollrows: true
 				, pager: jQuery('#grdCurrency_pager')
-				, loadError: jqGrid_aspnet_loadErrorHandler
+				, loadError: jqGrid_aspnet_loadErrorHandler 
 				, hoverrows: true
 				, jsonReader:
 				{

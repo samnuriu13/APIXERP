@@ -317,5 +317,36 @@ namespace API.Controls
             FormUtil.ClearForm(this, FormClearOptions.ClearAll, false);
         }
         #endregion
+
+        protected void txtInput_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtInput.Text.ToString()))
+            {
+                _COA = _COA.FindAll(f => f.COAName.ToUpper().Contains(txtInput.Text.ToUpper()));
+                tv.Nodes.Clear();
+                foreach (Acc_COA item in _COA)
+                {
+                    if (item.ParentKey == null)
+                    {
+                        TreeNode tnParent = new TreeNode();
+                        tnParent.Text = item.COAName;
+                        tnParent.Value = item.COAKey.ToString();
+                        tv.Nodes.Add(tnParent);
+                        FillChild(tnParent, item.COAKey);
+                    }
+                }
+                tv.ExpandAll();
+            }
+            else
+            {
+                populateTreeView();
+                tv.CollapseAll();
+            }
+        }
+
+        private void txtInput_KeyPress(object sender, EventArgs e)
+        {
+            
+        } 
     }
 }

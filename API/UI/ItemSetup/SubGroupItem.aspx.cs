@@ -79,7 +79,7 @@ namespace API.UI.ItemSetup
             {
                 ItemSubGroupList = new CustomList<ItemSubGroup>();
                 ItemGroupList = new CustomList<ItemGroup>();
-                ItemGroupList = itemGroupManager.GetAllItemGroup();
+                ItemGroupList = itemGroupManager.GetAllSubGroupApplicableItemGroup();
             }
             catch (Exception ex)
             {

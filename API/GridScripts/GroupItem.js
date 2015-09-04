@@ -8,12 +8,13 @@
 					    , editurl: rootPath + 'GridHelperClasses/GridGenericHandler.ashx?jqGridID=grdItemGroup&editMode=1&SessionVarName=ItemGroup_ItemGroupList'
 						, datatype: 'json'
 						, page: 1
-						, colNames: ['VID', 'Item Group', 'UOM']
+						, colNames: ['VID', 'Item Group', 'UOM', 'Is Subgroup']
 						, colModel:
 							[
 								{ 'name': 'VID', 'key': true, 'hidden': true, 'width': 50, 'index': 'VID' },
 								{ 'name': 'GroupName', 'index': 'GroupName', 'editable': true, 'width': 100 },
 				                { 'name': 'UOMID', 'index': 'UOMID', 'width': 100, editable: true, edittype: "select", formatter: 'select', editoptions: { value: GetDropDownSource('SessionVarName=ItemGroup_UnitList&DataTextField=Name&NeedBlank=Empty&DataValueField=UnitID') } },
+                                { 'name': 'IsSubGroup', 'index': 'IsSubGroup', 'align': 'center', width: 20, editable: true, edittype: "checkbox", formatter: 'checkbox' }
 							]
 						, viewrecords: true
 						, rownumbers: false
