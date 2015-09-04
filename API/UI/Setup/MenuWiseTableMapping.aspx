@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.master" AutoEventWireup="true" CodeBehind="TransactionReference.aspx.cs" 
-    Inherits="API.UI.Setup.TransactionReference" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.master" AutoEventWireup="true" CodeBehind="MenuWiseTableMapping.aspx.cs" Inherits="API.UI.Setup.MenuWiseTableMapping" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="chpInfHead" runat="server">
 </asp:Content>
@@ -8,17 +7,14 @@
         <div class="form-details">
             <div style="width: 100%; height: auto; margin-top: 5px">
                 <div style="float: left; width: 60%">
-                    <div class="lblAndTxtStyle"> 
-                         <div class="divlblwidth100px bglbl">
-                            <a>Transaction Reference  Name</a>
-                             <span class="r2">*</span>
+                    <div class="lblAndTxtStyle">
+                        <div class="divlblwidth100px bglbl">
+                            <a>Doc List</a>
                         </div>
                         <div class="div182Px">
-                            <asp:DropDownList ID="ddlTransactionReferenceName" runat="server" CssClass="drpwidth180px">
+                            <asp:DropDownList ID="ddlDocList" runat="server" CssClass="drpwidth180px">
                             </asp:DropDownList>
-                            
-                            
-                            
+                            <span class="r2">*</span>
                             <asp:ImageButton ID="btnNew" runat="server" CssClass="btnImageStyle" ImageUrl="~/images/new 20X20.png" OnClick="btnNew_Click" />
                             <asp:ImageButton ID="btnFind" runat="server" CssClass="btnImageStyle" ImageUrl="~/images/Search 20X20.png" OnClick="btnFind_Click" />
 
@@ -26,10 +22,11 @@
                     </div>
                     <div class="lblAndTxtStyle">
                         <div class="divlblwidth100px bglbl">
-                            <a>Reference Master Table</a>
+                            <a>Table Name</a>
                         </div>
                         <div class="div80Px">
-                            <asp:DropDownList ID="ddlReferenceMasterTable" runat="server" CssClass="drpwidth180px">
+                            <asp:DropDownList ID="ddlTableName" runat="server" CssClass="drpwidth180px" AutoPostBack="true"
+                                OnSelectedIndexChanged="ddlTableName_SelectedIndexChanged">
                             </asp:DropDownList>
 
                             <span class="r2">*</span>
@@ -37,10 +34,10 @@
                     </div>
                     <div class="lblAndTxtStyle">
                         <div class="divlblwidth100px bglbl">
-                            <a>Detail Foreign Key</a>
+                            <a>Column Name</a>
                         </div>
                         <div class="div80Px">
-                            <asp:DropDownList ID="ddlDetailForeignKey" runat="server" CssClass="drpwidth180px">
+                            <asp:DropDownList ID="ddlColumnName" runat="server" CssClass="drpwidth180px">
                             </asp:DropDownList>
 
                             <span class="r2">*</span>
@@ -52,32 +49,21 @@
                 <div style="float: left; width: 40%">
                     <div class="lblAndTxtStyle">
 
-                       <div class="divlblwidth100px bglbl">
-                            <a>Transaction Type Name</a>
+                        <div class="divlblwidth100px bglbl">
+                            <a>Table Type</a>
                         </div>
                         <div class="div80Px">
-                            <asp:DropDownList ID="ddlTransTypeName" runat="server" CssClass="drpwidth180px">
-                            </asp:DropDownList>
-                        </div> 
+                            <asp:Label ID="lblTableType" Text="Master" runat="server"></asp:Label>
+                        </div>
 
                     </div>
+
                     <div class="lblAndTxtStyle">
                         <div class="divlblwidth100px bglbl">
-                            <a>Reference Detail Table</a>
+                            <a>Column Type</a>
                         </div>
                         <div class="div80Px">
-                            <asp:DropDownList ID="ddlReferenceDetailTable" runat="server" CssClass="drpwidth180px" OnSelectedIndexChanged="ddlReferenceDetailTable_SelectedIndexChanged" AutoPostBack="true">
-                            </asp:DropDownList>
-                            <span class="r2">*</span>
-                        </div>
-                    </div>
-                    <div class="lblAndTxtStyle">
-                        <div class="divlblwidth100px bglbl">
-                            <a>Transaction Type Column</a>
-                        </div>
-                        <div class="div80Px">
-                            <asp:TextBox ID="txtTransactionTypeColumn" runat="server" CssClass="txtwidth93px" Style="width: 100%;"
-                                MaxLength="100"></asp:TextBox>
+                            <asp:Label ID="lblColumnType" runat="server" Text="PrimaryKey"></asp:Label>
                         </div>
                     </div>
                 </div>
