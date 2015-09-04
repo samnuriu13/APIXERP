@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.master" AutoEventWireup="true" CodeBehind="ItemDefination.aspx.cs" Inherits="API.UI.ItemSetup.ItemDefination" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="chpInfHead" runat="server">
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphInfbody" runat="server">
     <div class="form-wrapper">
@@ -36,7 +37,7 @@
                             runat="server" ForeColor="Red" ErrorMessage="Item Group is required" ValidationGroup="Save">*</asp:RequiredFieldValidator>
                     </div>
                 </div>
-                <div class="lblAndTxtStyle">
+                <%--<div id="divSubGroup" class="lblAndTxtStyle">
                     <div class="divlblwidth100px bglbl">
                         <a>Item Sub-Group</a>
                     </div>
@@ -47,7 +48,7 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="ddlItemSubGroup"
                             runat="server" ForeColor="Red" ErrorMessage="Item SubGroup is required" ValidationGroup="Save">*</asp:RequiredFieldValidator>
                     </div>
-                </div>
+                </div>--%>
             </div>
             <div style="float:left; width:33%">
                 <div class="lblAndTxtStyle">
@@ -59,6 +60,22 @@
                         </asp:DropDownList>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="ddlUOM1"
                             runat="server" ForeColor="Red" ErrorMessage="UOM is required" ValidationGroup="Save">*</asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="lblAndTxtStyle">
+                    <div class="divlblwidth100px bglbl">
+                        <a>Buying Price</a>
+                    </div>
+                    <div class="div182Px">
+                        <asp:TextBox ID="txtBuyingPrice" runat="server" CssClass="txtwidth93px" Style="width: 75%;" MaxLength="100"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="lblAndTxtStyle">
+                    <div class="divlblwidth100px bglbl">
+                        <a>Selling Price</a>
+                    </div>
+                    <div class="div182Px">
+                        <asp:TextBox ID="txtSellingPrice" runat="server" CssClass="txtwidth93px" Style="width: 75%;" MaxLength="100"></asp:TextBox>
                     </div>
                 </div>
             </div>
