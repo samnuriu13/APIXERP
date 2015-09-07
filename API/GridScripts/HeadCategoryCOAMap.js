@@ -4,17 +4,18 @@
 			    jQuery('#grdHeadCategoryCOAMap').jqGrid
 				(
 					{
-					    url: rootPath + 'GridHelperClasses/GridGenericHandler.ashx?jqGridID=grdHeadCategoryCOAMap&SessionVarName=HeadCategory_HeadCategoryByReportTypeList'
-					    , editurl: rootPath + 'GridHelperClasses/GridGenericHandler.ashx?jqGridID=grdHeadCategoryCOAMap&editMode=1&SessionVarName=HeadCategory_HeadCategoryByReportTypeList'
+					    url: rootPath + 'GridHelperClasses/GridGenericHandler.ashx?jqGridID=grdHeadCategoryCOAMap&SessionVarName=GRID_COA'
+					    , editurl: rootPath + 'GridHelperClasses/GridGenericHandler.ashx?jqGridID=grdHeadCategoryCOAMap&editMode=1&SessionVarName=GRID_COA'
 						, datatype: 'json'
 						, page: 1
-						, colNames: ['VID', 'COA']
+						, colNames: ['VID', 'Head Name','IsActive']
 						, colModel:
 							[
 								{ 'name': 'VID', 'key': true, 'hidden': true, 'width': 50, 'index': 'VID' },
-							    { 'name': 'ParentID', 'index': 'ParentID', 'width': 100, editable: true, edittype: "select", formatter: 'select', editoptions: { value: GetDropDownSource('SessionVarName=HeadCategory_ParentList&DataTextField=HeadCategoryName&NeedBlank=Empty&DataValueField=HeadCategoryID') } }
+							    { 'name': 'COAName', 'index': 'COAName', 'width': 50, editable: true },
+                                { 'name': 'IsActive', 'index': 'IsActive', 'width': 20, editable: true },
 							]
-						, viewrecords: true
+                        , viewrecords: true
 						, rownumbers: false
 						, scrollrows: true
 						, pager: jQuery('#grdHeadCategoryCOAMap_pager')

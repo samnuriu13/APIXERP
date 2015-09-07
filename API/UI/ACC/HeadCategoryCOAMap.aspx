@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.master" AutoEventWireup="true" CodeBehind="HeadCategoryCOAMap.aspx.cs" Inherits="API.UI.ACC.HeadCategoryCOAMap" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="chpInfHead" runat="server">
+
+    <script src="<%= ResolveUrl("~/gridscripts/HeadCategoryCOAMap.js") %> " type="text/javascript"></script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphInfbody" runat="server">
     <div class="form-wrapper">
@@ -47,6 +50,9 @@
                     </div>
                     <div class="div182Px">
                         <asp:DropDownList ID="ddlOperator" runat="server" CssClass="drpwidth180px">
+                            <asp:ListItem Value="0">--Select--</asp:ListItem>
+                            <asp:ListItem Value="1">+</asp:ListItem>
+                            <asp:ListItem Value="2">-</asp:ListItem>
                         </asp:DropDownList>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="ddlOperator"
                             runat="server" ForeColor="Red" ErrorMessage="Operator is required" ValidationGroup="Save">*</asp:RequiredFieldValidator>
@@ -81,15 +87,19 @@
                         </div>
                     </fieldset>
                 </div>
-            </div>
-            <div style="width: 70%; float: left">
-                <div>
-                    <table id="grdHeadCategory">
-                    </table>
+                <div style="width:10%; float:left;">
+                     <asp:Button ID="btnAdd" runat="server" CssClass="button" Text="ADD" OnClick="btnAdd_Click" />
                 </div>
-                <div id="grdHeadCategory_pager">
+                <div style="width: 30%; float: left">
+                    <div>
+                        <table id="grdHeadCategoryCOAMap">
+                        </table>
+                    </div>
+                    <div id="grdHeadCategoryCOAMap_pager">
+                    </div>
                 </div>
             </div>
+
         </div>
         <div class="clear">
         </div>

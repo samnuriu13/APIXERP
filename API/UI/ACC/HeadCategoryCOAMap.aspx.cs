@@ -34,6 +34,22 @@ namespace API.UI.ACC
                 Session["COA_COA"] = value;
             }
         }
+
+        private CustomList<Acc_COA> GRID_COA 
+        {
+            get
+            {
+                if (Session["GRID_COA"] == null)
+                    return new CustomList<Acc_COA>();   
+                else
+                    return (CustomList<Acc_COA>)Session["GRID_COA"];
+            }
+            set
+            {
+                Session["GRID_COA"] = value;
+            }
+        }
+
         private Int64 _SelectedCOAKey
         {
             get
@@ -71,6 +87,7 @@ namespace API.UI.ACC
                 populateTreeView();
                 tv.CollapseAll();
                 InitializeCombo();
+                InitializeSession();
             }
         }
 
@@ -103,6 +120,11 @@ namespace API.UI.ACC
         private void loadCOA()
         {
             _COA = Acc_COA.GetAllAcc_COA(true);
+        }
+
+        private void InitializeSession()
+        {
+            GRID_COA = new CustomList<Acc_COA>();
         }
         #endregion
 
@@ -208,8 +230,41 @@ namespace API.UI.ACC
             ddlHeadCategory.DataBind();
             ddlHeadCategory.Items.Insert(0, new ListItem(String.Empty, String.Empty));
             ddlHeadCategory.SelectedIndex = 0;
+
         }
 
+        #region button event
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            List<TreeNode> AllCheckedNodes = new List<TreeNode>();
+            CustomList<Acc_COA> lstCoaFgrid = new CustomList<Acc_COA>();
+            CustomList<Acc_COA> lstSessionAcc_COA = new CustomList<Acc_COA>();
+            lstSessionAcc_COA = (CustomList<Acc_COA>)Session["COA_COA"];
+
+            string allChkName = "";
+            for (int i = 0; i <tv.CheckedNodes.Count; i++)
+            {
+                Acc_COA objCOA = new Acc_COA();
+                objCOA.COAName = tv.CheckedNodes[i].Text;
+               // objCOA.IsActive = false;
+                foreach(Acc_COA acccoa in lstSessionAcc_COA)
+                {
+                    if (objCOA.COAName==acccoa.COAName && acccoa.IsPostingHead==true)
+                    {
+                        objCOA.IsActive = true;
+                        lstCoaFgrid.Add(objCOA);  
+                    }
+                }
+               // lstCoaFgrid.Add(objCOA);  
+               // allChkName=allChkName+"_"+tv.CheckedNodes[i].Text;
+            }
+
+            Session["GRID_COA"] = lstCoaFgrid;
+
+ 
+          
+        }
+        #endregion
 
     }
 }
