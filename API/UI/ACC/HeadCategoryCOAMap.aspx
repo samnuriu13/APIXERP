@@ -107,7 +107,7 @@
         <br />
         <div class="form-bottom">
             <div class="btnRight">
-                <asp:Button ID="btnSave" runat="server" CssClass="button" Text="Save" />
+                <asp:Button ID="btnSave" runat="server" CssClass="button" Text="Save" OnClick="btnSave_Click" />
             </div>
         </div>
     </div>

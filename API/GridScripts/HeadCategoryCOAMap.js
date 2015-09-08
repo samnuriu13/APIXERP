@@ -4,8 +4,8 @@
 			    jQuery('#grdHeadCategoryCOAMap').jqGrid
 				(
 					{
-					    url: rootPath + 'GridHelperClasses/GridGenericHandler.ashx?jqGridID=grdHeadCategoryCOAMap&SessionVarName=GRID_COA'
-					    , editurl: rootPath + 'GridHelperClasses/GridGenericHandler.ashx?jqGridID=grdHeadCategoryCOAMap&editMode=1&SessionVarName=GRID_COA'
+					    url: rootPath + 'GridHelperClasses/GridGenericHandler.ashx?jqGridID=grdHeadCategoryCOAMap&SessionVarName=Acc_ReportConfigurationHeadCOAMapList'
+					    , editurl: rootPath + 'GridHelperClasses/GridGenericHandler.ashx?jqGridID=grdHeadCategoryCOAMap&editMode=1&SessionVarName=Acc_ReportConfigurationHeadCOAMapList'
 						, datatype: 'json'
 						, page: 1
 						, colNames: ['VID', 'Head Name','IsActive']
