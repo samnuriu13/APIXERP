@@ -160,6 +160,39 @@ namespace API.DAO
                     reader.Close();
             }
         }
+
+        public static CustomList<CmnDocListTableMapping> GetAllCmnTransactionReferenceFind()
+        {
+
+            ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
+            CustomList<CmnDocListTableMapping> CmnTransRefCollection = new CustomList<CmnDocListTableMapping>();
+            IDataReader reader = null;
+            const String sql = " Select * from  CmnDocListTableMapping";
+            try
+            {
+                conManager.OpenDataReader(sql, out reader);
+                while (reader.Read())
+                {
+                    CmnDocListTableMapping newCmnTransactionReference = new CmnDocListTableMapping();
+                    newCmnTransactionReference.SetData(reader);
+                    CmnTransRefCollection.Add(newCmnTransactionReference);
+                }
+                //CmnTransRefCollection.InsertSpName = "spInsertCmnTransRef";
+               // CmnTransRefCollection.UpdateSpName = "spUpdateCmnTransRef";
+              //  CmnTransRefCollection.DeleteSpName = "spDeleteCmnTransRef";
+                return CmnTransRefCollection;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                    reader.Close();
+            }
+        
+        }
     }
 
 }

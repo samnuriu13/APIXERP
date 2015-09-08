@@ -17,7 +17,7 @@ namespace API.UI.Setup
     public partial class MenuWiseTableMapping : PageBase
     {
          ApplicationManager _aManager = new ApplicationManager();
-        TransactionReferenceManager _manager = new TransactionReferenceManager();
+         MenuWiseTableMappingManager _manager = new MenuWiseTableMappingManager();
         #region Constructur
         public MenuWiseTableMapping()
         {
@@ -25,14 +25,14 @@ namespace API.UI.Setup
         }
         #endregion
         #region Session variables
-        private CustomList<CmnTransactionReference> TransactionReferenceList
+        private CustomList<CmnDocListTableMapping> TransactionReferenceList
         {
             get
             {
                 if (Session["TransactionReference_TransactionReferenceList"] == null)
-                    return new CustomList<CmnTransactionReference>();
+                    return new CustomList<CmnDocListTableMapping>();
                 else
-                    return (CustomList<CmnTransactionReference>)Session["TransactionReference_TransactionReferenceList"];
+                    return (CustomList<CmnDocListTableMapping>)Session["TransactionReference_TransactionReferenceList"];
             }
             set
             {
@@ -53,14 +53,14 @@ namespace API.UI.Setup
                 {
                     Page.ClientScript.GetPostBackEventReference(this, String.Empty);
                     String eventTarget = Request["__EVENTTARGET"].IsNullOrEmpty() ? String.Empty : Request["__EVENTTARGET"];
-                    if (Request["__EVENTTARGET"] == "SearchTransactionReference")
+                    if (Request["__EVENTTARGET"] == "SearchCmnDocListTableMapping")
                     {
-                        TransactionReferenceList = new CustomList<CmnTransactionReference>();
-                        CmnTransactionReference searchCmnTransactionReference = Session[STATIC.StaticInfo.SearchSessionVarName] as CmnTransactionReference;
-                        TransactionReferenceList.Add(searchCmnTransactionReference);
-                        if (searchCmnTransactionReference.IsNotNull())
+                        TransactionReferenceList = new CustomList<CmnDocListTableMapping>();
+                        CmnDocListTableMapping searchCmnDocListTableMapping = Session[STATIC.StaticInfo.SearchSessionVarName] as CmnDocListTableMapping;
+                        TransactionReferenceList.Add(searchCmnDocListTableMapping);
+                        if (searchCmnDocListTableMapping.IsNotNull())
                         {
-                            PopulateTransactionReferenceInformation(searchCmnTransactionReference);
+                            PopulateTransactionReferenceInformation(searchCmnDocListTableMapping);
                         }
                     }
                 }
@@ -72,25 +72,25 @@ namespace API.UI.Setup
             }
         }
         #region  All Methods
-        private void PopulateTransactionReferenceInformation(CmnTransactionReference TransactionReference)
+        private void PopulateTransactionReferenceInformation(CmnDocListTableMapping TransactionReference)
         {
             try
             {
-                    
-                if (TransactionReference.TransRefID != 0)
-                    ddlTableName.SelectedValue = TransactionReference.ReferenceMasterTable.ToString();
+
+              
+                 ddlTableName.SelectedValue = TransactionReference.TableName.ToString();
                 //ddlDetailForeignKey.SelectedValue = TransactionReference.DetailForeignKey.ToString();
-                ddlColumnName.DataSource = _manager.GetAllDetailForeignKey(TransactionReference.ReferenceDetailTable.ToString());
+                ddlColumnName.DataSource = _manager.GetAllDetailForeignKey(TransactionReference.TableName.ToString());
                 ddlColumnName.DataTextField = "DetailForeignKey";
                 ddlColumnName.DataValueField = "DetailForeignKey";
                 ddlColumnName.DataBind();
                 ddlColumnName.Items.Insert(0, new ListItem(String.Empty, String.Empty));
                 ddlColumnName.SelectedIndex = 0;
-                ddlColumnName.SelectedValue = TransactionReference.DetailForeignKey.ToString();
+                ddlColumnName.SelectedValue = TransactionReference.ColumnName.ToString();
 
-                ddlDocList.SelectedValue = TransactionReference.TransRefID.ToString();
-                //ddlTransTypeName.SelectedValue = TransactionReference.TransTypeID.ToString();
-               // txtTransactionTypeColumn.Text = TransactionReference.TransactionTypeColumn.ToString();
+                ddlDocList.SelectedValue = TransactionReference.DocListID.ToString();
+                lblTableType.Text = TransactionReference.TableType.ToString();
+                lblColumnType.Text = TransactionReference.ColumnType.ToString();
 
             }
             catch (Exception ex)
@@ -103,7 +103,7 @@ namespace API.UI.Setup
         {
             try
             {
-                TransactionReferenceList = new CustomList<CmnTransactionReference>();
+                TransactionReferenceList = new CustomList<CmnDocListTableMapping>();
             }
             catch (Exception ex)
             {
@@ -128,19 +128,19 @@ namespace API.UI.Setup
             ddlDocList.Items.Insert(0, new ListItem(String.Empty, String.Empty));
             ddlDocList.SelectedIndex = 0;
         }
-        private void SetDataFromControlToObj(ref CustomList<CmnTransactionReference> lstTransactionReference)
+        private void SetDataFromControlToObj(ref CustomList<CmnDocListTableMapping> lstTransactionReference)
         {
             try
             {
-                CmnTransactionReference obj = lstTransactionReference[0];
-                obj.CustomCode = "0";
-                obj.ReferenceName = "0";
-                obj.TypeName = "0";
-                obj.TransRefID = ddlTableName.SelectedValue.ToInt();
-                obj.ReferenceMasterTable = ddlTableName.SelectedItem.Text;
+                CmnDocListTableMapping obj = lstTransactionReference[0];
+               // obj.DocListID= 0;
+                obj.ColumnName = ddlColumnName.SelectedItem.Text;
+                obj.ColumnType = lblColumnType.Text;
+              //  obj.DocListTableMappingID = ddlTableName.SelectedValue.ToInt();
+                obj.TableName = ddlTableName.SelectedItem.Text;
               //  obj.TransactionTypeColumn = txtTransactionTypeColumn.Text;
-                obj.DetailForeignKey = ddlTableName.SelectedItem.Text;
-                obj.TransRefID = ddlDocList.SelectedValue.ToInt();
+                obj.TableType = lblTableType.Text;
+                obj.DocListID = ddlDocList.SelectedValue.ToInt();
                // obj.TransTypeID = ddlTransTypeName.SelectedValue.ToInt();
             }
             catch (Exception ex)
@@ -168,13 +168,13 @@ namespace API.UI.Setup
             try
             {
                 //CustomList<CmnTransactionReference> items = _manager.GetAllReferenceType();
-                CustomList<CmnTransactionReference> items = _manager.GetAllCmnTransactionReferenceFind();
+                CustomList<CmnDocListTableMapping> items = _manager.GetAllCmnTransactionReferenceFind();
                 Dictionary<string, string> columns = new Dictionary<string, string>();
 
-                columns.Add("ReferenceName", "ReferenceName");
-                columns.Add("TypeName", "TypeName");
+                columns.Add("DocListID", "Doc List ID");
+               // columns.Add("TypeName", "TypeName");
 
-                StaticInfo.SearchItem(items, "Search Transaction Reference", "SearchTransactionReference", FRAMEWORK.SearchColumnConfig.GetColumnConfig(typeof(CmnTransactionReference), columns), 500);
+                StaticInfo.SearchItem(items, "Search DocListID", "SearchCmnDocListTableMapping", FRAMEWORK.SearchColumnConfig.GetColumnConfig(typeof(CmnDocListTableMapping), columns), 500);
             }
             catch (Exception ex)
             {
@@ -185,16 +185,16 @@ namespace API.UI.Setup
         {
             try
             {
-                CustomList<CmnTransactionReference> lstTransactionReference = TransactionReferenceList;
+                CustomList<CmnDocListTableMapping> lstTransactionReference = TransactionReferenceList;
                 if (lstTransactionReference.Count == 0)
                 {
-                    CmnTransactionReference newTransactionReference = new CmnTransactionReference();
+                    CmnDocListTableMapping newTransactionReference = new CmnDocListTableMapping();
                     lstTransactionReference.Add(newTransactionReference);
                 }
                 SetDataFromControlToObj(ref lstTransactionReference);
 
                 if (!CheckUserAuthentication(lstTransactionReference)) return;
-                _manager.SaveTransactionReference(ref lstTransactionReference);
+                _manager.SaveCmnDocListTableMapping(ref lstTransactionReference);
                 ((PageBase)this.Page).SuccessMessage = (StaticInfo.SavedSuccessfullyMsg);
             }
             catch (SqlException ex)
@@ -237,10 +237,10 @@ namespace API.UI.Setup
         {
             try
             {
-                CustomList<CmnTransactionReference> lstTransactionReference = (CustomList<CmnTransactionReference>)TransactionReferenceList;
+                CustomList<CmnDocListTableMapping> lstTransactionReference = (CustomList<CmnDocListTableMapping>)TransactionReferenceList;
                 lstTransactionReference.ForEach(f => f.Delete());
                 if (CheckUserAuthentication(lstTransactionReference).IsFalse()) return;
-                _manager.SaveTransactionReference(ref lstTransactionReference);
+                _manager.SaveCmnDocListTableMapping(ref lstTransactionReference);
                 ClearControls();
                 InitializeSession();
                 this.ErrorMessage = (StaticInfo.DeletedSuccessfullyMsg);

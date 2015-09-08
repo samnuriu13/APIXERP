@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.master" AutoEventWireup="true" CodeBehind="MenuWiseTableMapping.aspx.cs" Inherits="API.UI.Setup.MenuWiseTableMapping" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="chpInfHead" runat="server">
+      
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphInfbody" runat="server">
     <div class="form-wrapper">
@@ -14,9 +15,10 @@
                         <div class="div182Px">
                             <asp:DropDownList ID="ddlDocList" runat="server" CssClass="drpwidth180px">
                             </asp:DropDownList>
-                            <span class="r2">*</span>
+                            <span class="r2">*</span> <%----%>
                             <asp:ImageButton ID="btnNew" runat="server" CssClass="btnImageStyle" ImageUrl="~/images/new 20X20.png" OnClick="btnNew_Click" />
-                            <asp:ImageButton ID="btnFind" runat="server" CssClass="btnImageStyle" ImageUrl="~/images/Search 20X20.png" OnClick="btnFind_Click" />
+                            <%--"--%>
+                            <asp:ImageButton ID="btnFind" runat="server" CssClass="btnImageStyle" ImageUrl="~/images/Search 20X20.png" OnClick="btnFind_Click"  />
 
                         </div>
                     </div>
