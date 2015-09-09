@@ -9,6 +9,7 @@ using API.DAO;
 using STATIC;
 using API.DATA;
 using FRAMEWORK;
+using REPORT.DAO;
 using System.Data.SqlClient;
 
 namespace API.Controls
@@ -139,6 +140,20 @@ namespace API.Controls
             set
             {
                 Session["StockTransaction_UnitSetupList"] = value;
+            }
+        }
+        private RDLReportDocument Report
+        {
+            get
+            {
+                if (Session["ReportViewer_Report"].IsNull())
+                    Session["ReportViewer_Report"] = new RDLReportDocument();
+                //
+                return (RDLReportDocument)Session["ReportViewer_Report"];
+            }
+            set
+            {
+                Session["ReportViewer_Report"] = value;
             }
         }
         #endregion
@@ -420,6 +435,29 @@ namespace API.Controls
             catch (Exception ex)
             {
                 ((PageBase)this.Page).ErrorMessage = (ExceptionHelper.getExceptionMessage(ex));
+            }
+
+        }
+        protected void btnPreview_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Session["Account"] = "Transaction";
+                if (StockTransactionMasterList.Count != 0)
+                {
+                    Session["StockTransID"] = StockTransactionMasterList[0].StockTransID;
+                    Report.ReportPath = Server.MapPath(@"~\ASTReports\TransactionReport.rdl");
+                    String script = "javascript:ShowReportViewer();";
+                    if (((PageBase)this.Page).ClientScript.IsClientScriptBlockRegistered("scriptShowReportViewer").IsFalse())
+                    {
+                        ((PageBase)this.Page).ClientScript.RegisterStartupScript(this.GetType(), "scriptShowReportViewer", script, true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw (ex);
             }
 
         }

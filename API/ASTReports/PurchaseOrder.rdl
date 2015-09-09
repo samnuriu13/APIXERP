@@ -154,7 +154,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox126">
+                    <Textbox Name="Textbox20">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -170,7 +170,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox126</rd:DefaultName>
+                      <rd:DefaultName>Textbox20</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -341,6 +341,7 @@
                               <Value>Purchase Order No:</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -374,6 +375,7 @@
                               <Value>=Fields!PONO.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -477,6 +479,7 @@
                               <Value>Purchase Order  Date:</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -510,6 +513,7 @@
                               <Value>=Fields!PODate.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>dd-MMM-yy</Format>
                               </Style>
@@ -542,23 +546,24 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox238">
+                    <Textbox Name="Textbox204">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>PO Source Ref:</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox238</rd:DefaultName>
+                      <rd:DefaultName>Textbox202</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -573,23 +578,24 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox239">
+                    <Textbox Name="RequistionAgainst">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>=Fields!RequistionAgainst.Value</Value>
                               <Style>
-                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox239</rd:DefaultName>
+                      <rd:DefaultName>RequistionAgainst</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -614,6 +620,7 @@
                               <Value>Supplier Name:</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -647,6 +654,7 @@
                               <Value>=Fields!Supplier.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -678,23 +686,24 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox49">
+                    <Textbox Name="Textbox9">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>Ref No:</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox49</rd:DefaultName>
+                      <rd:DefaultName>Textbox5</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -709,23 +718,25 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox50">
+                    <Textbox Name="RequisitionRefNo">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>=Fields!RequisitionRefNo.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox50</rd:DefaultName>
+                      <rd:DefaultName>RequisitionRefNo</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -750,6 +761,7 @@
                               <Value>Expected Recept Date:</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -783,6 +795,7 @@
                               <Value>=Fields!ExpectedReceiptDate.Value</Value>
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>dd-MMM-yy</Format>
                               </Style>
@@ -877,7 +890,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox202">
+                    <Textbox Name="Textbox105">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -887,13 +900,14 @@
                               <Value />
                               <Style>
                                 <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox202</rd:DefaultName>
+                      <rd:DefaultName>Textbox105</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -908,7 +922,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox203">
+                    <Textbox Name="Textbox101">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -916,13 +930,16 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontFamily>Times New Roman</FontFamily>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox203</rd:DefaultName>
+                      <rd:DefaultName>Textbox101</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -937,7 +954,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox204">
+                    <Textbox Name="Textbox270">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -945,13 +962,16 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox204</rd:DefaultName>
+                      <rd:DefaultName>Textbox270</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -966,7 +986,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox205">
+                    <Textbox Name="Textbox268">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -974,13 +994,16 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox205</rd:DefaultName>
+                      <rd:DefaultName>Textbox268</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -1901,7 +1924,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Sum(Fields!Total.Value)</Value>
-                              <Style />
+                              <Style>
+                                <Format>0.00;(0.00)</Format>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1998,7 +2023,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>0.04167in</Top>
         <Left>0.33508in</Left>
-        <Height>4.5in</Height>
+        <Height>4.49999in</Height>
         <Width>6.20486in</Width>
         <Style>
           <Border>
@@ -2007,7 +2032,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>4.73958in</Height>
+    <Height>4.54166in</Height>
     <Style />
   </Body>
   <Width>6.53994in</Width>
@@ -2098,7 +2123,7 @@ CStr(Globals!PageNumber)</Value>
     <DataSource Name="DataSource1">
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
-        <ConnectString>Data Source=SHAIKAT\SQL12;Initial Catalog=APIN</ConnectString>
+        <ConnectString>Data Source=AST123soft-PC;Initial Catalog=API</ConnectString>
       </ConnectionProperties>
       <rd:SecurityType>DataBase</rd:SecurityType>
       <rd:DataSourceID>6b08b1f3-6586-4f09-83b3-8cc29795c850</rd:DataSourceID>
@@ -2108,6 +2133,11 @@ CStr(Globals!PageNumber)</Value>
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@POID">
+            <Value>=Parameters!POID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>sprptPurchaseOrder</CommandText>
       </Query>
@@ -2192,9 +2222,23 @@ CStr(Globals!PageNumber)</Value>
           <DataField>Total</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="RequistionAgainst">
+          <DataField>RequistionAgainst</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RequisitionRefNo">
+          <DataField>RequisitionRefNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
     </DataSet>
   </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="POID">
+      <DataType>Integer</DataType>
+      <Prompt>POID</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>27774af5-5271-48f8-bc0f-1f617a0d4d0a</rd:ReportID>
 </Report>

@@ -224,6 +224,7 @@
     <Content Include="DBScript\SP - MONIR.docx" />
     <Content Include="DBScript\SP - Shaikat.docx" />
     <Content Include="DBScript\SP_Shantonu.docx" />
+    <Content Include="ASTReports\Requisition.rdl" />
     <None Include="Properties\PublishProfiles\sa.pubxml" />
     <Content Include="Web.sitemap" />
     <Content Include="Web.config" />
