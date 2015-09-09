@@ -195,6 +195,7 @@
     <Content Include="UI\Materials\TransferReceive.aspx" />
     <Content Include="UI\Setup\BankAccounSetup.aspx" />
     <Content Include="UI\Setup\ContactInformation.aspx" />
+    <Content Include="UI\Setup\MenuWiseTableMapping.aspx" />
     <Content Include="UI\Setup\TransactionReference.aspx" />
     <Content Include="UI\Setup\DocListFormatSettings.aspx" />
     <Content Include="UI\Setup\TransactionType.aspx" />
@@ -903,6 +904,13 @@
     </Compile>
     <Compile Include="UI\Setup\ContactInformation.aspx.designer.cs">
       <DependentUpon>ContactInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Setup\MenuWiseTableMapping.aspx.cs">
+      <DependentUpon>MenuWiseTableMapping.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Setup\MenuWiseTableMapping.aspx.designer.cs">
+      <DependentUpon>MenuWiseTableMapping.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Setup\TransactionReference.aspx.cs">
       <DependentUpon>TransactionReference.aspx</DependentUpon>

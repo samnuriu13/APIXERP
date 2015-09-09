@@ -7,118 +7,91 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace API.UI.ACC {
+namespace API.UI.Setup {
     
     
-    public partial class HeadCategoryCOAMap {
+    public partial class MenuWiseTableMapping {
         
         /// <summary>
-        /// lblFrmHeader control.
+        /// ddlDocList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFrmHeader;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDocList;
         
         /// <summary>
-        /// ddlReportType control.
+        /// btnNew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlReportType;
+        protected global::System.Web.UI.WebControls.ImageButton btnNew;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// btnFind control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.ImageButton btnFind;
         
         /// <summary>
-        /// txtSequence control.
+        /// ddlTableName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSequence;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTableName;
         
         /// <summary>
-        /// ddlHeadCategory control.
+        /// ddlColumnName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlHeadCategory;
+        protected global::System.Web.UI.WebControls.DropDownList ddlColumnName;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// lblTableType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.Label lblTableType;
         
         /// <summary>
-        /// ddlOperator control.
+        /// lblColumnType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlOperator;
+        protected global::System.Web.UI.WebControls.Label lblColumnType;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// btnDelete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.Button btnDelete;
         
         /// <summary>
-        /// UpdatePanel1 control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
-        /// <summary>
-        /// txtName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
-        
-        /// <summary>
-        /// tv control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TreeView tv;
-        
-        /// <summary>
-        /// btnAdd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
+        protected global::System.Web.UI.WebControls.Button btnCancel;
         
         /// <summary>
         /// btnSave control.
