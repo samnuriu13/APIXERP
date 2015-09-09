@@ -1535,7 +1535,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!ReportName.Value, "DataSet1") + " Transaction Details From : " + Parameters!FromDate.Value + " - " +Parameters!ToDate.Value</Value>
+                  <Value>=First(Fields!ReportName.Value, "DataSet1")</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -1681,7 +1681,7 @@
     <DataSource Name="DataSource1">
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
-        <ConnectString>Data Source=SHAIKAT\SQL12;Initial Catalog=APIN</ConnectString>
+        <ConnectString>Data Source=AST123soft-PC;Initial Catalog=API</ConnectString>
       </ConnectionProperties>
       <rd:SecurityType>DataBase</rd:SecurityType>
       <rd:DataSourceID>489e248a-4a93-4c85-8705-d7babafc2686</rd:DataSourceID>
@@ -1692,14 +1692,8 @@
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@FromDate">
-            <Value>=Parameters!FromDate.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@ToDate">
-            <Value>=Parameters!ToDate.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@TransType">
-            <Value>=Parameters!TransType.Value</Value>
+          <QueryParameter Name="@StockTransID">
+            <Value>=Parameters!StockTransID.Value</Value>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
@@ -1709,6 +1703,10 @@
         <Field Name="ReportName">
           <DataField>ReportName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ParameterType">
+          <DataField>ParameterType</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="TransactionTypeName">
           <DataField>TransactionTypeName</DataField>
@@ -1850,32 +1848,14 @@
     </DataSet>
   </DataSets>
   <ReportParameters>
-    <ReportParameter Name="FromDate">
+    <ReportParameter Name="StockTransID">
       <DataType>String</DataType>
       <DefaultValue>
         <Values>
-          <Value>01/01/2015</Value>
+          <Value>2</Value>
         </Values>
       </DefaultValue>
-      <Prompt>From Date</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="ToDate">
-      <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>10/30/2015</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>To Date</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="TransType">
-      <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>4</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>Trans Type</Prompt>
+      <Prompt>Stock Trans ID</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>

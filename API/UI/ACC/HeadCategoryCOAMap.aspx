@@ -17,22 +17,16 @@
                         <a>Report Type</a>
                     </div>
                     <div class="div182Px">
-                        <asp:DropDownList ID="ddlReportType" runat="server" CssClass="drpwidth180px">
+                        <asp:DropDownList ID="ddlReportType" runat="server" CssClass="drpwidth180px" Style="width: 80%">
                         </asp:DropDownList>
+                        <div style="float: right; margin-left: 5px;">
+                            <asp:ImageButton ID="btnNew" runat="server" CssClass="btnImageStyle" ImageUrl="~/images/new 20X20.png" OnClick="btnNew_Click" />
+                            <asp:ImageButton ID="btnFind" runat="server" CssClass="btnImageStyle" ImageUrl="~/images/Search 20X20.png" OnClick="btnFind_Click" />
+                        </div>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="ddlReportType"
                             runat="server" ForeColor="Red" ErrorMessage="Report Type is required" ValidationGroup="Save">*</asp:RequiredFieldValidator>
                     </div>
                 </div>
-                <div class="lblAndTxtStyle">
-                    <div class="divlblwidth100px bglbl">
-                        <a>Sequence</a>
-                    </div>
-                    <div class="div80Px">
-                        <asp:TextBox ID="txtSequence" runat="server" CssClass="txtwidth178px" MaxLength="100"></asp:TextBox>
-                    </div>
-                </div>
-            </div>
-            <div style="width: 40%; float: left">
                 <div class="lblAndTxtStyle">
                     <div class="divlblwidth100px bglbl">
                         <a>Head Category</a>
@@ -42,6 +36,24 @@
                         </asp:DropDownList>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="ddlHeadCategory"
                             runat="server" ForeColor="Red" ErrorMessage="Report Type is required" ValidationGroup="Save">*</asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="lblAndTxtStyle">
+                    <div class="divlblwidth100px bglbl">
+                        <a>Head Name</a>
+                    </div>
+                    <div class="div80Px">
+                        <asp:TextBox ID="txtHead" runat="server" CssClass="txtwidth178px" MaxLength="100"></asp:TextBox>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 40%; float: left">
+                <div class="lblAndTxtStyle">
+                    <div class="divlblwidth100px bglbl">
+                        <a>Sequence</a>
+                    </div>
+                    <div class="div80Px">
+                        <asp:TextBox ID="txtSequence" runat="server" CssClass="txtwidth178px" MaxLength="100"></asp:TextBox>
                     </div>
                 </div>
                 <div class="lblAndTxtStyle">
@@ -61,6 +73,7 @@
             </div>
             <br />
             <br />
+            <div style="clear: both"></div>
             <div>
                 <div style="float: left; width: 40%; padding-bottom: 10px; min-height: 300px;">
                     <fieldset class="fieldset-panel" style="min-height: 200px;">
@@ -87,10 +100,10 @@
                         </div>
                     </fieldset>
                 </div>
-                <div style="width:10%; float:left;">
-                     <asp:Button ID="btnAdd" runat="server" CssClass="button" Text="ADD" OnClick="btnAdd_Click" />
+                <div style="width: 5%; float: left;">
+                    <asp:Button ID="btnAdd" runat="server" CssClass="button" Text="ADD" OnClick="btnAdd_Click" />
                 </div>
-                <div style="width: 30%; float: left">
+                <div style="width: 40%; float: left">
                     <div>
                         <table id="grdHeadCategoryCOAMap">
                         </table>
@@ -106,6 +119,9 @@
         <br />
         <br />
         <div class="form-bottom">
+            <div class="btnRight">
+                <asp:Button ID="btnDelete" runat="server" CssClass="button" Text="Delete" OnClick="btnDelete_Click" />
+            </div>
             <div class="btnRight">
                 <asp:Button ID="btnSave" runat="server" CssClass="button" Text="Save" OnClick="btnSave_Click" />
             </div>

@@ -150,6 +150,15 @@ namespace API.Reports
                     case "Voucher":
                         LoadReportSourceData(value);
                         break;
+                    case "PO":
+                        LoadReportSourceData(value);
+                        break;
+                    case "Transaction":
+                        LoadReportSourceData(value);
+                        break;
+                    case "Requisition":
+                        LoadReportSourceData(value);
+                        break;
                     default:
                         {
                             SetDataSource(Report.dsSource);
@@ -260,6 +269,51 @@ namespace API.Reports
                             //rview.LocalReport.Refresh();
 
                             break;
+                        }//Transaction
+                    case "PO":
+                        {
+                            String poID = (String)Session["POID"];
+
+                            ReportManager manager = new ReportManager();
+                            ReportDataSources = manager.GetPODataSources(poID);
+                            rview.LocalReport.ReportPath = Report.ReportPath;
+                            ReportDataSource masterDatasource = new ReportDataSource("PurchaseOrder", ReportDataSources.Tables["sprptPurchaseOrder"]);
+                            rview.LocalReport.DataSources.Add(masterDatasource);
+                            SetReportParameters(value, rview);
+                            OpenReportInPDF(rview);
+                            //rview.LocalReport.Refresh();
+
+                            break;
+                        }
+                    case "Transaction":
+                        {
+                            String StockTransID = (String)Session["StockTransID"];
+
+                            ReportManager manager = new ReportManager();
+                            ReportDataSources = manager.GetAllTransactionDataSources(StockTransID);
+                            rview.LocalReport.ReportPath = Report.ReportPath;
+                            ReportDataSource masterDatasource = new ReportDataSource("DataSet1", ReportDataSources.Tables["sprptStorckTransactionAll"]);
+                            rview.LocalReport.DataSources.Add(masterDatasource);
+                            SetReportParameters(value, rview);
+                            OpenReportInPDF(rview);
+                            //rview.LocalReport.Refresh();
+
+                            break;
+                        }
+                    case "Requisition":
+                        {
+                            String RequisitionID = (String)Session["RequisitionID"];
+
+                            ReportManager manager = new ReportManager();
+                            ReportDataSources = manager.GetAllRequisitionDataSources(RequisitionID);
+                            rview.LocalReport.ReportPath = Report.ReportPath;
+                            ReportDataSource masterDatasource = new ReportDataSource("Requisition", ReportDataSources.Tables["sprptRequisitionAll"]);
+                            rview.LocalReport.DataSources.Add(masterDatasource);
+                            SetReportParameters(value, rview);
+                            OpenReportInPDF(rview);
+                            //rview.LocalReport.Refresh();
+
+                            break;
                         }
                 }
             }
@@ -289,6 +343,45 @@ namespace API.Reports
                             company.Name = "OrgKey";
                             company.Values.Add(orgKey);
                             paramList.Add(company);
+
+                            rpViewer.LocalReport.SetParameters(paramList);
+                            break;
+                        }
+                    case "PO":
+                        {
+                            String POID = (String)Session["POID"];
+                            List<ReportParameter> paramList = new List<ReportParameter>();
+
+                            ReportParameter PO = new ReportParameter();
+                            PO.Name = "POID";
+                            PO.Values.Add(POID);
+                            paramList.Add(PO);
+
+                            rpViewer.LocalReport.SetParameters(paramList);
+                            break;
+                        }
+                    case "Transaction":
+                        {
+                            String StockTransID = (String)Session["StockTransID"];
+                            List<ReportParameter> paramList = new List<ReportParameter>();
+
+                            ReportParameter stockTrans = new ReportParameter();
+                            stockTrans.Name = "StockTransID";
+                            stockTrans.Values.Add(StockTransID);
+                            paramList.Add(stockTrans);
+
+                            rpViewer.LocalReport.SetParameters(paramList);
+                            break;
+                        }
+                    case "Requisition":
+                        {
+                            String RequisitionID = Session["RequisitionID"].ToString();
+                            List<ReportParameter> paramList = new List<ReportParameter>();
+
+                            ReportParameter requisition = new ReportParameter();
+                            requisition.Name = "RequisitionID";
+                            requisition.Values.Add(RequisitionID);
+                            paramList.Add(requisition);
 
                             rpViewer.LocalReport.SetParameters(paramList);
                             break;

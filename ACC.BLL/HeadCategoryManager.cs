@@ -53,9 +53,9 @@ namespace ACC.BLL
        //{
        //    return AccReportConfigurationHeadCategory.GetAllAccReportConfigurationHeadCategory();
        //}
-       public CustomList<AccReportConfigurationHead> GetAllAccReportConfigurationHead()
+       public CustomList<AccReportConfigurationHead> GetAllAccReportConfigurationHead(Int32 ReportTypeID)
        {
-           return AccReportConfigurationHead.GetAllAccReportConfigurationHead();
+           return AccReportConfigurationHead.GetAllAccReportConfigurationHead(ReportTypeID);
        }
 
        public void SaveAccReportConfigurationHead(ref CustomList<AccReportConfigurationHead> AccReportConfigurationHeadList, ref CustomList<AccReportConfigurationHeadCOAMap> AccReportConfigurationHeadCOAMapList)
@@ -109,6 +109,34 @@ namespace ACC.BLL
            AccReportConfigurationHeadCOAMapList.UpdateSpName = "spUpdateAccReportConfigurationHeadCOAMap";
            AccReportConfigurationHeadCOAMapList.DeleteSpName = "spDeleteAccReportConfigurationHeadCOAMap";
            #endregion
+       }
+       public void deleteHeadCategoryCOAMap(ref CustomList<AccReportConfigurationHead> lstAccReportConfigurationHead, ref CustomList<AccReportConfigurationHeadCOAMap> lstAccReportConfigurationHeadCOAMap)
+       {
+           ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
+           Boolean blnTranStarted = false;
+           try
+           {
+               conManager.BeginTransaction();
+               lstAccReportConfigurationHeadCOAMap.DeleteSpName = "spDeleteAccReportConfigurationHeadCOAMap";
+               lstAccReportConfigurationHead.DeleteSpName = "spDeleteAccReportConfigurationHead";
+               blnTranStarted = true;
+               conManager.SaveDataCollectionThroughCollection(blnTranStarted, lstAccReportConfigurationHeadCOAMap, lstAccReportConfigurationHead);
+
+               conManager.CommitTransaction();
+               blnTranStarted = false;
+           }
+           catch (Exception Ex)
+           {
+               conManager.RollBack();
+               throw Ex;
+           }
+           finally
+           {
+               if (conManager.IsNotNull())
+               {
+                   conManager.Dispose();
+               }
+           }
        }
        public CustomList<AccReportConfigurationHeadCOAMap> GetAllAccReportConfigurationHeadCOAMap(Int32 headID)
        {

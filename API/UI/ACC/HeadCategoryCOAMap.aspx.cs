@@ -19,7 +19,12 @@ namespace API.UI.ACC
     public partial class HeadCategoryCOAMap : PageBase
     {
         HeadCategoryManager hCM = new HeadCategoryManager();
-
+        #region Constructur
+        public HeadCategoryCOAMap()
+        {
+            RequiresAuthorization = true;
+        }
+        #endregion
         #region Session & ViewState
         public CustomList<Acc_COA> _COA
         {
@@ -81,7 +86,7 @@ namespace API.UI.ACC
         }
 
 
-        private CustomList<AccReportConfigurationHead> AccReportConfigurationHeadList   
+        private CustomList<AccReportConfigurationHead> AccReportConfigurationHeadList
         {
             get
             {
@@ -126,7 +131,7 @@ namespace API.UI.ACC
             {
                 Page.ClientScript.GetPostBackEventReference(this, String.Empty);
                 String eventTarget = Request["__EVENTTARGET"].IsNullOrEmpty() ? String.Empty : Request["__EVENTTARGET"];
-                if (Request["__EVENTTARGET"] == "SearchBank")
+                if (Request["__EVENTTARGET"] == "SearchAccReportConfigurationHead")
                 {
                     AccReportConfigurationHeadList = new CustomList<AccReportConfigurationHead>();
                     AccReportConfigurationHead searchAccReportConfigurationHead = Session[STATIC.StaticInfo.SearchSessionVarName] as AccReportConfigurationHead;
@@ -175,13 +180,14 @@ namespace API.UI.ACC
             try
             {
                 GRID_COA = new CustomList<Acc_COA>();
+                GRID_COA = Acc_COA.GetAllAcc_COA();
                 AccReportConfigurationHeadList = new CustomList<AccReportConfigurationHead>();
                 AccReportConfigurationHeadCOAMapList = new CustomList<AccReportConfigurationHeadCOAMap>();
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
-               throw(ex);
+                throw (ex);
             }
         }
 
@@ -194,10 +200,10 @@ namespace API.UI.ACC
                 obj.ReportTypeID = Convert.ToInt32(ddlReportType.SelectedValue);
                 obj.Sequence = Convert.ToInt32(txtSequence.Text);
                 obj.OperationOperator = ddlOperator.SelectedValue.ToString();
-                obj.HeadName = "";
+                obj.HeadName = txtHead.Text;
                 obj.CostCenterID = 0;
                 obj.CompanyID = 0;
-               // obj.HeadID = 0;
+                // obj.HeadID = 0;
                 obj.IsActive = true;
                 //if (obj.ShiftID != 0) obj.SetModified();
             }
@@ -287,15 +293,16 @@ namespace API.UI.ACC
             //}
         }
 
-        private void PopulateACCInformation(AccReportConfigurationHead accReportConfigurationHead)  
+        private void PopulateACCInformation(AccReportConfigurationHead accReportConfigurationHead)
         {
             try
             {
-                //txtBankName.Text = bank.BnakName;
-               // txtBankSName.Text = bank.BankSName;
-               // txtAddress.Text = bank.Address;
-               // txtContactPerson.Text = bank.ContactPerson;
-                AccReportConfigurationHeadCOAMapList = hCM.GetAllAccReportConfigurationHeadCOAMap(accReportConfigurationHead.HeadID); 
+                if (accReportConfigurationHead.HeadCategoryID != 0)
+                    ddlHeadCategory.SelectedValue = accReportConfigurationHead.HeadCategoryID.ToString();
+                txtHead.Text = accReportConfigurationHead.HeadName;
+                txtSequence.Text = accReportConfigurationHead.Sequence.ToString();
+                ddlOperator.SelectedValue = accReportConfigurationHead.OperationOperator;
+                AccReportConfigurationHeadCOAMapList = hCM.GetAllAccReportConfigurationHeadCOAMap(accReportConfigurationHead.HeadID);
             }
             catch (Exception ex)
             {
@@ -347,17 +354,32 @@ namespace API.UI.ACC
         }
 
         #region button event
+        protected void btnNew_Click(object sender, EventArgs e)
+        {
+            try
+            {
 
+                ClearControls();
+                InitializeSession();
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
         protected void btnFind_Click(object sender, ImageClickEventArgs e)
         {
             try
             {
-                CustomList<AccReportConfigurationHead> items = hCM.GetAllAccReportConfigurationHead(); 
+                CustomList<AccReportConfigurationHead> items = hCM.GetAllAccReportConfigurationHead(Convert.ToInt32(ddlReportType.SelectedValue));
                 Dictionary<string, string> columns = new Dictionary<string, string>();
 
-                columns.Add("BnakName", "Bank Name");
+                columns.Add("HeadCategoryName", "Head Category");
+                columns.Add("HeadName", "HeadName");
+                columns.Add("Sequence", "Sequence");
+                columns.Add("OperationOperator", "Operation Operator");
 
-                StaticInfo.SearchItem(items, "Bank", "SearchAccReportConfigurationHead", FRAMEWORK.SearchColumnConfig.GetColumnConfig(typeof(AccReportConfigurationHead), columns), 500);
+                StaticInfo.SearchItem(items, "Report Configuration", "SearchAccReportConfigurationHead", FRAMEWORK.SearchColumnConfig.GetColumnConfig(typeof(AccReportConfigurationHead), columns), 500);
             }
             catch (Exception ex)
             {
@@ -376,7 +398,7 @@ namespace API.UI.ACC
             {
                 AccReportConfigurationHeadCOAMap objCOA = new AccReportConfigurationHeadCOAMap();
                 objCOA.COAName = tv.CheckedNodes[i].Text;
-                objCOA.COAID =Convert.ToInt32(tv.CheckedNodes[i].Value);
+                objCOA.COAID = Convert.ToInt32(tv.CheckedNodes[i].Value);
                 objCOA.HeadCOAMapID = 0;
                 //objCOA.HeadID = 0;
                 foreach (Acc_COA acccoa in lstSessionAcc_COA)
@@ -420,7 +442,7 @@ namespace API.UI.ACC
 
 
 
-        }    
+        }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
@@ -436,7 +458,7 @@ namespace API.UI.ACC
                 SetDataFromControlToObj(ref lstAccReportConfigurationHead);
                 CustomList<AccReportConfigurationHeadCOAMap> lstAccReportConfigurationHeadCOAMap = (CustomList<AccReportConfigurationHeadCOAMap>)AccReportConfigurationHeadCOAMapList;
 
-                //if (!CheckUserAuthentication(lstAccReportConfigurationHead, lstAccReportConfigurationHeadCOAMap)) return;
+                if (!CheckUserAuthentication(lstAccReportConfigurationHead, lstAccReportConfigurationHeadCOAMap)) return;
                 hCM.SaveAccReportConfigurationHead(ref lstAccReportConfigurationHead, ref lstAccReportConfigurationHeadCOAMap);
                 ((PageBase)this.Page).SuccessMessage = (StaticInfo.SavedSuccessfullyMsg);
             }
@@ -451,19 +473,6 @@ namespace API.UI.ACC
 
         }
 
-        protected void btnNew_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                ClearControls();
-                InitializeSession();
-            }
-            catch (Exception ex)
-            {
-                throw (ex);
-            }
-        }
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             try
@@ -477,12 +486,37 @@ namespace API.UI.ACC
                 throw (ex);
             }
         }
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CustomList<AccReportConfigurationHead> lstReportConfigurationHead = (CustomList<AccReportConfigurationHead>)AccReportConfigurationHeadList;
+                lstReportConfigurationHead.ForEach(f => f.Delete());
+                CustomList<AccReportConfigurationHeadCOAMap> lstReportConfigurationHeadCOAMap = (CustomList<AccReportConfigurationHeadCOAMap>)AccReportConfigurationHeadCOAMapList;
+                lstReportConfigurationHeadCOAMap.ForEach(s => s.Delete());
+                if (((PageBase)this.Page).CheckUserAuthentication(lstReportConfigurationHead, lstReportConfigurationHeadCOAMap).IsFalse()) return;
+                hCM.deleteHeadCategoryCOAMap(ref lstReportConfigurationHead, ref lstReportConfigurationHeadCOAMap);
+                InitializeCombo();
+                ClearControls();
+                InitializeSession();
+                ((PageBase)this.Page).ErrorMessage = (StaticInfo.DeletedSuccessfullyMsg);
+            }
+            catch (SqlException ex)
+            {
+                ((PageBase)this.Page).ErrorMessage = (ExceptionHelper.getSqlExceptionMessage(ex));
+            }
+            catch (Exception ex)
+            {
+                ((PageBase)this.Page).ErrorMessage = (ExceptionHelper.getExceptionMessage(ex));
+            }
+
+        }
 
         #endregion
 
-       
 
-       
+
+
 
     }
 }
