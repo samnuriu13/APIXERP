@@ -2020,7 +2020,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DataSet1</DataSetName>
+        <DataSetName>PurchaseOrder</DataSetName>
         <Top>0.04167in</Top>
         <Left>0.33508in</Left>
         <Height>4.49999in</Height>
@@ -2077,8 +2077,10 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>="Page "+ CStr(Globals!PageNumber) +" of "+ 
-CStr(Globals!PageNumber)</Value>
+                  <Value>
+                    ="Page "+ CStr(Globals!PageNumber) +" of "+
+                    CStr(Globals!PageNumber)
+                  </Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -2130,7 +2132,7 @@ CStr(Globals!PageNumber)</Value>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
+    <DataSet Name="PurchaseOrder">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <QueryParameters>
@@ -2235,7 +2237,12 @@ CStr(Globals!PageNumber)</Value>
   </DataSets>
   <ReportParameters>
     <ReportParameter Name="POID">
-      <DataType>Integer</DataType>
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>5</Value>
+        </Values>
+      </DefaultValue>
       <Prompt>POID</Prompt>
     </ReportParameter>
   </ReportParameters>

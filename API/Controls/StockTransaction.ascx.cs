@@ -445,7 +445,7 @@ namespace API.Controls
                 Session["Account"] = "Transaction";
                 if (StockTransactionMasterList.Count != 0)
                 {
-                    Session["StockTransID"] = StockTransactionMasterList[0].StockTransID;
+                    Session["StockTransID"] = StockTransactionMasterList[0].StockTransID.ToString();
                     Report.ReportPath = Server.MapPath(@"~\ASTReports\TransactionReport.rdl");
                     String script = "javascript:ShowReportViewer();";
                     if (((PageBase)this.Page).ClientScript.IsClientScriptBlockRegistered("scriptShowReportViewer").IsFalse())

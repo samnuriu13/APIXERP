@@ -99,9 +99,9 @@ namespace ACC.DAO
 		{
 			Object[] parameterValues = null;
 			if (IsAdded)
-                parameterValues = new Object[] { _HeadID, _COAName,_COAID, _IsActive };
+                parameterValues = new Object[] { _HeadID,_COAID, _IsActive };
 			else if (IsModified)
-                parameterValues = new Object[] { _HeadID, _COAName, _COAID, _IsActive };
+                parameterValues = new Object[] { _HeadCOAMapID, _HeadID, _COAID, _IsActive };
 			else if (IsDeleted)
 				parameterValues = new Object[] {_HeadCOAMapID};
 			return parameterValues;
@@ -120,7 +120,7 @@ namespace ACC.DAO
 			ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
 			CustomList<AccReportConfigurationHeadCOAMap> AccReportConfigurationHeadCOAMapCollection = new CustomList<AccReportConfigurationHeadCOAMap>();
 			IDataReader reader = null;
-            const String sql = "select HeadCOAMapID,HeadID,'' COAName,COAID,IsActive from AccReportConfigurationHeadCOAMap";
+            const String sql = "select HeadCOAMapID,HeadID,COAID,IsActive from AccReportConfigurationHeadCOAMap";
 			try
 			{
 				conManager.OpenDataReader(sql, out reader);
@@ -148,7 +148,7 @@ namespace ACC.DAO
 			ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
 			CustomList<AccReportConfigurationHeadCOAMap> AccReportConfigurationHeadCOAMapCollection = new CustomList<AccReportConfigurationHeadCOAMap>();
 			IDataReader reader = null;
-            String sql = "select HeadCOAMapID,HeadID,'' COAName,COAID,IsActive from AccReportConfigurationHeadCOAMap";// Where HeadID='" + headID + "'";
+            String sql = "select HeadCOAMapID,HeadID,'' COAName,COAID,IsActive from AccReportConfigurationHeadCOAMap Where HeadID='" + headID + "'";
 			try
 			{
 				conManager.OpenDataReader(sql, out reader);

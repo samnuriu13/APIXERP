@@ -1849,7 +1849,12 @@
   </DataSets>
   <ReportParameters>
     <ReportParameter Name="StockTransID">
-      <DataType>Integer</DataType>
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>2</Value>
+        </Values>
+      </DefaultValue>
       <Prompt>Stock Trans ID</Prompt>
     </ReportParameter>
   </ReportParameters>

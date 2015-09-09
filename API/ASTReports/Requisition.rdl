@@ -941,7 +941,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>=runningvalue(Fields!RequisitionID.Value,count,"DataSet1")</Value>
+                                <Value>=runningvalue(Fields!RequisitionID.Value,count,"Requisition")</Value>
                                 <Style />
                               </TextRun>
                             </TextRuns>
@@ -1149,7 +1149,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DataSet1</DataSetName>
+        <DataSetName>Requisition</DataSetName>
         <Top>0.17882in</Top>
         <Left>0.10417in</Left>
         <Height>0.75in</Height>
@@ -1178,7 +1178,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!CompanyName.Value, "DataSet1")</Value>
+                  <Value>=First(Fields!CompanyName.Value, "Requisition")</Value>
                   <Style>
                     <FontSize>14pt</FontSize>
                   </Style>
@@ -1210,7 +1210,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!CompanyAddress.Value, "DataSet1")</Value>
+                  <Value>=First(Fields!CompanyAddress.Value, "Requisition")</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -1241,7 +1241,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!ReportName.Value, "DataSet1") + " Report"</Value>
+                  <Value>=First(Fields!ReportName.Value, "Requisition") + " Report"</Value>
                   <Style>
                     <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
@@ -1347,9 +1347,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>
-										="Page "+ CStr(Globals!PageNumber) +" of "+
-										CStr(Globals!PageNumber)
-									</Value>
+                    ="Page "+ CStr(Globals!PageNumber) +" of "+
+                    CStr(Globals!PageNumber)
+                  </Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -1401,7 +1401,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
+    <DataSet Name="Requisition">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <QueryParameters>
@@ -1514,7 +1514,12 @@
   </DataSets>
   <ReportParameters>
     <ReportParameter Name="RequisitionID">
-      <DataType>Integer</DataType>
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>2</Value>
+        </Values>
+      </DefaultValue>
       <Prompt>Requisition ID</Prompt>
     </ReportParameter>
   </ReportParameters>

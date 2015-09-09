@@ -362,10 +362,10 @@ namespace API.Controls
         {
             try
             {
-                Session["Account"] = "Transaction";
+                Session["Account"] = "PO";
                 if (POMasterList.Count != 0)
                 {
-                    Session["POID"] = POMasterList[0].POID;
+                    Session["POID"] = POMasterList[0].POID.ToString();
                     Report.ReportPath = Server.MapPath(@"~\ASTReports\PurchaseOrder.rdl");
                     String script = "javascript:ShowReportViewer();";
                     if (((PageBase)this.Page).ClientScript.IsClientScriptBlockRegistered("scriptShowReportViewer").IsFalse())

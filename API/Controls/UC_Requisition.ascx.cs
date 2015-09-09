@@ -388,7 +388,7 @@ namespace API.Controls
                 Session["Account"] = "Requisition";
                 if (ItemRequisitionMasterList.Count != 0)
                 {
-                    Session["RequisitionID"] = ItemRequisitionMasterList[0].RequisitionID;
+                    Session["RequisitionID"] = ItemRequisitionMasterList[0].RequisitionID.ToString();
                     Report.ReportPath = Server.MapPath(@"~\ASTReports\Requisition.rdl");
                     String script = "javascript:ShowReportViewer();";
                     if (((PageBase)this.Page).ClientScript.IsClientScriptBlockRegistered("scriptShowReportViewer").IsFalse())

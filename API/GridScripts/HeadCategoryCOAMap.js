@@ -12,8 +12,8 @@
 						, colModel:
 							[
 								{ 'name': 'VID', 'key': true, 'hidden': true, 'width': 50, 'index': 'VID' },
-							    { 'name': 'COAName', 'index': 'COAName', 'width': 50, editable: true },
-                                { 'name': 'IsActive', 'index': 'IsActive', 'width': 20, editable: true },
+                                { 'name': 'COAID', 'index': 'COAID', 'width': 100, editable: true, edittype: "select", formatter: 'select', editoptions: { value: GetDropDownSource('SessionVarName=Grid_COA&DataTextField=COAName&NeedBlank=Empty&DataValueField=COAID') } },
+                                { 'name': 'IsActive', 'index': 'IsActive', 'width': 20, editable: true, edittype: "checkbox", formatter: 'checkbox' },
 							]
                         , viewrecords: true
 						, rownumbers: false
