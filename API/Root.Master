@@ -39,16 +39,19 @@
             z-index: 9999999;
             border: 2px solid #FAC8A0;
         }
+
         .validation-summary
         {
             z-index: -1005;
             font-size: 0px;
         }
+
         .r2
         {
             color: Red;
             display: inline-block;
         }
+
         .modal
         {
             position: fixed;
@@ -62,6 +65,7 @@
             min-height: 100%;
             width: 100%;
         }
+
         #dvLoading
         {
             height: 100px;
@@ -104,16 +108,16 @@
 <body onkeydown="return doAllowEnterEvent(event);" onbeforeunload="fnOnbeforeunload();"
     onunload="doUnload();">
     <form id="form1" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" EnablePageMethods="true" EnablePartialRendering="true"
-        runat="server" />
-    <header>
+        <asp:ScriptManager ID="ScriptManager1" EnablePageMethods="true" EnablePartialRendering="true"
+            runat="server" />
+        <header>
         <st:Header ID="ctrlHeader" runat="server" />
         <st:Menu ID="ctrlMenu" runat="server" />        
     </header>
-    <section class="breadcrumb">
+        <section class="breadcrumb">
     <asp:SiteMapPath ID="stBreadcrumb" runat="server" ></asp:SiteMapPath>
     </section>
-    <section>
+        <section>
         <div>
         <div class="clear">
         </div>
@@ -153,7 +157,7 @@
                     $('.validation-summary').hide();
                     setTimeout("$('.validation-summary').hide()", 1);
                 }
-            }            
+            }
         </script>
       <div class="message-box">         
             <div class="error">
@@ -177,14 +181,14 @@
     </div>
     </div>
     </section>
-    <section class="main">
+        <section class="main">
         <asp:ContentPlaceHolder ID="cphBody" runat="server" />
     </section>
-    <%--    <footer>
+        <%--    <footer>
         <st:Footer ID="ctrlFooter" runat="server" />
     </footer>--%>
-    <asp:ValidationSummary ID="ValidationSummary1" CssClass="validation-summary" runat="server"
-        ValidationGroup="save"></asp:ValidationSummary>
+        <asp:ValidationSummary ID="ValidationSummary1" CssClass="validation-summary" runat="server"
+            ValidationGroup="save"></asp:ValidationSummary>
     </form>
     <div id="dvLoading">
         <img id="Img1" runat="server" src="images/loading.gif" />

@@ -33,6 +33,22 @@ namespace SECURITY.DAO
             }
         }
         private System.Int32 _ObjectID;
+
+        [Browsable(true), DisplayName("DocListFormatID")]
+        public System.Int32 DocListFormatID
+        {
+            get
+            {
+                return _DocListFormatID;
+            }
+            set
+            {
+                if (PropertyChanged(_DocListFormatID, value))
+                    _DocListFormatID = value;
+            }
+        }
+        private System.Int32 _DocListFormatID;
+
         [Browsable(true), DisplayName("ApplicationID")]
         public System.Int32 ApplicationID
         {
@@ -201,6 +217,21 @@ namespace SECURITY.DAO
             }
         }
         private System.Boolean _CanDelete;
+
+        [Browsable(true), DisplayName("StatusID")]
+        public System.Int32 StatusID
+        {
+            get
+            {
+                return _StatusID;
+            }
+            set
+            {
+                if (PropertyChanged(_StatusID, value))
+                    _StatusID = value;
+            }
+        }
+        private System.Int32 _StatusID;
         #endregion
 
         public override Object[] GetParameterValues()
@@ -229,6 +260,8 @@ namespace SECURITY.DAO
             _CanInsert = reader.GetBoolean("CanInsert");
             _CanUpdate = reader.GetBoolean("CanUpdate");
             _CanDelete = reader.GetBoolean("CanDelete");
+            _DocListFormatID = reader.GetInt32("DocListFormatID");
+            _StatusID = reader.GetInt32("StatusID");
             SetUnchanged();
         }
         public static CustomList<LeftMenuItems> GetAllLeftMenuItems()

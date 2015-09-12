@@ -18,9 +18,9 @@ namespace API.DAO
 
         #region Properties
 
-        private System.Int32 _DocListTableMappingID;
+        private System.Int64 _DocListTableMappingID;
         [Browsable(true), DisplayName("DocListTableMappingID")]
-        public System.Int32 DocListTableMappingID
+        public System.Int64 DocListTableMappingID
         {
             get
             {
@@ -107,6 +107,21 @@ namespace API.DAO
                     _ColumnName = value;
             }
         }
+
+        private System.String _DisplayMember;
+        [Browsable(true), DisplayName("DisplayMember")]
+        public System.String DisplayMember
+        {
+            get
+            {
+                return _DisplayMember;
+            }
+            set
+            {
+                if (PropertyChanged(_DisplayMember, value))
+                    _DisplayMember = value;
+            }
+        }
         #endregion
 
         public override Object[] GetParameterValues()
@@ -122,12 +137,13 @@ namespace API.DAO
         }
         protected override void SetData(IDataRecord reader)
         {
-            _DocListTableMappingID = reader.GetInt32("DocListTableMappingID");
+            _DocListTableMappingID = reader.GetInt64("DocListTableMappingID");
             _DocListID = reader.GetInt32("DocListID");
             _TableType = reader.GetString("TableType");
             _TableName = reader.GetString("TableName");
             _ColumnType = reader.GetString("ColumnType");
             _ColumnName = reader.GetString("ColumnName");
+            _DisplayMember = reader.GetString("DisplayMember");
             SetUnchanged();
         }
         public static CustomList<CmnDocListTableMapping> GetAllCmnDocListTableMapping()
@@ -167,7 +183,7 @@ namespace API.DAO
             ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
             CustomList<CmnDocListTableMapping> CmnTransRefCollection = new CustomList<CmnDocListTableMapping>();
             IDataReader reader = null;
-            const String sql = " Select * from  CmnDocListTableMapping";
+            String sql = "EXEC spFindDocListTableMaping";
             try
             {
                 conManager.OpenDataReader(sql, out reader);
@@ -177,9 +193,6 @@ namespace API.DAO
                     newCmnTransactionReference.SetData(reader);
                     CmnTransRefCollection.Add(newCmnTransactionReference);
                 }
-                //CmnTransRefCollection.InsertSpName = "spInsertCmnTransRef";
-               // CmnTransRefCollection.UpdateSpName = "spUpdateCmnTransRef";
-              //  CmnTransRefCollection.DeleteSpName = "spDeleteCmnTransRef";
                 return CmnTransRefCollection;
             }
             catch (Exception ex)

@@ -46,10 +46,10 @@ namespace API.BLL
                 conManager.BeginTransaction();
 
                 ReSetSPName(CmnDocListTableMappingList);
-                Int32 TransactionTypeKey = CmnDocListTableMappingList[0].DocListTableMappingID;
+                Int64 TransactionTypeKey = CmnDocListTableMappingList[0].DocListTableMappingID;
                 blnTranStarted = true;
                 if (CmnDocListTableMappingList[0].IsAdded)
-                    TransactionTypeKey = Convert.ToInt32(conManager.InsertData(blnTranStarted, CmnDocListTableMappingList));
+                    TransactionTypeKey = Convert.ToInt64(conManager.InsertData(blnTranStarted, CmnDocListTableMappingList));
                 else
                     conManager.SaveDataCollectionThroughCollection(blnTranStarted, CmnDocListTableMappingList);
 

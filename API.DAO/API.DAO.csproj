@@ -101,6 +101,7 @@
     <Compile Include="StockTransactionMaster.cs" />
     <Compile Include="TreeGenerator.cs" />
     <Compile Include="UnitSetup.cs" />
+    <Compile Include="WFApprovalPendingList.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

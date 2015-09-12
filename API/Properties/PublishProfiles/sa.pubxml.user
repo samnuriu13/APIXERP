@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\API Publish</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\Publish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/JJ.xlsx">
@@ -16,7 +16,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/16/2015 09:32:18</publishTime>
     </File>
     <File Include="App_Themes/Default/Default.css">
-      <publishTime>07/16/2015 09:32:18</publishTime>
+      <publishTime>09/12/2015 11:58:03</publishTime>
     </File>
     <File Include="App_Themes/Default/images/arrow.gif">
       <publishTime>07/16/2015 09:32:18</publishTime>
@@ -81,6 +81,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="ASTReports/GRN.rdl">
       <publishTime>08/26/2015 06:42:15</publishTime>
     </File>
+    <File Include="ASTReports/IncomeStatement.rdl">
+      <publishTime>09/11/2015 13:22:53</publishTime>
+    </File>
     <File Include="ASTReports/ItemList.rdl">
       <publishTime>08/26/2015 06:42:15</publishTime>
     </File>
@@ -88,7 +91,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/26/2015 06:42:15</publishTime>
     </File>
     <File Include="ASTReports/ItemRequisitionIndividual.rdl">
-      <publishTime>08/26/2015 06:42:15</publishTime>
+      <publishTime>09/04/2015 16:22:31</publishTime>
     </File>
     <File Include="ASTReports/PartyLedger.rdl">
       <publishTime>08/29/2015 07:04:55</publishTime>
@@ -100,7 +103,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/16/2015 10:17:29</publishTime>
     </File>
     <File Include="ASTReports/PurchaseOrder.rdl">
-      <publishTime>08/26/2015 06:42:15</publishTime>
+      <publishTime>09/09/2015 10:10:35</publishTime>
     </File>
     <File Include="ASTReports/PurchaseRequisitionALL.rdl">
       <publishTime>08/26/2015 06:42:15</publishTime>
@@ -112,16 +115,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/26/2015 06:42:15</publishTime>
     </File>
     <File Include="ASTReports/ReceiveReport.rdl">
-      <publishTime>08/26/2015 06:42:15</publishTime>
+      <publishTime>09/04/2015 16:22:31</publishTime>
     </File>
     <File Include="ASTReports/ReceiveSummaryReport.rdl">
-      <publishTime>08/26/2015 06:42:15</publishTime>
+      <publishTime>09/04/2015 16:22:31</publishTime>
     </File>
     <File Include="ASTReports/ReportPermission.aspx">
       <publishTime>07/16/2015 10:17:30</publishTime>
     </File>
+    <File Include="ASTReports/Requisition.rdl">
+      <publishTime>09/09/2015 09:42:42</publishTime>
+    </File>
     <File Include="ASTReports/ReturnReport.rdl">
-      <publishTime>08/26/2015 06:42:15</publishTime>
+      <publishTime>09/04/2015 16:22:31</publishTime>
     </File>
     <File Include="ASTReports/StockSummary.rdl">
       <publishTime>08/26/2015 06:42:15</publishTime>
@@ -130,7 +136,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/26/2015 06:42:15</publishTime>
     </File>
     <File Include="ASTReports/TransactionReport.rdl">
-      <publishTime>08/26/2015 06:42:15</publishTime>
+      <publishTime>09/09/2015 10:19:43</publishTime>
+    </File>
+    <File Include="ASTReports/TrialBalance.rdl">
+      <publishTime>09/11/2015 13:12:38</publishTime>
     </File>
     <File Include="ASTReports/Voucher.rdl">
       <publishTime>08/29/2015 07:06:31</publishTime>
@@ -142,43 +151,43 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/16/2015 10:02:08</publishTime>
     </File>
     <File Include="bin/ACC.BLL.dll">
-      <publishTime>09/04/2015 09:21:23</publishTime>
+      <publishTime>09/12/2015 13:53:01</publishTime>
     </File>
     <File Include="bin/ACC.DAO.dll">
-      <publishTime>09/04/2015 09:21:19</publishTime>
+      <publishTime>09/12/2015 13:53:00</publishTime>
     </File>
     <File Include="bin/API.BLL.dll">
-      <publishTime>09/04/2015 09:21:23</publishTime>
+      <publishTime>09/12/2015 13:53:01</publishTime>
     </File>
     <File Include="bin/API.DAL.dll">
-      <publishTime>09/04/2015 09:21:12</publishTime>
+      <publishTime>09/12/2015 13:52:58</publishTime>
     </File>
     <File Include="bin/API.DAO.dll">
-      <publishTime>09/04/2015 09:21:20</publishTime>
+      <publishTime>09/12/2015 13:53:00</publishTime>
     </File>
     <File Include="bin/API.DATA.dll">
-      <publishTime>09/04/2015 09:21:07</publishTime>
+      <publishTime>09/12/2015 13:52:58</publishTime>
     </File>
     <File Include="bin/API.dll">
-      <publishTime>09/04/2015 09:21:31</publishTime>
+      <publishTime>09/12/2015 13:53:05</publishTime>
     </File>
     <File Include="bin/FRAMEWORK.dll">
-      <publishTime>09/04/2015 09:21:25</publishTime>
+      <publishTime>09/12/2015 13:53:01</publishTime>
     </File>
     <File Include="bin/REPORT.BLL.dll">
-      <publishTime>09/04/2015 09:21:21</publishTime>
+      <publishTime>09/12/2015 13:53:01</publishTime>
     </File>
     <File Include="bin/REPORT.DAO.dll">
-      <publishTime>09/04/2015 09:21:19</publishTime>
+      <publishTime>09/12/2015 13:53:01</publishTime>
     </File>
     <File Include="bin/SECURITY.BLL.dll">
-      <publishTime>09/04/2015 09:21:23</publishTime>
+      <publishTime>09/12/2015 13:53:01</publishTime>
     </File>
     <File Include="bin/SECURITY.DAO.dll">
-      <publishTime>09/04/2015 09:21:17</publishTime>
+      <publishTime>09/12/2015 13:53:00</publishTime>
     </File>
     <File Include="bin/STATIC.dll">
-      <publishTime>09/04/2015 09:21:16</publishTime>
+      <publishTime>09/12/2015 13:52:59</publishTime>
     </File>
     <File Include="Content/AttendanceFile/0d03e8d3-6855-410d-9ba2-e4055a009382.txt">
       <publishTime>07/16/2015 09:32:18</publishTime>
@@ -286,7 +295,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/16/2015 10:17:30</publishTime>
     </File>
     <File Include="Controls/Layout/HeaderSettings.ascx">
-      <publishTime>07/16/2015 10:17:30</publishTime>
+      <publishTime>09/12/2015 12:46:36</publishTime>
     </File>
     <File Include="Controls/Layout/LoggedOnOrOff.ascx">
       <publishTime>07/16/2015 10:17:30</publishTime>
@@ -301,19 +310,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/16/2015 10:17:30</publishTime>
     </File>
     <File Include="Controls/StockTransaction.ascx">
-      <publishTime>08/07/2015 08:41:19</publishTime>
+      <publishTime>09/09/2015 08:01:58</publishTime>
     </File>
     <File Include="Controls/TransRef.ascx">
       <publishTime>08/02/2015 06:13:06</publishTime>
     </File>
     <File Include="Controls/ucCOA.ascx">
-      <publishTime>09/02/2015 07:15:25</publishTime>
+      <publishTime>09/04/2015 16:22:31</publishTime>
     </File>
     <File Include="Controls/UC_PO.ascx">
-      <publishTime>08/02/2015 06:53:53</publishTime>
+      <publishTime>09/09/2015 08:01:33</publishTime>
     </File>
     <File Include="Controls/UC_Requisition.ascx">
-      <publishTime>08/30/2015 07:00:29</publishTime>
+      <publishTime>09/09/2015 08:02:37</publishTime>
     </File>
     <File Include="Controls/Voucher.ascx">
       <publishTime>08/14/2015 18:54:19</publishTime>
@@ -322,16 +331,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/16/2015 09:32:48</publishTime>
     </File>
     <File Include="DBScript/SP - MONIR.docx">
-      <publishTime>09/03/2015 06:57:23</publishTime>
+      <publishTime>09/09/2015 07:05:37</publishTime>
     </File>
     <File Include="DBScript/SP - Shaikat.docx">
-      <publishTime>09/03/2015 06:56:15</publishTime>
+      <publishTime>09/04/2015 16:22:31</publishTime>
     </File>
     <File Include="DBScript/SP_Mokhles.docx">
-      <publishTime>09/03/2015 06:52:13</publishTime>
+      <publishTime>09/09/2015 07:05:37</publishTime>
     </File>
     <File Include="DBScript/SP_Shantonu.docx">
-      <publishTime>09/03/2015 06:56:15</publishTime>
+      <publishTime>09/04/2015 17:57:15</publishTime>
     </File>
     <File Include="FileDownload.aspx">
       <publishTime>07/16/2015 09:32:49</publishTime>
@@ -382,7 +391,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/16/2015 09:32:48</publishTime>
     </File>
     <File Include="GridScripts/DocListFormatSettings.js">
-      <publishTime>07/23/2015 15:54:55</publishTime>
+      <publishTime>09/11/2015 15:41:58</publishTime>
     </File>
     <File Include="GridScripts/EmailAddressList.js">
       <publishTime>07/16/2015 09:32:48</publishTime>
@@ -397,13 +406,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/16/2015 09:32:48</publishTime>
     </File>
     <File Include="GridScripts/GroupItem.js">
-      <publishTime>07/17/2015 22:51:08</publishTime>
+      <publishTime>09/04/2015 16:22:31</publishTime>
     </File>
     <File Include="GridScripts/HeadCategory.js">
-      <publishTime>08/22/2015 21:12:46</publishTime>
+      <publishTime>09/09/2015 11:53:36</publishTime>
     </File>
     <File Include="GridScripts/HeadCategoryCOAMap.js">
-      <publishTime>08/22/2015 21:16:29</publishTime>
+      <publishTime>09/09/2015 15:26:33</publishTime>
     </File>
     <File Include="GridScripts/HKEntry.js">
       <publishTime>07/16/2015 09:32:48</publishTime>
@@ -418,7 +427,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/18/2015 14:07:57</publishTime>
     </File>
     <File Include="GridScripts/JSCurrency.js">
-      <publishTime>08/03/2015 06:39:56</publishTime>
+      <publishTime>09/04/2015 16:22:31</publishTime>
     </File>
     <File Include="GridScripts/LatestNews.js">
       <publishTime>07/16/2015 09:32:48</publishTime>
@@ -490,7 +499,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/16/2015 09:32:48</publishTime>
     </File>
     <File Include="GridScripts/WorkflowDetail.js">
-      <publishTime>08/11/2015 21:26:28</publishTime>
+      <publishTime>09/12/2015 07:10:05</publishTime>
     </File>
     <File Include="Home.aspx">
       <publishTime>07/16/2015 10:17:40</publishTime>
@@ -889,7 +898,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/16/2015 10:17:31</publishTime>
     </File>
     <File Include="Root.Master">
-      <publishTime>07/16/2015 17:54:10</publishTime>
+      <publishTime>09/11/2015 20:16:50</publishTime>
     </File>
     <File Include="site.master">
       <publishTime>07/16/2015 10:17:31</publishTime>
@@ -943,7 +952,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/22/2015 08:19:31</publishTime>
     </File>
     <File Include="UI/ACC/HeadCategoryCOAMap.aspx">
-      <publishTime>08/31/2015 07:16:43</publishTime>
+      <publishTime>09/09/2015 15:30:14</publishTime>
     </File>
     <File Include="UI/ACC/JournalVoucher.aspx">
       <publishTime>08/14/2015 09:24:08</publishTime>
@@ -952,7 +961,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/22/2015 17:54:10</publishTime>
     </File>
     <File Include="UI/ItemSetup/ItemDefination.aspx">
-      <publishTime>07/19/2015 18:56:57</publishTime>
+      <publishTime>09/04/2015 16:22:31</publishTime>
     </File>
     <File Include="UI/ItemSetup/ItemGroup_DetpMaping.aspx">
       <publishTime>07/22/2015 20:58:17</publishTime>
@@ -1045,7 +1054,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/16/2015 10:17:31</publishTime>
     </File>
     <File Include="UI/Setup/DocListFormatSettings.aspx">
-      <publishTime>07/23/2015 15:57:02</publishTime>
+      <publishTime>09/04/2015 16:22:36</publishTime>
     </File>
     <File Include="UI/Setup/FiscalYear.aspx">
       <publishTime>07/16/2015 10:17:31</publishTime>
@@ -1059,8 +1068,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="UI/Setup/MailSetup.aspx">
       <publishTime>07/16/2015 10:17:31</publishTime>
     </File>
+    <File Include="UI/Setup/MenuWiseTableMapping.aspx">
+      <publishTime>09/11/2015 19:36:34</publishTime>
+    </File>
     <File Include="UI/Setup/TransactionReference.aspx">
-      <publishTime>09/02/2015 22:50:17</publishTime>
+      <publishTime>09/09/2015 07:05:37</publishTime>
     </File>
     <File Include="UI/Setup/TransactionType.aspx">
       <publishTime>09/02/2015 07:15:25</publishTime>
@@ -1078,7 +1090,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/16/2015 09:32:49</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/04/2015 09:21:43</publishTime>
+      <publishTime>09/12/2015 13:53:08</publishTime>
     </File>
     <File Include="Web.sitemap">
       <publishTime>07/16/2015 09:32:49</publishTime>

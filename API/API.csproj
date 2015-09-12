@@ -226,6 +226,10 @@
     <Content Include="DBScript\SP - Shaikat.docx" />
     <Content Include="DBScript\SP_Shantonu.docx" />
     <Content Include="ASTReports\Requisition.rdl" />
+    <Content Include="ASTReports\TrialBalance.rdl" />
+    <Content Include="ASTReports\IncomeStatement.rdl">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\sa.pubxml" />
     <Content Include="Web.sitemap" />
     <Content Include="Web.config" />

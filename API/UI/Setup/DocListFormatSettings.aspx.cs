@@ -162,6 +162,11 @@ namespace API.UI.Setup
             obj4.ValueDoc = "Month";
             obj4.Text = "Month";
             lstPopulateDropdown.Add(obj4);
+
+            PopulateDropdownList obj5 = new PopulateDropdownList();
+            obj5.ValueDoc = "Day";
+            obj5.Text = "Day";
+            lstPopulateDropdown.Add(obj5);
         }
         private void SetDataFromControlToObject(ref CustomList<CmnDocListFormat> lstDocListFormat)
         {

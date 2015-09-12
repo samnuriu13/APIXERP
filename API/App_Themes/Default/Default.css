@@ -1173,6 +1173,12 @@ div.divLoginContent1
     text-decoration: none;
     font-size: 12px;
 }
+.WF-settings
+{
+    background: url("/images/bell.png") no-repeat scroll center center transparent;
+    text-indent: -9999px;
+    padding: 2px 15px;
+}
 .header-settings
 {
     background: url("images/ico-gear.png") no-repeat scroll center center transparent;
@@ -1185,6 +1191,16 @@ div.divLoginContent1
     position: absolute;
     z-index: 1;
     background: #666;
+    margin: 15px 0 0 0;
+    min-width: 200px;
+    text-align: left;
+}
+.WFsettings-panel
+{
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background: white;
     margin: 15px 0 0 0;
     min-width: 200px;
     text-align: left;
