@@ -20,7 +20,7 @@ namespace API.Controls.Layout
             {
               CustomList<WFApprovalPendingList> WFPendingList =  _manager.GetWFApprovalPendingList(((FRAMEWORK.PageBase)this.Page).MenuID, ((FRAMEWORK.PageBase)this.Page).CurrentUserSession.UserCode,0);
               var sb = new StringBuilder();
-                sb.Append("<table>");
+                sb.Append("<table id='PandingList'>");
               foreach (WFApprovalPendingList wF in WFPendingList)
               {
                   sb.Append("<tr><td>" + wF.TransactionID.ToString()+"</td>");

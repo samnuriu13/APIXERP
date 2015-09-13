@@ -190,4 +190,10 @@
             $(".WFsettings-panel").hide();
         }
     })
+    $(document).ready(function () {
+        $('#PandingList tr').click(function (event) {
+            alert($(this).find('td:first').text());
+
+        });
+    });
 </script>
