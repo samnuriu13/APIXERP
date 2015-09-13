@@ -769,6 +769,8 @@ namespace API.DAO
             _SelfNo = reader.GetString("SelfNo");
             _BoxNo = reader.GetString("BoxNo");
             _HSCODE = reader.GetString("HSCODE");
+            _SellingPrice = reader.GetDecimal("SellingPrice");
+            _BuyingPrice = reader.GetDecimal("BuyingPrice");
             SetUnchanged();
         }
         private void SetDataFindItem(IDataRecord reader)

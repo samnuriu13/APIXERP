@@ -44,6 +44,10 @@ namespace SECURITY.BLL
         {
             return Users.GetAllEmp();
         }
+        public CustomList<ContactInfo> GetAllContactInfoForDropDown()
+        {
+            return ContactInfo.GetAllContactInfoForDropDown();
+        }
         public void SaveUser(ref CustomList<Users> userList)
         {
             ConnectionManager conManager = new ConnectionManager(ConnectionName.SysMan);

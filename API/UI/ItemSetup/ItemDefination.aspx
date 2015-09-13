@@ -37,7 +37,7 @@
                             runat="server" ForeColor="Red" ErrorMessage="Item Group is required" ValidationGroup="Save">*</asp:RequiredFieldValidator>
                     </div>
                 </div>
-                <%--<div id="divSubGroup" class="lblAndTxtStyle">
+                <%--<div id="divSubGroup" runat="server" class="lblAndTxtStyle" style="visibility:hidden">
                     <div class="divlblwidth100px bglbl">
                         <a>Item Sub-Group</a>
                     </div>
