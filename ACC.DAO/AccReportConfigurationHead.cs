@@ -34,6 +34,21 @@ namespace ACC.DAO
 			}
 		}
 
+        private System.String _HeadCategoryName;
+        [Browsable(true), DisplayName("HeadCategoryName")]
+        public System.String HeadCategoryName
+        {
+            get
+            {
+                return _HeadCategoryName;
+            }
+            set
+            {
+                if (PropertyChanged(_HeadCategoryName, value))
+                    _HeadCategoryName = value;
+            }
+        }
+
 		private System.String _HeadName;
 		[Browsable(true), DisplayName("HeadName")]
 		public System.String HeadName 
@@ -161,7 +176,7 @@ namespace ACC.DAO
 			if (IsAdded)
 				parameterValues = new Object[] {_HeadName,_HeadCategoryID,_Sequence,_CostCenterID,_OperationOperator,_ReportTypeID,_IsActive,_CompanyID};
 			else if (IsModified)
-				parameterValues = new Object[] {_HeadName,_HeadCategoryID,_Sequence,_CostCenterID,_OperationOperator,_ReportTypeID,_IsActive,_CompanyID};
+                parameterValues = new Object[] { _HeadID,_HeadName, _HeadCategoryID, _Sequence, _CostCenterID, _OperationOperator, _ReportTypeID, _IsActive, _CompanyID };
 			else if (IsDeleted)
 				parameterValues = new Object[] {_HeadID};
 			return parameterValues;
@@ -169,6 +184,7 @@ namespace ACC.DAO
 		protected override void SetData(IDataRecord reader)
 		{
 			_HeadID = reader.GetInt32("HeadID");
+            _HeadCategoryName = reader.GetString("HeadCategoryName");
 			_HeadName = reader.GetString("HeadName");
 			_HeadCategoryID = reader.GetInt32("HeadCategoryID");
 			_Sequence = reader.GetInt32("Sequence");
@@ -179,12 +195,12 @@ namespace ACC.DAO
 			_CompanyID = reader.GetInt32("CompanyID");
 			SetUnchanged();
 		}
-		public static CustomList<AccReportConfigurationHead> GetAllAccReportConfigurationHead()
+		public static CustomList<AccReportConfigurationHead> GetAllAccReportConfigurationHead(Int32 ReportTypeID)
 		{
 			ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
 			CustomList<AccReportConfigurationHead> AccReportConfigurationHeadCollection = new CustomList<AccReportConfigurationHead>();
 			IDataReader reader = null;
-			const String sql = "select *from AccReportConfigurationHead";
+            String sql = "Exec spGetHeadCategoryMap "+ReportTypeID;
 			try
 			{
 				conManager.OpenDataReader(sql, out reader);

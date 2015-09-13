@@ -1,4 +1,5 @@
 using System;
+using System.Web;
 using System.Collections;
 using System.Collections.Generic;
 using System.Web.UI;
@@ -7,12 +8,53 @@ using SECURITY.BLL;
 using API.DATA;
 using STATIC;
 using System.Web.UI.WebControls;
+using System.Web.SessionState;
 
 namespace FRAMEWORK
 {
     public class PageBase : InternalPage
     {
         public Boolean RequiresAuthorization = false;
+        //public Int32 DocListFormatID = 0;
+        //public Int32 MenuID = 0;
+        //public Int32 StatusID = 0;
+
+        public Int32 DocListFormatID
+        {
+            get
+            {
+                return Session["DocListFormatID"] == null ? 0 : (Int32)Session["DocListFormatID"]; // User Session
+            }
+            set
+            {
+                Session["DocListFormatID"] = value;
+            }
+        }
+        public Int32 MenuID
+        {
+            get
+            {
+                return Session["MenuID"] == null ? 0 : (Int32)Session["MenuID"]; // User Session
+            }
+            set
+            {
+                Session["MenuID"] = value;
+            }
+        }
+        public Int32 StatusID
+        {
+            get
+            {
+                return Session["StatusID"] == null ? 0 : (Int32)Session["StatusID"]; // User Session
+            }
+            set
+            {
+                Session["StatusID"] = value;
+            }
+        }
+
+
+
         public Boolean enterintoLoadEvent = true;
         private String thisPage = string.Empty;
 
@@ -231,7 +273,14 @@ namespace FRAMEWORK
                 formName = Request.Url.AbsolutePath.Replace(@"/ERP","");
             }
 #endif
-
+            CustomList<LeftMenuItems> menuList = (CustomList<LeftMenuItems>)HttpContext.Current.Session["UserSession_LeftMenu"];
+            if (menuList.IsNotNull())
+            {
+                LeftMenuItems menu = menuList.Find(f => f.FormName == formName);
+                DocListFormatID = menu.DocListFormatID;
+                MenuID = menu.ObjectID;
+                StatusID = menu.StatusID;
+            }
             if (CurrentUserSession.IsAdmin)
             {
                 accessRights = new FormAccessRights();

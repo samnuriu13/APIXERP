@@ -36,6 +36,10 @@ namespace API.UI.ACC
                 ctrlVoucher.GridCaption = "Cash Payment Voucher";
                 ctrlVoucher.VoucherType = 3;
                 ctrlVoucher.prifix = "CP";
+                ctrlVoucher.MenuID = MenuID;
+                ctrlVoucher.DocListFormatID = DocListFormatID;
+                ctrlVoucher.UserCode = CurrentUserSession.UserCode;
+                ctrlVoucher.StatusID = StatusID;
             }
             catch (Exception ex)
             {

@@ -33,6 +33,21 @@ namespace ACC.DAO
             }
         }
 
+        private System.Int64 _COAID;
+        [Browsable(true), DisplayName("COAID")]
+        public System.Int64 COAID
+        {
+            get
+            {
+                return _COAID;
+            }
+            set
+            {
+                if (PropertyChanged(_COAID, value))
+                    _COAID = value;
+            }
+        }
+
         private System.Int64? _ParentKey;
         [Browsable(true), DisplayName("ParentKey")]
         public System.Int64? ParentKey
@@ -243,6 +258,7 @@ namespace ACC.DAO
         protected override void SetData(IDataRecord reader)
         {
             _COAKey = reader.GetInt64("COAKey");
+            _COAID = reader.GetInt64("COAKey");
             _ParentKey = reader.GetNulableInt64("ParentKey");
             _COACode = reader.GetString("COACode");
             _COACodeClient = reader.GetString("COACodeClient");
@@ -253,6 +269,34 @@ namespace ACC.DAO
             _IsDefaultCash = reader.GetBoolean("IsDefaultCash");
             _CostCenterID = reader.GetInt32("CostCenterID");
             SetUnchanged();
+        }
+        public static CustomList<Acc_COA> GetAllAcc_COA()
+        {
+            ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
+            CustomList<Acc_COA> Acc_COACollection = new CustomList<Acc_COA>();
+            IDataReader reader = null;
+            String sql = "Select * From Acc_COA Where IsPostingHead = 1";
+
+            try
+            {
+                conManager.OpenDataReader(sql, out reader);
+                while (reader.Read())
+                {
+                    Acc_COA newAcc_COA = new Acc_COA();
+                    newAcc_COA.SetData(reader);
+                    Acc_COACollection.Add(newAcc_COA);
+                }
+                return Acc_COACollection;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                    reader.Close();
+            }
         }
         public static CustomList<Acc_COA> GetAllAcc_COA(bool isAll = false)
         {

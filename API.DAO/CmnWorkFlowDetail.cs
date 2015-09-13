@@ -63,9 +63,9 @@ namespace API.DAO
             }
         }
 
-        private System.Int32 _UserID;
+        private System.String _UserID;
         [Browsable(true), DisplayName("UserID")]
-        public System.Int32 UserID
+        public System.String UserID
         {
             get
             {
@@ -155,7 +155,7 @@ namespace API.DAO
             _WorkFlowDetailID = reader.GetInt32("WorkFlowDetailID");
             _WorkFlowID = reader.GetInt32("WorkFlowID");
             _StatusID = reader.GetInt32("StatusID");
-            _UserID = reader.GetInt32("UserID");
+            _UserID = reader.GetString("UserID");
             _AmountLimit = reader.GetDecimal("AmountLimit");
             _Sequence = reader.GetInt32("Sequence");
             _CompanyID = reader.GetInt32("CompanyID");

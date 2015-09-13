@@ -176,7 +176,7 @@ namespace ACC.DAO
 			if (IsAdded)
 				parameterValues = new Object[] {_HeadCategoryName,_ParentID,_Sequence,_TotalTitle,_ReportTypeID,_OperatorType,_IsActive,_CostCenterID,_CompanyID};
 			else if (IsModified)
-				parameterValues = new Object[] {_HeadCategoryName,_ParentID,_Sequence,_TotalTitle,_ReportTypeID,_OperatorType,_IsActive,_CostCenterID,_CompanyID};
+                parameterValues = new Object[] { _HeadCategoryID,_HeadCategoryName, _ParentID, _Sequence, _TotalTitle, _ReportTypeID, _OperatorType, _IsActive, _CostCenterID, _CompanyID };
 			else if (IsDeleted)
 				parameterValues = new Object[] {_HeadCategoryID};
 			return parameterValues;
