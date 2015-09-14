@@ -10,12 +10,15 @@ using STATIC;
 using API.DATA;
 using FRAMEWORK;
 using System.Data.SqlClient;
+using System.IO;
+using System.Configuration;
 
 namespace API.UI.Setup
 {
     public partial class ContactInformation : PageBase
     {
         ContactInfoManager manager = new ContactInfoManager();
+        HKEntryManager hkManager = new HKEntryManager();
         #region Constructur
         public ContactInformation()
         {
@@ -85,6 +88,7 @@ namespace API.UI.Setup
             if (IsPostBack.IsFalse())
             {
                 InitializeSession();
+                PopulateDropdown();
             }
             else
             {
@@ -108,6 +112,22 @@ namespace API.UI.Setup
                 }
             }
         }
+        private void PopulateDropdown()
+        {
+            ddlFromCostCentre.DataSource = hkManager.GetAllHouseKeeping(31);
+            ddlFromCostCentre.DataTextField = "HKName";
+            ddlFromCostCentre.DataValueField = "HKID";
+            ddlFromCostCentre.DataBind();
+            ddlFromCostCentre.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+            ddlFromCostCentre.SelectedIndex = 0;
+
+            ddlDeptID.DataSource = hkManager.GetAllHouseKeeping(3);
+            ddlDeptID.DataTextField = "HKName";
+            ddlDeptID.DataValueField = "HKID";
+            ddlDeptID.DataBind();
+            ddlDeptID.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+            ddlDeptID.SelectedIndex = 0;
+        }
         private void PopulateContactInfo(ContactInfo contactInfo)
         {
             try
@@ -124,6 +144,12 @@ namespace API.UI.Setup
                 txtContactPerson.Text = contactInfo.ContactPerson;
                 txtTinNo.Text = contactInfo.TINNO;
                 txtVATCode.Text = contactInfo.VATCode;
+                ddlFromCostCentre.SelectedValue = contactInfo.CostCenterId == null ? "" : contactInfo.CostCenterId.ToString();
+                ddlDeptID.SelectedValue = contactInfo.DepartmentId == null ? "" : contactInfo.DepartmentId.ToString();
+                if (contactInfo.ContactImage.IsNotNullOrEmpty())
+                {
+                    imgContactImage.ImageUrl = ResolveUrl(contactInfo.ContactImage);
+                }
             }
             catch (Exception ex)
             {
@@ -175,12 +201,29 @@ namespace API.UI.Setup
                 obj.ContactPerson = txtContactPerson.Text;
                 obj.TINNO = txtTinNo.Text;
                 obj.VATCode = txtVATCode.Text;
+                obj.CostCenterId = ddlFromCostCentre.SelectedValue == "" ? (long?)null : Convert.ToInt64(ddlFromCostCentre.SelectedValue);
+                obj.DepartmentId = ddlDeptID.SelectedValue == "" ? (long?)null : Convert.ToInt64(ddlDeptID.SelectedValue);
+                obj.ContactImage = GetPicture() == string.Empty ? imgContactImage.ImageUrl : GetPicture();
             }
             catch (Exception ex)
             {
-
                 throw (ex);
             }
+        }
+        private string GetPicture()
+        {
+            var picture = fuContactImage;
+
+            if (picture != null && !string.IsNullOrEmpty(picture.FileName))
+            {
+                var fileInfo = new FileInfo(picture.FileName);
+                var fileName = Guid.NewGuid().ToString() + fileInfo.Extension;
+                var path = Server.MapPath(ConfigurationManager.AppSettings["empImagePath"]) + fileName;
+                var dbPath = ConfigurationManager.AppSettings["empImagePath"] + fileName;
+                File.WriteAllBytes(path, picture.FileBytes);
+                return dbPath;
+            }
+            return string.Empty;
         }
         #region Button Event
         protected void btnFind_Click(object sender, ImageClickEventArgs e)
@@ -236,6 +279,7 @@ namespace API.UI.Setup
 
                 ClearControls();
                 InitializeSession();
+                PopulateDropdown();
             }
             catch (Exception ex)
             {
@@ -249,6 +293,7 @@ namespace API.UI.Setup
 
                 ClearControls();
                 InitializeSession();
+                PopulateDropdown();
             }
             catch (Exception ex)
             {

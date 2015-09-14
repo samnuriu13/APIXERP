@@ -67,6 +67,7 @@
     <Compile Include="GroupRule.cs" />
     <Compile Include="LeftMenuItems.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="MenuSetup.cs" />
     <Compile Include="Rule.cs" />
     <Compile Include="RuleDetails.cs" />
     <Compile Include="SiteMaster.cs" />

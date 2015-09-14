@@ -60,6 +60,21 @@ namespace SECURITY.BLL
             return Menu.GetAllMenuItemsByUserCode(UserCode);
         }
 
+        public CustomList<MenuSetup> GellAllMenu()
+        {
+            return MenuSetup.GetAllMenuList();
+        }
+
+        public CustomList<MenuSetup> GetMenuType()
+        {
+            return MenuSetup.GetMenuType();
+        }
+
+        public CustomList<MenuSetup> GetAllMenuForSetup()
+        {
+            return MenuSetup.GetAllMenu();
+        }
+
         public Menu GetAllAccessRightsOfAPage(string UserCode, int ObjectID)
         {
             return Menu.GetAllAccessRightsOfAPage(UserCode, ObjectID);
@@ -253,6 +268,48 @@ namespace SECURITY.BLL
             #region Temp SecurityRule_Object
             lstSecurityRule_Object.DeleteSpName = "spDeleteRuleDetails";
             #endregion
+        }
+
+        public void SaveMenu(ref CustomList<MenuSetup> menuList)
+        {
+            ConnectionManager conManager = new ConnectionManager(ConnectionName.SysMan);
+            Boolean blnTranStarted = false;
+
+            try
+            {
+                conManager.BeginTransaction();
+
+                ReSetSPName(menuList);
+
+                blnTranStarted = true;
+
+                conManager.SaveDataCollectionThroughCollection(blnTranStarted, menuList);
+
+                menuList.AcceptChanges();
+
+                conManager.CommitTransaction();
+                blnTranStarted = false;
+                conManager.Dispose();
+            }
+            catch (Exception Ex)
+            {
+                conManager.RollBack();
+                throw Ex;
+            }
+            finally
+            {
+                if (conManager.IsNotNull())
+                {
+                    conManager.Dispose();
+                }
+            }
+        }
+
+        private void ReSetSPName(CustomList<MenuSetup> menuList)
+        {
+            menuList.InsertSpName = "spInsertMenu";
+            menuList.UpdateSpName = "spUpdateMenu";
+            menuList.DeleteSpName = "spDeleteMenu";
         }
     }
 }

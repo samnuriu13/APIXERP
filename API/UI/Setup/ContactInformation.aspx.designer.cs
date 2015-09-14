@@ -76,6 +76,24 @@ namespace API.UI.Setup {
         protected global::System.Web.UI.WebControls.TextBox txtAgentName;
         
         /// <summary>
+        /// ddlFromCostCentre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFromCostCentre;
+        
+        /// <summary>
+        /// ddlDeptID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDeptID;
+        
+        /// <summary>
         /// txtOfficeAddress control.
         /// </summary>
         /// <remarks>
@@ -146,6 +164,24 @@ namespace API.UI.Setup {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtVATCode;
+        
+        /// <summary>
+        /// imgContactImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgContactImage;
+        
+        /// <summary>
+        /// fuContactImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuContactImage;
         
         /// <summary>
         /// btnDelete control.

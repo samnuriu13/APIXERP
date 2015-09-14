@@ -63,6 +63,21 @@ namespace API.DAO
             }
         }
 
+        private System.String _ContactImage;
+        [Browsable(true), DisplayName("ContactImage")]
+        public System.String ContactImage
+        {
+            get
+            {
+                return _ContactImage;
+            }
+            set
+            {
+                if (PropertyChanged(_ContactImage, value))
+                    _ContactImage = value;
+            }
+        }
+
         private System.String _AgentName;
         [Browsable(true), DisplayName("AgentName")]
         public System.String AgentName
@@ -272,15 +287,45 @@ namespace API.DAO
                     _VATCode = value;
             }
         }
+
+        private System.Int64? _CostCenterId;
+        [Browsable(true), DisplayName("CostCenterId")]
+        public System.Int64? CostCenterId
+        {
+            get
+            {
+                return _CostCenterId;
+            }
+            set
+            {
+                if (PropertyChanged(_CostCenterId, value))
+                    _CostCenterId = value;
+            }
+        }
+
+        private System.Int64? _DepartmentId;
+        [Browsable(true), DisplayName("DepartmentId")]
+        public System.Int64? DepartmentId
+        {
+            get
+            {
+                return _DepartmentId;
+            }
+            set
+            {
+                if (PropertyChanged(_DepartmentId, value))
+                    _DepartmentId = value;
+            }
+        }
         #endregion
 
         public override Object[] GetParameterValues()
         {
             Object[] parameterValues = null;
             if (IsAdded)
-                parameterValues = new Object[] {_Name, _ShortName, _AgentName, _OfficeAddress, _FactoryAddress, _PhoneNo, _IndustryType, _FaxNo, _ContactPerson, _Origin, _EmailNo, _ParentCompany, _InterCompanyID, _TINNO, _CSTNO, _VATCode };
+                parameterValues = new Object[] { _Name, _ShortName, _AgentName, _OfficeAddress, _FactoryAddress, _PhoneNo, _IndustryType, _FaxNo, _ContactPerson, _Origin, _EmailNo, _ParentCompany, _InterCompanyID, _TINNO, _CSTNO, _VATCode, _CostCenterId, _DepartmentId,_ContactImage };
             else if (IsModified)
-                parameterValues = new Object[] { _ContactID, _Name, _ShortName, _AgentName, _OfficeAddress, _FactoryAddress, _PhoneNo, _IndustryType, _FaxNo, _ContactPerson, _Origin, _EmailNo, _ParentCompany, _InterCompanyID, _TINNO, _CSTNO, _VATCode };
+                parameterValues = new Object[] { _ContactID, _Name, _ShortName, _AgentName, _OfficeAddress, _FactoryAddress, _PhoneNo, _IndustryType, _FaxNo, _ContactPerson, _Origin, _EmailNo, _ParentCompany, _InterCompanyID, _TINNO, _CSTNO, _VATCode, _CostCenterId, _DepartmentId,_ContactImage };
             else if (IsDeleted)
                 parameterValues = new Object[] { _ContactID };
             return parameterValues;
@@ -304,7 +349,15 @@ namespace API.DAO
             _TINNO = reader.GetString("TINNO");
             _CSTNO = reader.GetString("CSTNO");
             _VATCode = reader.GetString("VATCode");
+            _CostCenterId = reader.GetNulableInt64("CostCenterId");
+            _DepartmentId = reader.GetNulableInt64("DepartmentId");
+            _ContactImage = reader.GetString("ContactImage");
             SetUnchanged();
+        }
+        public void SetDataForDropdown(IDataRecord reader)
+        {
+            _ContactID = reader.GetInt32("ContactID");
+            _Name = reader.GetString("Name");
         }
         private void SetDataSupplier(IDataRecord reader)
         {
@@ -378,6 +431,33 @@ namespace API.DAO
                 {
                     ContactInfo newContactInfo = new ContactInfo();
                     newContactInfo.SetData(reader);
+                    ContactInfoCollection.Add(newContactInfo);
+                }
+                return ContactInfoCollection;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                    reader.Close();
+            }
+        }
+        public static CustomList<ContactInfo> GetAllContactInfoForDropDown()
+        {
+            ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
+            CustomList<ContactInfo> ContactInfoCollection = new CustomList<ContactInfo>();
+            IDataReader reader = null;
+            const String sql = "select *from ContactInfo";
+            try
+            {
+                conManager.OpenDataReader(sql, out reader);
+                while (reader.Read())
+                {
+                    ContactInfo newContactInfo = new ContactInfo();
+                    newContactInfo.SetDataForDropdown(reader);
                     ContactInfoCollection.Add(newContactInfo);
                 }
                 return ContactInfoCollection;
