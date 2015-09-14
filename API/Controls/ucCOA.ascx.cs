@@ -10,6 +10,7 @@ using STATIC;
 using API.DATA;
 using FRAMEWORK;
 using System.Data.SqlClient;
+using API.BLL;
 
 namespace API.Controls
 {
@@ -58,6 +59,7 @@ namespace API.Controls
                 Session["_selnode"] = value;
             }
         }
+        HKEntryManager hkManager = new HKEntryManager();
         #endregion
 
         #region Page Load
@@ -65,6 +67,7 @@ namespace API.Controls
         {
             if (!IsPostBack)
             {
+                InitializeCombo();
                 loadCOA();
                 populateTreeView();
                 tv.CollapseAll();
@@ -163,6 +166,18 @@ namespace API.Controls
                     selectedNode.COAName = txtAhead.Text.Trim();
                     selectedNode.IsActive = chkActive.Checked;
                     selectedNode.IsPostingHead = chkPostingHea.Checked;
+
+                    if (ddlFromCostCentre.SelectedValue.ToString() == "")
+                    {
+                        selectedNode.CostCenterID = null;
+                    }
+                    else
+                    {
+                        selectedNode.CostCenterID = ddlFromCostCentre.SelectedValue.ToInt();
+                    }
+
+                    selectedNode.IsDefaultCash = chkIsDefaultCash.Checked;
+
                     if (SaveCOA())
                         ((API.UI.ACC.COA)this.Page).SuccessMessage = StaticInfo.UpdatedSuccessfullyMsg; ;
                 }
@@ -219,6 +234,17 @@ namespace API.Controls
                     newItem.ParentKey = _SelectedCOAKey;
                     newItem.COAKey = _COA.Count + Int32.MinValue;
 
+                    if (ddlFromCostCentre.SelectedValue.ToString() == "")
+                    {
+                        newItem.CostCenterID = null;
+                    }
+                    else
+                    {
+                        newItem.CostCenterID = ddlFromCostCentre.SelectedValue.ToInt();
+                    }
+
+                    newItem.IsDefaultCash = chkIsDefaultCash.Checked;
+
                     newItem.IsPostingHead = chkPostingHea.Checked;
 
                     //((ST.Web.Hr.Initialization.Setup.COA)this.Page).CurrentUserSession.UserCode;
@@ -262,6 +288,8 @@ namespace API.Controls
                 chkPostingHea.Checked = selectedNode.IsPostingHead;
                 txtAcCode.Text = selectedNode.COACode;
                 _SelectedCOAKey = selectedNode.COAKey;
+                chkIsDefaultCash.Checked = selectedNode.IsDefaultCash;
+                ddlFromCostCentre.SelectedValue = selectedNode.CostCenterID.ToString();
 
                 validateState(node);
             }
@@ -316,6 +344,55 @@ namespace API.Controls
             _SelectedCOAKey = 0;
             FormUtil.ClearForm(this, FormClearOptions.ClearAll, false);
         }
+
+        private void InitializeCombo()
+        {
+            try
+            {
+                ddlFromCostCentre.DataSource = hkManager.GetAllHouseKeeping(31);
+                ddlFromCostCentre.DataTextField = "HKName";
+                ddlFromCostCentre.DataValueField = "HKID";
+                ddlFromCostCentre.DataBind();
+                ddlFromCostCentre.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+                ddlFromCostCentre.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+
+                throw (ex);
+            }
+        }
         #endregion
+
+        protected void txtInput_TextChanged(object sender, EventArgs e)
+        {
+            populateTreeView();
+            if (!string.IsNullOrEmpty(txtInput.Text.ToString()))
+            {
+                _COA = _COA.FindAll(f => f.COAName.ToUpper().Contains(txtInput.Text.ToUpper()));
+                tv.Nodes.Clear();
+                foreach (Acc_COA item in _COA)
+                {
+
+                    TreeNode tnParent = new TreeNode();
+                    tnParent.Text = item.COAName;
+                    tnParent.Value = item.COAKey.ToString();
+                    tv.Nodes.Add(tnParent);
+                    FillChild(tnParent, item.COAKey);
+
+                }
+                tv.ExpandAll();
+            }
+            else
+            {
+                populateTreeView();
+                tv.CollapseAll();
+            }
+        }
+
+        private void txtInput_KeyPress(object sender, EventArgs e)
+        {
+            
+        } 
     }
 }

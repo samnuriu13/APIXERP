@@ -22,6 +22,7 @@ namespace API.Controls
         CurrencyManager _CurrencyManager = new CurrencyManager();
         VoucherManager manager = new VoucherManager();
         ContactInfoManager _contactInfoManager = new ContactInfoManager();
+        WorkFlowTransactionManager _WF = new WorkFlowTransactionManager();
 
         private string _MenuName;
 
@@ -30,6 +31,36 @@ namespace API.Controls
             get { return _MenuName; }
             set { _MenuName = value; }
         }
+
+        private Int32 _DocListFormatID;
+
+        public Int32 DocListFormatID
+        {
+            get { return _DocListFormatID; }
+            set { _DocListFormatID = value; }
+        }
+
+        private Int32 _MenuID;
+        public Int32 MenuID
+        {
+            get { return _MenuID; }
+            set { _MenuID = value; }
+        }
+
+        private Int32 _StatusID;
+        public Int32 StatusID
+        {
+            get { return _StatusID; }
+            set { _StatusID = value; }
+        }
+
+        private String _UserCode;
+        public String UserCode
+        {
+            get { return _UserCode; }
+            set { _UserCode = value; }
+        }
+
         private string _GridCaption;
         public string GridCaption
         {
@@ -316,6 +347,8 @@ namespace API.Controls
                 {
                     if (!((PageBase)this.Page).CheckUserAuthentication(lstAccVoucher, lstAccVoucherDet)) return;
                     manager.SavePFVoucher(ref lstAccVoucher, ref lstAccVoucherDet, prifix);
+                    if (StatusID > 0)
+                        _WF.InsertWorkFlowTransaction(MenuID,StatusID, UserCode, 0, lstAccVoucher[0].VoucherKey, true, "", false, false);
                     ((PageBase)this.Page).SuccessMessage = (StaticInfo.SavedSuccessfullyMsg + ". Voucher No: " + manager.VoucherID);
                 }
                 else

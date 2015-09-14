@@ -107,10 +107,16 @@ namespace API.UI.ItemSetup
             try
             {
                 txtItemCode.Text = itemMaster.ItemCode;
+                txtBuyingPrice.Text = itemMaster.BuyingPrice.ToString();
+                txtSellingPrice.Text = itemMaster.SellingPrice.ToString();
                 ddlItemGroup.SelectedValue = itemMaster.ItemGroupID.ToString();
                 ddlItemGroup_SelectedIndexChanged(null,null);
-                ddlItemSubGroup.SelectedValue = itemMaster.ItemSubGroupID.ToString();
+                //ddlItemSubGroup.SelectedValue = itemMaster.ItemSubGroupID.ToString();
                 ddlUOM1.SelectedValue = itemMaster.UOMID == 0 ? null : itemMaster.UOMID.ToString();
+
+                DropDownList ddlItemSubGroup = (DropDownList)Panel1.FindControl("ddlItemSubGroup");
+                ddlItemSubGroup.SelectedValue = itemMaster.ItemSubGroupID == 0 ? null : itemMaster.ItemSubGroupID.ToString();
+
                 int count=0;
                 foreach (SegmentNames sN in SegmentNamesList)
                 {
@@ -151,9 +157,37 @@ namespace API.UI.ItemSetup
         }
         override protected void OnInit(EventArgs e)
         {
+            CustomList<ItemSubGroup> subGroupList = new CustomList<ItemSubGroup>();
+
             Panel1.Controls.Clear();
             if (ddlItemGroup.SelectedValue != "")
+            {
                 SegmentNamesList = itemSegmentManager.GetGroupSegmentNames(ddlItemGroup.SelectedValue);
+
+                if (itemGroupManager.IsSubgroupApplicable(ddlItemGroup.SelectedValue.ToInt()))
+                {
+                    subGroupList = subGroupManager.GetAllItemSubGroup(ddlItemGroup.SelectedValue);
+                }
+            }
+
+            if (subGroupList.Count > 0)
+            {
+                Panel1.Controls.Add(new LiteralControl("<div class='lblAndTxtStyle' style='width:33%; float:left;'><div class='divlblwidth100px bglbl'><a>Item Sub-Group</a></div><div class='div182Px'>"));
+
+                DropDownList ddlItemSubGroup = new DropDownList();
+                ddlItemSubGroup.ID = "ddlItemSubGroup";
+                ddlItemSubGroup.DataSource = subGroupList;
+                ddlItemSubGroup.DataTextField = "SubGroupName";
+                ddlItemSubGroup.DataValueField = "ItemSubGroupID";
+                ddlItemSubGroup.DataBind();
+                ddlItemSubGroup.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+                ddlItemSubGroup.SelectedIndex = 0;
+                ddlItemSubGroup.Attributes.Add("class", "drpwidth180px");
+                Panel1.Controls.Add(ddlItemSubGroup);
+
+                Panel1.Controls.Add(new LiteralControl("</div></div>"));
+            }
+
             foreach (SegmentNames sN in SegmentNamesList)
             {
                 int c = 0;
@@ -182,8 +216,14 @@ namespace API.UI.ItemSetup
                 ddl.Attributes.Add("class", "drpdynamic");
                 ddl.CssClass.PadLeft(1);
 
+                Panel1.Controls.Add(new LiteralControl("<div class='lblAndTxtStyle' style='width:33%; float:left;'><div class='divlblwidth100px bglbl'><a>"));
+
                 Panel1.Controls.Add(lb);
+                Panel1.Controls.Add(new LiteralControl("</a></div>"));
+                Panel1.Controls.Add(new LiteralControl("<div class='div182Px'>"));
                 Panel1.Controls.Add(ddl);
+                Panel1.Controls.Add(new LiteralControl("</div></div>"));
+
                 c = c + 2;
                 if ((c % 6) == 0)
                 {
@@ -225,11 +265,13 @@ namespace API.UI.ItemSetup
             {
                 ItemMaster obj = lstItemMaster[0];
                 obj.ItemGroupID = ddlItemGroup.SelectedValue.ToInt();
-                obj.ItemSubGroupID = ddlItemSubGroup.SelectedValue.ToInt();
+                //obj.ItemSubGroupID = ddlItemSubGroup.SelectedValue.ToInt();
                 obj.UOMID = ddlUOM1.SelectedValue.ToInt();
+                obj.BuyingPrice = Convert.ToDecimal(txtBuyingPrice.Text);
+                obj.SellingPrice = Convert.ToDecimal(txtSellingPrice.Text);
 
                 int count = 0;
-                String itemDescription = ddlItemGroup.SelectedItem.Text + " " + ddlItemSubGroup.SelectedItem.Text;
+                String itemDescription = ddlItemGroup.SelectedItem.Text; //+ " " + ddlItemSubGroup.SelectedItem.Text;
                 foreach (SegmentNames sN in SegmentNamesList)
                 {
                     DropDownList ddl = (DropDownList)Panel1.FindControl("ddl" + sN.SegName.ToString()); 
@@ -310,12 +352,12 @@ namespace API.UI.ItemSetup
         #region Combo Event
         protected void ddlItemGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ddlItemSubGroup.DataSource = subGroupManager.GetAllItemSubGroup(ddlItemGroup.SelectedValue);
-            ddlItemSubGroup.DataTextField = "SubGroupName";
-            ddlItemSubGroup.DataValueField = "ItemSubGroupID";
-            ddlItemSubGroup.DataBind();
-            ddlItemSubGroup.Items.Insert(0, new ListItem(String.Empty, String.Empty));
-            ddlItemSubGroup.SelectedIndex = 0;
+            //ddlItemSubGroup.DataSource = subGroupManager.GetAllItemSubGroup(ddlItemGroup.SelectedValue);
+            //ddlItemSubGroup.DataTextField = "SubGroupName";
+            //ddlItemSubGroup.DataValueField = "ItemSubGroupID";
+            //ddlItemSubGroup.DataBind();
+            //ddlItemSubGroup.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+            //ddlItemSubGroup.SelectedIndex = 0;
             OnInit(null);
         }
         #endregion

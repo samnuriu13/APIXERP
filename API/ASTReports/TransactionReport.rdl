@@ -92,7 +92,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -128,7 +128,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -164,7 +164,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -200,7 +200,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -236,7 +236,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -272,7 +272,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -308,7 +308,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -344,7 +344,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -380,7 +380,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -416,7 +416,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -452,7 +452,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -488,7 +488,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -524,7 +524,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -560,7 +560,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -596,7 +596,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -632,7 +632,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -668,7 +668,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -704,7 +704,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -740,7 +740,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -779,7 +779,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -791,14 +791,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="TransactionTypeName">
+                    <Textbox Name="ReportName">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!TransactionTypeName.Value</Value>
+                              <Value>=Fields!ReportName.Value</Value>
                               <Style>
                                 <FontStyle>Italic</FontStyle>
                                 <FontFamily>Times New Roman</FontFamily>
@@ -811,11 +811,11 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>TransactionTypeName</rd:DefaultName>
+                      <rd:DefaultName>ReportName</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -848,7 +848,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -882,7 +882,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -915,7 +915,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -948,7 +948,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -981,7 +981,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -1014,7 +1014,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -1047,7 +1047,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -1081,7 +1081,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -1114,7 +1114,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -1147,7 +1147,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -1180,7 +1180,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -1213,7 +1213,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -1246,7 +1246,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -1280,7 +1280,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -1313,7 +1313,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -1346,7 +1346,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -1379,7 +1379,7 @@
                       <Style>
                         <Border>
                           <Style>Solid</Style>
-                          <Width>0.25pt</Width>
+                          <Width>0.5pt</Width>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -1389,130 +1389,6 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.25in</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox48">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Total:</Value>
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>9pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox48</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                    <ColSpan>9</ColSpan>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell />
-                <TablixCell />
-                <TablixCell />
-                <TablixCell />
-                <TablixCell />
-                <TablixCell />
-                <TablixCell />
-                <TablixCell />
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox57">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Sum(Fields!ItemQty.Value)</Value>
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>9pt</FontSize>
-                                <Format>0;(0)</Format>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox57</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                    <ColSpan>5</ColSpan>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell />
-                <TablixCell />
-                <TablixCell />
-                <TablixCell />
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox62">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Sum(Fields!InvoiceValue.Value)</Value>
-                              <Style>
-                                <FontFamily>Times New Roman</FontFamily>
-                                <FontSize>9pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox62</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                          <Width>0.25pt</Width>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                    <ColSpan>5</ColSpan>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell />
-                <TablixCell />
-                <TablixCell />
-                <TablixCell />
               </TablixCells>
             </TablixRow>
           </TablixRows>
@@ -1564,31 +1440,14 @@
           <TablixMembers>
             <TablixMember />
             <TablixMember>
-              <Group Name="TransactionTypeName">
-                <GroupExpressions>
-                  <GroupExpression>=Fields!TransactionTypeName.Value</GroupExpression>
-                </GroupExpressions>
-              </Group>
-              <SortExpressions>
-                <SortExpression>
-                  <Value>=Fields!TransactionTypeName.Value</Value>
-                </SortExpression>
-              </SortExpressions>
-              <TablixMembers>
-                <TablixMember>
-                  <Group Name="Details" />
-                </TablixMember>
-              </TablixMembers>
-            </TablixMember>
-            <TablixMember>
-              <KeepWithGroup>Before</KeepWithGroup>
+              <Group Name="Details" />
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>0.04167in</Top>
         <Left>0.10417in</Left>
-        <Height>0.90626in</Height>
+        <Height>0.65626in</Height>
         <Width>10.59374in</Width>
         <Style>
           <Border>
@@ -1597,7 +1456,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.94793in</Height>
+    <Height>0.69793in</Height>
     <Style />
   </Body>
   <Width>10.69792in</Width>
@@ -1676,7 +1535,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!ReportName.Value, "DataSet1") + " Transaction Details From : " + Parameters!FromDate.Value + " - " +Parameters!ToDate.Value</Value>
+                  <Value>=First(Fields!ReportName.Value, "DataSet1")</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -1778,10 +1637,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>
-										="Page "+ CStr(Globals!PageNumber) +" of "+
-										CStr(Globals!PageNumber)
-									</Value>
+                  <Value>="Page "+ CStr(Globals!PageNumber) +" of "+CStr(Globals!PageNumber)</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -1825,7 +1681,7 @@
     <DataSource Name="DataSource1">
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
-        <ConnectString>Data Source=SHAIKAT\SQL12;Initial Catalog=APIN</ConnectString>
+        <ConnectString>Data Source=AST123soft-PC;Initial Catalog=API</ConnectString>
       </ConnectionProperties>
       <rd:SecurityType>DataBase</rd:SecurityType>
       <rd:DataSourceID>489e248a-4a93-4c85-8705-d7babafc2686</rd:DataSourceID>
@@ -1836,14 +1692,8 @@
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
         <QueryParameters>
-          <QueryParameter Name="@FromDate">
-            <Value>=Parameters!FromDate.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@ToDate">
-            <Value>=Parameters!ToDate.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@TransactionType">
-            <Value>=Parameters!TransactionType.Value</Value>
+          <QueryParameter Name="@StockTransID">
+            <Value>=Parameters!StockTransID.Value</Value>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
@@ -1852,6 +1702,14 @@
       <Fields>
         <Field Name="ReportName">
           <DataField>ReportName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ParameterType">
+          <DataField>ParameterType</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TransactionTypeName">
+          <DataField>TransactionTypeName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="TransType">
@@ -1902,6 +1760,10 @@
           <DataField>ItemGroup</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="SubGroupName">
+          <DataField>SubGroupName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="SourceReferenceTypeID">
           <DataField>SourceReferenceTypeID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -1942,10 +1804,6 @@
           <DataField>Remarks</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="TransactionTypeName">
-          <Value>= iif(Parameters!TransactionType.Value=4,"Receive",
-iif(Parameters!TransactionType.Value=7,"Issue","Transfer"))</Value>
-        </Field>
         <Field Name="CurrencyID">
           <DataField>CurrencyID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -1954,44 +1812,50 @@ iif(Parameters!TransactionType.Value=7,"Issue","Transfer"))</Value>
           <DataField>UOM</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="ChalanNo">
+          <DataField>ChalanNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ChalanDate">
+          <DataField>ChalanDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
         <Field Name="StatusID">
           <DataField>StatusID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="PONo">
+          <DataField>PONo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Total">
           <DataField>Total</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="ReceivedQty">
+          <DataField>ReceivedQty</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Rate">
+          <DataField>Rate</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="ReturnValue">
+          <DataField>ReturnValue</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
     </DataSet>
   </DataSets>
   <ReportParameters>
-    <ReportParameter Name="FromDate">
+    <ReportParameter Name="StockTransID">
       <DataType>String</DataType>
       <DefaultValue>
         <Values>
-          <Value>01/01/2015</Value>
+          <Value>2</Value>
         </Values>
       </DefaultValue>
-      <Prompt>From Date</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="ToDate">
-      <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>10/30/2015</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>To Date</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="TransactionType">
-      <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>4</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>Transaction Type</Prompt>
+      <Prompt>Stock Trans ID</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>

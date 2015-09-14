@@ -14,7 +14,7 @@ jQuery(document).ready
 						, colModel:
 							[
 								{ 'name': 'VID', 'key': true, 'hidden': true, 'width': 50, 'index': 'VID' },
-                                { 'name': 'UserID', 'index': 'UserID', 'width': 100, editable: true, editrules: { required: true }, formoptions: { elmsuffix: '<span style="color:red;padding-left:5px;">*</span>' }, edittype: "select", formatter: 'select', editoptions: { value: GetDropDownSource('SessionVarName=WorkFlow_UserList&DataTextField=Name&NeedBlank=Empty&DataValueField=ContactID') } },
+                                { 'name': 'UserID', 'index': 'UserID', 'width': 100, editable: true, editrules: { required: true }, formoptions: { elmsuffix: '<span style="color:red;padding-left:5px;">*</span>' }, edittype: "select", formatter: 'select', editoptions: { value: GetDropDownSource('SessionVarName=WorkFlow_UserList&DataTextField=Name&NeedBlank=Empty&DataValueField=UserCode') } },
                                 { 'name': 'StatusID', 'index': 'StatusID', 'width': 100, editable: true, editrules: { required: true }, formoptions: { elmsuffix: '<span style="color:red;padding-left:5px;">*</span>' }, edittype: "select", formatter: 'select', editoptions: { value: GetDropDownSource('SessionVarName=WorkFlow_lstCmnStatusList&DataTextField=StatusName&NeedBlank=Empty&DataValueField=StatusID') } },
                                 { 'name': 'Sequence', 'index': 'Sequence', "width": 50, editable: true },
 							]

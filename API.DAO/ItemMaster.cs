@@ -287,6 +287,36 @@ namespace API.DAO
             }
         }
 
+        private System.Decimal _SellingPrice;
+        [Browsable(true), DisplayName("SellingPrice")]
+        public System.Decimal SellingPrice
+        {
+            get
+            {
+                return _SellingPrice;
+            }
+            set
+            {
+                if (PropertyChanged(_SellingPrice, value))
+                    _SellingPrice = value;
+            }
+        }
+
+        private System.Decimal _BuyingPrice;
+        [Browsable(true), DisplayName("BuyingPrice")]
+        public System.Decimal BuyingPrice
+        {
+            get
+            {
+                return _BuyingPrice;
+            }
+            set
+            {
+                if (PropertyChanged(_BuyingPrice, value))
+                    _BuyingPrice = value;
+            }
+        }
+
         private System.DateTime _LastReceiveDate;
         [Browsable(true), DisplayName("LastReceiveDate"), CustomAttributes.FormatString(StaticInfo.GridDateFormat)]
         public System.DateTime LastReceiveDate
@@ -697,9 +727,9 @@ namespace API.DAO
         {
             Object[] parameterValues = null;
             if (IsAdded)
-                parameterValues = new Object[] { _ItemCode, _ItemGroupID, _ItemSubGroupID, _ItemDescription, _ValueIDSeg1, _ValueIDSeg2, _ValueIDSeg3, _ValueIDSeg4, _ValueIDSeg5, _ValueIDSeg6, _ValueIDSeg7, _ValueIDSeg8, _ValueIDSeg9, _ValueIDSeg10, _UOMID, _LastReceivePrice, _LastReceiveDate.Value(StaticInfo.DateFormat), _LastIssueDate.Value(StaticInfo.DateFormat), _LastIssueRate, _MinQtyLevel, _MaxQtyLevel, _MinQtyReached, _MinQtyReachedDate.Value(StaticInfo.DateFormat), _MaxQtyReached, _MaxQtyReachedDate.Value(StaticInfo.DateFormat), _ReOrderLevel, _OpeningStock, _CurrentRate, _CurrentStockValue, _RackNo, _SelfNo, _BoxNo, _HSCODE };
+                parameterValues = new Object[] { _ItemCode, _ItemGroupID, _ItemSubGroupID, _ItemDescription, _ValueIDSeg1, _ValueIDSeg2, _ValueIDSeg3, _ValueIDSeg4, _ValueIDSeg5, _ValueIDSeg6, _ValueIDSeg7, _ValueIDSeg8, _ValueIDSeg9, _ValueIDSeg10, _UOMID, _LastReceivePrice,_SellingPrice,BuyingPrice, _LastReceiveDate.Value(StaticInfo.DateFormat), _LastIssueDate.Value(StaticInfo.DateFormat), _LastIssueRate, _MinQtyLevel, _MaxQtyLevel, _MinQtyReached, _MinQtyReachedDate.Value(StaticInfo.DateFormat), _MaxQtyReached, _MaxQtyReachedDate.Value(StaticInfo.DateFormat), _ReOrderLevel, _OpeningStock, _CurrentRate, _CurrentStockValue, _RackNo, _SelfNo, _BoxNo, _HSCODE };
             else if (IsModified)
-                parameterValues = new Object[] { _ItemCode, _ItemGroupID, _ItemSubGroupID, _ItemDescription, _ValueIDSeg1, _ValueIDSeg2, _ValueIDSeg3, _ValueIDSeg4, _ValueIDSeg5, _ValueIDSeg6, _ValueIDSeg7, _ValueIDSeg8, _ValueIDSeg9, _ValueIDSeg10, _UOMID, _LastReceivePrice, _LastReceiveDate.Value(StaticInfo.DateFormat), _LastIssueDate.Value(StaticInfo.DateFormat), _LastIssueRate, _MinQtyLevel, _MaxQtyLevel, _MinQtyReached, _MinQtyReachedDate.Value(StaticInfo.DateFormat), _MaxQtyReached, _MaxQtyReachedDate.Value(StaticInfo.DateFormat), _ReOrderLevel, _OpeningStock, _CurrentRate, _CurrentStockValue, _RackNo, _SelfNo, _BoxNo, _HSCODE };
+                parameterValues = new Object[] { _ItemCode, _ItemGroupID, _ItemSubGroupID, _ItemDescription, _ValueIDSeg1, _ValueIDSeg2, _ValueIDSeg3, _ValueIDSeg4, _ValueIDSeg5, _ValueIDSeg6, _ValueIDSeg7, _ValueIDSeg8, _ValueIDSeg9, _ValueIDSeg10, _UOMID, _LastReceivePrice, _SellingPrice, BuyingPrice, _LastReceiveDate.Value(StaticInfo.DateFormat), _LastIssueDate.Value(StaticInfo.DateFormat), _LastIssueRate, _MinQtyLevel, _MaxQtyLevel, _MinQtyReached, _MinQtyReachedDate.Value(StaticInfo.DateFormat), _MaxQtyReached, _MaxQtyReachedDate.Value(StaticInfo.DateFormat), _ReOrderLevel, _OpeningStock, _CurrentRate, _CurrentStockValue, _RackNo, _SelfNo, _BoxNo, _HSCODE };
             else if (IsDeleted)
                 parameterValues = new Object[] { _ItemCode };
             return parameterValues;
@@ -739,6 +769,8 @@ namespace API.DAO
             _SelfNo = reader.GetString("SelfNo");
             _BoxNo = reader.GetString("BoxNo");
             _HSCODE = reader.GetString("HSCODE");
+            _SellingPrice = reader.GetDecimal("SellingPrice");
+            _BuyingPrice = reader.GetDecimal("BuyingPrice");
             SetUnchanged();
         }
         private void SetDataFindItem(IDataRecord reader)

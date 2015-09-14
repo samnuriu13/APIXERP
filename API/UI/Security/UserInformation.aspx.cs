@@ -100,13 +100,12 @@ namespace API.UI.Security
         {
             try
             {
-                //Loding Emp Code
-                //ddlEmpCode.DataSource = manager.GetAllEmp();
-                //ddlEmpCode.DataTextField = "EmpName";
-                //ddlEmpCode.DataValueField = "EmpCode";
-                //ddlEmpCode.DataBind();
-                //ddlEmpCode.Items.Insert(0, new ListItem(String.Empty, String.Empty));
-                //ddlEmpCode.SelectedIndex = 0;
+                ddlEmpCode.DataSource = manager.GetAllContactInfoForDropDown();
+                ddlEmpCode.DataTextField = "Name";
+                ddlEmpCode.DataValueField = "ContactID";
+                ddlEmpCode.DataBind();
+                ddlEmpCode.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+                ddlEmpCode.SelectedIndex = 0;
             }
             catch (Exception ex)
             {

@@ -47,6 +47,21 @@ namespace ACC.DAO
 			if (PropertyChanged(_HeadID, value))
 					_HeadID = value;
 			}
+		}   
+
+        private System.String _COAName;
+		[Browsable(true), DisplayName("COAName")]
+        public System.String COAName 
+		{
+			get
+			{
+				return _COAName;
+			}
+			set
+			{
+			if (PropertyChanged(_COAName, value))
+					_COAName = value;
+			}
 		}
 
 		private System.Int32 _COAID;
@@ -84,9 +99,9 @@ namespace ACC.DAO
 		{
 			Object[] parameterValues = null;
 			if (IsAdded)
-				parameterValues = new Object[] {_HeadID,_COAID,_IsActive};
+                parameterValues = new Object[] { _HeadID,_COAID, _IsActive };
 			else if (IsModified)
-				parameterValues = new Object[] {_HeadID,_COAID,_IsActive};
+                parameterValues = new Object[] { _HeadCOAMapID, _HeadID, _COAID, _IsActive };
 			else if (IsDeleted)
 				parameterValues = new Object[] {_HeadCOAMapID};
 			return parameterValues;
@@ -95,6 +110,7 @@ namespace ACC.DAO
 		{
 			_HeadCOAMapID = reader.GetInt32("HeadCOAMapID");
 			_HeadID = reader.GetInt32("HeadID");
+            _COAName = reader.GetString("COAName");
 			_COAID = reader.GetInt32("COAID");
 			_IsActive = reader.GetBoolean("IsActive");
 			SetUnchanged();
@@ -104,7 +120,7 @@ namespace ACC.DAO
 			ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
 			CustomList<AccReportConfigurationHeadCOAMap> AccReportConfigurationHeadCOAMapCollection = new CustomList<AccReportConfigurationHeadCOAMap>();
 			IDataReader reader = null;
-			const String sql = "select *from AccReportConfigurationHeadCOAMap";
+            const String sql = "select HeadCOAMapID,HeadID,COAID,IsActive from AccReportConfigurationHeadCOAMap";
 			try
 			{
 				conManager.OpenDataReader(sql, out reader);
@@ -125,6 +141,34 @@ namespace ACC.DAO
 				if (reader != null && !reader.IsClosed)
 					reader.Close();
 			}
-		}
+		}  
+
+        public static CustomList<AccReportConfigurationHeadCOAMap> GetAllAccReportConfigurationHeadCOAMap(Int32 headID)
+		{
+			ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
+			CustomList<AccReportConfigurationHeadCOAMap> AccReportConfigurationHeadCOAMapCollection = new CustomList<AccReportConfigurationHeadCOAMap>();
+			IDataReader reader = null;
+            String sql = "select HeadCOAMapID,HeadID,'' COAName,COAID,IsActive from AccReportConfigurationHeadCOAMap Where HeadID='" + headID + "'";
+			try
+			{
+				conManager.OpenDataReader(sql, out reader);
+				while (reader.Read())
+				{
+					AccReportConfigurationHeadCOAMap newAccReportConfigurationHeadCOAMap = new AccReportConfigurationHeadCOAMap();
+					newAccReportConfigurationHeadCOAMap.SetData(reader);
+					AccReportConfigurationHeadCOAMapCollection.Add(newAccReportConfigurationHeadCOAMap);
+				}
+				return AccReportConfigurationHeadCOAMapCollection;
+			}
+			catch(Exception ex)
+			{
+				throw (ex);
+			}
+			finally
+			{
+				if (reader != null && !reader.IsClosed)
+					reader.Close();
+			}
+		} 
 	}
 }

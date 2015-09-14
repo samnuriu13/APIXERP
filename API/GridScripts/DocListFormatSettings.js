@@ -34,7 +34,7 @@
 						, sortable: true
 						, rowNum: 10
 						, rowList: [10, 20, 30]
-						, caption: 'Item Group'
+						, caption: 'Doc List Format Settings'
 						, autowidth: true
 						, height: '200'
 						, viewsortcols: [false, 'vertical', true]

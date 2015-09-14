@@ -18,7 +18,7 @@ namespace API.UI.Setup
     public partial class WorkFlow : PageBase
     {
         StatusListManager _stManager = new StatusListManager();
-        ContactInfoManager _uiManager = new ContactInfoManager();
+        UserInformationManager _uiManager = new UserInformationManager();
         HKEntryManager _hkManager = new HKEntryManager();
         ApplicationManager _aManager = new ApplicationManager();
         WorkFlowManager _manager = new WorkFlowManager();
@@ -45,14 +45,14 @@ namespace API.UI.Setup
             }
         }
 
-        private CustomList<ContactInfo> UserList
+        private CustomList<Users> UserList
         {
             get
             {
                 if (Session["WorkFlow_UserList"] == null)
-                    return new CustomList<ContactInfo>();
+                    return new CustomList<Users>();
                 else
-                    return (CustomList<ContactInfo>)Session["WorkFlow_UserList"];
+                    return (CustomList<Users>)Session["WorkFlow_UserList"];
             }
             set
             {
@@ -165,8 +165,8 @@ namespace API.UI.Setup
             {
                 lstCmnStatusList = new CustomList<CmnStatusList>();
                 lstCmnStatusList = _stManager.GetAllCmnStatusList();
-                UserList = new CustomList<ContactInfo>();
-                UserList = _uiManager.GetAllContactInfo();
+                UserList = new CustomList<Users>();
+                UserList = _uiManager.GetUserList();
                 CmnWorkFlowDetailList = new CustomList<CmnWorkFlowDetail>();
                 CmnWorkFlowMasterList = new CustomList<CmnWorkFlowMaster>();
             }

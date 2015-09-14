@@ -10,11 +10,14 @@ using STATIC;
 using API.DATA;
 using FRAMEWORK;
 using System.Data.SqlClient;
+using SECURITY.BLL;
 
 namespace API.UI.Setup
 {
     public partial class DocListFormatSettings : PageBase
     {
+        ApplicationManager _aManager = new ApplicationManager();
+        DocListFormatSettingManager _manager = new DocListFormatSettingManager();
         #region Constructur
         public DocListFormatSettings()
         {
@@ -71,7 +74,23 @@ namespace API.UI.Setup
             {
                 if (IsPostBack.IsFalse())
                 {
+                    InitializeCombo();
                     InitializeSession();
+                }
+                else
+                {
+                    Page.ClientScript.GetPostBackEventReference(this, String.Empty);
+                    String eventTarget = Request["__EVENTTARGET"].IsNullOrEmpty() ? String.Empty : Request["__EVENTTARGET"];
+                    if (Request["__EVENTTARGET"] == "SearchCmnDocListFormat")
+                    {
+                        DocListFormatList = new CustomList<CmnDocListFormat>();
+                        CmnDocListFormat searchCmnDocListFormat = Session[STATIC.StaticInfo.SearchSessionVarName] as CmnDocListFormat;
+                        DocListFormatList.Add(searchCmnDocListFormat);
+                        if (searchCmnDocListFormat.IsNotNull())
+                        {
+                            PopulateDocListFormatInformation(searchCmnDocListFormat);
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -81,12 +100,41 @@ namespace API.UI.Setup
             }
         }
         #region All Methods
+
+        private void PopulateDocListFormatInformation(CmnDocListFormat cmnDocListFormat)
+        {
+            try
+            {
+                txtCustomCode.Text = cmnDocListFormat.CustomCode;
+                txtPrefix.Text = cmnDocListFormat.Prefix;
+                txtSufix.Text = cmnDocListFormat.Suffix;
+                ddlMenuName.SelectedValue = cmnDocListFormat.DocListId.ToString();
+                DocListFormatDetailList = _manager.GetAllDocListFormat_Detail(cmnDocListFormat.DocListFormatID);   
+            }
+            catch (Exception ex)
+            {
+
+                throw (ex);
+            }
+        }
+
         private void InitializeSession()
         {
             PopulateParameter();
             DocListFormatList = new CustomList<CmnDocListFormat>();
             DocListFormatDetailList = new CustomList<CmnDocListFormatDetail>();
         }
+
+        private void InitializeCombo()
+        {
+            ddlMenuName.DataSource = _aManager.GetAllMenuList();
+            ddlMenuName.DataTextField = "DisplayMember";
+            ddlMenuName.DataValueField = "MenuID";
+            ddlMenuName.DataBind();
+            ddlMenuName.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+            ddlMenuName.SelectedIndex = 0;
+        }
+
         private void PopulateParameter()
         {
             lstPopulateDropdown = new CustomList<PopulateDropdownList>();
@@ -114,18 +162,41 @@ namespace API.UI.Setup
             obj4.ValueDoc = "Month";
             obj4.Text = "Month";
             lstPopulateDropdown.Add(obj4);
+
+            PopulateDropdownList obj5 = new PopulateDropdownList();
+            obj5.ValueDoc = "Day";
+            obj5.Text = "Day";
+            lstPopulateDropdown.Add(obj5);
         }
         private void SetDataFromControlToObject(ref CustomList<CmnDocListFormat> lstDocListFormat)
         {
             CmnDocListFormat obj = lstDocListFormat[0];
             if (ddlMenuName.SelectedValue != "")
                 obj.DocListId = ddlMenuName.SelectedValue.ToInt();
+            obj.CustomCode = txtCustomCode.Text;
             obj.Prefix = txtPrefix.Text;
             obj.Suffix = txtSufix.Text;
             obj.PeriodType = ddlPeriodType.SelectedValue;
         }
         #endregion
         #region Button Event
+        protected void btnFind_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {                                                                                
+                CustomList<CmnDocListFormat> items = _manager.GetAllDocListFormatFind();
+                Dictionary<string, string> columns = new Dictionary<string, string>();
+
+                columns.Add("Description", "Description");
+
+                StaticInfo.SearchItem(items, "DocListFormat", "SearchCmnDocListFormat", FRAMEWORK.SearchColumnConfig.GetColumnConfig(typeof(CmnDocListFormat), columns), 500);
+            }
+            catch (Exception ex)
+            {
+                this.ErrorMessage = (ExceptionHelper.getExceptionMessage(ex));
+            }
+        }
+
         protected void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -139,7 +210,7 @@ namespace API.UI.Setup
                 SetDataFromControlToObject(ref lstCmnDocListFormat);
                 CustomList<CmnDocListFormatDetail> lstCmnDocListFormatDetail = DocListFormatDetailList;
                 if (!CheckUserAuthentication(lstCmnDocListFormat)) return;
-                //manager.SaveItemStructure(ref lstItemStructure);
+                _manager.SaveDocListFormat(ref lstCmnDocListFormat, ref lstCmnDocListFormatDetail);
                 this.SuccessMessage = (StaticInfo.SavedSuccessfullyMsg);
             }
              

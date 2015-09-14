@@ -1,5 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="HeaderSettings.ascx.cs"
     Inherits="API.Controls.Layout.HeaderSettings" %>
+<span><a href="#" class="WF-settings"></a></span>
 <span><a href="#" class="header-settings"></a></span>
 <script type="text/javascript">
     function OpenPasswordChangePopupDialog() {
@@ -109,6 +110,13 @@
         </li>
     </ul>
 </div>
+<div class="WFsettings-panel">
+    <div class="profile-pic">
+    </div>
+<div id="PendingList" runat="server">
+
+</div>
+</div>
 <div id="divPassChange" style="display: none">
     <%--<uc1:PasswordChange ID="ucPasswordChange1" runat="server" />--%>
     <div class="totalDiv">
@@ -172,4 +180,20 @@
             $(".settings-panel").hide();
         }
     })
+    $(function () {
+        $(".WF-settings").click(function () {
+            $('.WFsettings-panel').show();
+        });
+    })
+    $(document).click(function (event) {
+        if ($(event.target).closest('.WFsettings-panel , .WF-settings').get(0) == null) {
+            $(".WFsettings-panel").hide();
+        }
+    })
+    $(document).ready(function () {
+        $('#PandingList tr').click(function (event) {
+            alert($(this).find('td:first').text());
+
+        });
+    });
 </script>

@@ -1,0 +1,67 @@
+
+CREATE TABLE [dbo].[CmnDocListTableMapping](
+	[DocListTableMappingID] [int] NOT NULL,
+	[DocListID] [int] NULL,
+	[TableType] [nvarchar](100) NULL,
+	[TableName] [nvarchar](200) NULL,
+	[ColumnType] [nvarchar](100) NULL,
+	[ColumnName] [nvarchar](200) NULL,
+ CONSTRAINT [PK_CmnDocListTableMapping] PRIMARY KEY CLUSTERED 
+(
+	[DocListTableMappingID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER PROC [dbo].[spUpdateCmnDocListTableMapping]
+	@DocListTableMappingID int,
+	@DocListID int,
+	@TableType nvarchar(100),
+	@TableName nvarchar(200),
+	@ColumnType nvarchar(100),
+	@ColumnName nvarchar(200)
+As
+Begin
+
+	Update CmnDocListTableMapping
+	Set DocListID = @DocListID, 
+		TableType = @TableType, 
+		TableName = @TableName, 
+		ColumnType = @ColumnType, 
+		ColumnName = @ColumnName
+	Where DocListTableMappingID = @DocListTableMappingID 
+	
+
+End
+GO
+ALTER PROC [dbo].[spInsertCmnDocListTableMapping]
+	@DocListTableMappingID int,
+	@DocListID int,
+	@TableType nvarchar(100),
+	@TableName nvarchar(200),
+	@ColumnType nvarchar(100),
+	@ColumnName nvarchar(200)
+As
+Begin
+
+	Insert Into CmnDocListTableMapping	(DocListID, TableType, TableName, 
+		ColumnType, ColumnName)
+	Values(@DocListID, @TableType, @TableName, 
+		@ColumnType, @ColumnName)
+
+End
+GO
+
+ALTER PROC [dbo].[spDeleteCmnDocListTableMapping]
+	@DocListTableMappingID int
+As
+Begin
+
+	Delete CmnDocListTableMapping
+	Where DocListTableMappingID = @DocListTableMappingID 
+	
+
+End
+GO
+

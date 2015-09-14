@@ -148,5 +148,8 @@
         <div class="btnRight">
             <asp:Button ID="btnSave" runat="server" CssClass="button" Text="Save" ValidationGroup="save" OnClick="btnSave_Click" />
         </div>
+        <div class="btnRight">
+            <asp:Button ID="btnPreview" runat="server" CssClass="button" Text="Preview" OnClick="btnPreview_Click" />
+        </div>
     </div>
 </div>

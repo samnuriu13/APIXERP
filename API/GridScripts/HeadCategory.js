@@ -55,6 +55,9 @@
 				                    viewPagerButtons: false,
 				                    bottominfo: "Fields marked with (*) are required"
 				                }
+                        , ondblClickRow: function (rowid) {
+                            $('.ui-icon-pencil', '#edit_' + this.id).click();
+                        }
 					}
 				)
 				.navGrid

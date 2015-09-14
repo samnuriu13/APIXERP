@@ -390,7 +390,7 @@ namespace SECURITY.DAO
             if (IsAdded)
                 parameterValues = new Object[] { _ApplicationID, _ValueMember, _DisplayMember, _ParentID, _IsVisible, _Type, _Description, _FormName, _MenuType, _MenuSequence, _DataType, _RestrictionLimit, _Assembly, _NameSpace, _MethodName, _IsAdminOnly, _ResourceLocation };
             else if (IsModified)
-                parameterValues = new Object[] { _ApplicationID, _ValueMember, _DisplayMember, _ParentID, _IsVisible, _Type, _Description, _FormName, _MenuType, _MenuSequence, _DataType, _RestrictionLimit, _Assembly, _NameSpace, _MethodName, _IsAdminOnly, _ResourceLocation };
+                parameterValues = new Object[] { _MenuID, _ApplicationID, _ValueMember, _DisplayMember, _ParentID, _IsVisible, _Type, _Description, _FormName, _MenuType, _MenuSequence, _DataType, _RestrictionLimit, _Assembly, _NameSpace, _MethodName, _IsAdminOnly, _ResourceLocation };
             else if (IsDeleted)
                 parameterValues = new Object[] { _MenuID };
             return parameterValues;
@@ -417,11 +417,29 @@ namespace SECURITY.DAO
             //_ResourceLocation = reader.GetString("ResourceLocation");
             SetUnchanged();
         }
+        private void SetDataToSetup(IDataRecord reader)
+        {
+            _MenuID = reader.GetString("MenuID");
+            _DisplayMember = reader.GetString("DisplayMember");
+            _ParentID = reader.GetInt32("ParentID");
+            _IsVisible = reader.GetInt32("IsVisible");
+            _Description = reader.GetString("Description");
+            _FormName = reader.GetString("FormName");
+            _MenuType = reader.GetString("MenuType");
+            _MenuSequence = reader.GetInt32("MenuSequence");
+            SetUnchanged();
+        }
         private void SetDataMenu(IDataRecord reader)
         {
             _MenuID = reader.GetString("MenuID");
             _DisplayMember = reader.GetString("DisplayMember");
         }
+
+        private void SetDataForMenuType(IDataRecord reader)
+        {
+            _MenuType = reader.GetString("MenuType");
+        }
+
         public static CustomList<Menu> GetAllMenuByApplicationID(int applicationID)
         {
             ConnectionManager conManager = new ConnectionManager(ConnectionName.SysMan);
@@ -468,10 +486,10 @@ namespace SECURITY.DAO
                     newMenu.SetData(reader);
                     MenuCollection.Add(newMenu);
                 }
-
                 MenuCollection.InsertSpName = "spInsertMenu";
                 MenuCollection.UpdateSpName = "spUpdateMenu";
                 MenuCollection.DeleteSpName = "spDeleteMenu";
+
                 return MenuCollection;
             }
             catch (Exception ex)
@@ -534,6 +552,65 @@ namespace SECURITY.DAO
                 {
                     Menu newMenu = new Menu();
                     newMenu.SetDataMenu(reader);
+                    MenuCollection.Add(newMenu);
+                }
+                return MenuCollection;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                    reader.Close();
+            }
+        }
+
+        public static CustomList<Menu> GetAllMenu()
+        {
+            ConnectionManager conManager = new ConnectionManager(ConnectionName.SysMan);
+            CustomList<Menu> MenuCollection = new CustomList<Menu>();
+            IDataReader reader = null;
+            String sql = String.Format("Select * from Menu");
+            try
+            {
+                conManager.OpenDataReader(sql, out reader);
+                while (reader.Read())
+                {
+                    Menu newMenu = new Menu();
+                    newMenu.SetDataToSetup(reader);
+                    MenuCollection.Add(newMenu);
+                }
+                MenuCollection.InsertSpName = "spInsertMenu";
+                MenuCollection.UpdateSpName = "spUpdateMenu";
+                MenuCollection.DeleteSpName = "spDeleteMenu";
+                return MenuCollection;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                    reader.Close();
+            }
+        }
+
+        public static CustomList<Menu> GetMenuType()
+        {
+            ConnectionManager conManager = new ConnectionManager(ConnectionName.SysMan);
+            CustomList<Menu> MenuCollection = new CustomList<Menu>();
+            IDataReader reader = null;
+            String sql = String.Format("Select distinct MenuType from Menu");
+            try
+            {
+                conManager.OpenDataReader(sql, out reader);
+                while (reader.Read())
+                {
+                    Menu newMenu = new Menu();
+                    newMenu.SetDataForMenuType(reader);
                     MenuCollection.Add(newMenu);
                 }
                 return MenuCollection;
