@@ -171,7 +171,7 @@ namespace API.UI.Setup
                 CustomList<CmnDocListTableMapping> items = _manager.GetAllCmnTransactionReferenceFind();
                 Dictionary<string, string> columns = new Dictionary<string, string>();
 
-                columns.Add("DocListID", "Doc List ID");
+                columns.Add("DisplayMember", "Display Member");
                // columns.Add("TypeName", "TypeName");
 
                 StaticInfo.SearchItem(items, "Search DocListID", "SearchCmnDocListTableMapping", FRAMEWORK.SearchColumnConfig.GetColumnConfig(typeof(CmnDocListTableMapping), columns), 500);

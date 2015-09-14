@@ -203,7 +203,7 @@ namespace API.DAO
 		{
 			Object[] parameterValues = null;
 			if (IsAdded)
-				parameterValues = new Object[] {_DocListFormatID,_CustomCode,_DocListId,_Prefix,_Suffix,_PeriodType,_Project,_CostCentre,_CompanyID,_IsDeleted,_Transfer};
+				parameterValues = new Object[] {_CustomCode,_DocListId,_Prefix,_Suffix,_PeriodType,_Project,_CostCentre,_CompanyID,_IsDeleted,_Transfer};
 			else if (IsModified)
 				parameterValues = new Object[] {_DocListFormatID,_CustomCode,_DocListId,_Prefix,_Suffix,_PeriodType,_Project,_CostCentre,_CompanyID,_IsDeleted,_Transfer};
 			else if (IsDeleted)

@@ -7,13 +7,13 @@
     <div class="form-wrapper">
         <div class="form-details">
             <div style="width: 100%; height: auto; margin-top: 5px">
-                <div style="float: left; width: 60%">
+                <div style="float: left; width: 40%">
                     <div class="lblAndTxtStyle">
                         <div class="divlblwidth100px bglbl">
                             <a>Doc List</a>
                         </div>
                         <div class="div182Px">
-                            <asp:DropDownList ID="ddlDocList" runat="server" CssClass="drpwidth180px">
+                            <asp:DropDownList ID="ddlDocList" runat="server" CssClass="drpwidth180px" Width="80%">
                             </asp:DropDownList>
                             <span class="r2">*</span> <%----%>
                             <asp:ImageButton ID="btnNew" runat="server" CssClass="btnImageStyle" ImageUrl="~/images/new 20X20.png" OnClick="btnNew_Click" />

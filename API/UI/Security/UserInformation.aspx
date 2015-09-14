@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="lblAndTxt100Pdiv">
-                    <asp:Label ID="Label1" runat="server" CssClass="lblStyle">Employee Name</asp:Label>
+                    <asp:Label ID="Label1" runat="server" CssClass="lblStyle">User Name</asp:Label>
                 </div>
                 <div class="lblAndTxt100Pdiv">
                     <div style="float: left; width: 88%">

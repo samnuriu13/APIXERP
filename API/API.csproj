@@ -118,6 +118,7 @@
     <Content Include="App_Themes\Default\vssver2.scc" />
     <Content Include="ASTReports\vssver2.scc" />
     <Content Include="Content\EmpAttachment\42f7cf2f-42db-41c1-a83b-7b9ccbeaa263.xlsx" />
+    <Content Include="Content\EmpImage\no-image.png" />
     <Content Include="Content\jquery.ui.totop\css\vssver2.scc" />
     <Content Include="Content\jquery.ui.totop\img\vssver2.scc" />
     <Content Include="Content\jquery.ui.totop\js\vssver2.scc" />
@@ -146,6 +147,7 @@
     <Content Include="GridScripts\ItemRequisition.js" />
     <Content Include="GridScripts\ItemStructure.js" />
     <Content Include="GridScripts\JSCurrency.js" />
+    <Content Include="GridScripts\MenuList.js" />
     <Content Include="GridScripts\PF_Voucher.js" />
     <Content Include="GridScripts\PO.js" />
     <Content Include="GridScripts\SegmentValues.js" />
@@ -153,6 +155,7 @@
     <Content Include="GridScripts\SubGroupItem.js" />
     <Content Include="GridScripts\UnitSetup.js" />
     <Content Include="GridScripts\WorkflowDetail.js" />
+    <Content Include="images\no-image.png" />
     <Content Include="images\vssver2.scc" />
     <Content Include="JQGrid\js\i18n\vssver2.scc" />
     <Content Include="JQGrid\js\vssver2.scc" />
@@ -161,6 +164,7 @@
     <Content Include="JQGrid\themes\vssver2.scc" />
     <Content Include="JQGrid\vssver2.scc" />
     <Content Include="js\vssver2.scc" />
+    <Content Include="MenuSetup.aspx" />
     <Content Include="Root.Master" />
     <Content Include="site.master" />
     <Content Include="SiteLoggedOff.Master" />
@@ -226,6 +230,10 @@
     <Content Include="DBScript\SP - Shaikat.docx" />
     <Content Include="DBScript\SP_Shantonu.docx" />
     <Content Include="ASTReports\Requisition.rdl" />
+    <Content Include="ASTReports\TrialBalance.rdl" />
+    <Content Include="ASTReports\IncomeStatement.rdl">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\sa.pubxml" />
     <Content Include="Web.sitemap" />
     <Content Include="Web.config" />
@@ -617,6 +625,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MenuSetup.aspx.cs">
+      <DependentUpon>MenuSetup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MenuSetup.aspx.designer.cs">
+      <DependentUpon>MenuSetup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>

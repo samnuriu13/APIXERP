@@ -107,10 +107,16 @@ namespace API.UI.ItemSetup
             try
             {
                 txtItemCode.Text = itemMaster.ItemCode;
+                txtBuyingPrice.Text = itemMaster.BuyingPrice.ToString();
+                txtSellingPrice.Text = itemMaster.SellingPrice.ToString();
                 ddlItemGroup.SelectedValue = itemMaster.ItemGroupID.ToString();
                 ddlItemGroup_SelectedIndexChanged(null,null);
                 //ddlItemSubGroup.SelectedValue = itemMaster.ItemSubGroupID.ToString();
                 ddlUOM1.SelectedValue = itemMaster.UOMID == 0 ? null : itemMaster.UOMID.ToString();
+
+                DropDownList ddlItemSubGroup = (DropDownList)Panel1.FindControl("ddlItemSubGroup");
+                ddlItemSubGroup.SelectedValue = itemMaster.ItemSubGroupID == 0 ? null : itemMaster.ItemSubGroupID.ToString();
+
                 int count=0;
                 foreach (SegmentNames sN in SegmentNamesList)
                 {
@@ -166,7 +172,7 @@ namespace API.UI.ItemSetup
 
             if (subGroupList.Count > 0)
             {
-                Panel1.Controls.Add(new LiteralControl("<div class='lblAndTxtStyle'><div class='divlblwidth100px bglbl'><a>Item Sub-Group</a></div><div class='div182Px'>"));
+                Panel1.Controls.Add(new LiteralControl("<div class='lblAndTxtStyle' style='width:33%; float:left;'><div class='divlblwidth100px bglbl'><a>Item Sub-Group</a></div><div class='div182Px'>"));
 
                 DropDownList ddlItemSubGroup = new DropDownList();
                 ddlItemSubGroup.ID = "ddlItemSubGroup";
@@ -210,8 +216,14 @@ namespace API.UI.ItemSetup
                 ddl.Attributes.Add("class", "drpdynamic");
                 ddl.CssClass.PadLeft(1);
 
+                Panel1.Controls.Add(new LiteralControl("<div class='lblAndTxtStyle' style='width:33%; float:left;'><div class='divlblwidth100px bglbl'><a>"));
+
                 Panel1.Controls.Add(lb);
+                Panel1.Controls.Add(new LiteralControl("</a></div>"));
+                Panel1.Controls.Add(new LiteralControl("<div class='div182Px'>"));
                 Panel1.Controls.Add(ddl);
+                Panel1.Controls.Add(new LiteralControl("</div></div>"));
+
                 c = c + 2;
                 if ((c % 6) == 0)
                 {
