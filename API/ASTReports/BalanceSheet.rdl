@@ -244,7 +244,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Grand-Total</Value>
+                              <Value>Grand</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>

@@ -1068,21 +1068,21 @@
                                   <TablixHeader>
                                     <Size>0.66907in</Size>
                                     <CellContents>
-                                      <Textbox Name="CostCenter">
+                                      <Textbox Name="CostCenterName">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Fields!CostCenter.Value</Value>
+                                                <Value>=Fields!CostCenterName.Value</Value>
                                                 <Style />
                                               </TextRun>
                                             </TextRuns>
                                             <Style />
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>CostCenter</rd:DefaultName>
+                                        <rd:DefaultName>CostCenterName</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Style>Solid</Style>
@@ -1101,21 +1101,21 @@
                                       <TablixHeader>
                                         <Size>0.71074in</Size>
                                         <CellContents>
-                                          <Textbox Name="DeptID">
+                                          <Textbox Name="BranchName">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!DepartmentName.Value</Value>
+                                                    <Value>=Fields!BranchName.Value</Value>
                                                     <Style />
                                                   </TextRun>
                                                 </TextRuns>
                                                 <Style />
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>DeptID</rd:DefaultName>
+                                            <rd:DefaultName>BranchName</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -1445,12 +1445,12 @@
           <DataField>RequisitionType</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="DepartmentName">
-          <DataField>DepartmentName</DataField>
+        <Field Name="CostCenterName">
+          <DataField>CostCenterName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="CostCenter">
-          <DataField>CostCenter</DataField>
+        <Field Name="BranchName">
+          <DataField>BranchName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Description">

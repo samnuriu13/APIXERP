@@ -87,16 +87,16 @@
             if ((event.target.className.indexOf("allowEnter") >= 0) || (event.target.className.indexOf("FormElement") >= 0)) return true;
             else return event.keyCode != 13 && event.which != 13;
         }
-        var modal = $('<div />');
-        $(document).bind("ajaxStart.mine", function () {
-            modal.addClass("modal");
-            $('body').append(modal);
-            $('#dvLoading').show();
-        });
-        $(document).bind("ajaxStop.mine", function () {
-            $('#dvLoading').hide();
-            modal.removeClass("modal");
-        });
+        //var modal = $('<div />');
+        //$(document).bind("ajaxStart.mine", function () {
+           // modal.addClass("modal");
+            //$('body').append(modal);
+           // $('#dvLoading').show();
+        //});
+        //$(document).bind("ajaxStop.mine", function () {
+           // $('#dvLoading').hide();
+           // modal.removeClass("modal");
+       // });
     </script>
     <noscript>
         <p id="nojs">
@@ -190,8 +190,8 @@
         <asp:ValidationSummary ID="ValidationSummary1" CssClass="validation-summary" runat="server"
             ValidationGroup="save"></asp:ValidationSummary>
     </form>
-    <div id="dvLoading">
+<%--    <div id="dvLoading">
         <img id="Img1" runat="server" src="images/loading.gif" />
-    </div>
+    </div>--%>
 </body>
 </html>

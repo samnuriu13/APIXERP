@@ -108,6 +108,21 @@ namespace API.DAO
             }
         }
 
+        private System.Int32 _BranchID;
+        [Browsable(true), DisplayName("BranchID")]
+        public System.Int32 BranchID
+        {
+            get
+            {
+                return _BranchID;
+            }
+            set
+            {
+                if (PropertyChanged(_BranchID, value))
+                    _BranchID = value;
+            }
+        }
+
         private System.Int32 _CostCenterID;
         [Browsable(true), DisplayName("CostCenterID")]
         public System.Int32 CostCenterID
@@ -120,36 +135,6 @@ namespace API.DAO
             {
                 if (PropertyChanged(_CostCenterID, value))
                     _CostCenterID = value;
-            }
-        }
-
-        private System.Int32 _ProjectID;
-        [Browsable(true), DisplayName("ProjectID")]
-        public System.Int32 ProjectID
-        {
-            get
-            {
-                return _ProjectID;
-            }
-            set
-            {
-                if (PropertyChanged(_ProjectID, value))
-                    _ProjectID = value;
-            }
-        }
-
-        private System.Int32 _DeptID;
-        [Browsable(true), DisplayName("DeptID")]
-        public System.Int32 DeptID
-        {
-            get
-            {
-                return _DeptID;
-            }
-            set
-            {
-                if (PropertyChanged(_DeptID, value))
-                    _DeptID = value;
             }
         }
 
@@ -168,6 +153,21 @@ namespace API.DAO
             }
         }
 
+        private System.String _Branch;
+        [Browsable(true), DisplayName("Branch")]
+        public System.String Branch
+        {
+            get
+            {
+                return _Branch;
+            }
+            set
+            {
+                if (PropertyChanged(_Branch, value))
+                    _Branch = value;
+            }
+        }
+
         private System.String _CostCenter;
         [Browsable(true), DisplayName("CostCenter")]
         public System.String CostCenter
@@ -180,21 +180,6 @@ namespace API.DAO
             {
                 if (PropertyChanged(_CostCenter, value))
                     _CostCenter = value;
-            }
-        }
-
-        private System.String _Department;
-        [Browsable(true), DisplayName("Department")]
-        public System.String Department
-        {
-            get
-            {
-                return _Department;
-            }
-            set
-            {
-                if (PropertyChanged(_Department, value))
-                    _Department = value;
             }
         }
 
@@ -264,9 +249,9 @@ namespace API.DAO
         {
             Object[] parameterValues = null;
             if (IsAdded)
-                parameterValues = new Object[] { _CustomCode, _RequisitionDate.Value(StaticInfo.DateFormat), _RequisitionTypeID, _MachineID, _UserID, _CostCenterID, _ProjectID, _DeptID, _Description, _StatusID, _CompanyID, _IsDeleted1, _Transfer };
+                parameterValues = new Object[] { _CustomCode, _RequisitionDate.Value(StaticInfo.DateFormat), _RequisitionTypeID, _MachineID, _UserID, _BranchID, _CostCenterID, _Description, _StatusID, _CompanyID, _IsDeleted1, _Transfer };
             else if (IsModified)
-                parameterValues = new Object[] { _RequisitionID,_CustomCode, _RequisitionDate.Value(StaticInfo.DateFormat), _RequisitionTypeID, _MachineID, _UserID, _CostCenterID, _ProjectID, _DeptID, _Description, _StatusID, _CompanyID, _IsDeleted1, _Transfer };
+                parameterValues = new Object[] { _RequisitionID, _CustomCode, _RequisitionDate.Value(StaticInfo.DateFormat), _RequisitionTypeID, _MachineID, _UserID, _BranchID, _CostCenterID, _Description, _StatusID, _CompanyID, _IsDeleted1, _Transfer };
             else if (IsDeleted)
                 parameterValues = new Object[] { _RequisitionID };
             return parameterValues;
@@ -280,8 +265,7 @@ namespace API.DAO
             _MachineID = reader.GetInt64("MachineID");
             _UserID = reader.GetInt32("UserID");
             _CostCenterID = reader.GetInt32("CostCenterID");
-            _ProjectID = reader.GetInt32("ProjectID");
-            _DeptID = reader.GetInt32("DeptID");
+            _BranchID = reader.GetInt32("BranchID");
             _Description = reader.GetString("Description");
             _StatusID = reader.GetInt32("StatusID");
             _CompanyID = reader.GetInt32("CompanyID");
@@ -296,9 +280,10 @@ namespace API.DAO
             _RequisitionDate = reader.GetDateTime("RequisitionDate");
             _Description = reader.GetString("Description");
             _CostCenter = reader.GetString("CostCenter");
-            _Department = reader.GetString("Department");
+            _Branch = reader.GetString("Branch");
             _CostCenterID = reader.GetInt32("CostCenterID");
-            _DeptID = reader.GetInt32("DeptID");
+            _BranchID = reader.GetInt32("BranchID");
+            _UserID = reader.GetInt32("UserID");
             SetUnchanged();
         }
         public static CustomList<ItemRequisitionMaster> GetAllItemRequisitionMaster(Int32 TransType)

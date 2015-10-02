@@ -48,51 +48,6 @@ namespace ACC.DAO
             }
         }
 
-        private System.Int32 _CostCenterID;
-        [Browsable(true), DisplayName("CostCenterID")]
-        public System.Int32 CostCenterID
-        {
-            get
-            {
-                return _CostCenterID;
-            }
-            set
-            {
-                if (PropertyChanged(_CostCenterID, value))
-                    _CostCenterID = value;
-            }
-        }
-
-        private System.Int32 _DeptID;
-        [Browsable(true), DisplayName("DeptID")]
-        public System.Int32 DeptID
-        {
-            get
-            {
-                return _DeptID;
-            }
-            set
-            {
-                if (PropertyChanged(_DeptID, value))
-                    _DeptID = value;
-            }
-        }
-
-        private System.Int32 _ProjectID;
-        [Browsable(true), DisplayName("ProjectID")]
-        public System.Int32 ProjectID
-        {
-            get
-            {
-                return _ProjectID;
-            }
-            set
-            {
-                if (PropertyChanged(_ProjectID, value))
-                    _ProjectID = value;
-            }
-        }
-
         private System.DateTime _VoucherDate;
         [Browsable(true), DisplayName("VoucherDate"), CustomAttributes.FormatString(StaticInfo.GridDateFormat)]
         public System.DateTime VoucherDate
@@ -120,6 +75,21 @@ namespace ACC.DAO
             {
                 if (PropertyChanged(_VoucherNo, value))
                     _VoucherNo = value;
+            }
+        }
+
+        private System.String _CustomCode;
+        [Browsable(true), DisplayName("CustomCode")]
+        public System.String CustomCode
+        {
+            get
+            {
+                return _CustomCode;
+            }
+            set
+            {
+                if (PropertyChanged(_CustomCode, value))
+                    _CustomCode = value;
             }
         }
 
@@ -272,15 +242,45 @@ namespace ACC.DAO
                     _Party = value;
             }
         }
+
+        private System.Int32 _CompanyID;
+        [Browsable(true), DisplayName("CompanyID")]
+        public System.Int32 CompanyID
+        {
+            get
+            {
+                return _CompanyID;
+            }
+            set
+            {
+                if (PropertyChanged(_CompanyID, value))
+                    _CompanyID = value;
+            }
+        }
+
+        private System.Boolean _IsDelete;
+        [Browsable(true), DisplayName("IsDelete")]
+        public System.Boolean IsDelete
+        {
+            get
+            {
+                return _IsDelete;
+            }
+            set
+            {
+                if (PropertyChanged(_IsDelete, value))
+                    _IsDelete = value;
+            }
+        }
 		#endregion
 
 		public override Object[] GetParameterValues()
 		{
             Object[] parameterValues = null;
             if (IsAdded)
-                parameterValues = new Object[] { _VoucherTypeKey, _CostCenterID, _DeptID, _ProjectID, _VoucherDate.Value(StaticInfo.DateFormat), _VoucherNo, _VoucherDesc, _VoucherRef, _CheckNo, _CheckDate.Value(StaticInfo.DateFormat), _ChequeType, _ChequeStatus, _VoucherAmount,_CurrencyID };
+                parameterValues = new Object[] { _CustomCode, _VoucherTypeKey, _VoucherDate.Value(StaticInfo.DateFormat), _VoucherNo, _VoucherDesc, _VoucherRef, _CurrencyID, _CheckNo, _CheckDate.Value(StaticInfo.DateFormat), _ChequeType, _ChequeStatus, _VoucherAmount,_CompanyID,_IsDelete };
             else if (IsModified)
-                parameterValues = new Object[] { _VoucherKey, _VoucherTypeKey, _CostCenterID, _DeptID, _ProjectID, _VoucherDate.Value(StaticInfo.DateFormat), _VoucherNo, _VoucherDesc, _VoucherRef, _CheckNo, _CheckDate.Value(StaticInfo.DateFormat), _ChequeType, _ChequeStatus, _VoucherAmount,_CurrencyID };
+                parameterValues = new Object[] { _VoucherKey, _CustomCode, _VoucherTypeKey, _VoucherDate.Value(StaticInfo.DateFormat), _VoucherNo, _VoucherDesc, _VoucherRef, _CurrencyID, _CheckNo, _CheckDate.Value(StaticInfo.DateFormat), _ChequeType, _ChequeStatus, _VoucherAmount,_CompanyID,_IsDelete };
             else if (IsDeleted)
                 parameterValues = new Object[] { _VoucherKey };
             return parameterValues;
@@ -290,9 +290,6 @@ namespace ACC.DAO
 		{
             _VoucherKey = reader.GetInt64("VoucherKey");
             _VoucherTypeKey = reader.GetInt32("VoucherTypeKey");
-            _CostCenterID = reader.GetInt32("CostCenterID");
-            _DeptID = reader.GetInt32("DeptID");
-            _ProjectID = reader.GetInt32("ProjectID");
             _VoucherDate = reader.GetDateTime("VoucherDate");
             _VoucherNo = reader.GetString("VoucherNo");
             _VoucherDesc = reader.GetString("VoucherDesc");
@@ -320,12 +317,12 @@ namespace ACC.DAO
             SetUnchanged();
 
         }
-		public static CustomList<Acc_Voucher> GetAllAcc_Voucher(Int32 CostCenterID,Int32 DeptID, Int32 VoucherTypeKey)
+		public static CustomList<Acc_Voucher> GetAllAcc_Voucher(Int32 VoucherTypeKey)
 		{
 			ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
 			CustomList<Acc_Voucher> Acc_VoucherCollection = new CustomList<Acc_Voucher>();
 			IDataReader reader = null;
-            String sql = "spFindVoucher "+CostCenterID+","+DeptID+","+VoucherTypeKey;
+            String sql = "spFindVoucher "+VoucherTypeKey;
 			try
 			{
 				conManager.OpenDataReader(sql, out reader);
@@ -347,12 +344,12 @@ namespace ACC.DAO
 					reader.Close();
 			}
 		}
-        public static CustomList<Acc_Voucher> GetAllAcc_Voucher(Int32 CostCenterID, Int32 DeptID, Int32 bankBranch, String fromDate, String toDate)
+        public static CustomList<Acc_Voucher> GetAllAcc_Voucher(Int32 CostCenterID, Int32 BranchOrUnit, Int32 bankBranch, String fromDate, String toDate)
         {
             ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
             CustomList<Acc_Voucher> Acc_VoucherCollection = new CustomList<Acc_Voucher>();
             IDataReader reader = null;
-            String sql = "spBankReconciliation " + CostCenterID + "," + DeptID + "," + bankBranch+","+"'"+fromDate+"','"+toDate+"'";
+            String sql = "spBankReconciliation " + CostCenterID + "," + BranchOrUnit + "," + bankBranch + "," + "'" + fromDate + "','" + toDate + "'";
             try
             {
                 conManager.OpenDataReader(sql, out reader);
@@ -380,6 +377,33 @@ namespace ACC.DAO
             Acc_Voucher voucher = new Acc_Voucher();
             IDataReader reader = null;
             String sql = "select VoucherKey,VoucherTypeKey,FYKey,OrgKey,VoucherDate,VoucherNo,VoucherClient,PayRec,VoucherDesc,IsPost,PostDate,PostBy,EntryDate,EntryUserKey,LastUpdateDate,LastUpdateUserKey,NField_1,NField_2,TField_1,TField_2,TField_3,TField_4,TField_5,DField_1,DField_2,IField_1,BField_1,CheckNo,CheckDate from Acc_Voucher where VoucherNo='" + voucherNo + "'";
+            try
+            {
+                conManager.OpenDataReader(sql, out reader);
+                while (reader.Read())
+                {
+                    Acc_Voucher newAcc_Voucher = new Acc_Voucher();
+                    newAcc_Voucher.SetData(reader);
+                    voucher = newAcc_Voucher;
+                }
+                return voucher;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                    reader.Close();
+            }
+        }
+        public static Acc_Voucher GetAllAcc_WorkFlowVoucher(string voucherKey)
+        {
+            ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
+            Acc_Voucher voucher = new Acc_Voucher();
+            IDataReader reader = null;
+            String sql = "select * from Acc_Voucher where VoucherKey='" + voucherKey + "'";
             try
             {
                 conManager.OpenDataReader(sql, out reader);

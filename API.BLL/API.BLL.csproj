@@ -67,6 +67,7 @@
     <Compile Include="BankManager.cs" />
     <Compile Include="ContactInfoManager.cs" />
     <Compile Include="MenuWiseTableMappingManager.cs" />
+    <Compile Include="StockViewManager.cs" />
     <Compile Include="TransactionReferenceManager.cs" />
     <Compile Include="CurrencyManager.cs" />
     <Compile Include="DocListFormatSettingManager.cs" />

@@ -258,33 +258,33 @@ namespace API.DAO
             }
         }
 
-        private System.Int32 _DeptID;
-        [Browsable(true), DisplayName("DeptID")]
-        public System.Int32 DeptID
+        private System.Int32 _BranchID;
+        [Browsable(true), DisplayName("BranchID")]
+        public System.Int32 BranchID
         {
             get
             {
-                return _DeptID;
+                return _BranchID;
             }
             set
             {
-                if (PropertyChanged(_DeptID, value))
-                    _DeptID = value;
+                if (PropertyChanged(_BranchID, value))
+                    _BranchID = value;
             }
         }
 
-        private System.Int32 _ProjectID;
-        [Browsable(true), DisplayName("ProjectID")]
-        public System.Int32 ProjectID
+        private System.String _Branch;
+        [Browsable(true), DisplayName("Branch")]
+        public System.String Branch
         {
             get
             {
-                return _ProjectID;
+                return _Branch;
             }
             set
             {
-                if (PropertyChanged(_ProjectID, value))
-                    _ProjectID = value;
+                if (PropertyChanged(_Branch, value))
+                    _Branch = value;
             }
         }
 
@@ -315,21 +315,6 @@ namespace API.DAO
             {
                 if (PropertyChanged(_CostCenter, value))
                     _CostCenter = value;
-            }
-        }
-
-        private System.String _Department;
-        [Browsable(true), DisplayName("Department")]
-        public System.String Department
-        {
-            get
-            {
-                return _Department;
-            }
-            set
-            {
-                if (PropertyChanged(_Department, value))
-                    _Department = value;
             }
         }
 
@@ -384,9 +369,9 @@ namespace API.DAO
         {
             Object[] parameterValues = null;
             if (IsAdded)
-                parameterValues = new Object[] { _CustomCode, _TransType, _PODate.Value(StaticInfo.DateFormat), _Description, _SupplierID, _Agent, _ExpectedReceiptDate.Value(StaticInfo.DateFormat), _PaymentModeID, _BillTo, _ShipTo, _ShipMode, _CurrencyID, _OfferingCurrencyID, _CurrencyOfferingRate, _StatusID, _DeptID, _ProjectID, _CostCenterID, _CompanyID, _IsDeleted, _Transfer };
+                parameterValues = new Object[] { _CustomCode, _TransType, _PODate.Value(StaticInfo.DateFormat), _Description, _SupplierID, _Agent, _ExpectedReceiptDate.Value(StaticInfo.DateFormat), _PaymentModeID, _BillTo, _ShipTo, _ShipMode, _CurrencyID, _OfferingCurrencyID, _CurrencyOfferingRate, _StatusID,_BranchID, _CostCenterID, _CompanyID, _IsDeleted, _Transfer };
             else if (IsModified)
-                parameterValues = new Object[] { _POID, _CustomCode, _TransType, _PODate.Value(StaticInfo.DateFormat), _Description, _SupplierID, _Agent, _ExpectedReceiptDate.Value(StaticInfo.DateFormat), _PaymentModeID, _BillTo, _ShipTo, _ShipMode, _CurrencyID, _OfferingCurrencyID, _CurrencyOfferingRate, _StatusID, _DeptID, _ProjectID, _CostCenterID, _CompanyID, _IsDeleted, _Transfer };
+                parameterValues = new Object[] { _POID, _CustomCode, _TransType, _PODate.Value(StaticInfo.DateFormat), _Description, _SupplierID, _Agent, _ExpectedReceiptDate.Value(StaticInfo.DateFormat), _PaymentModeID, _BillTo, _ShipTo, _ShipMode, _CurrencyID, _OfferingCurrencyID, _CurrencyOfferingRate, _StatusID,_BranchID, _CostCenterID, _CompanyID, _IsDeleted, _Transfer };
             else if (IsDeleted)
                 parameterValues = new Object[] { _POID };
             return parameterValues;
@@ -409,8 +394,7 @@ namespace API.DAO
             _OfferingCurrencyID = reader.GetInt32("OfferingCurrencyID");
             _CurrencyOfferingRate = reader.GetDecimal("CurrencyOfferingRate");
             _StatusID = reader.GetInt32("StatusID");
-            _DeptID = reader.GetInt32("DeptID");
-            _ProjectID = reader.GetInt32("ProjectID");
+            _BranchID = reader.GetInt32("BranchID");
             _CostCenterID = reader.GetInt32("CostCenterID");
             _CompanyID = reader.GetInt32("CompanyID");
             _IsDeleted = reader.GetBoolean("IsDeleted");
@@ -424,9 +408,9 @@ namespace API.DAO
             _PODate = reader.GetDateTime("PODate");
             _Description = reader.GetString("Description");
             _CostCenter = reader.GetString("CostCenter");
-            _Department = reader.GetString("Department");
+            _Branch = reader.GetString("Branch");
             _CostCenterID = reader.GetInt32("CostCenterID");
-            _DeptID = reader.GetInt32("DeptID");
+            _BranchID = reader.GetInt32("BranchID");
             _ShipTo = reader.GetString("ShipTo");
             _BillTo = reader.GetString("BillTo");
             _SupplierID = reader.GetInt32("SupplierID");

@@ -177,6 +177,7 @@ namespace API.Controls
                     }
 
                     selectedNode.IsDefaultCash = chkIsDefaultCash.Checked;
+                    selectedNode.IsCash = chkIsCash.Checked;
 
                     if (SaveCOA())
                         ((API.UI.ACC.COA)this.Page).SuccessMessage = StaticInfo.UpdatedSuccessfullyMsg; ;
@@ -244,6 +245,7 @@ namespace API.Controls
                     }
 
                     newItem.IsDefaultCash = chkIsDefaultCash.Checked;
+                    newItem.IsCash = chkIsCash.Checked;
 
                     newItem.IsPostingHead = chkPostingHea.Checked;
 
@@ -289,7 +291,9 @@ namespace API.Controls
                 txtAcCode.Text = selectedNode.COACode;
                 _SelectedCOAKey = selectedNode.COAKey;
                 chkIsDefaultCash.Checked = selectedNode.IsDefaultCash;
-                ddlFromCostCentre.SelectedValue = selectedNode.CostCenterID.ToString();
+                chkIsCash.Checked = selectedNode.IsCash;
+                if (selectedNode.CostCenterID != 0)
+                    ddlFromCostCentre.SelectedValue = selectedNode.CostCenterID.ToString();
 
                 validateState(node);
             }
@@ -349,7 +353,7 @@ namespace API.Controls
         {
             try
             {
-                ddlFromCostCentre.DataSource = hkManager.GetAllHouseKeeping(31);
+                ddlFromCostCentre.DataSource = hkManager.GetAllHouseKeeping(3);
                 ddlFromCostCentre.DataTextField = "HKName";
                 ddlFromCostCentre.DataValueField = "HKID";
                 ddlFromCostCentre.DataBind();
@@ -392,7 +396,7 @@ namespace API.Controls
 
         private void txtInput_KeyPress(object sender, EventArgs e)
         {
-            
-        } 
+
+        }
     }
 }

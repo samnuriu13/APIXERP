@@ -12,6 +12,7 @@ using FRAMEWORK;
 using System.Data.SqlClient;
 using API.DAO;
 using Enc = STATIC.EncDec;
+using API.BLL;
 
 namespace API.UI.Security
 {
@@ -83,6 +84,15 @@ namespace API.UI.Security
                         if (searchUser.IsNotNull())
                         {
                             PopulateUserInformation(searchUser);
+                        }
+                    }
+                    if (Request["__EVENTTARGET"] == "SearchContactInfo")
+                    {
+                        ContactInfo searchContactInfo = Session[STATIC.StaticInfo.SearchSessionVarName] as ContactInfo;
+                        if (searchContactInfo.IsNotNull())
+                        {
+                            txtName.Text = searchContactInfo.Name;
+                            ddlEmpCode.SelectedValue = searchContactInfo.ContactID.ToString();
                         }
                     }
                 }
@@ -303,6 +313,21 @@ namespace API.UI.Security
         }
         protected void btnEmpFind_Click(object sender, ImageClickEventArgs e)
         {
+            try
+            {
+                ContactInfoManager _manager = new ContactInfoManager();
+                CustomList<ContactInfo> items = _manager.GetAllContactInfo();
+                Dictionary<string, string> columns = new Dictionary<string, string>();
+
+                columns.Add("Name", "Name");
+                columns.Add("PhoneNo", "Phone No");
+
+                StaticInfo.SearchItem(items, "ContactInfo", "SearchContactInfo", FRAMEWORK.SearchColumnConfig.GetColumnConfig(typeof(ContactInfo), columns), 500);
+            }
+            catch (Exception ex)
+            {
+                this.ErrorMessage = (ExceptionHelper.getExceptionMessage(ex));
+            }
         }
         protected void btnCancel_Click(object sender, EventArgs e)
         {

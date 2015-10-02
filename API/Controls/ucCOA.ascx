@@ -81,6 +81,10 @@
                         <asp:CheckBox ID="chkIsDefaultCash" runat="server" CssClass="cbStyle" />
                         <asp:Label ID="Label2" runat="server" CssClass="lblStyle" Style="margin-top: 3px">Is Default Cash</asp:Label>
                     </div>
+                    <div class="lblAndTxtStyle" style="margin-left: 10%; float: left">
+                        <asp:CheckBox ID="chkIsCash" runat="server" CssClass="cbStyle" />
+                        <asp:Label ID="Label3" runat="server" CssClass="lblStyle" Style="margin-top: 3px">Is Cash</asp:Label>
+                    </div>
                 </div>
             </div>
         </fieldset>

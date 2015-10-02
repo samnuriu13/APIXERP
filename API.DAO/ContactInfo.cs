@@ -288,9 +288,25 @@ namespace API.DAO
             }
         }
 
-        private System.Int64? _CostCenterId;
+        private System.Int32? _BranchID;
+        [Browsable(true), DisplayName("BranchID")]
+        public System.Int32? BranchID
+        {
+            get
+            {
+                return _BranchID;
+            }
+            set
+            {
+                if (PropertyChanged(_BranchID, value))
+                    _BranchID = value;
+            }
+        }
+
+
+        private System.Int32? _CostCenterId;
         [Browsable(true), DisplayName("CostCenterId")]
-        public System.Int64? CostCenterId
+        public System.Int32? CostCenterId
         {
             get
             {
@@ -302,30 +318,15 @@ namespace API.DAO
                     _CostCenterId = value;
             }
         }
-
-        private System.Int64? _DepartmentId;
-        [Browsable(true), DisplayName("DepartmentId")]
-        public System.Int64? DepartmentId
-        {
-            get
-            {
-                return _DepartmentId;
-            }
-            set
-            {
-                if (PropertyChanged(_DepartmentId, value))
-                    _DepartmentId = value;
-            }
-        }
         #endregion
 
         public override Object[] GetParameterValues()
         {
             Object[] parameterValues = null;
             if (IsAdded)
-                parameterValues = new Object[] { _Name, _ShortName, _AgentName, _OfficeAddress, _FactoryAddress, _PhoneNo, _IndustryType, _FaxNo, _ContactPerson, _Origin, _EmailNo, _ParentCompany, _InterCompanyID, _TINNO, _CSTNO, _VATCode, _CostCenterId, _DepartmentId,_ContactImage };
+                parameterValues = new Object[] { _Name, _ShortName, _AgentName, _OfficeAddress, _FactoryAddress, _PhoneNo, _IndustryType, _FaxNo, _ContactPerson, _Origin, _EmailNo, _ParentCompany, _InterCompanyID, _TINNO, _CSTNO, _VATCode, _BranchID, _CostCenterId,_ContactImage };
             else if (IsModified)
-                parameterValues = new Object[] { _ContactID, _Name, _ShortName, _AgentName, _OfficeAddress, _FactoryAddress, _PhoneNo, _IndustryType, _FaxNo, _ContactPerson, _Origin, _EmailNo, _ParentCompany, _InterCompanyID, _TINNO, _CSTNO, _VATCode, _CostCenterId, _DepartmentId,_ContactImage };
+                parameterValues = new Object[] { _ContactID, _Name, _ShortName, _AgentName, _OfficeAddress, _FactoryAddress, _PhoneNo, _IndustryType, _FaxNo, _ContactPerson, _Origin, _EmailNo, _ParentCompany, _InterCompanyID, _TINNO, _CSTNO, _VATCode,_BranchID, _CostCenterId,_ContactImage };
             else if (IsDeleted)
                 parameterValues = new Object[] { _ContactID };
             return parameterValues;
@@ -349,8 +350,8 @@ namespace API.DAO
             _TINNO = reader.GetString("TINNO");
             _CSTNO = reader.GetString("CSTNO");
             _VATCode = reader.GetString("VATCode");
-            _CostCenterId = reader.GetNulableInt64("CostCenterId");
-            _DepartmentId = reader.GetNulableInt64("DepartmentId");
+            _BranchID = reader.GetNulableInt32("BranchID");
+            _CostCenterId = reader.GetNulableInt32("CostCenterId");
             _ContactImage = reader.GetString("ContactImage");
             SetUnchanged();
         }

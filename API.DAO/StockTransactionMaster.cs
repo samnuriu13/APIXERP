@@ -78,6 +78,21 @@ namespace API.DAO
             }
         }
 
+        private System.Int32 _FromBranchID;
+        [Browsable(true), DisplayName("FromBranchID")]
+        public System.Int32 FromBranchID
+        {
+            get
+            {
+                return _FromBranchID;
+            }
+            set
+            {
+                if (PropertyChanged(_FromBranchID, value))
+                    _FromBranchID = value;
+            }
+        }
+
         private System.Int32 _FromCostCenterID;
         [Browsable(true), DisplayName("FromCostCenterID")]
         public System.Int32 FromCostCenterID
@@ -105,6 +120,21 @@ namespace API.DAO
             {
                 if (PropertyChanged(_FromStockLocationID, value))
                     _FromStockLocationID = value;
+            }
+        }
+
+        private System.Int32 _ToBranchID;
+        [Browsable(true), DisplayName("ToBranchID")]
+        public System.Int32 ToBranchID
+        {
+            get
+            {
+                return _ToBranchID;
+            }
+            set
+            {
+                if (PropertyChanged(_ToBranchID, value))
+                    _ToBranchID = value;
             }
         }
 
@@ -138,36 +168,6 @@ namespace API.DAO
             }
         }
 
-        private System.Int32 _FromProjectID;
-        [Browsable(true), DisplayName("FromProjectID")]
-        public System.Int32 FromProjectID
-        {
-            get
-            {
-                return _FromProjectID;
-            }
-            set
-            {
-                if (PropertyChanged(_FromProjectID, value))
-                    _FromProjectID = value;
-            }
-        }
-
-        private System.Int32 _ToProjectID;
-        [Browsable(true), DisplayName("ToProjectID")]
-        public System.Int32 ToProjectID
-        {
-            get
-            {
-                return _ToProjectID;
-            }
-            set
-            {
-                if (PropertyChanged(_ToProjectID, value))
-                    _ToProjectID = value;
-            }
-        }
-
         private System.Int32 _PartyID;
         [Browsable(true), DisplayName("PartyID")]
         public System.Int32 PartyID
@@ -180,21 +180,6 @@ namespace API.DAO
             {
                 if (PropertyChanged(_PartyID, value))
                     _PartyID = value;
-            }
-        }
-
-        private System.Int32 _DeptID;
-        [Browsable(true), DisplayName("DeptID")]
-        public System.Int32 DeptID
-        {
-            get
-            {
-                return _DeptID;
-            }
-            set
-            {
-                if (PropertyChanged(_DeptID, value))
-                    _DeptID = value;
             }
         }
 
@@ -333,20 +318,36 @@ namespace API.DAO
             }
         }
 
-        private System.String _Department;
-        [Browsable(true), DisplayName("Department")]
-        public System.String Department
+        private System.String _FromBranch;
+        [Browsable(true), DisplayName("FromBranch")]
+        public System.String FromBranch
         {
             get
             {
-                return _Department;
+                return _FromBranch;
             }
             set
             {
-                if (PropertyChanged(_Department, value))
-                    _Department = value;
+                if (PropertyChanged(_FromBranch, value))
+                    _FromBranch = value;
             }
         }
+
+        private System.String _ToBranch;
+        [Browsable(true), DisplayName("ToBranch")]
+        public System.String ToBranch
+        {
+            get
+            {
+                return _ToBranch;
+            }
+            set
+            {
+                if (PropertyChanged(_ToBranch, value))
+                    _ToBranch = value;
+            }
+        }
+
 
         private System.String _NatureOfTrans;
         [Browsable(true), DisplayName("NatureOfTrans")]
@@ -354,7 +355,7 @@ namespace API.DAO
         {
             get
             {
-                return _Department;
+                return _NatureOfTrans;
             }
             set
             {
@@ -368,9 +369,9 @@ namespace API.DAO
         {
             Object[] parameterValues = null;
             if (IsAdded)
-                parameterValues = new Object[] { _CustomCode, _TransType,_NatureOfTrans, _TransDate.Value(StaticInfo.DateFormat), _FromCostCenterID,_FromStockLocationID, _ToCostCenterID,_ToStockLocationID, _FromProjectID, _ToProjectID, _PartyID, _DeptID, _CurrencyID, _CurrencyRate, _Description, _StatusID, _CompanyID, _IsDeleted, _Transfer };
+                parameterValues = new Object[] { _CustomCode, _TransType,_NatureOfTrans, _TransDate.Value(StaticInfo.DateFormat),_FromBranchID, _FromCostCenterID,_FromStockLocationID,_ToBranchID, _ToCostCenterID,_ToStockLocationID, _PartyID, _CurrencyID, _CurrencyRate, _Description, _StatusID, _CompanyID, _IsDeleted, _Transfer };
             else if (IsModified)
-                parameterValues = new Object[] { _StockTransID, _CustomCode, _TransType,_NatureOfTrans, _TransDate.Value(StaticInfo.DateFormat), _FromCostCenterID,_FromStockLocationID, _ToCostCenterID,_ToStockLocationID, _FromProjectID, _ToProjectID, _PartyID, _DeptID, _CurrencyID, _CurrencyRate, _Description, _StatusID, _CompanyID, _IsDeleted, _Transfer };
+                parameterValues = new Object[] { _StockTransID, _CustomCode, _TransType,_NatureOfTrans, _TransDate.Value(StaticInfo.DateFormat),_FromBranchID, _FromCostCenterID,_FromStockLocationID,_ToBranchID, _ToCostCenterID,_ToStockLocationID, _PartyID, _CurrencyID, _CurrencyRate, _Description, _StatusID, _CompanyID, _IsDeleted, _Transfer };
             else if (IsDeleted)
                 parameterValues = new Object[] { _StockTransID };
             return parameterValues;
@@ -382,14 +383,13 @@ namespace API.DAO
             _TransType = reader.GetInt32("TransType");
             _NatureOfTrans = reader.GetString("NatureOfTrans");
             _TransDate = reader.GetDateTime("TransDate");
+            _FromBranchID = reader.GetInt32("FromBranchID");
             _FromCostCenterID = reader.GetInt32("FromCostCenterID");
             _FromStockLocationID = reader.GetInt32("FromStockLocationID");
+            _ToBranchID = reader.GetInt32("ToBranchID");
             _ToCostCenterID = reader.GetInt32("ToCostCenterID");
             _ToStockLocationID = reader.GetInt32("ToStockLocationID");
-            _FromProjectID = reader.GetInt32("FromProjectID");
-            _ToProjectID = reader.GetInt32("ToProjectID");
             _PartyID = reader.GetInt32("PartyID");
-            _DeptID = reader.GetInt32("DeptID");
             _CurrencyID = reader.GetInt32("CurrencyID");
             _CurrencyRate = reader.GetDecimal("CurrencyRate");
             _Description = reader.GetString("Description");
@@ -407,12 +407,14 @@ namespace API.DAO
             _Description = reader.GetString("Description");
             _FromCostCenter = reader.GetString("FromCostCenter");
             _ToCostCenter = reader.GetString("ToCostCenter");
-            _Department = reader.GetString("Department");
+            _FromBranch = reader.GetString("FromBranch");
+            _ToBranch = reader.GetString("ToBranch");
+            _FromBranchID = reader.GetInt32("FromBranchID");
             _FromCostCenterID = reader.GetInt32("FromCostCenterID");
             _FromStockLocationID = reader.GetInt32("FromStockLocationID");
+            _ToBranchID = reader.GetInt32("ToBranchID");
             _ToCostCenterID = reader.GetInt32("ToCostCenterID");
             _ToStockLocationID = reader.GetInt32("ToStockLocationID");
-            _DeptID = reader.GetInt32("DeptID");
             _PartyID = reader.GetInt32("PartyID");
             _CurrencyID = reader.GetInt32("CurrencyID");
             SetUnchanged();

@@ -128,6 +128,7 @@ namespace API.Controls
                 {
                     InitializeCombo();
                     InitializeSession();
+                    ddlCurrencyID.SelectedValue = "1";
                 }
                 else
                 {
@@ -158,7 +159,7 @@ namespace API.Controls
                 txtCustomCode.Text = objPO.CustomCode;
                 txtTransactionDate.Text = objPO.PODate.ToShortDateString();
                 ddlCostCentre.SelectedValue = objPO.CostCenterID.ToString();
-                ddlDepartment.SelectedValue = objPO.DeptID.ToString();
+                ddlBranch.SelectedValue = objPO.BranchID.ToString();
                 txtNote.Text = objPO.Description;
                 txtShipTo.Text = objPO.ShipTo;
                 txtBillTo.Text = objPO.BillTo;
@@ -174,19 +175,19 @@ namespace API.Controls
         }
         private void InitializeCombo()
         {
-            ddlCostCentre.DataSource = hkManager.GetAllHouseKeeping(31);
+            ddlCostCentre.DataSource = hkManager.GetAllHouseKeeping(3);
             ddlCostCentre.DataTextField = "HKName";
             ddlCostCentre.DataValueField = "HKID";
             ddlCostCentre.DataBind();
             ddlCostCentre.Items.Insert(0, new ListItem(String.Empty, String.Empty));
             ddlCostCentre.SelectedIndex = 0;
 
-            ddlDepartment.DataSource = hkManager.GetAllHouseKeeping(3);
-            ddlDepartment.DataTextField = "HKName";
-            ddlDepartment.DataValueField = "HKID";
-            ddlDepartment.DataBind();
-            ddlDepartment.Items.Insert(0, new ListItem(String.Empty, String.Empty));
-            ddlDepartment.SelectedIndex = 0;
+            ddlBranch.DataSource = hkManager.GetAllHouseKeeping(31);
+            ddlBranch.DataTextField = "HKName";
+            ddlBranch.DataValueField = "HKID";
+            ddlBranch.DataBind();
+            ddlBranch.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+            ddlBranch.SelectedIndex = 0;
 
             ContactInfoManager cIM = new ContactInfoManager();
             ddlParty.DataSource = cIM.GetAllContactInfo();
@@ -195,6 +196,14 @@ namespace API.Controls
             ddlParty.DataBind();
             ddlParty.Items.Insert(0, new ListItem(String.Empty, String.Empty));
             ddlParty.SelectedIndex = 0;
+
+            CurrencyManager _CurrencyManager = new CurrencyManager();
+            ddlCurrencyID.DataSource = _CurrencyManager.GetAllGen_Currency();
+            ddlCurrencyID.DataTextField = "CurrencyName";
+            ddlCurrencyID.DataValueField = "CurrencyKey";
+            ddlCurrencyID.DataBind();
+            ddlCurrencyID.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+            ddlCurrencyID.SelectedIndex = 0;
         }
         private void InitializeSession()
         {
@@ -243,8 +252,8 @@ namespace API.Controls
                 obj.PODate = txtTransactionDate.Text.ToDateTime();
                 if (ddlCostCentre.SelectedValue != "")
                     obj.CostCenterID = ddlCostCentre.SelectedValue.ToInt();
-                if (ddlDepartment.SelectedValue != "")
-                    obj.DeptID = ddlDepartment.SelectedValue.ToInt();
+                if (ddlBranch.SelectedValue != "")
+                    obj.BranchID = ddlBranch.SelectedValue.ToInt();
                 if (ddlParty.SelectedValue != "")
                     obj.SupplierID = ddlParty.SelectedValue.ToInt();
                 obj.Description = txtNote.Text;
@@ -257,6 +266,13 @@ namespace API.Controls
             {
                 throw (ex);
             }
+        }
+        #endregion
+        #region Dropdown Change Event
+        protected void ddlCostCentre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GroupItemManager GIManager = new GroupItemManager();
+            ItemGroupList = GIManager.DeptWiseItemGroup(Convert.ToInt32(ddlCostCentre.SelectedValue));
         }
         #endregion
         #region Button Event
@@ -308,7 +324,7 @@ namespace API.Controls
 
                 if (!((PageBase)this.Page).CheckUserAuthentication(lstPOMaster, lstPODetail)) return;
                 manager.SavePO(ref lstPOMaster, ref lstPODetail);
-                InitializeCombo();
+                txtCustomCode.Text = manager.CustomCode;
                 ((PageBase)this.Page).SuccessMessage = (StaticInfo.SavedSuccessfullyMsg);
             }
             catch (SqlException ex)

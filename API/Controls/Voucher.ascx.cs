@@ -142,6 +142,37 @@ namespace API.Controls
                 Session["Voucher_ContactInfoList"] = value;
             }
         }
+
+        private CustomList<HouseKeepingValue> UnitList
+        {
+            get
+            {
+                if (Session["Voucher_UnitList"] == null)
+                    return new CustomList<HouseKeepingValue>();
+                else
+                    return (CustomList<HouseKeepingValue>)Session["Voucher_UnitList"];
+            }
+            set
+            {
+                Session["Voucher_UnitList"] = value;
+            }
+        }
+
+        private CustomList<HouseKeepingValue> CostCenterList
+        {
+            get
+            {
+                if (Session["Voucher_CostCenterList"] == null)
+                    return new CustomList<HouseKeepingValue>();
+                else
+                    return (CustomList<HouseKeepingValue>)Session["Voucher_CostCenterList"];
+            }
+            set
+            {
+                Session["Voucher_CostCenterList"] = value;
+            }
+        }
+
         private RDLReportDocument Report
         {
             get
@@ -165,19 +196,22 @@ namespace API.Controls
                 String match = HttpContext.Current.Request.QueryString["Match"];
                 if (match == "editVoucher")
                 {
-                    InitializeCombo();
-                    InitializeSession();
-                    String vocherNo = HttpContext.Current.Request.QueryString["VoucherNo"];
-                    Acc_Voucher item = manager.GetAllAcc_Voucher(vocherNo);
-                    CustomList<Acc_Voucher> VoucherList = new CustomList<Acc_Voucher>();
-                    VoucherList.Add(item);
-                    AccVoucherList = VoucherList;
-                    PopulatePFVoucherInformation(item);
+                    //InitializeCombo();
+                    //InitializeSession();
+                    //String vocherNo = HttpContext.Current.Request.QueryString["VoucherNo"];
+                    //Acc_Voucher item = manager.GetAllAcc_Voucher(vocherNo);
+                    //CustomList<Acc_Voucher> VoucherList = new CustomList<Acc_Voucher>();
+                    //VoucherList.Add(item);
+                    //AccVoucherList = VoucherList;
+                    //PopulatePFVoucherInformation(item);
                 }
                 else
                 {
+                    hfCOAKey.Value = "";
                     InitializeCombo();
                     btnNew_Click(null, null);
+                    ddlCurrencyID.SelectedValue = "1";
+                    workflow.Visible = false;
                 }
             }
             else
@@ -196,6 +230,25 @@ namespace API.Controls
                 else if (eventTarget == "vou_delete")
                 {
                     btnDelete_Click(null, null);
+                }
+               else if (eventTarget == "SearchCOA")
+                {
+                    Acc_COA searchCOA = Session[STATIC.StaticInfo.SearchSessionVarName] as Acc_COA;
+                    txtHeadCode.Text = searchCOA.COACode;
+                    txtHeadName.Text = searchCOA.COAName;
+                    hfCOAKey.Value = searchCOA.COAKey.ToString();
+                }
+               else if (eventTarget == "Test")
+                {
+                    String eventArgu = Request["__EVENTARGUMENT"].IsNullOrEmpty() ? String.Empty : Request["__EVENTARGUMENT"];
+                    Acc_Voucher searchAccVoucher = manager.GetAllAcc_WorkFlowVoucher(eventArgu);//Session[STATIC.StaticInfo.SearchSessionVarName] as Acc_Voucher;
+                    CustomList<Acc_Voucher> VoucherList = new CustomList<Acc_Voucher>();
+                    VoucherList.Add(searchAccVoucher);
+                    AccVoucherList = VoucherList;
+                    if (searchAccVoucher.IsNotNull())
+                        PopulatePFVoucherInformation(searchAccVoucher);
+                    common.Visible = false;
+                    workflow.Visible = true;
                 }
             }
         }
@@ -219,10 +272,6 @@ namespace API.Controls
             {
                 txtVoucher.Text = aV.VoucherNo;
                 txtVoucherDate_nc.Text = aV.VoucherDate == DateTime.MinValue ? string.Empty : aV.VoucherDate.ToString(STATIC.StaticInfo.GridDateFormat);
-                if (aV.CostCenterID != 0)
-                    ddlFromCostCentre.SelectedValue = aV.CostCenterID.ToString();
-                if (aV.DeptID != 0)
-                    ddlDeptID.SelectedValue = aV.DeptID.ToString();
                 if (aV.CurrencyID != 0)
                     ddlCurrencyID.SelectedValue = aV.CurrencyID.ToString();
                 txtChequeNo.Text = aV.CheckNo;
@@ -243,6 +292,10 @@ namespace API.Controls
                 AccVoucherList = new CustomList<Acc_Voucher>();
                 AccVoucherDetList = new CustomList<Acc_VoucherDet>();
                 AccCOAList = new CustomList<Acc_COA>();
+                UnitList = new CustomList<HouseKeepingValue>();
+                CostCenterList = new CustomList<HouseKeepingValue>();
+                UnitList = hkManager.GetAllHouseKeeping(31);
+                CostCenterList = hkManager.GetAllHouseKeeping(3); 
                 AccCOAList = manager.GetAllAcc_COA_ByLevel(5);
                 ContactInfoList = _contactInfoManager.GetAllContactInfo();
             }
@@ -256,20 +309,6 @@ namespace API.Controls
         {
             try
             {
-                ddlFromCostCentre.DataSource = hkManager.GetAllHouseKeeping(31);
-                ddlFromCostCentre.DataTextField = "HKName";
-                ddlFromCostCentre.DataValueField = "HKID";
-                ddlFromCostCentre.DataBind();
-                ddlFromCostCentre.Items.Insert(0, new ListItem(String.Empty, String.Empty));
-                ddlFromCostCentre.SelectedIndex = 0;
-
-                ddlDeptID.DataSource = hkManager.GetAllHouseKeeping(3);
-                ddlDeptID.DataTextField = "HKName";
-                ddlDeptID.DataValueField = "HKID";
-                ddlDeptID.DataBind();
-                ddlDeptID.Items.Insert(0, new ListItem(String.Empty, String.Empty));
-                ddlDeptID.SelectedIndex = 0;
-
                 ddlCurrencyID.DataSource = _CurrencyManager.GetAllGen_Currency();
                 ddlCurrencyID.DataTextField = "CurrencyName";
                 ddlCurrencyID.DataValueField = "CurrencyKey";
@@ -290,10 +329,6 @@ namespace API.Controls
                 Acc_Voucher obj = lstAccVoucher[0];
                 obj.VoucherNo = txtVoucher.Text;
                 obj.VoucherDate = txtVoucherDate_nc.Text.ToDateTime(STATIC.StaticInfo.GridDateFormat);
-                if (ddlFromCostCentre.SelectedValue != "")
-                    obj.CostCenterID = ddlFromCostCentre.SelectedValue.ToInt();
-                if (ddlDeptID.SelectedValue != "")
-                    obj.DeptID = ddlDeptID.SelectedValue.ToInt();
                 if (ddlCurrencyID.SelectedValue != "")
                     obj.CurrencyID = ddlCurrencyID.SelectedValue.ToInt();
                 obj.VoucherTypeKey = VoucherType;
@@ -396,13 +431,30 @@ namespace API.Controls
                 //FormUtil.ClearForm(this, FormClearOptions.ClearAll, false);
                 InitializeSession();
 
-                CustomList<Acc_Voucher> items = manager.GetAllAcc_Voucher(ddlFromCostCentre.SelectedValue.ToInt(), ddlDeptID.SelectedValue.ToInt(), VoucherType);
+                CustomList<Acc_Voucher> items = manager.GetAllAcc_Voucher(VoucherType);
                 Dictionary<string, string> columns = new Dictionary<string, string>();
 
                 columns.Add("VoucherNo", "Voucher No");
                 columns.Add("VoucherDate", "Voucher Date");
 
                 StaticInfo.SearchItem(items, "Voucher", "SearchVoucher", FRAMEWORK.SearchColumnConfig.GetColumnConfig(typeof(Acc_Voucher), columns), 500);
+            }
+            catch (Exception ex)
+            {
+                ((PageBase)this.Page).ErrorMessage = ("Error: <br>" + ex.Message + "<br>Call Stack: <br>" + ex.StackTrace);
+            }
+        }
+        protected void btnFindCOA_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {
+                CustomList<Acc_COA> items = manager.GetAllCashOrBankCOA(_MenuName);
+                Dictionary<string, string> columns = new Dictionary<string, string>();
+
+                columns.Add("COACode", "COA Code");
+                columns.Add("COAName", "COA Name");
+
+                StaticInfo.SearchItem(items, "COA", "SearchCOA", FRAMEWORK.SearchColumnConfig.GetColumnConfig(typeof(Acc_COA), columns), 500);
             }
             catch (Exception ex)
             {

@@ -193,7 +193,7 @@
     $(document).ready(function () {
         $('#PandingList tr').click(function (event) {
             alert($(this).find('td:first').text());
-
+            __doPostBack("Test", $(this).find('td:first').text());
         });
     });
 </script>

@@ -99,6 +99,7 @@
     <Compile Include="SegmentValues.cs" />
     <Compile Include="StockTransactionDetail.cs" />
     <Compile Include="StockTransactionMaster.cs" />
+    <Compile Include="StockView.cs" />
     <Compile Include="TreeGenerator.cs" />
     <Compile Include="UnitSetup.cs" />
     <Compile Include="WFApprovalPendingList.cs" />

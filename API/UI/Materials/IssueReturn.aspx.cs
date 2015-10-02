@@ -35,7 +35,7 @@ namespace API.UI.Materials
                 ctrlRequisition.GridCaption = "Issue Return Detail";
                 ctrlRequisition.TransType = 5;
                 ctrlRequisition.DocListID = 254;
-                ctrlRequisition.NatureOfTrans = "Return";
+                ctrlRequisition.NatureOfTrans = "Receive";
             }
             catch (Exception ex)
             {

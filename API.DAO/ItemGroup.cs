@@ -104,12 +104,12 @@ namespace API.DAO
             _GroupName = reader.GetString("GroupName");
             SetUnchanged();
         }
-        public static CustomList<ItemGroup> DeptWiseItemGroup(Int32 DeptID)
+        public static CustomList<ItemGroup> DeptWiseItemGroup(Int32 CostCenterID)
         {
             ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
             CustomList<ItemGroup> ItemGroupDeptMapingCollection = new CustomList<ItemGroup>();
             IDataReader reader = null;
-            String sql = "EXEC spDeptWiseItemGroup " + DeptID;
+            String sql = "EXEC spDeptWiseItemGroup " + CostCenterID;
             try
             {
                 conManager.OpenDataReader(sql, out reader);

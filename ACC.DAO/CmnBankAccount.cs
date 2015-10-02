@@ -79,18 +79,33 @@ namespace ACC.DAO
             }
         }
 
-        private System.Int32 _BranchID;
-        [Browsable(true), DisplayName("BranchID")]
-        public System.Int32 BranchID
+        private System.Int32 _BankBranchID;
+        [Browsable(true), DisplayName("BankBranchID")]
+        public System.Int32 BankBranchID
         {
             get
             {
-                return _BranchID;
+                return _BankBranchID;
             }
             set
             {
-                if (PropertyChanged(_BranchID, value))
-                    _BranchID = value;
+                if (PropertyChanged(_BankBranchID, value))
+                    _BankBranchID = value;
+            }
+        }
+
+        private System.Int32 _BranchOrUnitID;
+        [Browsable(true), DisplayName("BranchOrUnitID")]
+        public System.Int32 BranchOrUnitID
+        {
+            get
+            {
+                return _BranchOrUnitID;
+            }
+            set
+            {
+                if (PropertyChanged(_BranchOrUnitID, value))
+                    _BranchOrUnitID = value;
             }
         }
 
@@ -136,36 +151,6 @@ namespace ACC.DAO
             {
                 if (PropertyChanged(_CostCenterID, value))
                     _CostCenterID = value;
-            }
-        }
-
-        private System.Int32 _DeptID;
-        [Browsable(true), DisplayName("DeptID")]
-        public System.Int32 DeptID
-        {
-            get
-            {
-                return _DeptID;
-            }
-            set
-            {
-                if (PropertyChanged(_DeptID, value))
-                    _DeptID = value;
-            }
-        }
-
-        private System.Int32 _ProjectID;
-        [Browsable(true), DisplayName("ProjectID")]
-        public System.Int32 ProjectID
-        {
-            get
-            {
-                return _ProjectID;
-            }
-            set
-            {
-                if (PropertyChanged(_ProjectID, value))
-                    _ProjectID = value;
             }
         }
 
@@ -249,9 +234,9 @@ namespace ACC.DAO
         {
             Object[] parameterValues = null;
             if (IsAdded)
-                parameterValues = new Object[] {_AccountName, _AccountNo, _AccountTypeID, _BranchID, _UserID, _COAID, _CostCenterID, _DeptID, _ProjectID, _IsCompany };
+                parameterValues = new Object[] {_AccountName, _AccountNo, _AccountTypeID, _BankBranchID, _UserID, _COAID,_BranchOrUnitID, _CostCenterID, _IsCompany };
             else if (IsModified)
-                parameterValues = new Object[] { _AccountID, _AccountName, _AccountNo, _AccountTypeID, _BranchID, _UserID, _COAID, _CostCenterID, _DeptID, _ProjectID, _IsCompany };
+                parameterValues = new Object[] { _AccountID, _AccountName, _AccountNo, _AccountTypeID, _BankBranchID, _UserID, _COAID, _BranchOrUnitID, _CostCenterID, _IsCompany };
             else if (IsDeleted)
                 parameterValues = new Object[] { _AccountID };
             return parameterValues;
@@ -262,12 +247,11 @@ namespace ACC.DAO
             _AccountName = reader.GetString("AccountName");
             _AccountNo = reader.GetString("AccountNo");
             _AccountTypeID = reader.GetInt32("AccountTypeID");
-            _BranchID = reader.GetInt32("BranchID");
+            _BankBranchID = reader.GetInt32("BankBranchID");
             _UserID = reader.GetInt32("UserID");
             _COAID = reader.GetInt32("COAID");
+            _BranchOrUnitID = reader.GetInt32("BranchOrUnitID");
             _CostCenterID = reader.GetInt32("CostCenterID");
-            _DeptID = reader.GetInt32("DeptID");
-            _ProjectID = reader.GetInt32("ProjectID");
             _IsCompany = reader.GetBoolean("IsCompany");
             _AccountTypeName = reader.GetString("AccountTypeName");
             _BranchName = reader.GetString("BranchName");

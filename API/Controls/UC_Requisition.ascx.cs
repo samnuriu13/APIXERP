@@ -187,8 +187,10 @@ namespace API.Controls
                 txtRequisitionNo.Text = objIRM.CustomCode;
                 txtRequisitionDate.Text = objIRM.RequisitionDate.ToShortDateString();
                 ddlCostCentre.SelectedValue = objIRM.CostCenterID.ToString();
-                ddlDepartment.SelectedValue = objIRM.DeptID.ToString();
+                ddlBranchID.SelectedValue = objIRM.BranchID.ToString();
                 txtNote.Text = objIRM.Description;
+                if (objIRM.UserID != 0)
+                    ddlEmployee.SelectedValue = objIRM.UserID.ToString();
                 ItemRequisitionDetailList = new CustomList<ItemRequisitionDetail>();
                 ItemRequisitionDetailList = manager.GetAllItemRequisitionDetail(objIRM.RequisitionID);
             }
@@ -199,19 +201,19 @@ namespace API.Controls
         }
         public void InitializeCombo()
         {
-            ddlCostCentre.DataSource = hkManager.GetAllHouseKeeping(31);
+            ddlCostCentre.DataSource = hkManager.GetAllHouseKeeping(3);
             ddlCostCentre.DataTextField = "HKName";
             ddlCostCentre.DataValueField = "HKID";
             ddlCostCentre.DataBind();
             ddlCostCentre.Items.Insert(0, new ListItem(String.Empty, String.Empty));
             ddlCostCentre.SelectedIndex = 0;
 
-            ddlDepartment.DataSource = hkManager.GetAllHouseKeeping(3);
-            ddlDepartment.DataTextField = "HKName";
-            ddlDepartment.DataValueField = "HKID";
-            ddlDepartment.DataBind();
-            ddlDepartment.Items.Insert(0, new ListItem(String.Empty, String.Empty));
-            ddlDepartment.SelectedIndex = 0;
+            ddlBranchID.DataSource = hkManager.GetAllHouseKeeping(31);
+            ddlBranchID.DataTextField = "HKName";
+            ddlBranchID.DataValueField = "HKID";
+            ddlBranchID.DataBind();
+            ddlBranchID.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+            ddlBranchID.SelectedIndex = 0;
 
             ContactInfoManager cIM = new ContactInfoManager();
             ddlEmployee.DataSource = cIM.GetAllEmployee();
@@ -225,13 +227,12 @@ namespace API.Controls
         {
             try
             {
-                GroupItemManager GIManager = new GroupItemManager();
                 ItemSubGroupManager SGManager = new ItemSubGroupManager();
                 ItemMasterManager IMManager = new ItemMasterManager();
                 UnitSetupManager USManager = new UnitSetupManager();
 
                 ItemGroupList = new CustomList<ItemGroup>();
-                ItemGroupList = GIManager.DeptWiseItemGroup(41);
+                //ItemGroupList = GIManager.DeptWiseItemGroup(41);
                 ItemSubGroupList = new CustomList<ItemSubGroup>();
                 ItemSubGroupList = SGManager.GetAllItemSubGroup();
                 ItemMasterList = new CustomList<ItemMaster>();
@@ -268,8 +269,8 @@ namespace API.Controls
                 obj.RequisitionDate = txtRequisitionDate.Text.ToDateTime();
                 if (ddlCostCentre.SelectedValue != "")
                     obj.CostCenterID = ddlCostCentre.SelectedValue.ToInt();
-                if (ddlDepartment.SelectedValue != "")
-                    obj.DeptID = ddlDepartment.SelectedValue.ToInt();
+                if (ddlBranchID.SelectedValue != "")
+                    obj.BranchID = ddlBranchID.SelectedValue.ToInt();
                 if (ddlEmployee.SelectedValue != "")
                     obj.UserID = ddlEmployee.SelectedValue.ToInt();
                 obj.Description = txtNote.Text;
@@ -279,6 +280,13 @@ namespace API.Controls
             {
                 throw (ex);
             }
+        }
+        #endregion
+        #region Dropdown Change Event
+        protected void ddlCostCentre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GroupItemManager GIManager = new GroupItemManager();
+            ItemGroupList = GIManager.DeptWiseItemGroup(Convert.ToInt32(ddlCostCentre.SelectedValue));
         }
         #endregion
         #region Button Event

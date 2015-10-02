@@ -74,19 +74,19 @@ namespace API.UI.ACC
         {
             try
             {
-                ddlCostCenter.DataSource = hkManager.GetAllHouseKeeping(31);
+                ddlCostCenter.DataSource = hkManager.GetAllHouseKeeping(3);
                 ddlCostCenter.DataTextField = "HKName";
                 ddlCostCenter.DataValueField = "HKID";
                 ddlCostCenter.DataBind();
                 ddlCostCenter.Items.Insert(0, new ListItem(String.Empty, String.Empty));
                 ddlCostCenter.SelectedIndex = 0;
 
-                ddlDepartment.DataSource = hkManager.GetAllHouseKeeping(3);
-                ddlDepartment.DataTextField = "HKName";
-                ddlDepartment.DataValueField = "HKID";
-                ddlDepartment.DataBind();
-                ddlDepartment.Items.Insert(0, new ListItem(String.Empty, String.Empty));
-                ddlDepartment.SelectedIndex = 0;
+               ddlBranchOrUnit.DataSource = hkManager.GetAllHouseKeeping(31);
+               ddlBranchOrUnit.DataTextField = "HKName";
+               ddlBranchOrUnit.DataValueField = "HKID";
+               ddlBranchOrUnit.DataBind();
+               ddlBranchOrUnit.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+               ddlBranchOrUnit.SelectedIndex = 0;
 
                 ddlBankBranch.DataSource = _baManager.GetAllCmnBankAccount();
                 ddlBankBranch.DataTextField = "AccountNo";
@@ -108,7 +108,7 @@ namespace API.UI.ACC
         {
             try
             {
-                VoucherList = manager.GetAllAcc_Voucher(ddlCostCenter.SelectedValue == "" ? 0 : Convert.ToInt32(ddlCostCenter.SelectedValue), ddlDepartment.SelectedValue == "" ? 0 : Convert.ToInt32(ddlDepartment.SelectedValue), ddlBankBranch.SelectedValue == "" ? 0 : Convert.ToInt32(ddlBankBranch.SelectedValue), txtFromDate.Text, txtToDate.Text);
+                VoucherList = manager.GetAllAcc_Voucher(ddlCostCenter.SelectedValue == "" ? 0 : Convert.ToInt32(ddlCostCenter.SelectedValue), ddlBranchOrUnit.SelectedValue == "" ? 0 : Convert.ToInt32(ddlBranchOrUnit.SelectedValue), ddlBankBranch.SelectedValue == "" ? 0 : Convert.ToInt32(ddlBankBranch.SelectedValue), txtFromDate.Text, txtToDate.Text);
             }
             catch (Exception ex)
             {

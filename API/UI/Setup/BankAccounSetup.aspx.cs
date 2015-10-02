@@ -75,14 +75,14 @@ namespace API.UI.Setup
             {
                 if (bankAccount.CostCenterID != 0)
                     ddlCostCenter.SelectedValue = bankAccount.CostCenterID.ToString();
-                if (bankAccount.DeptID != 0)
-                    ddlDepartment.SelectedValue = bankAccount.DeptID.ToString();
+                if (bankAccount.BranchOrUnitID != 0)
+                   ddlBranchOrUnit.SelectedValue = bankAccount.BranchOrUnitID.ToString();
                 txtAccountNo.Text = bankAccount.AccountNo;
                 txtAccountName.Text = bankAccount.AccountName;
                 if (bankAccount.AccountTypeID != 0)
                     ddlAccountType.SelectedValue = bankAccount.AccountTypeID.ToString();
-                if (bankAccount.BranchID != 0)
-                    ddlBankBranch.SelectedValue = bankAccount.BranchID.ToString();
+                if (bankAccount.BankBranchID != 0)
+                    ddlBankBranch.SelectedValue = bankAccount.BankBranchID.ToString();
                 if (bankAccount.UserID != 0)
                     ddlUserName.SelectedValue = bankAccount.UserID.ToString();
                 if (bankAccount.COAID != 0)
@@ -99,19 +99,19 @@ namespace API.UI.Setup
         {
             try
             {
-                ddlCostCenter.DataSource = hkManager.GetAllHouseKeeping(31);
+                ddlCostCenter.DataSource = hkManager.GetAllHouseKeeping(3);
                 ddlCostCenter.DataTextField = "HKName";
                 ddlCostCenter.DataValueField = "HKID";
                 ddlCostCenter.DataBind();
                 ddlCostCenter.Items.Insert(0, new ListItem(String.Empty, String.Empty));
                 ddlCostCenter.SelectedIndex = 0;
 
-                ddlDepartment.DataSource = hkManager.GetAllHouseKeeping(3);
-                ddlDepartment.DataTextField = "HKName";
-                ddlDepartment.DataValueField = "HKID";
-                ddlDepartment.DataBind();
-                ddlDepartment.Items.Insert(0, new ListItem(String.Empty, String.Empty));
-                ddlDepartment.SelectedIndex = 0;
+                ddlBranchOrUnit.DataSource = hkManager.GetAllHouseKeeping(31);
+                ddlBranchOrUnit.DataTextField = "HKName";
+                ddlBranchOrUnit.DataValueField = "HKID";
+                ddlBranchOrUnit.DataBind();
+                ddlBranchOrUnit.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+                ddlBranchOrUnit.SelectedIndex = 0;
 
                 ddlAccountType.DataSource = manager.GetAllCmnBankAccountType();
                 ddlAccountType.DataTextField = "AccountTypeName";
@@ -154,14 +154,14 @@ namespace API.UI.Setup
                 CmnBankAccount obj = lstBankAccount[0];
                 if (ddlCostCenter.SelectedValue != "")
                     obj.CostCenterID = ddlCostCenter.SelectedValue.ToInt();
-                if (ddlDepartment.SelectedValue != "")
-                    obj.DeptID = ddlDepartment.SelectedValue.ToInt();
+                if (ddlBranchOrUnit.SelectedValue != "")
+                    obj.BranchOrUnitID = ddlBranchOrUnit.SelectedValue.ToInt();
                 obj.AccountNo = txtAccountNo.Text;
                 obj.AccountName = txtAccountName.Text;
                 if (ddlAccountType.SelectedValue != "")
                     obj.AccountTypeID = ddlAccountType.SelectedValue.ToInt();
                 if (ddlBankBranch.SelectedValue != "")
-                    obj.BranchID = ddlBankBranch.SelectedValue.ToInt();
+                    obj.BankBranchID = ddlBankBranch.SelectedValue.ToInt();
                 if (ddlUserName.SelectedValue != "")
                     obj.UserID = ddlUserName.SelectedValue.ToInt();
                 if (ddlCOA.SelectedValue != "")

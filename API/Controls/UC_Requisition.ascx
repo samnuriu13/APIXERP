@@ -7,16 +7,16 @@
     var gridCaption = '<%=GridCaption%>';
     $(document).ready(function () {
         $("input[id$='txtRequisitionDate'], .datepicker").datepicker({ showButtonPanel: true, changeMonth: true, changeYear: true, onSelect: function () { }, defaultDate: new Date(), dateFormat: 'mm/dd/yy' });
-        //$("#<%= ddlDepartment.ClientID %>").change(function (e) {
-        //  var deptID = $("#<%= ddlDepartment.ClientID %>").val();
-        //var retVal = jQuery.ajax
-        //                  (
-        //                    {
-        //                      url: rootPath + 'GridHelperClasses/DataHandler.ashx?CallMode=deptWiseGroup&deptID=' + deptID,
-        //                    async: false
-        //              }
-        //        ).responseText;
-        //$("#grdItemRequisition").trigger("reloadGrid");
+        //$("#<%= ddlCostCentre.ClientID %>").change(function (e) {
+        // var costCenterID = $("#<%= ddlCostCentre.ClientID %>").val();
+        // var retVal = jQuery.ajax
+        //         (
+        //          {
+        //              url: rootPath + 'GridHelperClasses/DataHandler.ashx?CallMode=deptWiseGroup&CostCenterID=' + costCenterID,
+        //           async: false
+        //    }
+        // ).responseText;
+        // $("#grdItemRequisition").trigger("reloadGrid");
         // });
         $("#cphBody_cphInfbody_ctrlRequisition_TransRef_ddlReference").change(function (e) {
             var refTypeID = $("#cphBody_cphInfbody_ctrlRequisition_TransRef_ddlRefType").val();
@@ -66,7 +66,7 @@
             </div>
             <div class="lblAndTxtStyle">
                 <div class="divlblwidth100px bglbl">
-                    <a>Employee</a>
+                    <a>Party</a>
                 </div>
                 <div class="div182Px">
                     <asp:DropDownList ID="ddlEmployee" runat="server" CssClass="drpwidth180px">
@@ -77,24 +77,25 @@
         <div style="width: 33%; float: left">
             <div class="lblAndTxtStyle">
                 <div class="divlblwidth100px bglbl">
-                    <a>Cost Centre</a>
+                    <a>Branch/Unit</a>
                 </div>
                 <div class="div182Px">
-                    <asp:DropDownList ID="ddlCostCentre" runat="server" CssClass="drpwidth180px">
+                    <asp:DropDownList ID="ddlBranchID" runat="server" CssClass="drpwidth180px">
                     </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="ddlCostCentre"
-                        runat="server" ForeColor="Red" ErrorMessage="Cost Centre is required" ValidationGroup="Save">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="ddlBranchID"
+                        runat="server" ForeColor="Red" ErrorMessage="Branch is required" ValidationGroup="Save">*</asp:RequiredFieldValidator>
                 </div>
             </div>
             <div class="lblAndTxtStyle">
                 <div class="divlblwidth100px bglbl">
-                    <a>Department</a>
+                    <a>Cost Centre</a>
                 </div>
                 <div class="div182Px">
-                    <asp:DropDownList ID="ddlDepartment" runat="server" CssClass="drpwidth180px">
+                    <asp:DropDownList ID="ddlCostCentre" runat="server" CssClass="drpwidth180px" AutoPostBack="true"
+                        OnSelectedIndexChanged="ddlCostCentre_SelectedIndexChanged">
                     </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="ddlDepartment"
-                        runat="server" ForeColor="Red" ErrorMessage="Department is required" ValidationGroup="Save">*</asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="ddlCostCentre"
+                        runat="server" ForeColor="Red" ErrorMessage="Cost Centre is required" ValidationGroup="Save">*</asp:RequiredFieldValidator>
                 </div>
             </div>
             <div class="lblAndTxtStyle">

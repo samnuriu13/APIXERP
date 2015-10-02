@@ -17,6 +17,10 @@
             else {
                 $(".BPorBR").hide();
             }
+            if (menuName == "CashPaymantVoucher" || menuName == "BankPaymentVoucher" || menuName == "BankReceiveVoucher" || menuName == "CashReceiveVoucher")
+                $(".CashOrBank").show();
+            else
+                $(".CashOrBank").hide();
 
             $("#cphBody_cphInfbody_ctrlVoucher_btnDelete").click(function () {
                 if ($("#cphBody_cphInfbody_ctrlVoucher_txtVoucher").val() != "****<< NEW >>****") {
@@ -44,6 +48,52 @@
         catch (e)
         { alert(e); }
     });
+    function OpenDialog_COA(vid) {
+        //reload finder grid
+        $('#grdFind').trigger('reloadGrid');
+
+        $("#divFind").dialog('open');
+        $("#divFind").dialog
+        (
+            {
+                title: 'Find ',
+                height: 450,
+                width: 330,
+                modal: true,
+                zIndex: 10,
+                buttons:
+                {
+                    Ok: function () {
+                        if (getSelectedItem(vid))
+                            $(this).dialog('close');
+                    }
+                }
+            }
+        )
+    }
+    function OpenDialog_Party(vid) {
+        //reload finder grid
+        $('#grdPartyFind').trigger('reloadGrid');
+
+        $("#divPartyFind").dialog('open');
+        $("#divPartyFind").dialog
+        (
+            {
+                title: 'Find ',
+                height: 450,
+                width: 330,
+                modal: true,
+                zIndex: 10,
+                buttons:
+                {
+                    Ok: function () {
+                        if (getSelectedParty(vid))
+                            $(this).dialog('close');
+                    }
+                }
+            }
+        )
+    }
     function CancelButtonClick() {
         return false;
     }
@@ -86,24 +136,7 @@
             </div>
         </div>
         <div style="width: 33%; float: left">
-            <div class="lblAndTxtStyle">
-                <div class="divlblwidth100px bglbl">
-                    <a>Cost Center</a>
-                </div>
-                <div class="div182Px">
-                    <asp:DropDownList ID="ddlFromCostCentre" runat="server" CssClass="drpwidth180px">
-                    </asp:DropDownList>
-                </div>
-            </div>
-            <div class="lblAndTxtStyle">
-                <div class="divlblwidth100px bglbl">
-                    <a>Department</a>
-                </div>
-                <div class="div182Px">
-                    <asp:DropDownList ID="ddlDeptID" runat="server" CssClass="drpwidth180px">
-                    </asp:DropDownList>
-                </div>
-            </div>
+            <asp:HiddenField ID="hfCOAKey" runat="server" />
             <div class="lblAndTxtStyle">
                 <div class="divlblwidth100px bglbl">
                     <a>Currency</a>
@@ -113,6 +146,26 @@
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="ddlCurrencyID"
                         runat="server" ForeColor="Red" ErrorMessage="Cost Centre is required" ValidationGroup="Save">*</asp:RequiredFieldValidator>
+                </div>
+            </div>
+            <div class="lblAndTxtStyle CashOrBank">
+                <div class="divlblwidth100px bglbl">
+                    <a>From/To A/C Code</a>
+                </div>
+                <div class="div80Px">
+                    <asp:TextBox ID="txtHeadCode" runat="server" CssClass="txtwidth178px" MaxLength="100" Width="85%"></asp:TextBox>
+                    <div style="float: right; margin-left: 0px;">
+                        <asp:ImageButton ID="btnFindCOA" runat="server" CssClass="btnImageStyle btn-enable"
+                            OnClick="btnFindCOA_Click" ImageUrl="~/images/Search 20X20.png" />
+                    </div>
+                </div>
+            </div>
+            <div class="lblAndTxtStyle CashOrBank">
+                <div class="divlblwidth100px bglbl">
+                    <a>From/To A/C Name</a>
+                </div>
+                <div class="div80Px">
+                    <asp:TextBox ID="txtHeadName" runat="server" CssClass="txtwidth178px" MaxLength="100"></asp:TextBox>
                 </div>
             </div>
         </div>
@@ -139,7 +192,7 @@
                     MaxLength="500"></asp:TextBox>
             </div>
         </div>
-        <div style="width: 70%; float: left">
+        <div style="width: 98%; float: left">
             <div>
                 <table id="grdPFVoucher">
                 </table>
@@ -150,10 +203,26 @@
     </div>
     <div class="clear">
     </div>
+    <div id="divFind" style="display: none">
+        <div>
+            <table id="grdFind">
+            </table>
+        </div>
+        <div id="grdFind_pager">
+        </div>
+    </div>
+    <div id="divPartyFind" style="display: none">
+        <div>
+            <table id="grdPartyFind">
+            </table>
+        </div>
+        <div id="grdPartyFind_pager">
+        </div>
+    </div>
     <br />
     <br />
     <div class="form-bottom">
-        <div class="btnRight">
+        <div id="common" class="btnRight" runat="server">
             <asp:Button ID="btnSave" runat="server" CssClass="button" Text="Save" ValidationGroup="Save"
                 OnClick="btnSave_Click" OnClientClick="CheckValidity();" />
             &nbsp;&nbsp;
@@ -162,9 +231,25 @@
             &nbsp;&nbsp;
                 <asp:Button ID="btnDelete" runat="server" CssClass="button" Text="Delete" Visible="true"
                     OnClick="btnDelete_Click" />
-             &nbsp;&nbsp;
+            &nbsp;&nbsp;
                 <asp:Button ID="btnPreview" runat="server" CssClass="button" Text="Preview" Visible="true"
                     OnClick="btnPreview_Click" />
+        </div>
+        <div style="clear: both"></div>
+        <div id="workflow" class="btnRight" runat="server">
+            <div style="float: left">
+                <a>Comment</a>
+                <div class="lblAndTxtStyle">
+                    <asp:TextBox ID="txtComment" runat="server" CssClass="button" TextMode="MultiLine"
+                        MaxLength="500"></asp:TextBox>
+                </div>
+            </div>
+
+            <div style="float: left">
+                <asp:Button ID="btnApproved" runat="server" CssClass="button" Text="Approved" />
+                &nbsp;&nbsp;
+                <asp:Button ID="btnReject" runat="server" CssClass="button" Text="Reject" Visible="true" />
+            </div>
         </div>
     </div>
 </div>

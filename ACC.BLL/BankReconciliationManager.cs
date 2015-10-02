@@ -16,9 +16,9 @@ namespace ACC.BLL
         {
             return AccChequeStatusList.GetAllAccChequeStatusList();
         }
-        public CustomList<Acc_Voucher> GetAllAcc_Voucher(Int32 CostCenterID, Int32 DeptID, Int32 bankBranch, String fromDate, String toDate)
+        public CustomList<Acc_Voucher> GetAllAcc_Voucher(Int32 CostCenterID, Int32 BranchOrUnit, Int32 bankBranch, String fromDate, String toDate)
         {
-            return Acc_Voucher.GetAllAcc_Voucher(CostCenterID, DeptID, bankBranch, fromDate, toDate);
+            return Acc_Voucher.GetAllAcc_Voucher(CostCenterID, BranchOrUnit, bankBranch, fromDate, toDate);
         }
         public void SaveBankReconciliation(ref CustomList<Acc_Voucher> VoucherList)
         {

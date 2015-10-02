@@ -27,6 +27,13 @@ namespace ACC.BLL
             return Acc_COA.GetAllAcc_COA_ByLevel(level);
         }
 
+        public CustomList<Acc_COA> GetAllCashOrBankCOA(String menuName)
+        {
+            return Acc_COA.GetAllCashOrBankCOA(menuName);
+        }
+
+        
+
         ////public CustomList<Organization> GetAllCompany(string empCode, Int32 isAdmin)
         ////{
         ////    return Organization.GetAllOrganization(empCode, isAdmin);
@@ -39,13 +46,17 @@ namespace ACC.BLL
         {
             return Acc_VoucherType.GetAllAcc_VoucherType();
         }
-        public CustomList<Acc_Voucher> GetAllAcc_Voucher(Int32 CostCenterID, Int32 DeptID, Int32 VoucherTypeKey)
+        public CustomList<Acc_Voucher> GetAllAcc_Voucher(Int32 VoucherTypeKey)
         {
-            return Acc_Voucher.GetAllAcc_Voucher(CostCenterID, DeptID, VoucherTypeKey);
+            return Acc_Voucher.GetAllAcc_Voucher(VoucherTypeKey);
         }
         public Acc_Voucher GetAllAcc_Voucher(string voucherNo)
         {
             return Acc_Voucher.GetAllAcc_Voucher(voucherNo);
+        }
+        public Acc_Voucher GetAllAcc_WorkFlowVoucher(string voucherKey)
+        {
+            return Acc_Voucher.GetAllAcc_WorkFlowVoucher(voucherKey);
         }
         public CustomList<Acc_VoucherDet> GetAllAcc_VoucherDet(Int64 voucherKey,string fromDate)
         {

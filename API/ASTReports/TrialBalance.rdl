@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.94792in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1in</Width>
@@ -660,7 +660,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>3in</Size>
+                <Size>2.05208in</Size>
                 <CellContents>
                   <Textbox Name="Textbox36">
                     <CanGrow>true</CanGrow>
@@ -711,7 +711,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>1in</Size>
+                <Size>0.40625in</Size>
                 <CellContents>
                   <Textbox Name="level1COAHead1">
                     <CanGrow>true</CanGrow>
@@ -740,6 +740,7 @@
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
                       <PaddingBottom>2pt</PaddingBottom>
+                      <WritingMode>Vertical</WritingMode>
                     </Style>
                   </Textbox>
                 </CellContents>
@@ -747,7 +748,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>1in</Size>
+                    <Size>0.36458in</Size>
                     <CellContents>
                       <Textbox Name="Textbox29">
                         <CanGrow>true</CanGrow>
@@ -783,7 +784,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>1in</Size>
+                        <Size>1.28125in</Size>
                         <CellContents>
                           <Textbox Name="Textbox30">
                             <CanGrow>true</CanGrow>
@@ -832,7 +833,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>1in</Size>
+                    <Size>0.36458in</Size>
                     <CellContents>
                       <Textbox Name="level2COAHead1">
                         <CanGrow>true</CanGrow>
@@ -861,6 +862,7 @@
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>
                           <PaddingBottom>2pt</PaddingBottom>
+                          <WritingMode>Vertical</WritingMode>
                         </Style>
                       </Textbox>
                     </CellContents>
@@ -868,7 +870,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>1in</Size>
+                        <Size>1.28125in</Size>
                         <CellContents>
                           <Textbox Name="Textbox20">
                             <CanGrow>true</CanGrow>
@@ -915,7 +917,7 @@
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
-                        <Size>1in</Size>
+                        <Size>1.28125in</Size>
                         <CellContents>
                           <Textbox Name="level3COAHead1">
                             <CanGrow>true</CanGrow>
@@ -963,7 +965,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>1in</Size>
+                <Size>0.40625in</Size>
                 <CellContents>
                   <Textbox Name="Textbox39">
                     <CanGrow>true</CanGrow>
@@ -998,7 +1000,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>1in</Size>
+                    <Size>0.36458in</Size>
                     <CellContents>
                       <Textbox Name="Textbox40">
                         <CanGrow>true</CanGrow>
@@ -1033,7 +1035,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>1in</Size>
+                        <Size>1.28125in</Size>
                         <CellContents>
                           <Textbox Name="Textbox41">
                             <CanGrow>true</CanGrow>
@@ -1221,11 +1223,11 @@
           <QueryParameter Name="@CompanyID">
             <Value>=Parameters!CompanyID.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@ProjectID">
-            <Value>=Parameters!ProjectID.Value</Value>
+          <QueryParameter Name="@BranchID">
+            <Value>=Parameters!BranchID.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@OfficeID">
-            <Value>=Parameters!OfficeID.Value</Value>
+          <QueryParameter Name="@CostCenterID">
+            <Value>=Parameters!CostCenterID.Value</Value>
           </QueryParameter>
           <QueryParameter Name="@FiscalYearID">
             <Value>=Parameters!FiscalYearID.Value</Value>
@@ -1246,16 +1248,16 @@
           <DataField>ToDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="ProjectID">
-          <DataField>ProjectID</DataField>
+        <Field Name="BranchID">
+          <DataField>BranchID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="ProjectName">
-          <DataField>ProjectName</DataField>
+        <Field Name="BranchName">
+          <DataField>BranchName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="OfficeID">
-          <DataField>OfficeID</DataField>
+        <Field Name="CostCenterID">
+          <DataField>CostCenterID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="CostCenter">
@@ -1410,23 +1412,23 @@
       </DefaultValue>
       <Prompt>Company ID</Prompt>
     </ReportParameter>
-    <ReportParameter Name="ProjectID">
+    <ReportParameter Name="BranchID">
       <DataType>Integer</DataType>
       <DefaultValue>
         <Values>
-          <Value>0</Value>
+          <Value>310</Value>
         </Values>
       </DefaultValue>
-      <Prompt>Project ID</Prompt>
+      <Prompt>Branch ID</Prompt>
     </ReportParameter>
-    <ReportParameter Name="OfficeID">
+    <ReportParameter Name="CostCenterID">
       <DataType>Integer</DataType>
       <DefaultValue>
         <Values>
-          <Value>0</Value>
+          <Value>1</Value>
         </Values>
       </DefaultValue>
-      <Prompt>Office ID</Prompt>
+      <Prompt>Cost Center ID</Prompt>
     </ReportParameter>
     <ReportParameter Name="FiscalYearID">
       <DataType>Integer</DataType>

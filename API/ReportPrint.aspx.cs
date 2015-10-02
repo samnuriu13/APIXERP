@@ -163,7 +163,8 @@ namespace API.Reports
                         {
                             SetDataSource(Report.dsSource);
                             SetParameter();
-                            rpViewer.LocalReport.Refresh();
+                            OpenReportInPDF(rpViewer);
+                           // rpViewer.LocalReport.Refresh();
                         }
                         break;
 

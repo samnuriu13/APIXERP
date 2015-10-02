@@ -12,19 +12,19 @@
             <div style="width: 33%; float: left">
                 <div class="lblAndTxtStyle">
                     <div class="divlblwidth100px bglbl">
+                        <a>Branch/Unit</a>
+                    </div>
+                    <div class="div182Px">
+                        <asp:DropDownList ID="ddlBranchOrUnit" runat="server" CssClass="drpwidth180px">
+                        </asp:DropDownList>
+                    </div>
+                </div>
+                 <div class="lblAndTxtStyle">
+                    <div class="divlblwidth100px bglbl">
                         <a>Cost Center</a>
                     </div>
                     <div class="div182Px">
                         <asp:DropDownList ID="ddlCostCenter" runat="server" CssClass="drpwidth180px">
-                        </asp:DropDownList>
-                    </div>
-                </div>
-                <div class="lblAndTxtStyle">
-                    <div class="divlblwidth100px bglbl">
-                        <a>Department</a>
-                    </div>
-                    <div class="div182Px">
-                        <asp:DropDownList ID="ddlDepartment" runat="server" CssClass="drpwidth180px">
                         </asp:DropDownList>
                     </div>
                 </div>

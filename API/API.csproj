@@ -152,6 +152,7 @@
     <Content Include="GridScripts\PO.js" />
     <Content Include="GridScripts\SegmentValues.js" />
     <Content Include="GridScripts\StockTransaction.js" />
+    <Content Include="GridScripts\StockView.js" />
     <Content Include="GridScripts\SubGroupItem.js" />
     <Content Include="GridScripts\UnitSetup.js" />
     <Content Include="GridScripts\WorkflowDetail.js" />
@@ -196,6 +197,7 @@
     <Content Include="UI\Materials\PO.aspx" />
     <Content Include="UI\Materials\PurchaseRequisition.aspx" />
     <Content Include="UI\Materials\PurchaseReturn.aspx" />
+    <Content Include="UI\Materials\StockView.aspx" />
     <Content Include="UI\Materials\TransferReceive.aspx" />
     <Content Include="UI\Setup\BankAccounSetup.aspx" />
     <Content Include="UI\Setup\ContactInformation.aspx" />
@@ -230,10 +232,13 @@
     <Content Include="DBScript\SP - Shaikat.docx" />
     <Content Include="DBScript\SP_Shantonu.docx" />
     <Content Include="ASTReports\Requisition.rdl" />
-    <Content Include="ASTReports\TrialBalance.rdl" />
+    <Content Include="ASTReports\TrialBalance.rdl">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="ASTReports\IncomeStatement.rdl">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="ASTReports\BalanceSheet.rdl" />
     <None Include="Properties\PublishProfiles\sa.pubxml" />
     <Content Include="Web.sitemap" />
     <Content Include="Web.config" />
@@ -864,6 +869,13 @@
     <Compile Include="UI\Materials\PurchaseReturn.aspx.designer.cs">
       <DependentUpon>PurchaseReturn.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Materials\StockView.aspx.cs">
+      <DependentUpon>StockView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Materials\StockView.aspx.designer.cs">
+      <DependentUpon>StockView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Materials\TransferReceive.aspx.cs">
       <DependentUpon>TransferReceive.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1021,7 +1033,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1426</DevelopmentServerPort>
+          <DevelopmentServerPort>4450</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:1032/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

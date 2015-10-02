@@ -164,7 +164,22 @@ namespace ACC.DAO
             set
             {
                 if (PropertyChanged(_IsDefaultCash, value))
-                    _IsActive = value;
+                    _IsDefaultCash = value;
+            }
+        }
+
+        private System.Boolean _IsCash;
+        [Browsable(true), DisplayName("IsCash")]
+        public System.Boolean IsCash
+        {
+            get
+            {
+                return _IsCash;
+            }
+            set
+            {
+                if (PropertyChanged(_IsCash, value))
+                    _IsCash = value;
             }
         }
 
@@ -248,9 +263,9 @@ namespace ACC.DAO
         {
             Object[] parameterValues = null;
             if (IsAdded)
-                parameterValues = new Object[] { _ParentKey, _COACode, _COACodeClient, _COAName, _COALevel, _IsActive, _IsPostingHead, _CostCenterID, _IsDefaultCash };
+                parameterValues = new Object[] { _ParentKey, _COACode, _COACodeClient, _COAName, _COALevel, _IsActive, _IsPostingHead, _CostCenterID, _IsDefaultCash, _IsCash };
             else if (IsModified)
-                parameterValues = new Object[] { _COAKey, _ParentKey, _COACode, _COACodeClient, _COAName, _COALevel, _IsActive, _IsPostingHead, _CostCenterID, _IsDefaultCash };
+                parameterValues = new Object[] { _COAKey, _ParentKey, _COACode, _COACodeClient, _COAName, _COALevel, _IsActive, _IsPostingHead, _CostCenterID, _IsDefaultCash, _IsCash };
             else if (IsDeleted)
                 parameterValues = new Object[] { _COAKey };
             return parameterValues;
@@ -267,6 +282,7 @@ namespace ACC.DAO
             _IsActive = reader.GetBoolean("IsActive");
             _IsPostingHead = reader.GetBoolean("IsPostingHead");
             _IsDefaultCash = reader.GetBoolean("IsDefaultCash");
+            _IsCash = reader.GetBoolean("IsCash");
             _CostCenterID = reader.GetInt32("CostCenterID");
             SetUnchanged();
         }
@@ -277,6 +293,37 @@ namespace ACC.DAO
             IDataReader reader = null;
             String sql = "Select * From Acc_COA Where IsPostingHead = 1";
 
+            try
+            {
+                conManager.OpenDataReader(sql, out reader);
+                while (reader.Read())
+                {
+                    Acc_COA newAcc_COA = new Acc_COA();
+                    newAcc_COA.SetData(reader);
+                    Acc_COACollection.Add(newAcc_COA);
+                }
+                return Acc_COACollection;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                if (reader != null && !reader.IsClosed)
+                    reader.Close();
+            }
+        }
+        public static CustomList<Acc_COA> GetAllCashOrBankCOA(String menuName)
+        {
+            ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
+            CustomList<Acc_COA> Acc_COACollection = new CustomList<Acc_COA>();
+            IDataReader reader = null;
+            String sql = "";
+            if (menuName == "CashPaymantVoucher" || menuName == "CashReceiveVoucher")
+                sql = "Select * From Acc_COA Where IsCash = 1";
+            if (menuName == "BankPaymentVoucher" || menuName == "BankReceiveVoucher")
+                sql = "Select COA.* From Acc_COA COA INNER JOIN CmnBankAccount BA ON BA.COAID=COA.COAKey Where BA.IsCompany=1";
             try
             {
                 conManager.OpenDataReader(sql, out reader);
@@ -336,7 +383,8 @@ namespace ACC.DAO
             ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
             CustomList<Acc_COA> Acc_COACollection = new CustomList<Acc_COA>();
             IDataReader reader = null;
-            String sql = string.Format("Select * From Acc_COA Where IsActive = 1 And COALevel = {0} Order by COAName ASC", level);
+            String sql = string.Format("Select * From Acc_COA Where IsActive = 1 And IsPostingHead = 1 Order by COAName ASC");
+           // String sql = string.Format("Select * From Acc_COA Where IsActive = 1 And COALevel = {0} Order by COAName ASC", level);
             try
             {
                 conManager.OpenDataReader(sql, out reader);

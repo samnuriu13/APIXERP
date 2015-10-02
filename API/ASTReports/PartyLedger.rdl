@@ -9,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!HKName.Value, "DataSet1")</Value>
+                <Value>=First(Fields!CompanyName.Value, "DataSet1")</Value>
                 <Style>
                   <FontFamily>Times New Roman</FontFamily>
                   <FontSize>12pt</FontSize>
@@ -42,7 +42,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!Address.Value, "DataSet1")</Value>
+                <Value>=First(Fields!CompanyAddress.Value, "DataSet1")</Value>
                 <Style>
                   <FontFamily>Times New Roman</FontFamily>
                 </Style>
@@ -864,7 +864,7 @@
         <DataSetName>DataSet2</DataSetName>
         <Top>0.76125in</Top>
         <Height>0.5in</Height>
-        <Width>10.57791in</Width>
+        <Width>10.57789in</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -1103,7 +1103,7 @@
     <DataSource Name="DataSource1">
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
-        <ConnectString>Data Source=LOTUS-PC;Initial Catalog=API</ConnectString>
+        <ConnectString>Data Source=AST123soft-PC;Initial Catalog=API</ConnectString>
       </ConnectionProperties>
       <rd:SecurityType>DataBase</rd:SecurityType>
       <rd:DataSourceID>211b7411-a673-4bbb-b706-67a36c87a2e2</rd:DataSourceID>
@@ -1113,21 +1113,16 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
-        <QueryParameters>
-          <QueryParameter Name="@OrgKey">
-            <Value>=Parameters!OrgKey.Value</Value>
-          </QueryParameter>
-        </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>spGetCompany</CommandText>
+        <CommandText>spReportGetCompany</CommandText>
       </Query>
       <Fields>
-        <Field Name="HKName">
-          <DataField>HKName</DataField>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Address">
-          <DataField>Address</DataField>
+        <Field Name="CompanyAddress">
+          <DataField>CompanyAddress</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -1154,11 +1149,11 @@
           <QueryParameter Name="@COAID">
             <Value>=Parameters!COAID.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@ProjectID">
-            <Value>=Parameters!ProjectID.Value</Value>
+          <QueryParameter Name="@BranchID">
+            <Value>=Parameters!BranchID.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@OfficeID">
-            <Value>=Parameters!OfficeID.Value</Value>
+          <QueryParameter Name="@CostCenterID">
+            <Value>=Parameters!CostCenterID.Value</Value>
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
@@ -1209,16 +1204,16 @@
           <DataField>Party</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ProjectID">
-          <DataField>ProjectID</DataField>
+        <Field Name="BranchID">
+          <DataField>BranchID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="ProjectName">
-          <DataField>ProjectName</DataField>
+        <Field Name="BranchName">
+          <DataField>BranchName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="OfficeID">
-          <DataField>OfficeID</DataField>
+        <Field Name="CostCenterID">
+          <DataField>CostCenterID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="CostCenter">
@@ -1265,15 +1260,6 @@
     </DataSet>
   </DataSets>
   <ReportParameters>
-    <ReportParameter Name="OrgKey">
-      <DataType>Integer</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>0</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>Org Key</Prompt>
-    </ReportParameter>
     <ReportParameter Name="UserID">
       <DataType>Integer</DataType>
       <DefaultValue>
@@ -1328,23 +1314,23 @@
       </DefaultValue>
       <Prompt>COAID</Prompt>
     </ReportParameter>
-    <ReportParameter Name="ProjectID">
+    <ReportParameter Name="BranchID">
       <DataType>Integer</DataType>
       <DefaultValue>
         <Values>
           <Value>0</Value>
         </Values>
       </DefaultValue>
-      <Prompt>Project ID</Prompt>
+      <Prompt>Branch ID</Prompt>
     </ReportParameter>
-    <ReportParameter Name="OfficeID">
+    <ReportParameter Name="CostCenterID">
       <DataType>Integer</DataType>
       <DefaultValue>
         <Values>
           <Value>0</Value>
         </Values>
       </DefaultValue>
-      <Prompt>Office ID</Prompt>
+      <Prompt>Cost Center ID</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>

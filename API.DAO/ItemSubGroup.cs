@@ -70,7 +70,7 @@ namespace API.DAO
             if (IsAdded)
                 parameterValues = new Object[] { _SubGroupName, _ItemGroupID };
             else if (IsModified)
-                parameterValues = new Object[] { _SubGroupName, _ItemGroupID };
+                parameterValues = new Object[] {_ItemSubGroupID, _SubGroupName, _ItemGroupID };
             else if (IsDeleted)
                 parameterValues = new Object[] { _ItemSubGroupID };
             return parameterValues;

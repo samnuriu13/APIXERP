@@ -114,19 +114,19 @@ namespace API.UI.Setup
         }
         private void PopulateDropdown()
         {
-            ddlFromCostCentre.DataSource = hkManager.GetAllHouseKeeping(31);
-            ddlFromCostCentre.DataTextField = "HKName";
-            ddlFromCostCentre.DataValueField = "HKID";
-            ddlFromCostCentre.DataBind();
-            ddlFromCostCentre.Items.Insert(0, new ListItem(String.Empty, String.Empty));
-            ddlFromCostCentre.SelectedIndex = 0;
+            ddlCostCentre.DataSource = hkManager.GetAllHouseKeeping(3);
+            ddlCostCentre.DataTextField = "HKName";
+            ddlCostCentre.DataValueField = "HKID";
+            ddlCostCentre.DataBind();
+            ddlCostCentre.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+            ddlCostCentre.SelectedIndex = 0;
 
-            ddlDeptID.DataSource = hkManager.GetAllHouseKeeping(3);
-            ddlDeptID.DataTextField = "HKName";
-            ddlDeptID.DataValueField = "HKID";
-            ddlDeptID.DataBind();
-            ddlDeptID.Items.Insert(0, new ListItem(String.Empty, String.Empty));
-            ddlDeptID.SelectedIndex = 0;
+            ddlBranch.DataSource = hkManager.GetAllHouseKeeping(31);
+            ddlBranch.DataTextField = "HKName";
+            ddlBranch.DataValueField = "HKID";
+            ddlBranch.DataBind();
+            ddlBranch.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+            ddlBranch.SelectedIndex = 0;
         }
         private void PopulateContactInfo(ContactInfo contactInfo)
         {
@@ -144,8 +144,8 @@ namespace API.UI.Setup
                 txtContactPerson.Text = contactInfo.ContactPerson;
                 txtTinNo.Text = contactInfo.TINNO;
                 txtVATCode.Text = contactInfo.VATCode;
-                ddlFromCostCentre.SelectedValue = contactInfo.CostCenterId == null ? "" : contactInfo.CostCenterId.ToString();
-                ddlDeptID.SelectedValue = contactInfo.DepartmentId == null ? "" : contactInfo.DepartmentId.ToString();
+                ddlCostCentre.SelectedValue = contactInfo.CostCenterId.ToString();
+                ddlBranch.SelectedValue = contactInfo.BranchID.ToString();
                 if (contactInfo.ContactImage.IsNotNullOrEmpty())
                 {
                     imgContactImage.ImageUrl = ResolveUrl(contactInfo.ContactImage);
@@ -201,8 +201,10 @@ namespace API.UI.Setup
                 obj.ContactPerson = txtContactPerson.Text;
                 obj.TINNO = txtTinNo.Text;
                 obj.VATCode = txtVATCode.Text;
-                obj.CostCenterId = ddlFromCostCentre.SelectedValue == "" ? (long?)null : Convert.ToInt64(ddlFromCostCentre.SelectedValue);
-                obj.DepartmentId = ddlDeptID.SelectedValue == "" ? (long?)null : Convert.ToInt64(ddlDeptID.SelectedValue);
+                if(ddlBranch.SelectedValue!="")
+                    obj.BranchID =Convert.ToInt32(ddlBranch.SelectedValue);
+                if(ddlCostCentre.SelectedValue!="")
+                    obj.CostCenterId = Convert.ToInt32(ddlCostCentre.SelectedValue);
                 obj.ContactImage = GetPicture() == string.Empty ? imgContactImage.ImageUrl : GetPicture();
             }
             catch (Exception ex)
@@ -279,7 +281,7 @@ namespace API.UI.Setup
 
                 ClearControls();
                 InitializeSession();
-                PopulateDropdown();
+               // PopulateDropdown();
             }
             catch (Exception ex)
             {
@@ -293,7 +295,7 @@ namespace API.UI.Setup
 
                 ClearControls();
                 InitializeSession();
-                PopulateDropdown();
+                //PopulateDropdown();
             }
             catch (Exception ex)
             {

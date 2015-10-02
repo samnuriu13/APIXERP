@@ -76,22 +76,22 @@ namespace API.UI.Setup {
         protected global::System.Web.UI.WebControls.TextBox txtAgentName;
         
         /// <summary>
-        /// ddlFromCostCentre control.
+        /// ddlBranch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFromCostCentre;
+        protected global::System.Web.UI.WebControls.DropDownList ddlBranch;
         
         /// <summary>
-        /// ddlDeptID control.
+        /// ddlCostCentre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDeptID;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCostCentre;
         
         /// <summary>
         /// txtOfficeAddress control.

@@ -53,7 +53,10 @@
         GetRefDetail,
         ParentList,
         CheckTransaction,
-        FilterByReportType
+        FilterByReportType,
+        AddNewVoucherRow,
+        GridComplete,
+        AddNewRequisitionRow
     }
 }
 

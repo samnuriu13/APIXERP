@@ -23,7 +23,27 @@
                                 ).responseText;
             $("#grdStockTransaction").trigger("reloadGrid");
         });
-    });
+        if (menuName == "OpeningStock") {
+            $("#cphBody_cphInfbody_ctrlRequisition_ddlCurrencyID").attr("disabled", true);
+            $("#cphBody_cphInfbody_ctrlRequisition_ddlParty").attr("disabled", true);
+            $("#cphBody_cphInfbody_ctrlRequisition_ddlFromBranch").attr("disabled", true);
+            $("#cphBody_cphInfbody_ctrlRequisition_ddlFromCostCentre").attr("disabled", true);
+            $("#cphBody_cphInfbody_ctrlRequisition_ddlFromStockLocation").attr("disabled", true);
+            $("#cphBody_cphInfbody_ctrlRequisition_TransRef_txtRefNo").attr("disabled", true);
+            $("#cphBody_cphInfbody_ctrlRequisition_TransRef_ddlRefType").attr("disabled", true);
+            $("#cphBody_cphInfbody_ctrlRequisition_TransRef_ddlReference").attr("disabled",true);
+        }
+        else if (menuName == "MaterialReceive" || menuName == "IssueReturn") {
+            $("#cphBody_cphInfbody_ctrlRequisition_ddlFromBranch").attr("disabled", true);
+            $("#cphBody_cphInfbody_ctrlRequisition_ddlFromCostCentre").attr("disabled", true);
+            $("#cphBody_cphInfbody_ctrlRequisition_ddlFromStockLocation").attr("disabled", true);
+        }
+        else if (menuName == "PurchaseReturn" || menuName == "MaterialIssue") {
+            $("#cphBody_cphInfbody_ctrlRequisition_ddlToBranch").attr("disabled", true);
+            $("#cphBody_cphInfbody_ctrlRequisition_ddlToCostCentre").attr("disabled", true);
+            $("#cphBody_cphInfbody_ctrlRequisition_ddlToStockLocation").attr("disabled", true);
+        }
+        });
 </script>
 
 <div class="form-wrapper">
@@ -73,6 +93,17 @@
                     </asp:DropDownList>
                 </div>
             </div>
+            <div class="lblAndTxtStyle">
+                <div class="divlblwidth100px bglbl">
+                    <a>From Branch/Unit</a>
+                </div>
+                <div class="div182Px">
+                    <asp:DropDownList ID="ddlFromBranch" runat="server" CssClass="drpwidth180px">
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="ddlFromBranch"
+                        runat="server" ForeColor="Red" ErrorMessage="From Branch is required" ValidationGroup="Save">*</asp:RequiredFieldValidator>
+                </div>
+            </div>
         </div>
         <div style="width: 33%; float: left">
             <div class="lblAndTxtStyle">
@@ -80,7 +111,8 @@
                     <a>From Cost Centre</a>
                 </div>
                 <div class="div182Px">
-                    <asp:DropDownList ID="ddlFromCostCentre" runat="server" CssClass="drpwidth180px">
+                    <asp:DropDownList ID="ddlFromCostCentre" runat="server" CssClass="drpwidth180px" AutoPostBack="true"
+                        OnSelectedIndexChanged="ddlFromCostCentre_SelectedIndexChanged">
                     </asp:DropDownList>
                 </div>
             </div>
@@ -95,13 +127,27 @@
             </div>
             <div class="lblAndTxtStyle">
                 <div class="divlblwidth100px bglbl">
+                    <a>To Branch/Unit</a>
+                </div>
+                <div class="div182Px">
+                    <asp:DropDownList ID="ddlToBranch" runat="server" CssClass="drpwidth180px">
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="ddlToBranch"
+                        runat="server" ForeColor="Red" ErrorMessage="To Branch is required" ValidationGroup="Save">*</asp:RequiredFieldValidator>
+                </div>
+            </div>
+            <div class="lblAndTxtStyle">
+                <div class="divlblwidth100px bglbl">
                     <a>To Cost Centre</a>
                 </div>
                 <div class="div182Px">
-                    <asp:DropDownList ID="ddlToCostCentre" runat="server" CssClass="drpwidth180px">
+                    <asp:DropDownList ID="ddlToCostCentre" runat="server" CssClass="drpwidth180px" AutoPostBack="true"
+                        OnSelectedIndexChanged="ddlToCostCentre_SelectedIndexChanged">
                     </asp:DropDownList>
                 </div>
             </div>
+        </div>
+        <div style="float: left; width: 33%">
             <div class="lblAndTxtStyle">
                 <div class="divlblwidth100px bglbl">
                     <a>To Stock Location</a>
@@ -109,20 +155,6 @@
                 <div class="div182Px">
                     <asp:DropDownList ID="ddlToStockLocation" runat="server" CssClass="drpwidth180px">
                     </asp:DropDownList>
-                </div>
-            </div>
-
-        </div>
-        <div style="float: left; width: 33%">
-            <div class="lblAndTxtStyle">
-                <div class="divlblwidth100px bglbl">
-                    <a>Department</a>
-                </div>
-                <div class="div182Px">
-                    <asp:DropDownList ID="ddlDepartment" runat="server" CssClass="drpwidth180px">
-                    </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="ddlDepartment"
-                        runat="server" ForeColor="Red" ErrorMessage="Department is required" ValidationGroup="Save">*</asp:RequiredFieldValidator>
                 </div>
             </div>
             <uc1:TransRef runat="server" ID="TransRef" />

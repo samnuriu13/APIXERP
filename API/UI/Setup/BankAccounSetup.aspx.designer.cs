@@ -22,6 +22,15 @@ namespace API.UI.Setup {
         protected global::System.Web.UI.WebControls.Label lblFrmHeader;
         
         /// <summary>
+        /// ddlBranchOrUnit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlBranchOrUnit;
+        
+        /// <summary>
         /// ddlCostCenter control.
         /// </summary>
         /// <remarks>
@@ -29,15 +38,6 @@ namespace API.UI.Setup {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCostCenter;
-        
-        /// <summary>
-        /// ddlDepartment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDepartment;
         
         /// <summary>
         /// txtAccountNo control.

@@ -63,6 +63,37 @@ namespace ACC.DAO
 			}
 		}
 
+        private System.Int32 _BranchID;
+        [Browsable(true), DisplayName("BranchID")]
+        public System.Int32 BranchID
+        {
+            get
+            {
+                return _BranchID;
+            }
+            set
+            {
+                if (PropertyChanged(_BranchID, value))
+                    _BranchID = value;
+            }
+        }
+
+        private System.Int32 _CostCenterID;
+        [Browsable(true), DisplayName("CostCenterID")]
+        public System.Int32 CostCenterID
+        {
+            get
+            {
+                return _CostCenterID;
+            }
+            set
+            {
+                if (PropertyChanged(_CostCenterID, value))
+                    _CostCenterID = value;
+            }
+        }
+
+
         private System.Int64 _PartyKey;
         [Browsable(true), DisplayName("PartyKey")]
         public System.Int64 PartyKey
@@ -248,9 +279,9 @@ namespace ACC.DAO
 		{
 			Object[] parameterValues = null;
 			if (IsAdded)
-				parameterValues = new Object[] {_VoucherKey,_COAKey,_PartyKey,_Dr,_Cr};
+				parameterValues = new Object[] {_VoucherKey,_COAKey,_PartyKey,_BranchID,_CostCenterID,_Dr,_Cr};
 			else if (IsModified)
-				parameterValues = new Object[] {_VoucherDetKey, _VoucherKey,_COAKey,_PartyKey,_Dr,_Cr};
+				parameterValues = new Object[] {_VoucherDetKey, _VoucherKey,_COAKey,_PartyKey,_BranchID,_CostCenterID,_Dr,_Cr};
 			else if (IsDeleted)
 				parameterValues = new Object[] {_VoucherDetKey};
 			return parameterValues;
@@ -261,6 +292,8 @@ namespace ACC.DAO
 			_VoucherKey = reader.GetInt64("VoucherKey");
 			_COAKey = reader.GetInt64("COAKey");
             _PartyKey = reader.GetInt64("PartyKey");
+            _BranchID = reader.GetInt32("BranchID");
+            _CostCenterID = reader.GetInt32("CostCenterID");
 			_Dr = reader.GetDecimal("Dr");
 			_Cr = reader.GetDecimal("Cr");
 			SetUnchanged();
@@ -336,7 +369,7 @@ namespace ACC.DAO
             ConnectionManager conManager = new ConnectionManager(ConnectionName.HR);
             CustomList<Acc_VoucherDet> Acc_VoucherDetCollection = new CustomList<Acc_VoucherDet>();
             IDataReader reader = null;
-            String sql = "select VoucherDetKey,VoucherKey,COAKey,PartyKey,Convert(Decimal(18,2),Dr)Dr,Convert(Decimal(18,2),Cr)Cr from Acc_VoucherDet Where VoucherKey=" + voucherKey;
+            String sql = "select VoucherDetKey,VoucherKey,COAKey,PartyKey,BranchID,CostCenterID,Convert(Decimal(18,2),Dr)Dr,Convert(Decimal(18,2),Cr)Cr from Acc_VoucherDet Where VoucherKey=" + voucherKey;
             try
             {
                 conManager.OpenDataReader(sql, out reader);

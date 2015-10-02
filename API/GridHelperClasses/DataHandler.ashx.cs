@@ -174,10 +174,22 @@ namespace API.GridHelperClasses
                 else if (callMode.CompareTo("CheckTransaction").IsZero())
                 {
                     callBackMode = DataCallBackMode.CheckTransaction;
-                }
+                }   
                 else if (callMode.CompareTo("FilterByReportType").IsZero())
                 {
                     callBackMode = DataCallBackMode.FilterByReportType;
+                }
+                else if (callMode.CompareTo("AddNewVoucherRow").IsZero())
+                {
+                    callBackMode = DataCallBackMode.AddNewVoucherRow;
+                }
+                else if (callMode.CompareTo("GridComplete").IsZero())
+                {
+                    callBackMode = DataCallBackMode.GridComplete;
+                }
+                else if (callMode.CompareTo("AddNewRequisitionRow").IsZero())
+                {
+                    callBackMode = DataCallBackMode.AddNewRequisitionRow;
                 }
             }
             catch (Exception ex)
@@ -281,9 +293,93 @@ namespace API.GridHelperClasses
                     case DataCallBackMode.FilterByReportType:
                         FilterByReportType();
                         return;
+                    case DataCallBackMode.AddNewVoucherRow:
+                        AddNewVoucherRow();
+                        return;
+                    case DataCallBackMode.GridComplete:
+                        GridComplete();
+                        return;
+                    case DataCallBackMode.AddNewRequisitionRow:
+                        AddNewRequisitionRow();
+                        return;
                     default:
                         break;
                 }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private void AddNewRequisitionRow()
+        {
+            try
+            {
+                String menuName = HttpContext.Current.Request.QueryString["menuName"];
+                CustomList<ItemRequisitionDetail> RequisitionDetList = (CustomList<ItemRequisitionDetail>)HttpContext.Current.Session[menuName + "_ItemRequisitionDetailList"];
+
+                ItemRequisitionDetail newRequisition = new ItemRequisitionDetail();
+
+                RequisitionDetList.Add(newRequisition);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private void GridComplete()
+        {
+            try
+            {
+                String menuName = HttpContext.Current.Request.QueryString["MenuName"];
+                String COAKey = HttpContext.Current.Request.QueryString["COAKey"];
+                CustomList<Acc_VoucherDet> voucherDetList = (CustomList<Acc_VoucherDet>)HttpContext.Current.Session[menuName + "_AccVoucherDetList"];
+
+                if (menuName == "CashPaymantVoucher" || menuName == "BankPaymentVoucher")
+                {
+                    Decimal DrAmount = 0.0M;
+                    if (COAKey == "")
+                        return;
+                    DrAmount = voucherDetList.Sum(f=>f.Dr);
+                    Acc_VoucherDet detail = voucherDetList.Find(f=>f.COAKey.ToString()==COAKey);
+                    detail.Cr = DrAmount;
+                    HttpContext.Current.Session[menuName + "_AccVoucherDetList"] = voucherDetList;
+                }
+                if (menuName == "BankReceiveVoucher" || menuName == "CashReceiveVoucher")
+                {
+                    Decimal CrAmount = 0.0M;
+                    if (COAKey == "")
+                        return;
+                    CrAmount = voucherDetList.Sum(f => f.Cr);
+                    Acc_VoucherDet detail = voucherDetList.Find(f => f.COAKey.ToString() == COAKey);
+                    detail.Dr = CrAmount;
+                    HttpContext.Current.Session[menuName + "_AccVoucherDetList"] = voucherDetList;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        private void AddNewVoucherRow()
+        {
+            try
+            {
+                String menuName = HttpContext.Current.Request.QueryString["menuName"];
+                String COAKey = HttpContext.Current.Request.QueryString["COAKey"];
+                CustomList<Acc_VoucherDet> voucherDetList = (CustomList<Acc_VoucherDet>)HttpContext.Current.Session[menuName + "_AccVoucherDetList"];
+
+                if ((menuName == "CashPaymantVoucher" || menuName == "BankPaymentVoucher" || menuName == "BankReceiveVoucher" || menuName == "CashReceiveVoucher") && voucherDetList.Count == 0)
+                {
+                    if (COAKey == "")
+                        return;
+                    Acc_VoucherDet newVoucherCashPayment = new Acc_VoucherDet();
+                    newVoucherCashPayment.COAKey =Convert.ToInt64(COAKey);
+                    voucherDetList.Add(newVoucherCashPayment);
+                }
+                Acc_VoucherDet newVoucher = new Acc_VoucherDet();
+
+                voucherDetList.Add(newVoucher);
             }
             catch (Exception ex)
             {
@@ -481,8 +577,8 @@ namespace API.GridHelperClasses
             {
                 String test = String.Empty;
                 GroupItemManager manager = new GroupItemManager();
-                String deptID = HttpContext.Current.Request.QueryString["deptID"];
-                CustomList<ItemGroup> lstItemGroupDeptMaping = manager.DeptWiseItemGroup(Convert.ToInt32(deptID));
+                String CostCenterID = HttpContext.Current.Request.QueryString["CostCenterID"];
+                CustomList<ItemGroup> lstItemGroupDeptMaping = manager.DeptWiseItemGroup(Convert.ToInt32(CostCenterID));
                 HttpContext.Current.Session["ItemRequisition_ItemGroupList"] = lstItemGroupDeptMaping;
 
                 HttpContext.Current.Response.Clear();
@@ -504,6 +600,7 @@ namespace API.GridHelperClasses
                 String itemGroupID = HttpContext.Current.Request.QueryString["itemGroupID"];
                 CustomList<ItemGroupDeptMaping> lstItemGroupDeptMaping = manager.GetAllItemGroupDeptMaping(itemGroupID);
                 CustomList<ItemGroupDeptMaping> ItemGroupDeptMapingList = (CustomList<ItemGroupDeptMaping>)HttpContext.Current.Session["ItemGroup_DetpMaping_ItemGroupDeptMapingList"];
+                ItemGroupDeptMapingList.ForEach(s=>s.IsChecked=false);
                 foreach (ItemGroupDeptMaping iGDM in lstItemGroupDeptMaping)
                 {
                     ItemGroupDeptMaping obj = ItemGroupDeptMapingList.Find(f => f.DeptID == iGDM.DeptID);

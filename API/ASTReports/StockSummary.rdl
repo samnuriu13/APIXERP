@@ -773,7 +773,7 @@
     <DataSource Name="DataSource1">
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
-        <ConnectString>Data Source=SHAIKAT\SQL12;Initial Catalog=APIN</ConnectString>
+        <ConnectString>Data Source=AST123soft-PC;Initial Catalog=API</ConnectString>
       </ConnectionProperties>
       <rd:SecurityType>DataBase</rd:SecurityType>
       <rd:DataSourceID>1222ce61-cb31-4a42-b5d7-658870c26db2</rd:DataSourceID>
@@ -783,6 +783,17 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@BranchID">
+            <Value>=Parameters!BranchID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@CostCenterID">
+            <Value>=Parameters!CostCenterID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@LocationID">
+            <Value>=Parameters!LocationID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
         <CommandText>sprptStockSummary</CommandText>
       </Query>
@@ -826,6 +837,35 @@
       </Fields>
     </DataSet>
   </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="BranchID">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Branch ID</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CostCenterID">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Cost Center ID</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="LocationID">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Location ID</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>a8491ce8-7644-4320-a6c5-7b6fe953d372</rd:ReportID>
 </Report>

@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace API.UI.ACC {
+namespace API.UI.Materials {
     
     
-    public partial class BankReconciliation {
+    public partial class StockView {
         
         /// <summary>
         /// lblFrmHeader control.
@@ -31,15 +31,6 @@ namespace API.UI.ACC {
         protected global::System.Web.UI.WebControls.DropDownList ddlBranchOrUnit;
         
         /// <summary>
-        /// txtFromDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFromDate;
-        
-        /// <summary>
         /// ddlCostCenter control.
         /// </summary>
         /// <remarks>
@@ -49,22 +40,13 @@ namespace API.UI.ACC {
         protected global::System.Web.UI.WebControls.DropDownList ddlCostCenter;
         
         /// <summary>
-        /// txtToDate control.
+        /// ddlStockLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtToDate;
-        
-        /// <summary>
-        /// ddlBankBranch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlBankBranch;
+        protected global::System.Web.UI.WebControls.DropDownList ddlStockLocation;
         
         /// <summary>
         /// btnFilter control.
@@ -74,15 +56,6 @@ namespace API.UI.ACC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFilter;
-        
-        /// <summary>
-        /// btnSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
         /// btnPreview control.

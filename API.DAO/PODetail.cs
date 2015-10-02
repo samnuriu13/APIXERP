@@ -259,6 +259,21 @@ namespace API.DAO
             }
         }
 
+        private System.Decimal _Amount;
+        [Browsable(true), DisplayName("Amount")]
+        public System.Decimal Amount
+        {
+            get
+            {
+                return _Amount;
+            }
+            set
+            {
+                if (PropertyChanged(_Amount, value))
+                    _Amount = value;
+            }
+        }
+
         private System.Boolean _IsSampleRequired;
         [Browsable(true), DisplayName("IsSampleRequired")]
         public System.Boolean IsSampleRequired
@@ -544,6 +559,7 @@ namespace API.DAO
             _UnitPrice = reader.GetDecimal("UnitPrice");
             _ReciptQty = reader.GetDecimal("ReciptQty");
             _Balance = reader.GetDecimal("Balance");
+            _Amount = _ItemQty * _UnitPrice;
             _IsSampleRequired = reader.GetBoolean("IsSampleRequired");
             _SourceReferenceTypeID = reader.GetInt32("SourceReferenceTypeID");
             _SourceReferenceID = reader.GetInt64("SourceReferenceID");

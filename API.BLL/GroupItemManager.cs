@@ -24,9 +24,9 @@ namespace API.BLL
             return ItemGroup.IsSubgroupApplicable(groupId);
         }
 
-        public CustomList<ItemGroup> DeptWiseItemGroup(Int32 DeptID)
+        public CustomList<ItemGroup> DeptWiseItemGroup(Int32 CostCenterID)
         {
-            return ItemGroup.DeptWiseItemGroup(DeptID);
+            return ItemGroup.DeptWiseItemGroup(CostCenterID);
         }
         public void SaveUnitSetup(ref CustomList<ItemGroup> lstItemGroup)
         {

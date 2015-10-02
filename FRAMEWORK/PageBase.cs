@@ -277,9 +277,12 @@ namespace FRAMEWORK
             if (menuList.IsNotNull())
             {
                 LeftMenuItems menu = menuList.Find(f => f.FormName == formName);
-                DocListFormatID = menu.DocListFormatID;
-                MenuID = menu.ObjectID;
-                StatusID = menu.StatusID;
+                if (menu.IsNotNull())
+                {
+                    DocListFormatID = menu.DocListFormatID;
+                    MenuID = menu.ObjectID;
+                    StatusID = menu.StatusID;
+                }
             }
             if (CurrentUserSession.IsAdmin)
             {

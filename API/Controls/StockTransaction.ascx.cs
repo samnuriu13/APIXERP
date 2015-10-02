@@ -166,6 +166,7 @@ namespace API.Controls
                 {
                     InitializeCombo();
                     InitializeSession();
+                    ddlCurrencyID.SelectedValue = "1";
                 }
                 else
                 {
@@ -195,20 +196,26 @@ namespace API.Controls
             {
                 txtCustomCode.Text = objSTM.CustomCode;
                 txtTransactionDate.Text = objSTM.TransDate.ToShortDateString();
+                if (objSTM.FromBranchID != 0)
+                   ddlFromBranch.SelectedValue = objSTM.FromBranchID.ToString();
                 if (objSTM.FromCostCenterID != 0)
                     ddlFromCostCentre.SelectedValue = objSTM.FromCostCenterID.ToString();
                 if (objSTM.FromStockLocationID != 0)
                     ddlFromStockLocation.SelectedValue = objSTM.FromStockLocationID.ToString();
+                if (objSTM.ToBranchID != 0)
+                   ddlToBranch.SelectedValue = objSTM.ToBranchID.ToString();
                 if (objSTM.ToCostCenterID != 0)
                     ddlToCostCentre.SelectedValue = objSTM.ToCostCenterID.ToString();
                 if (objSTM.ToStockLocationID != 0)
                     ddlToStockLocation.SelectedValue = objSTM.ToStockLocationID.ToString();
-                if (objSTM.DeptID != 0)
-                    ddlDepartment.SelectedValue = objSTM.DeptID.ToString();
                 if (objSTM.PartyID != 0)
                     ddlParty.SelectedValue = objSTM.PartyID.ToString();
                 if (objSTM.CurrencyID != 0)
                     ddlCurrencyID.SelectedValue = objSTM.CurrencyID.ToString();
+                if (ddlFromCostCentre.SelectedValue != "")
+                    ddlFromCostCentre_SelectedIndexChanged(null,null);
+                if (ddlToCostCentre.SelectedValue != "")
+                    ddlToCostCentre_SelectedIndexChanged(null, null);
                 StockTransactionDetailList = new CustomList<StockTransactionDetail>();
                 StockTransactionDetailList = manager.GetAllStockTransactionDetail(objSTM.StockTransID);
             }
@@ -219,7 +226,7 @@ namespace API.Controls
         }
         private void InitializeCombo()
         {
-            ddlFromCostCentre.DataSource = hkManager.GetAllHouseKeeping(31);
+            ddlFromCostCentre.DataSource = hkManager.GetAllHouseKeeping(3);
             ddlFromCostCentre.DataTextField = "HKName";
             ddlFromCostCentre.DataValueField = "HKID";
             ddlFromCostCentre.DataBind();
@@ -233,7 +240,7 @@ namespace API.Controls
             ddlFromStockLocation.Items.Insert(0, new ListItem(String.Empty, String.Empty));
             ddlFromStockLocation.SelectedIndex = 0;
 
-            ddlToCostCentre.DataSource = hkManager.GetAllHouseKeeping(31);
+            ddlToCostCentre.DataSource = hkManager.GetAllHouseKeeping(3);
             ddlToCostCentre.DataTextField = "HKName";
             ddlToCostCentre.DataValueField = "HKID";
             ddlToCostCentre.DataBind();
@@ -248,12 +255,19 @@ namespace API.Controls
             ddlToStockLocation.SelectedIndex = 0;
 
 
-            ddlDepartment.DataSource = hkManager.GetAllHouseKeeping(3);
-            ddlDepartment.DataTextField = "HKName";
-            ddlDepartment.DataValueField = "HKID";
-            ddlDepartment.DataBind();
-            ddlDepartment.Items.Insert(0, new ListItem(String.Empty, String.Empty));
-            ddlDepartment.SelectedIndex = 0;
+            ddlFromBranch.DataSource = hkManager.GetAllHouseKeeping(31);
+            ddlFromBranch.DataTextField = "HKName";
+            ddlFromBranch.DataValueField = "HKID";
+            ddlFromBranch.DataBind();
+            ddlFromBranch.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+            ddlFromBranch.SelectedIndex = 0;
+
+            ddlToBranch.DataSource = hkManager.GetAllHouseKeeping(31);
+            ddlToBranch.DataTextField = "HKName";
+            ddlToBranch.DataValueField = "HKID";
+            ddlToBranch.DataBind();
+            ddlToBranch.Items.Insert(0, new ListItem(String.Empty, String.Empty));
+            ddlToBranch.SelectedIndex = 0;
 
             ddlCurrencyID.DataSource = _CurrencyManager.GetAllGen_Currency();
             ddlCurrencyID.DataTextField = "CurrencyName";
@@ -279,7 +293,7 @@ namespace API.Controls
                 UnitSetupManager USManager = new UnitSetupManager();
 
                 ItemGroupList = new CustomList<ItemGroup>();
-                ItemGroupList = GIManager.DeptWiseItemGroup(41);
+                //ItemGroupList = GIManager.DeptWiseItemGroup(41);
                 ItemSubGroupList = new CustomList<ItemSubGroup>();
                 ItemSubGroupList = SGManager.GetAllItemSubGroup();
                 ItemMasterList = new CustomList<ItemMaster>();
@@ -314,16 +328,18 @@ namespace API.Controls
             {
                 StockTransactionMaster obj = lstStockTransactionMaster[0];
                 obj.TransDate = txtTransactionDate.Text.ToDateTime();
+                if (ddlFromBranch.SelectedValue != "")
+                    obj.FromBranchID = ddlFromBranch.SelectedValue.ToInt();
                 if (ddlFromCostCentre.SelectedValue != "")
                     obj.FromCostCenterID = ddlFromCostCentre.SelectedValue.ToInt();
                 if (ddlToCostCentre.SelectedValue != "")
                     obj.ToCostCenterID = ddlToCostCentre.SelectedValue.ToInt();
                 if (ddlParty.SelectedValue != "")
                     obj.PartyID = ddlParty.SelectedValue.ToInt();
-                if (ddlDepartment.SelectedValue != "")
-                    obj.DeptID = ddlDepartment.SelectedValue.ToInt();
                 if (ddlFromStockLocation.SelectedValue != "")
                     obj.FromStockLocationID = ddlFromStockLocation.SelectedValue.ToInt();
+                if (ddlToBranch.SelectedValue != "")
+                    obj.ToBranchID = ddlToBranch.SelectedValue.ToInt();
                 if (ddlToStockLocation.SelectedValue != "")
                     obj.ToStockLocationID = ddlToStockLocation.SelectedValue.ToInt();
                 if (ddlCurrencyID.SelectedValue != "")
@@ -338,6 +354,18 @@ namespace API.Controls
             }
         }
         #endregion
+        #region Dropdown Change Event
+        protected void ddlFromCostCentre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GroupItemManager GIManager = new GroupItemManager();
+            ItemGroupList = GIManager.DeptWiseItemGroup(Convert.ToInt32(ddlFromCostCentre.SelectedValue));
+        }
+        protected void ddlToCostCentre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GroupItemManager GIManager = new GroupItemManager();
+            ItemGroupList = GIManager.DeptWiseItemGroup(Convert.ToInt32(ddlToCostCentre.SelectedValue));
+        }
+        #endregion
         #region Button Event
         protected void btnFind_Click(object sender, ImageClickEventArgs e)
         {
@@ -349,9 +377,10 @@ namespace API.Controls
                 columns.Add("CustomCode", "Custom Code");
                 columns.Add("TransDate", "Transaction Date");
                 columns.Add("Description", "Note");
+                columns.Add("FromBranch", "From Branch");
                 columns.Add("FromCostCenter", "From CostCenter");
+                columns.Add("ToBranch", "To Branch");
                 columns.Add("ToCostCenter", "To CostCenter");
-                columns.Add("Department", "Department");
 
                 StaticInfo.SearchItem(items, "Stock Transaction", "SearchStockTransaction", FRAMEWORK.SearchColumnConfig.GetColumnConfig(typeof(StockTransactionMaster), columns), 600);
             }
